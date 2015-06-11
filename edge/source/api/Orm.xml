@@ -15,9 +15,9 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 If you are going to be using the JS ORM API, you'll also need to include these lines in any files that will be using it:
 
     :::html
-    <![CDATA[<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>]]>
-    <![CDATA[<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORMHelper.js"></script>]]>
-    <![CDATA[<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-Ruby-RunTime.js"></script>]]>
+    &lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORMHelper.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-Ruby-RunTime.js"&gt;&lt;/script&gt;
 
 ## Ruby Usage
 For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/rhom-api).
@@ -27,7 +27,6 @@ For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/r
         </TEMPLATES>
 
         <PROPERTIES>
-
         </PROPERTIES>
 
         <METHODS access="STATIC">
@@ -250,7 +249,6 @@ For Ruby access to the RHOM database please see the [Rhom Ruby API guide](/api/r
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, CE, Win32, Android, iOS, WP8</PLATFORM>
         <PLATFORM_EB>WM, CE, Win32, Android</PLATFORM_EB>
-
         <EXAMPLES>
             <EXAMPLE title="Add ORM model, create ORM object">
             <SECTIONS>

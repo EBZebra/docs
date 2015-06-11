@@ -14,8 +14,8 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
-  </MORE_HELP>
-        <MORE_HELP_EB>
+    </MORE_HELP>
+    <MORE_HELP_EB>
 ## Enabling the API
 There are two methods of enabling the RhoFile API:
 
@@ -42,8 +42,7 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     &lt;script type="text/javascript" charset="utf-8" src="eb.file.js"&gt;&lt;/script&gt;
 
 The ebapi.js file is necessary for all single API inclusions.
-
-        </MORE_HELP_EB>
+    </MORE_HELP_EB>
 
     <ALIASES>
     </ALIASES>
@@ -368,11 +367,11 @@ folders = []
 files = []
 
 root_path = "/arbitrary/path"
-entries = Rho::File.listDir(root_path)
+entries = Rho::RhoFile.listDir(root_path)
 
 entries.each do |entry|
   unless (entry == "." || entry == "..")
-    (Rho::File.isDir(Rho::File.join(root_path,entry)) ? folders : files) << entry
+    (Rho::RhoFile.isDir(Rho::RhoFile.join(root_path,entry)) ? folders : files) << entry
   end
 end
                    ]]>

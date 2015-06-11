@@ -18,12 +18,12 @@ The `indicators` extension is also included automatically if you specify the fol
     :::ruby
     app_type: "rhoelements"
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+> Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-## Ruby Usage
+### Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
 
@@ -73,7 +73,7 @@ The ebapi.js file is necessary for all single API inclusions.
         <METHODS access="STATIC">
             <METHOD name="wlanStatus" hasCallback="optional">
                 <PLATFORM>iOS, WM, Android</PLATFORM>
-                <PLATFORM_EB>WM, Android</PLATFORM_EB>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Retrieve the current signal status. If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval. On Android, instead of being called periodically, the callback will be called when one of the below values changes.</DESC>
                 <RETURN type="HASH">
@@ -127,7 +127,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="stopWlanStatus" hasCallback="none">
                 <PLATFORM>iOS, WM, Android</PLATFORM>
-                <PLATFORM_EB>WM, Android</PLATFORM_EB>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <DESC>If the signal is being retrieved via callback, by a previously invoked call to wlanStatus, this method will stop the callback from firing.</DESC>
             </METHOD>
@@ -182,7 +182,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-        <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+        <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
 
         <EXAMPLES>
             <EXAMPLE title="Retrieve the WLAN status">

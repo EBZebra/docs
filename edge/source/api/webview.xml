@@ -47,7 +47,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     &lt;script type="text/javascript" charset="utf-8" src="eb.webview.js"&gt;&lt;/script&gt;
 
 The ebapi.js file is necessary for all single API inclusions.
-
         </MORE_HELP_EB>
 
         <ALIASES>
@@ -64,7 +63,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="framework" type="STRING" readOnly="true">
                 <DESC>Same as System.webViewFramework.</DESC>
             </PROPERTY>
-            <PROPERTY name="fullScreen" type="BOOLEAN" default="true">
+            <PROPERTY name="fullScreen" type="BOOLEAN" default="false">
                 <DESC>Use full screen mode.</DESC>
                 <PLATFORM>WM, CE, Win32, Android</PLATFORM>
             </PROPERTY>
@@ -283,7 +282,7 @@ For most mobile platforms, WebView.execute_js has been implemented via redirecti
                 <DESC>When WebView loads the specified url (either by selecting link or from calling WebView.navigate), it will add this cookie to the HTTP request.Not implemented for WebKit.</DESC>
                 <APPLIES rubyOnly="true"/>
                 <PLATFORM>Android, Win32, iOS</PLATFORM>
-                <PLATFORM_EB>Android, Win32</PLATFORM_EB>
+                <PLATFORM_EB>Win32, Android</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="url" type="STRING">
                         <DESC>Set a cookie to be used by WebView for this url.</DESC>
@@ -338,7 +337,6 @@ For most mobile platforms, WebView.execute_js has been implemented via redirecti
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, CE, Win32, Android, iOS, WP8</PLATFORM>
         <PLATFORM_EB>WM, CE, Win32, Android</PLATFORM_EB>
-
         <EXAMPLES>
             <EXAMPLE title="Execute javascript">
                 <SECTIONS>

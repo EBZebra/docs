@@ -5,6 +5,6 @@
   "guides_md" => 'source/guide/',
   "launchpad_html" => 'source/launchpad/',
   "launchpad_mapping" => 'index.hash',
-  "docs_json" => 'docs/docs.js'
-  
+  "docs_json" => 'docs/docs.js',
+  "api_sources" => ['../rhodes/lib/commonAPI/','../Motorola-Extensions/lib/commonAPI/','../rhodes/res/generators/templates/api/xml_templates/', '../rhoconnect-client/ext/rhoconnect-client/ext/']
   }

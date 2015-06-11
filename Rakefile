@@ -5,6 +5,7 @@ require 'date'
 require 'bundler'
 require './config.rb'
 require './docs'
+require './api'
 
 Bundler.setup
 
