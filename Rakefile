@@ -6,6 +6,7 @@ require 'bundler'
 require './config.rb'
 require './docs'
 require './api'
+require './api-converter.rb'
 
 Bundler.setup
 

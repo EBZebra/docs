@@ -29,7 +29,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.system.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
         
 
 
@@ -342,6 +341,27 @@ Synchronous Return:
 	* <code>EB.System.get_locale()</code> 
 
 
+### hideSplashScreen()
+Hide Splash Screen if delay is configured as -1 in rhoconfig.txt
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Android
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.System.hideSplashScreen()</code> 
+
+
 ### isApplicationInstalled(<span class="text-info">STRING</span> applicationName)
 Checks if the specified applicationName is installed on the device.
 
@@ -437,28 +457,11 @@ Synchronous Return:
 	* <code>EB.System.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> 
 
 
-### setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)
-Set do not backup attribute for file.
-
-####Parameters
-<ul><li>pathToFile : <span class='text-info'>STRING</span><p>Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>True set doNotBackup attribute to file (exclude this file from backup), false for remove doNotBackup attribute from file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code> 
-
-
-### setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)
+### setNetworkStatusNotify(<span class="text-info">STRING</span> url)
 Use Network.setStatusNotify: set network notification callback.
 
 ####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -473,7 +476,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code> 
+	* <code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url)</code> 
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
@@ -639,23 +642,6 @@ Synchronous Return:
 	* <code>EB.System.setWindowSize(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> 
 
 
-### set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)
-Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.
-
-####Parameters
-<ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code> 
-
-
 ### set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)
 Use System.httpProxyURI property: To use client with the HTTP proxy.
 
@@ -722,50 +708,6 @@ Synchronous Return:
 	* <code>EB.System.set_sleeping(<span class="text-info">BOOLEAN</span> enable)</code> 
 
 
-### startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)
-Use Timer.start: start timer.
-
-####Parameters
-<ul><li>interval : <span class='text-info'>INTEGER</span><p>Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Platforms
-
-* Android
-* Windows Mobile
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code> 
-
-
-### stopTimer(<span class="text-info">STRING</span> url)
-Use Timer.stop: stop timer.
-
-####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Platforms
-
-* Android
-* Windows Mobile
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.stopTimer(<span class="text-info">STRING</span> url)</code> 
-
-
 ### unset_http_proxy()
 Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url.
 
@@ -788,11 +730,11 @@ Synchronous Return:
 	* <code>EB.System.unset_http_proxy()</code> 
 
 
-### unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)
+### unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)
 Unzip file.
 
 ####Parameters
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>outputFileName : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Output file name. Used when decompressing gzip streams. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -807,7 +749,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code> 
+	* <code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</code> 
 
 
 ### updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)
@@ -1092,7 +1034,7 @@ Returns true if there is a camera available on the device.
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-Returns true if the device has touch screen capabilities.
+Returns true if the device has touch screen capabilities.  For Win32 desktop builds this API will return whether mouse support is available.
 ####Access
 
 
@@ -1163,17 +1105,36 @@ Returns true if the application is running on a platform emulator.
 * Android
 * Windows Mobile
 
-###isMotorolaDevice
+###<span class="text-error">isMotorolaDevice</span>
 
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-Returns true if the device supports Motorola device capabilities. APIs will indicate if the property or method is available on MSI devices only. You can use this property to help your application decide when to take advantage of advanced MSI capabilities.
+<span class='label label-important'>Deprecated</span> Returns true if the device supports Motorola device capabilities. APIs will indicate if the property or method is available on Motorola devices only. You can use this property to help your application decide when to take advantage of advanced Motorola capabilities. This property has been deprecated. It is recommended to use 'isSymbolDevice' property.
 ####Access
 
 
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.System.isMotorolaDevice</code>
+
+
+
+####Platforms
+
+* Android
+* Windows Mobile
+
+###isSymbolDevice
+
+####Type
+<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+####Description
+Returns true if the device supports Symbol device capabilities. APIs will indicate if the property or method is available on Symbol devices only. You can use this property to help your application decide when to take advantage of advanced Symbol capabilities.
+####Access
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.System.isSymbolDevice</code>
 
 
 
@@ -1337,8 +1298,6 @@ Platform where application is running.
  
 * Constant: EB.System.PLATFORM_WM_CE - String: WINDOWS 
 * Constant: EB.System.PLATFORM_ANDROID - String: ANDROID 
-* Constant: EB.System.PLATFORM_IOS - String: APPLE 
-* Constant: EB.System.PLATFORM_WP8 - String: WP8 
 * Constant: EB.System.PLATFORM_WINDOWS_DESKTOP - String: WINDOWS_DESKTOP 
 ####Access
 
@@ -1352,6 +1311,7 @@ Platform where application is running.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###ppiX
 
@@ -1510,6 +1470,7 @@ If true, then screen will go to sleep by system inactivity timeout. If false the
 ####Platforms
 
 * Android
+* Windows Mobile
 
 ###screenWidth
 

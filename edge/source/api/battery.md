@@ -29,6 +29,9 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.battery.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
+
+## Persistence
+With the old PocketBrowser APIs, any events, such as `batteryEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 
@@ -43,15 +46,16 @@ The BatteryDiagnostics method returns parameters for further battery analysis.  
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced. Returns undefined for android. </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
 
-* HASH<ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul>
+* HASH<ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced. Returns undefined for android. </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul>
 
 ####Platforms
 
+* Android
 * Windows Mobile
 * Symbol Devices Only
 
@@ -211,6 +215,7 @@ Only supported by the MC18 device.  Sets an average current consumption in mA th
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###refreshInterval
@@ -250,6 +255,7 @@ Only supported by the MC18 device.  Sets the desired working time (in minutes) o
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ##Remarks
@@ -294,8 +300,8 @@ When using the this feature on a CE device using the IE engine, screen distortio
 
 
 
-###Using the Battery Indicator
-In this example you'll see how to use the battery indicator and manipulate its appearance. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+###Show battery icon
+This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing. This example assumes that the ebapi-modules.js file is in the same folder as the html file invoking it.
 <pre><code>:::javascript
 &lt;head&gt;
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
@@ -316,7 +322,7 @@ In this example you'll see how to use the battery indicator and manipulate its a
         }
 
         function batteryCallback(params){
-            if(params){
+            if(params){     // Most of these methods have callbacks but null 'params' sent.
                 console.log(params);
             }
             else
@@ -327,7 +333,7 @@ In this example you'll see how to use the battery indicator and manipulate its a
             var props = {
                 color:  "#66CD00",
                 layout: EB.Battery.BATTERY_LAYOUT_UP,
-                top:    0,                              // Top of screen
+                top:        0,                                                      // Top of screen
                 left:   EB.System.screenWidth - 25      // Far right of screen, accounting for actual viewable area.
             }
             return props;

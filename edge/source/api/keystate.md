@@ -98,13 +98,14 @@ Synchronous Return:
 
 
 ###Devices lacking support
-Due to platform limitations this API is not available on the following Symbol Technologies' devices:
+Due to platform limitations this API is not available on the following Zebra Technologies devices:
 
 * ES400
 * MC45
 * MC65
 * VC70
 * MC45
+* Workabout Pro 4
 
 ###Rotating the Screen
 The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.

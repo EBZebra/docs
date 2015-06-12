@@ -43,5 +43,21 @@ class Api
 	   end
 	 end
 	end
+	def self.process_xml
+	  puts "rebuilding #{@@version} EB API docs"
+	  apiXML = File.join(@@apifolder,"**","*.xml")
+	  
+	  apiFiles = Dir.glob(apiXML)
 
+	  # Links that go to 127.0.0.1:9393 (where no server is running) get styled dark red
+	  # Links that go to external sites (may not be reachable if user is truly offline) get italics
+	  apiFiles.each do |fileName|
+	    basename = fileName.gsub(@@apifolder,'')
+	    if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
+	      puts "Processing " + basename
+	    
+	      ApiConvert.markdown(fileName)
+	    end
+	  end
+	end
 end

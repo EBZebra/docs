@@ -2,7 +2,7 @@
 
 
 ## Overview
-The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](#api-printing)
+The PrinterZebra API provides Zebra specific API access Zebra Bluetooth, WiFi Network printers and USB for Android. This API inherits all methods,properties,constants from the [Printer API](#api-printing)
 ## Enabling the API
 There are two methods of enabling the Zebra Printing API:
 
@@ -550,7 +550,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                 
 
 ####Parameters
-<ul><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Options for discover. </p></li><ul><li>printerType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: PRINTER_TYPE_ANY</span><p>Printer types to search. Make sure that Printer type is supported by calling enumerateSupportedTypes method. </p></li><li>connectionType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: CONNECTION_TYPE_ANY</span><p>Interfaces for search (Bluetooth/TCP/All). </p></li><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 30000</span><p>Maximum search interval in milliseconds, applies to network discovery. This is the maximum interval for wait during connection attempt. Note that if no printer was found, even with timeout property, status will be set to PRINTER_STATUS_SUCCESS, but without any printerId. </p></li><li>deviceAddress : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Printer address (mac or ip) can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search.  </p></li><li>devicePort : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 6101</span><p>Override default printer port number. Applicable for network discovery only. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Options for discover. </p></li><ul><li>printerType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: PRINTER_TYPE_ANY</span><p>Printer types to search. Make sure that Printer type is supported by calling enumerateSupportedTypes method. </p></li><li>connectionType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: CONNECTION_TYPE_ANY</span><p>Interfaces for search (Bluetooth/TCP/All). </p></li><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 30000</span><p>Maximum search interval in milliseconds, applies to network discovery. This is the maximum interval for wait during connection attempt. Note that if no printer was found, even with timeout property, status will be set to PRINTER_STATUS_SUCCESS, but without any printerId. </p></li><li>deviceAddress : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Printer address (mac, device serial or ip) can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search.  </p></li><li>devicePort : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 6101</span><p>Override default printer port number. Applicable for network discovery only. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Status of network discovery, can be following:
@@ -777,7 +777,7 @@ Type of connection to printer.
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-Bluetooth mac/TCP IP address.
+IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" 
 ####Access
 
 
@@ -931,6 +931,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 * PRINTER_TYPE_APDNot supported in 4.1
 * CONNECTION_TYPE_ANY
 * CONNECTION_TYPE_ON_BOARDNot supported in 4.1
+* CONNECTION_TYPE_USBsupported in 5.1
 * CONNECTION_TYPE_BLUETOOTH
 * CONNECTION_TYPE_TCP
 * PRINTER_STATUS_SUCCESS
@@ -957,7 +958,9 @@ Type of printer - see PRINTER_TYPE_... constants.
 
 ###Android Notes
 
+* To use a Bluetooth connection on Android devices you should take into account the following preconditions: Before using the printer you should pair it using the Android system Bluetooth settings.
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
+* When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer.searchPrinters should not return any non-printer devices,If USB printers are not supported by SDK or device searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; (for example executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED);
 
             
 
@@ -974,3 +977,6 @@ Type of printer - see PRINTER_TYPE_... constants.
         }
 
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
+
+###Supported Zebra Printers
+Only printers listed in supported models in Zebra [SDK description](https://www.zebra.com/us/en/products-services/software/zebralink/zebralink-multiplatform-sdk.html) (click "Compatible Printers" link) are supported for use with this API. For example, the QL 320 (old model) is __not__ supported but, QLn320 and QL320 plus __are__ supported.

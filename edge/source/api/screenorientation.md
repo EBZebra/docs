@@ -30,6 +30,8 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 
 The ebapi.js file is necessary for all single API inclusions.
 
+## Persistence
+With the old PocketBrowser APIs, any events, such as `screenOrientationEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 
@@ -159,7 +161,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Zebra Technologies devices with IST Sensor support.
+Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Symbol Technologies devices with IST Sensor support.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
