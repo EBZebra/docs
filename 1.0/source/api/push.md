@@ -334,7 +334,7 @@ Synchronous Return:
 ###pushAppName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Application name used by RhoConnect Push server to identify application.
 ####Access
@@ -355,7 +355,7 @@ Application name used by RhoConnect Push server to identify application.
 ###pushServer
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 URL of RhoConnect Push server.
 ####Access
@@ -376,7 +376,7 @@ URL of RhoConnect Push server.
 ###type
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Push engine type.
 ####Values

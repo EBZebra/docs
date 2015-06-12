@@ -248,7 +248,7 @@ Synchronous Return:
 Starts capturing audio until either 'stop' is received, or 'maxDuration' is reached. The successful recording will set 'ok' as the status. An unsuccessful recording will set 'cancel' or 'error' as the status in the callback returning parameters. If 'cancel' method is called during recording, 'cancel' status will be set in the callback returning parameters. In order to restart the audio capture, if the audio capturing is already in process, it is mandatory to call 'stop' or 'cancel' method before calling 'start' method again.
 
 ####Parameters
-<ul><li>props : <span class='text-info'>HASH</span><p>Map of Audio Capture properties to be set. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>props : <span class='text-info'>HASH</span><p>Map of Audio Capture properties to be set. Valid `properties` for this parameter are the properties available to this API module. Check the <a href='#api-audiocapture?Properties'>property section</a> for applicable properties. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Whether or not the audio recording was successfully captured, status will be 'ok' or 'cancel' or 'error'. </p></li><li>message : <span class='text-info'>STRING</span><p>If 'status' == 'error', then message contains error message. In all other cases, it will remain empty. </p></li><li>fileName : <span class='text-info'>STRING</span><p>If 'status' == 'ok', then contain full file path with the file name of recorded audiofile. In all other cases, it will remain empty. </p></li></ul></ul>
@@ -430,3 +430,58 @@ In Windows, 'getProperty' or 'getProperties' for fileName will return the comple
 On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.
                     
                 
+
+##Examples
+
+
+
+###Capturing Audio
+In the following example you'll see how to capture and play back audio on your device. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+<pre><code>:::javascript
+&lt;head&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+    &lt;title&gt;Audio Capture API Example&lt;/title&gt;
+
+    &lt;script&gt;
+        audioFile = null;
+
+        function captureAudio(){
+            display.innerHTML = 'Capturing...'
+            EB.AudioCapture.start({fileName:   'testCap',
+                                                         maxDuration: 5000}, captureCallback);
+        }
+
+        function captureCallback(params){
+            if (params['status'] == 'ok'){
+                display.innerHTML = 'Captured Audio File: ' + params['fileName'];
+                audioFile = params['fileName'];
+                audioFile = audioFile.substr(7); // Remove 'file://' from the beginning of the fileName
+            }
+            else{
+                display.innerHTML = 'Audio Not Captured';
+            }
+        }
+
+        function playCapturedAudio(){
+            if(audioFile){
+                EB.Mediaplayer.start(audioFile);
+            }
+            else{
+                alert("No audio captured yet.");
+            }
+        }
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;AudioCapture API Example&lt;/h1&gt;
+    &lt;div id="display"&gt;&lt;/div&gt;
+    &lt;/br&gt;
+    &lt;/br&gt;
+    &lt;button onclick="captureAudio()"&gt;Capture Audio&lt;/button&gt;
+    &lt;button onclick="playCapturedAudio()"&gt;Play Captured Audio&lt;/button&gt;
+&lt;/body&gt;
+                                
+                            
+</code></pre>

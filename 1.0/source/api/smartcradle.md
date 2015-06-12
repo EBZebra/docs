@@ -151,7 +151,7 @@ Synchronous Return:
 ###cApiVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 CAPI version of the cradle.
 ####Access
@@ -211,7 +211,7 @@ The current Column ID of the cradle in the matrix
 ###driverVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Driver version of the cradle.
 ####Access
@@ -229,7 +229,7 @@ Driver version of the cradle.
 ###firmwareVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Firmware version of the cradle.
 ####Access
@@ -247,7 +247,7 @@ Firmware version of the cradle.
 ###hardwareId
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Hardware ID of the cradle
 ####Access
@@ -265,7 +265,7 @@ Hardware ID of the cradle
 ###mfgDate
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Manufacture date of the cradle in DD-MM-YY format
 ####Access
@@ -283,7 +283,7 @@ Manufacture date of the cradle in DD-MM-YY format
 ###partNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Part number of the cradle.
 ####Access
@@ -319,7 +319,7 @@ The current Row ID of the cradle in the matrix
 ###serialNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Serial number of the cradle.
 ####Access

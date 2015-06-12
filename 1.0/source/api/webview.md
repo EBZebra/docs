@@ -206,7 +206,7 @@ Synchronous Return:
 ###activeTab
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Return an active tab index. For change active tab use Use Rho.NativeTabbar.currentTab property.
 ####Access
@@ -226,7 +226,7 @@ Return an active tab index. For change active tab use Use Rho.NativeTabbar.curre
 ###cacheSize
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 ####Access
@@ -244,7 +244,7 @@ The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 ###enableCache
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Enable / disable Browser cache. Use 'WebView.enableCache' parameter in rhoconfig.txt to configure this value.
 ####Params
@@ -264,7 +264,7 @@ Enable / disable Browser cache. Use 'WebView.enableCache' parameter in rhoconfig
 ###enablePageLoadingIndication
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Show page loading indication. On Windows Mobile/CE this property can be set only in config.xml: GUI\\HourglassEnabled. At Android  use 'disable_loading_indication' parameter in Config.xml to configure this value.
 ####Params
@@ -286,7 +286,7 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ###enableWebPlugins
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Enable / disable web plug-ins. Use 'enable_web_plugins' parameter in Config.xml to configure this value. This option only has effect on Android versions before 4.0 (ICS). It mainly affects if Flash content is displayed.
 ####Params
@@ -306,7 +306,7 @@ Enable / disable web plug-ins. Use 'enable_web_plugins' parameter in Config.xml 
 ###enableZoom
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Enable WebView zoom. Use 'enable_screen_zoom' parameter in Config.xml to configure this value.
 ####Params
@@ -326,7 +326,7 @@ Enable WebView zoom. Use 'enable_screen_zoom' parameter in Config.xml to configu
 ###fontFamily
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Symbol WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\\FontFamily 
 ####Access
@@ -344,7 +344,7 @@ Specifies the default font to use when rendering text in web pages. The specifie
 ###framework
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Same as System.webViewFramework.
 ####Access
@@ -406,7 +406,7 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 ###scrollTechnique
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Specifies the technique used to scroll about the page.Defines in config.xml: Scrolling\\ScrollTechnique.
 ####Params
@@ -451,7 +451,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 ###userAgent
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Defines in config.xml: Navigation\\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:
 
@@ -477,7 +477,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 ###viewportEnabled
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Whether to enable or disable viewport meta tag processing.Defines in config.xml: Navigation\\ViewportEnabled.
 ####Params
@@ -497,7 +497,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 ###viewportWidth
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified).Defines in config.xml: Navigation\\ViewportWidth.
 ####Access
