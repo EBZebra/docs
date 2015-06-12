@@ -2194,7 +2194,7 @@ Sets the focus mode in use.
 ###friendlyName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Returns the friendly name associated with the scanner.
 ####Access
@@ -3427,7 +3427,7 @@ Describes the type of vertical rastering to use.
 ###rsmBatteryCapacity
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.
 ####Access
@@ -3447,7 +3447,7 @@ The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be 
 ###rsmBatteryId
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 One of 'simple', 'double', 'disabled' or 'unknown'
 ####Access
@@ -3467,7 +3467,7 @@ One of 'simple', 'double', 'disabled' or 'unknown'
 ###rsmBatteryStatus
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Indicates the status of the remote scanner's battery, will be one of 'unknown', 'full', 'medium', 'empty', 'chargingFullRate', 'chargingHalfRate', 'chargingTrickle' or 'discharging'
 ####Access
@@ -3487,7 +3487,7 @@ Indicates the status of the remote scanner's battery, will be one of 'unknown', 
 ###rsmBluetoothAddress
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 ####Access
@@ -3715,7 +3715,7 @@ How long the scanner tries to re-establish connection if it goes out of range, i
 ###rsmDateOfManufacture
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Ring scanner date of manufacture as DDMMYY.
 ####Access
@@ -3735,7 +3735,7 @@ Ring scanner date of manufacture as DDMMYY.
 ###rsmDateOfService
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Ring scanner date of service as DDMMYY.
 ####Access
@@ -3775,7 +3775,7 @@ If true, the remote scanner beeps and illuminates its green LED on a successful 
 ###rsmDeviceClass
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 The device class of the ring scanner.
 ####Access
@@ -3795,7 +3795,7 @@ The device class of the ring scanner.
 ###rsmFirmwareVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Scanner's operating system version.
 ####Access
@@ -3935,7 +3935,7 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 ###rsmModelNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Ring scanner model number.
 ####Access
@@ -4095,7 +4095,7 @@ Scanner trigger will wakeup the device from a low power state.
 ###rsmSerialNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Ring scanner serial number.
 ####Access
@@ -4157,7 +4157,7 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 ###scannerType
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.
 ####Access

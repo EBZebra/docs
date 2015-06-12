@@ -564,7 +564,7 @@ Synchronous Return:
 ###ID
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Unique printer ID during application lifetime.
 ####Access
@@ -585,7 +585,7 @@ Unique printer ID during application lifetime.
 ###connectionType
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Type of connection to printer.
 ####Access
@@ -606,7 +606,7 @@ Type of connection to printer.
 ###deviceAddress
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Bluetooth mac/TCP IP address.
 ####Access
@@ -627,7 +627,7 @@ Bluetooth mac/TCP IP address.
 ###deviceName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Bluetooth/Network name of printer.
 ####Access
@@ -669,7 +669,7 @@ Default port when connecting using TCP/IP.
 ###isConnected
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want to real physical connection - use requestState() method with receive result in the callback. Only this way process real request to device and analyze answer from device.
 ####Access
@@ -690,7 +690,7 @@ Connection status flag. All other properties are valid only if isConnect equals 
 ###printerType
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Type of printer - see PRINTER_TYPE_... constants.
 ####Access
