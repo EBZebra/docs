@@ -134,7 +134,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </PARAMS>
         <RETURN type="BOOLEAN"/>
       </METHOD>
-      <METHOD name="setDoNotBackupAttribute" generateAPI="false" generateDoc="false" >
+      <METHOD name="setDoNotBackupAttribute" generateAPI="false" generateDoc="false" productException="eb">
         <DESC>Set "do not backup attribute" for the database file. This is special flag set on files, which will exclude it from iCloud service.</DESC>
         <PLATFORM>iOS</PLATFORM>
         <PARAMS>
@@ -153,7 +153,6 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
     <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
     <PLATFORM>WM, CE, Win32, Android, iOS, WP8</PLATFORM>
     <PLATFORM_EB>WM, CE, Win32, Android</PLATFORM_EB>
-
     <EXAMPLES>
       <EXAMPLE title="Using Transactions">
         <SECTIONS>
@@ -161,7 +160,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <DESC>To insert/update multiple object/models use database transactions. This is the most performant method to initialize your application with a large set of data.</DESC>
             <CODE>
               <RUBY>
-db = Rho::Database
+                <![CDATA[
+db = Rho::Database.new
 db.startTransaction
 begin
   items.each do |item|
@@ -177,8 +177,10 @@ begin
 rescue
   db.rollbackTransaction
 end
+]]>
               </RUBY>
               <JAVASCRIPT>
+                <![CDATA[
 var db = Rho.Database;
 db.startTransaction();
 try
@@ -199,6 +201,7 @@ catch
 {
  db.rollbackTransaction();
 }
+]]>
               </JAVASCRIPT>
             </CODE>
           </SECTION>

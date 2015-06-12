@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Push" parent="Rho">
+    <MODULE name="Push" parent="Rho" productException='eb'>
         <HELP_OVERVIEW>The Push API provides access to Push messaging functionality. Use this API to give your application the ability to receive server initiated messages.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
@@ -49,7 +49,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     &lt;script type="text/javascript" charset="utf-8" src="eb.push.js"&gt;&lt;/script&gt;
 
 The ebapi.js file is necessary for all single API inclusions.
-
         </MORE_HELP_EB>
         <PLATFORM>WM, CE, Android, iOS</PLATFORM>
         <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>

@@ -292,6 +292,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Symbol Devices Only
 
 ####Method Access:
 
@@ -2718,7 +2719,7 @@ Describes the linear security level used during decoding. This determines the nu
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.
+* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners. Not supported on Android with EMDK version 3.1 and above.
 * Constant: EB.Barcode.SHORT_OR_CODABAR - String: shortOrCodabar Double redundancy if short barcode or Codabar.
 * Constant: EB.Barcode.LONG_AND_SHORT - String: longAndShort Double redundancy for long barcodes, triple for short barcodes.
 * Constant: EB.Barcode.ALL_TWICE - String: allTwice Double redundancy for all barcodes.
@@ -4137,7 +4138,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.
+Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners. Scan timeout is extent to hardware capabilities and limitations.
 ####Access
 
 
@@ -5062,7 +5063,7 @@ When true, the barcode check digit(s) will be reported for scanned US Post Net b
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.
+Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given. Not supported on Android with EMDK version 3.1 and above.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
@@ -5091,7 +5092,7 @@ Configures the feedback given after a successful scan. This value is ignored if 
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.
+If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds. Not supported on Android with EMDK version 3.1 and above.
 ####Access
 
 
@@ -5306,19 +5307,21 @@ On WM/CE, it is first necessary to enable the scanner before most of the propert
 ###Set Scanner Properties
 On WM/CE, for some properties, it is first necessary to apply those properties before enabling the scanner.
 
+###Android Camera Barcode limitation
+As google barcode scanning library(Zxing library) supported only in Landscape mode. Barcode scanning window only appears at centre of screen in Landscape mode.
+
 ##Examples
 
 
 
-###Scanning a Barcode
-In this example you'll see how to enable your device's barcode scanner and scan a barcode with said scanner. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+###Enable barcode scanner and scan a bacrode
+This example shows how to enable your device's barcode scanner and access the data gathered by the scanner. Note that this example assumes that your ebapi-modules.js file is in the same folder as the HTML invoking it. On symbol devices, data wedge needs to be disabled or the Enterprise Browser will not be able to claim any of the scanners.
 <pre><code>:::javascript
 &lt;head&gt;
+    &lt;title&gt;Barcode API Test&lt;/title&gt;
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
-    &lt;title&gt;Barcode API Test&lt;/title&gt;
-
-    &lt;script&gt;
+    &lt;script type="text/javascript"&gt;
         function scanReceived(params){
             // No data or no timestamp, scan failed.
             if(params['data']== "" || params['time']==""){
@@ -5344,7 +5347,6 @@ In this example you'll see how to enable your device's barcode scanner and scan 
 
 &lt;body onunload='unloadEvent()'&gt;
     &lt;h1&gt;Barcode API Test&lt;/h1&gt;
-    &lt;/br&gt;
     &lt;div id="display"&gt;
         Barcode Data: &lt;br&gt;
         Time: &lt;br&gt;

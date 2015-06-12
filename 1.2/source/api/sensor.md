@@ -30,7 +30,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.sensor.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
         
 
 

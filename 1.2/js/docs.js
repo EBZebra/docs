@@ -162,6 +162,8 @@ function loadHash()
 	var hash = location.hash.replace("#","");
 
 	loadDoc(hash);
+	if(hash =="guide-compatibility")
+		displayMatrix();
 }
 
 

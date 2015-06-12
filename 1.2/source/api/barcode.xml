@@ -70,7 +70,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <DESC>These properties are used to configure the barcode scanner or barcode decoding algorithms, depending on your device.</DESC>
             <PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android,WP8</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
                 <DESC>When true, automatically appends the character code for 'enter' to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.</DESC>
             </PROPERTY>
@@ -93,7 +93,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.</DESC>
                 <VALUES>
                     <VALUE constName="REDUNDANCY_AND_LENGTH" value="redundancyAndLength">
-                        <DESC>Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.</DESC>
+                        <DESC>Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners. Not supported on Android with EMDK version 3.1 and above.</DESC>
                     </VALUE>
                     <VALUE constName="SHORT_OR_CODABAR" value="shortOrCodabar">
                         <DESC>Double redundancy if short barcode or Codabar.</DESC>
@@ -113,7 +113,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.</DESC>
+                <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners. Scan timeout is extent to hardware capabilities and limitations.</DESC>
             </PROPERTY>
             <PROPERTY name="rasterMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -271,7 +271,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.</DESC>
+                <DESC>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given. Not supported on Android with EMDK version 3.1 and above.</DESC>
                 <VALUES>
                     <VALUE constName="VF_FEEDBACK_ENABLED" value="enabled">
                         <DESC>The last image that was successfully decoded is displayed. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</DESC>
@@ -288,7 +288,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.</DESC>
+                <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds. Not supported on Android with EMDK version 3.1 and above.</DESC>
             </PROPERTY>
             <PROPERTY name="focusMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -511,7 +511,7 @@ The ebapi.js file is necessary for all single API inclusions.
             </PROPERTY>
             <PROPERTY name="scannerType" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android, WP8</PLATFORM>
                 <APPLIES msiOnly="false">All Scanners</APPLIES>
                 <DESC>The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.</DESC>
             </PROPERTY>
@@ -1673,8 +1673,8 @@ The ebapi.js file is necessary for all single API inclusions.
                     <DESC>This method replaces Barcode.enumerate from RhoElements 2.2 and takes a different prototype. Enumerate now returns an array of objects which can be used to control the specific scanner instance whereas previously it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC>
                     <DESC_EB>Returns an array of objects which can be used to control the specific scanner instance whereas previously, it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC_EB>
                 </BACKWARDS_COMPATIBILITY>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+                <PLATFORM>WM, CE, Android, iOS,WP8</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <CALLBACK type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device. Methods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
                     <PARAM type="SELF_INSTANCE"/>
@@ -1759,7 +1759,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="barcode_recognize" hasCallback="none" deprecated="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <PLATFORM>iOS,Android</PLATFORM>
+                <PLATFORM>iOS, Android</PLATFORM>
                 <PLATFORM_EB>Android</PLATFORM_EB>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
                 <DESC>Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.</DESC>
@@ -1775,6 +1775,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="getSupportedProperties" hasCallback="optional">
                 <DESC>Return array of properties supported by this scanner.</DESC>
+                <APPLIES msiOnly="true">Symbol Technologies' scanners</APPLIES>
                 <RETURN type="ARRAY">
                     <DESC>Array of property names supported by this scanner.</DESC>
                     <PARAM type="STRING"/>
@@ -1785,8 +1786,8 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
                 <DESC_EB>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC_EB>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+                <PLATFORM>WM, CE, Android, iOS,WP8</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
@@ -1810,7 +1811,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="take_barcode"  deprecated="true" productException="eb">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
-                <PLATFORM>iOS</PLATFORM>
+                <PLATFORM>iOS,WP8</PLATFORM>
                 <DESC>Deprecated old method for Barcode.take().</DESC>
                 <PARAMS>
                     <PARAM name="rubyCallbackURL" type="STRING">
@@ -1841,7 +1842,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>Android, iOS, WM</PLATFORM>
-        <PLATFORM_EB>WM, Android</PLATFORM_EB>
+        <PLATFORM_EB>Android, WM</PLATFORM_EB>
         <REMARKS>
             <REMARK title="Bluetooth Scanner Overview">
                 <DESC>
@@ -1887,9 +1888,12 @@ On Symbol Technologies' scanners the scanner viewfinder window is not infinitely
                 <DESC>On WM/CE, for some properties, it is first necessary to apply those properties before enabling the scanner.</DESC>
             </REMARK>
 
+        <REMARK title="Android Camera Barcode limitation">
+                <DESC>As google barcode scanning library(Zxing library) supported only in Landscape mode. Barcode scanning window only appears at centre of screen in Landscape mode.</DESC>
+            </REMARK>
+            
             <REMARK title="DataWedge Interaction With Native Apps" productException="eb">
                 <DESC>In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
-
 **Disabling Datawedge**
 
 1. Start the DataWedge app
@@ -2176,18 +2180,17 @@ Rho.Barcode.take({}, scan_received_callback);
             </EXAMPLE>
         </EXAMPLES>
         <EXAMPLES_EB>
-            <EXAMPLE title='Scanning a Barcode'>
+            <EXAMPLE title="Enable barcode scanner and scan a bacrode">
                 <SECTIONS>
                     <SECTION>
-                        <DESC>In this example you'll see how to enable your device's barcode scanner and scan a barcode with said scanner. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.</DESC>
+                        <DESC>This example shows how to enable your device's barcode scanner and access the data gathered by the scanner. Note that this example assumes that your ebapi-modules.js file is in the same folder as the HTML invoking it. On symbol devices, data wedge needs to be disabled or the Enterprise Browser will not be able to claim any of the scanners.</DESC>
                         <CODE>
                             <JAVASCRIPT><![CDATA[
 <head>
+    <title>Barcode API Test</title>
     <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-    <title>Barcode API Test</title>
-
-    <script>
+    <script type="text/javascript">
         function scanReceived(params){
             // No data or no timestamp, scan failed.
             if(params['data']== "" || params['time']==""){
@@ -2213,7 +2216,6 @@ Rho.Barcode.take({}, scan_received_callback);
 
 <body onunload='unloadEvent()'>
     <h1>Barcode API Test</h1>
-    </br>
     <div id="display">
         Barcode Data: <br>
         Time: <br>

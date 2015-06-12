@@ -41,7 +41,6 @@ To include single APIs, you must first include the 'ebapi.js' in your HTML as we
     &lt;script type="text/javascript" charset="utf-8" src="eb.notification.js"&gt;&lt;/script&gt;
 
 The ebapi.js file is necessary for all single API inclusions.
-
         </MORE_HELP_EB>
         <PLATFORM>iOS, Android, WM</PLATFORM>
         <PLATFORM_EB>Android, WM</PLATFORM_EB>
@@ -154,7 +153,7 @@ Example:
                         <DESC>The label text for the hide button in the popup status window. On Windows Mobile/CE, Windows and RhoSimulators Windows Close icon used to hide the status window.</DESC>
                         <DESC_EB>The label text for the hide button in the popup status window. On Windows Mobile/CE Close icon used to hide the status window.</DESC_EB>
                         <PLATFORM>iOS, Android, WP8</PLATFORM>
-                        <PLATFORM_EB>Android, WP8</PLATFORM_EB>
+                        <PLATFORM_EB>Android</PLATFORM_EB>
                     </PARAM>
                 </PARAMS>
             </METHOD>
@@ -189,7 +188,7 @@ Example:
                                 <DESC>The frequency of the beep, in Hz.</DESC>
                             </PARAM>
                             <PARAM name="volume" type="Integer" default="1">
-                                <DESC>A number between 0 and 3. 0 represents minimum volume and 3 is maximum volume, the decibels each volume level represents is device dependant.</DESC>
+                                <DESC>A number between 0 and 3. 0 represents minimum volume and 3 is maximum volume, the decibels each volume level represents is device dependent.</DESC>
                             </PARAM>
                             <PARAM name="duration" type="Integer" default="1000">
                                 <DESC>The duration of the beep, in milliseconds.</DESC>
