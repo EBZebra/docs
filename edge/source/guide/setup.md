@@ -90,6 +90,8 @@ With your device connected and recognized by the OS and the Mobile Device Center
 
 Now that your device is connected and recognized by your computer, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
 
+> Note: The Persistent installation option is not supported on Psion CE6 devices.
+
 1. The ActiveSync installer will install the selected Enterprise Browser runtime files to your device. 
 2. If you have chosen to install the Persistent Runtime for Windows then you are required to Cold Boot/Clean PS the device after installation.
 
