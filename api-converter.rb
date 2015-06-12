@@ -780,7 +780,7 @@ def self.getparams(element,toplevel)
 					else
 						propreadOnly= element["readOnly"]
 						if propreadOnly=="true"
-							propreadOnly="<span class='label'>Read Only</span>"
+							propreadOnly="<span class='label label-warning'>Read Only</span>"
 						else
 							propreadOnly=""
 						end
