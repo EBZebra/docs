@@ -620,7 +620,7 @@ Number of milliseconds before the browser times out and navigates to the page sp
 
 **Possible Values**
 
-* Timeout in Milliseconds, maximum value is 45000
+* Timeout in Milliseconds
 
 #### Example
 	:::xml
