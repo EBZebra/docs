@@ -177,7 +177,7 @@ In order to be backwardly compatible with PocketBrowser syntax for controlling d
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.
+Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported in Android.
 
 **Possible Values**
 
@@ -188,7 +188,7 @@ Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.
+Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Not supported in Android.
 
 **Possible Values**
 
@@ -652,7 +652,7 @@ Used to persist data when using Read/WriteUserSetting.
 
 ## WebDB
 ### WebStorageDBPath
-Path to an existing directory to store Web Storage databases.
+Path to an existing directory to store Web Storage databases. Not supported in Android.
 
 **Possible Values**
 
@@ -665,7 +665,7 @@ Path to an existing directory to store Web Storage databases.
 	<WebStorageDBPath value="file:///path-to-web-storage"/>
 
 ### WebSQLDBQuota
-Web SQL database maximum quota per database.
+Web SQL database maximum quota per database. Not supported in Android.
 
 **Possible Values**
 
@@ -676,7 +676,7 @@ Web SQL database maximum quota per database.
 	<WebSQLDBQuota value="20000"/>
 
 ### WebSQLDBPath
-Path to an existing directory to store Web SQL databases.
+Path to an existing directory to store Web SQL databases. Not supported in Android.
 
 **Possible Values**
 
@@ -690,7 +690,7 @@ Path to an existing directory to store Web SQL databases.
 
 ## ApplicationCache
 ### ApplicationCacheQuota
-Application Cache data maximum quota per application.
+Application Cache data maximum quota per application. Not supported in Android.
 
 **Possible Values**
 
@@ -701,7 +701,7 @@ Application Cache data maximum quota per application.
 	<ApplicationCacheQuota value="20000"/>
 
 ### ApplicationCachePath
-Path to an existing directory to store Application Cache data.
+Path to an existing directory to store Application Cache data. Not supported in Android.
 
 **Possible Values**
 
