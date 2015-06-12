@@ -66,6 +66,7 @@ A simplified application development approach allows for shorter time to market 
 	* All devices previously supported by PocketBrowser v 3.1
 	* No HTML5 Support
 	* EMML 1.1/1.0
+	* In Windows Mobile device, JavaScript onkeyup/onkeydown is not supported when using the IE engine
 * Symbol Webkit Engine
 	* MPA2 Devices and Above
 	* HTML5 Support

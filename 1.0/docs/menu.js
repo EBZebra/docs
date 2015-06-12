@@ -118,7 +118,6 @@ var menuStrcture = [
 							{"name":"HomeButton","link":"#api-HomeButton"},
 							{"name":"Hourglass","link":"#api-Hourglass"},
 							{"name":"Imager","link":"#api-Imager"},
-							{"name":"Intent","link":"#api-Intent"},
 							{"name":"KeyCapture","link":"#api-keycapture"},
 							{"name":"KeyState","link":"#api-keystate"},
 							{"name":"KeyLight","link":"#api-Keylight"},

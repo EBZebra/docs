@@ -139,12 +139,7 @@ var matrix=[
         "devices": "All"
     },
 
-    {
-        "api":"Intent",
-        "engines": "Webkit",
-        "os": "Android,WM,CE",
-        "devices": "All"
-    },
+    
 
     {
         "api":"KeyCapture",

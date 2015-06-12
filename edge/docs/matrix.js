@@ -81,6 +81,12 @@ var matrix=[
         "os": "WM,CE",
         "devices": "All"
     },
+    {
+        "api":"Device",
+        "engines": "Webkit,IE",
+        "os": "WM,Android",
+        "devices": "All"
+    },
 
 
     {
@@ -139,12 +145,7 @@ var matrix=[
         "devices": "All"
     },
 
-    {
-        "api":"Intent",
-        "engines": "Webkit",
-        "os": "Android,WM,CE",
-        "devices": "All"
-    },
+    
 
     {
         "api":"KeyCapture",
@@ -331,7 +332,7 @@ var matrix=[
     {
         "api":"SmartCradle",
         "engines": "Webkit",
-        "os": "CE",
+        "os": "CE,Android",
         "devices": "All"
     },
 
