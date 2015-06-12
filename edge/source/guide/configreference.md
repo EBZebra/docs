@@ -132,6 +132,10 @@ The following is an example of a typical configuration file
 					<ViewportEnabled value="1"/>
 					<Cache value="5MB"/>
 				</Navigation>
+				<ZoomKey>
+					<ZoomInKey value="0x70"/> //Any function key can be applied
+					<ZoomOutKey value="0x71"/> //Any function key tag can be applied
+				</ZoomKey>				
 			</Application>
 		</Applications>
 	</Configuration>
@@ -1369,6 +1373,32 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 #### Example
 	:::xml
 	<NewTabVirtualMemLimit value="50"/>
+
+## ZoomKey
+### ZoomInKey
+This setting controls zoom behvior for enlarging text using a function key. This is only supported in Windows Mobile/CE Enterprise Browser IE or Enterprise Browser Webkit engines. 
+
+
+**Possible Values**
+
+* Hexadecimal key code for any function key: F1 to F24
+
+#### Example
+	:::xml
+	<ZoomInKey value="0x70"/>
+
+### ZoomOutKey
+This setting controls zoom behvior for enlarging text using a function key. This is only supported in Windows Mobile/CE Enterprise Browser IE or Enterprise Browser Webkit engines. 
+
+
+**Possible Values**
+
+* Hexadecimal key code for any function key: F1 to F24
+
+#### Example
+	:::xml
+	<ZoomOutKey value="0x71"/>
+
 
 ## Remarks
 ### <a name="_caseSensitivity"></a>Case Sensitivity
