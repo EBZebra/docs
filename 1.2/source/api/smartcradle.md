@@ -226,7 +226,7 @@ Synchronous Return:
 ###cApiVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 CAPI version of the cradle. Not Applicable for Android.
 ####Access
@@ -289,7 +289,7 @@ The current Column ID of the cradle in the matrix. In Android, the range of colu
 ###driverVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Driver version of the cradle. Not Applicable for Android.
 ####Access
@@ -308,7 +308,7 @@ Driver version of the cradle. Not Applicable for Android.
 ###firmwareVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Firmware version of the cradle.
 ####Access
@@ -327,7 +327,7 @@ Firmware version of the cradle.
 ###hardwareId
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Hardware ID of the cradle
 ####Access
@@ -346,7 +346,7 @@ Hardware ID of the cradle
 ###mfgDate
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Manufacture date of the cradle in DD-MM-YY format. Not Applicable for Android.
 ####Access
@@ -365,7 +365,7 @@ Manufacture date of the cradle in DD-MM-YY format. Not Applicable for Android.
 ###partNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Part number of the cradle.
 ####Access
@@ -403,7 +403,7 @@ The current Row ID of the cradle in the matrix. In Android, the range of rowId i
 ###serialNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Serial number of the cradle.
 ####Access

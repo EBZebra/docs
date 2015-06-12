@@ -132,6 +132,10 @@ The following is an example of a typical configuration file
 					<ViewportEnabled value="1"/>
 					<Cache value="5MB"/>
 				</Navigation>
+				<ZoomKey>
+					<ZoomInKey value="0x70"/> //Any function key can be applied
+					<ZoomOutKey value="0x71"/> //Any function key tag can be applied
+				</ZoomKey>				
 			</Application>
 		</Applications>
 	</Configuration>
@@ -177,7 +181,7 @@ In order to be backwardly compatible with PocketBrowser syntax for controlling d
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.
+Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported in Android.
 
 **Possible Values**
 
@@ -188,7 +192,7 @@ Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.
+Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Not supported in Android.
 
 **Possible Values**
 
@@ -620,7 +624,7 @@ Number of milliseconds before the browser times out and navigates to the page sp
 
 **Possible Values**
 
-* Timeout in Milliseconds, maximum value is 45000
+* Timeout in Milliseconds
 
 #### Example
 	:::xml
@@ -652,7 +656,7 @@ Used to persist data when using Read/WriteUserSetting.
 
 ## WebDB
 ### WebStorageDBPath
-Path to an existing directory to store Web Storage databases.
+Path to an existing directory to store Web Storage databases. Not supported in Android.
 
 **Possible Values**
 
@@ -665,7 +669,7 @@ Path to an existing directory to store Web Storage databases.
 	<WebStorageDBPath value="file:///path-to-web-storage"/>
 
 ### WebSQLDBQuota
-Web SQL database maximum quota per database.
+Web SQL database maximum quota per database. Not supported in Android.
 
 **Possible Values**
 
@@ -676,7 +680,7 @@ Web SQL database maximum quota per database.
 	<WebSQLDBQuota value="20000"/>
 
 ### WebSQLDBPath
-Path to an existing directory to store Web SQL databases.
+Path to an existing directory to store Web SQL databases. Not supported in Android.
 
 **Possible Values**
 
@@ -690,7 +694,7 @@ Path to an existing directory to store Web SQL databases.
 
 ## ApplicationCache
 ### ApplicationCacheQuota
-Application Cache data maximum quota per application.
+Application Cache data maximum quota per application. Not supported in Android.
 
 **Possible Values**
 
@@ -701,7 +705,7 @@ Application Cache data maximum quota per application.
 	<ApplicationCacheQuota value="20000"/>
 
 ### ApplicationCachePath
-Path to an existing directory to store Application Cache data.
+Path to an existing directory to store Application Cache data. Not supported in Android.
 
 **Possible Values**
 
@@ -947,7 +951,9 @@ Enables or Disables Javascript (Windows Mobile Only).
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Enables or Disables selection of text when dragging the stylus on the screen.
+Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page. 
+
+> Note: TextSelectionEnabled should be set to enabled in order to use Copy (Ctrl+C) and Paste(Ctrl+V) feature on Webkit (WM/CE).
 
 **Possible Values**
 
@@ -1022,6 +1028,21 @@ By default if you have enabled the Scanner on a page, through either meta tags, 
 #### Example
 	:::xml
 	<DisableScannerDuringNavigation value="1"/>
+
+### DisableScannerInApp
+This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This is supported on Windows Mobile/CE only using IE or Zebra Webkit engine.
+
+**Possible Values**
+
+* 0 - does not disable the scanner
+* 1 - disables the scanner
+
+> Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.
+
+#### Example
+	:::xml
+	<DisableScannerInApp value="1"/>
+
 
 ## Sound
 ### DecodeVolume
@@ -1354,6 +1375,32 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 #### Example
 	:::xml
 	<NewTabVirtualMemLimit value="50"/>
+
+## ZoomKey
+### ZoomInKey
+This setting controls zoom behvior for enlarging text using a function key. This is only supported in Windows Mobile/CE Enterprise Browser IE or Enterprise Browser Webkit engines. 
+
+
+**Possible Values**
+
+* Hexadecimal key code for any function key: F1 to F24
+
+#### Example
+	:::xml
+	<ZoomInKey value="0x70"/>
+
+### ZoomOutKey
+This setting controls zoom behvior for enlarging text using a function key. This is only supported in Windows Mobile/CE Enterprise Browser IE or Enterprise Browser Webkit engines. 
+
+
+**Possible Values**
+
+* Hexadecimal key code for any function key: F1 to F24
+
+#### Example
+	:::xml
+	<ZoomOutKey value="0x71"/>
+
 
 ## Remarks
 ### <a name="_caseSensitivity"></a>Case Sensitivity
