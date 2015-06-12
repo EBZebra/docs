@@ -1294,30 +1294,6 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 	:::xml
 	<EnableCtrlKey_C value="1"/>
 
-### EnableVolumeSlider
-Specific to the MC2100. Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.
-
-**Possible Values**
-
-* 0 - Disabled
-* 1 - Enabled
-
-#### Example
-	:::xml
-	<EnableVolumeSlider value="1"/>
-
-### EnableBacklightSlider
-Specific to the MC2100. Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.
-
-**Possible Values**
-
-* 0 - Disabled
-* 1 - Enabled
-
-#### Example
-	:::xml
-	<EnableBacklightSlider value="1"/>
-
 ## DefaultMetaTags
 ### MetaTag
 All Enterprise Browser Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by a tilde (~) character and then the properties of the module you wish to set, specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file. Meta tag properties and their possible values are explained in the corresponding API.
