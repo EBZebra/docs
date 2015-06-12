@@ -1023,6 +1023,21 @@ By default if you have enabled the Scanner on a page, through either meta tags, 
 	:::xml
 	<DisableScannerDuringNavigation value="1"/>
 
+### DisableScannerInApp
+This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This is supported on Windows Mobile/CE only using IE or Zebra Webkit engine.
+
+**Possible Values**
+
+* 0 - does not disable the scanner
+* 1 - disables the scanner
+
+> Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.
+
+#### Example
+	:::xml
+	<DisableScannerInApp value="1"/>
+
+
 ## Sound
 ### DecodeVolume
 The volume of the device beeper when a barcode is scanned.
