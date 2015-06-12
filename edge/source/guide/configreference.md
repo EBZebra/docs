@@ -951,7 +951,9 @@ Enables or Disables Javascript (Windows Mobile Only).
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page.
+Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page. 
+
+> Note: TextSelectionEnabled should be set to enabled in order to use Copy (Ctrl+C) and Paste(Ctrl+V) feature on Webkit (WM/CE).
 
 **Possible Values**
 
