@@ -287,6 +287,19 @@ body {
     max-height: 32px;
 }
 
+#download
+{
+	margin-left: 15px;
+	float: left;
+	cursor: pointer;
+
+}
+
+#download :hover
+{
+	color: #3EB6E6;	
+}
+
 #versions
 {
 	margin-left: 15px;

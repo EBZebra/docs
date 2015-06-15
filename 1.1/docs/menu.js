@@ -225,6 +225,11 @@ var menuStrcture = [
 				link: '#guide-abouthelp',
 				icon: 'fa fa-question-circle'
 			},
+			{
+				name: 'Download For Offline Use',
+				link: '#guide-downloadhelp',
+				icon: 'fa fa-download'
+			},
 
 		]
 	}

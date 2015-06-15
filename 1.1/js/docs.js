@@ -67,25 +67,6 @@ $(document).ready(function(){
 	//Search popover
 	$("#searchBox").popover();
 	
-	//Verson popover
-	$("#versions").popover();
-	var popover = $("#versions").data('bs.popover');
-	var html = "";
-	
-	for(var i = 0; i<versionsList.length; i++)
-	{
-		html += '<li><div class="versionLink" data-link="' + versionsList[i].page + '">' + versionsList[i].Number + '</div></li>';
-	}
-	
-	popover.options.content = '<div><ul class="nav nav-list">' + html + '</ul></div>';
-	
-	$("#versions").click(function() {
-		$(".versionLink").click(function() {
-			var newLink = $(this).attr("data-link");
-			newLink += location.hash;
-			window.location = newLink;
-		});
-	});
 	
 	//Check for url change
 	$(window).on('hashchange', function(e)

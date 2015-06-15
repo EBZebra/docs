@@ -9,12 +9,12 @@ var menuStrcture = [
 			},
 			{
 				name: 'Getting Started',
-				icon: 'fa fa-ticket',
+				icon: 'fa fa-rocket',
 				link: '#',
 				items: [
 					{
 						title: 'Getting Started',
-						icon: 'fa fa-ticket',
+						icon: 'fa fa-rocket',
 						items: [
 							{
 								name: 'Installation',
@@ -226,6 +226,11 @@ var menuStrcture = [
 				name: 'Using This Help',
 				link: '#guide-abouthelp',
 				icon: 'fa fa-question-circle'
+			},
+			{
+				name: 'Download For Offline Use',
+				link: '#guide-downloadhelp',
+				icon: 'fa fa-download'
 			},
 
 		]
