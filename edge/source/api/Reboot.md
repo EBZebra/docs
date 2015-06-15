@@ -42,5 +42,3 @@ The Reboot tag can be used to apply new settings after downloading files (eg. .R
 ###Windows Mobile
 Note that in WM5.0 and up there is no software difference between a warm and a cold boot as the device uses persistent storage; both the file and registry will remain the same after boot.
 
-###Psion CE 6 Devices
-Cold boot is not supported on Psion CE6 devices.
