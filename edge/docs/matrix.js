@@ -82,9 +82,15 @@ var matrix=[
         "devices": "All"
     },
     {
+        "api":"Database",
+        "engines": "Webkit,IE",
+        "os": "Android,WM,CE",
+        "devices": "All"
+    },
+    {
         "api":"Device",
         "engines": "Webkit,IE",
-        "os": "WM,Android",
+        "os": "Android,WM",
         "devices": "All"
     },
 
@@ -332,7 +338,7 @@ var matrix=[
     {
         "api":"SmartCradle",
         "engines": "Webkit",
-        "os": "CE,Android",
+        "os": "Android,CE",
         "devices": "All"
     },
 

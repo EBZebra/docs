@@ -4,7 +4,7 @@
 ## Overview
 The SmartCradle API is used to set and retrieve attributes of the MC18 Cradle
 ## Enabling the API
-There are two methods of enabling the Device API: 
+There are two methods of enabling the SmartCradle API: 
 
 * Include all ebapi modules or 
 * Include only the API modules you need 

@@ -116,6 +116,7 @@ var menuStrcture = [
 							{"name":"BottomCommandArea","link":"#api-BottomCommandArea"},
 							{"name":"CardReader","link":"#api-cardreader"},
 							{"name":"Comm","link":"#api-Comm"},
+							{"name":"Database","link":"#api-Database"},
 							{"name":"Device","link":"#api-device"},
 							{"name":"File","link":"#api-File"},
 							{"name":"FileTransfer","link":"#api-FileTransfer"},
