@@ -1030,12 +1030,16 @@ By default if you have enabled the Scanner on a page, through either meta tags, 
 	<DisableScannerDuringNavigation value="1"/>
 
 ### DisableScannerInApp
-This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This is supported on Windows Mobile/CE only using IE or Zebra Webkit engine.
+This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This setting will not effect the behavior of barcode scanning in the License dialog. 
+
+**Supported Platforms**
+
+* Windows Mobile/CE (IE or Zebra Webkit installation)
 
 **Possible Values**
 
 * 0 - does not disable the scanner
-* 1 - disables the scanner
+* 1 - disables the scanner (DefaultMetaTags, Meta Tags in HTML, Javascript API, ActiveXObject)
 
 > Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.
 
