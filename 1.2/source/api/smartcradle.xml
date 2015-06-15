@@ -5,7 +5,7 @@
         <MORE_HELP></MORE_HELP>
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Device API: 
+There are two methods of enabling the SmartCradle API: 
 
 * Include all ebapi modules or 
 * Include only the API modules you need 
