@@ -1378,8 +1378,11 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 
 ## ZoomKey
 ### ZoomInKey
-This setting controls zoom behvior for enlarging text using a function key. This is only supported in Windows Mobile/CE Enterprise Browser IE or Enterprise Browser Webkit engines. 
+This setting controls zoom behavior for enlarging text using a function key. You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
 
+**Support Platforms**
+
+* Windows Mobile/CE (IE or Zebra Webkit)
 
 **Possible Values**
 
@@ -1390,8 +1393,11 @@ This setting controls zoom behvior for enlarging text using a function key. This
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-This setting controls zoom behvior for enlarging text using a function key. This is only supported in Windows Mobile/CE Enterprise Browser IE or Enterprise Browser Webkit engines. 
+This setting controls zoom behavior for making text smaller using a function key.You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
 
+**Support Platforms**
+
+* Windows Mobile/CE (IE or Zebra Webkit)
 
 **Possible Values**
 
