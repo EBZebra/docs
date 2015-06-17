@@ -33,6 +33,11 @@ var menuStrcture = [
 								link: '#guide-tutorial-helloeb',
 							},
 							{
+								name: 'Feature Demo Application',
+								link: '#guide-featuredemo',
+
+							},
+							{
 								name: 'Start Your Application',
 								link: '#guide-launching',
 							},
