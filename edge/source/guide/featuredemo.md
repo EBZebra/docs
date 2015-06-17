@@ -45,7 +45,7 @@ The Feature Demo Application for Enterprise Browser uses `AJAX` to pull in demo 
 
 3. Create a folder called `fd` (case sensitive) in the root of your device's SDCard, or if it doesn't have an SDCard, create the folder in the internal memory partition.  
 
-4. When you originally installed Enterprise Browser to your desktop a folder should have been created called `EnterpriseBrowser`. Inside of that folder there should be a folder called `Feature-Demo`. Take the contents of that folder and copy it over to your newly created fd folder.  
+4. When you originally installed Enterprise Browser to your desktop, a folder should have been created called `EnterpriseBrowser`. Inside of that folder there should be a folder called `Feature-Demo`. Take the contents of that folder and copy it over to your newly created fd folder.  
 
 	<img style="padding-left:40px;" src="http://i.imgur.com/Gk1rhab.png" width="600" height="480" border="10">
 
@@ -57,7 +57,7 @@ If you have done all of the above steps correctly, you should see the screen bel
 
   <img style="padding-left:40px;" src="http://i.imgur.com/N63KwJq.png" width="380" height="600" border="10"> 
 
-To use a specific feature, Click on the Hamburger Menu icon in the top left and select that feature. To quickly exit the Feature Demo App, use the `X` in the top right corner. 
+To use a specific feature, click on the Hamburger Menu icon in the top left and select that feature. To quickly exit the Feature Demo App, use the `X` in the top right corner. 
 
 ### Barcode Scanning  
 The Barcode section of the Feature Demo application shows how to use the most common [Barcode APIs](https://developer.motorolasolutions.com/docs/DOC-2510):
