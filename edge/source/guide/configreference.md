@@ -1392,6 +1392,8 @@ This setting controls zoom behavior for enlarging text using a function key. You
 
 * Hexadecimal key code for any function key: F1 to F24
 
+>Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the [Key Capture API](../api/keycapture).
+
 #### Example
 	:::xml
 	<ZoomInKey value="0x70"/>
@@ -1406,6 +1408,8 @@ This setting controls zoom behavior for making text smaller using a function key
 **Possible Values**
 
 * Hexadecimal key code for any function key: F1 to F24
+
+>Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the [Key Capture API](../api/keycapture).
 
 #### Example
 	:::xml
