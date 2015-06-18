@@ -21,6 +21,3 @@ DEPENDENCIES
   rdiscount (= 1.6.8)
   rest-client (~> 1.6.0)
   xml-simple
-
-BUNDLED WITH
-   1.10.1
