@@ -5,3 +5,5 @@
 .bundle
 bin
 archive
+Gemfile.lock
+edge/docs/docs.js
