@@ -19,8 +19,8 @@ The Feature Demo Application showcases some of the key capabilities available fo
 
 ## Installation  
 
-### Setting up RE1 Web Browser in Enterprise Browser  
-The Feature Demo Application for Enterprise Browser uses `AJAX` to pull in demo files, so the Application must be run from a WebServer. To enable the RE1 web browser in Enterprise Browser, do the following:
+### Setting up Local Web Server in Enterprise Browser  
+The Feature Demo Application for Enterprise Browser uses `AJAX` to pull in demo files, so the Application must be run from a WebServer. To enable the Local Web Server in Enterprise Browser, do the following:
 
 1. Go into `Config.xml` and add the following `XML` snippet right under `<Configuration>`:
 
@@ -102,10 +102,10 @@ The Camera section of the Feature Demo application shows how to use the most com
 ### Hourglass  
 The Hourglass section of the Feature Demo application shows how to use the most common [Hourglass APIs](https://developer.motorolasolutions.com/docs/DOC-2519):  
 
-* Show – Tapping this button will show a loading indicator in the position denoted in the `Left` and `Top` coordinates field. if nothing is entered, it will show the loading indicator in the center of the screen  
+* Show – Tapping this button will show a loading indicator in the position denoted in the `Left` and `Top` coordinates field. If nothing is entered, it will show the loading indicator in the center of the screen  
 * Hide – Tapping this button will hide the loading indicator  
-* Left – Controls the left coordinates of the screen display to use to position the loading indicator  
-* Stop – Controls the top coordinatre of the screen display to use to position the loading indicator
+* Left – Controls the left coordinates of the screen display used to position the loading indicator  
+* Stop – Controls the top coordinatre of the screen display used to position the loading indicator
 
 ### Key Capture  
 The Key Capture section of the Feature Demo application shows how to use the most common [Key Capture APIs](https://developer.motorolasolutions.com/docs/DOC-2520):  
@@ -126,31 +126,31 @@ The Screen section of the Feature Demo application shows how to use the most com
 The Signal section of the Feature Demo application shows how to use the most common [Signal Indicators APIs](https://developer.motorolasolutions.com/docs/DOC-2554):  
 
 * Show Icon – Tapping this button will show a wifi icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code  
-* Hide Icon – Tapping this button will hide the WiFi icon  
+* Hide Icon – Tapping this button will hide the wifi icon  
 * Start – Tapping this button will begin to monitor for wifi status events. For example when not being charged, it will show the wifi level  
 * Stop – Tapping this button will stop monitoring for wifi status events  
 * Status – This section will be populated with the data that comes from the signal event upon a change in status. It will only be displayed when the `Start` button has been tapped  
 
 > Note: Monitoring for Signal events may interfere with other UI elements of the feature demo application when it attempts to display the updated information. It is advised to disable the monitoring of signal events by tapping `Stop` when wanting to view other features  
 
-### Signale Capture  
+### Signature Capture  
 The Signature Capture  section of the Feature Demo application shows how to use the most common [Signature APIs](https://developer.motorolasolutions.com/docs/DOC-2555):  
 
-* Show – Tapping this button will display a full screen signature capture widget.It will use the Color and Width properties that can be changed  
+* Show – Tapping this button will display a full screen signature capture widget. It will use the Color and Width properties that can be changed  
 
 When returning from this widget the status of the event will be diplayed as well as the image of the signature if the user pressed ok during capture
 
-Background Color: This is a hex value string that represents the color of the background of the signature capture area. For example changing it to `#FF0000` will result in a red background  
-Pen Color: This is a hex value string that represents the color of the pen stroke of the signature capture area. For example changing it to #FF0000 will result in a red pen color  
+Background Color: This is a hex value string that represents the color of the background of the signature capture area. For example, changing it to `#FF0000` will result in a red background  
+Pen Color: This is a hex value string that represents the color of the pen stroke of the signature capture area. For example, changing it to #FF0000 will result in a red pen color  
 Pen Width: This is an integer value that represents how thick the pen should be in `pixels`  
 
 ### Timer  
 The Timer section of the Feature Demo application shows how to use the most common Timer APIs:  
 
-* Duration – This is how often to fire an event when the timer is active. The amount is in milliseconds  
-* Start – Tapping this button will start a timer to be fired at the duration amount  
+* Duration – This is how often an event will be fired while the timer is active. The amount is in milliseconds  
+* Start – Tapping this button will start a timer to be fired at the duration interval  
 * Stop – Tapping this button will stop the timer  
-* Status – Will show when timer events have been started, stopped or fored  
+* Status – Will show when timer events have been started or stopped   
 
 ### WebSQL  
 The WebSQL section of the Feature Demo application demonstrates basic functionality of the HTML5 WebSQL standard  
@@ -165,7 +165,7 @@ The Web Storage section of the Feature Demo application demonstrates the basic f
 
 * LocalStorage Input – Enter a string to be stored using LocalStorage. This will stay resident after the application is closed.  
 * LocalStorage Output – Displays the LocalStorage data retrieved when tapping the `Local Fetch` button  
-* SessionStorage Input – Enter a string to be stored using SessionStorage. This will not stay resident after the application is closed  
+* SessionStorage Input – Enter a string to be stored using SessionStorage. This will not persist through the closing of the application 
 * SessionStorage Output – Displays the SessionStorage data retrieved when tapping the `Local Fetch` button  
 * Local Store – Tapping this button will store the value in the `LocalStorage Input` field into LocalStorage  
 * Local Fetch – Tapping this button will retrieve the value from LocalStorage  
@@ -187,13 +187,13 @@ When you unzip the contents of the Feature Demo download, you will see the follo
 * feature-demo.html – main application page that controls behavior of the Feature Demo application  
 * style.css – CSS file used for look and feel of the Feature Demo application  
 
-To learn from the Feature Demo application, it is best to look at the individual HTML files located in the 'apis' folder. In the file you will see a `SCRIPT` block that contains the associated JavaScript to perform the particular action  
+To learn from the Feature Demo application, it is best to look at the individual HTML files located in the 'apis' folder. In the files you will see a `SCRIPT` block that contains the associated JavaScript for performing the particular action  
 
 ## Troubleshooting  
 If you are still having trouble getting The Feature Demo to work, try the following:  
 
 * If your barcode scanner isn't working, you can fix this by installing the app [DataWedge](http://www.barcodedatalink.com/pages/datawedge.php) on your mobile device and [configuring the settings](https://serialio.com/support/knowledgebase/software/in-hand_apps/article/TC55) as described  
 
-* If your device won't display the Feature Demo Application screen, make sure that your Config.xml has the right path to your Starter page  
+* If your device won't display the Feature Demo Application screen, make sure that your Config.xml has the right path to your starter page  
 
-* Make sure that the WiFi on your device is enabled and connected
+* Make sure that the wifi on your device is enabled and connected
