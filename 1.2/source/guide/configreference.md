@@ -127,6 +127,7 @@ The following is an example of a typical configuration file
 
 				<Navigation>
 					<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
+					<EnableSSL3 value="1"/>
 					<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
 					<NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/>
 					<ViewportEnabled value="1"/>
@@ -181,7 +182,7 @@ In order to be backwardly compatible with PocketBrowser syntax for controlling d
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported in Android.
+Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -192,7 +193,7 @@ Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Not supported in Android.
+Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -624,7 +625,7 @@ Number of milliseconds before the browser times out and navigates to the page sp
 
 **Possible Values**
 
-* Timeout in Milliseconds
+* Timeout in Milliseconds - Default value is 45000
 
 #### Example
 	:::xml
@@ -656,7 +657,7 @@ Used to persist data when using Read/WriteUserSetting.
 
 ## WebDB
 ### WebStorageDBPath
-Path to an existing directory to store Web Storage databases. Not supported in Android.
+Path to an existing directory to store Web Storage databases. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -669,7 +670,7 @@ Path to an existing directory to store Web Storage databases. Not supported in A
 	<WebStorageDBPath value="file:///path-to-web-storage"/>
 
 ### WebSQLDBQuota
-Web SQL database maximum quota per database. Not supported in Android.
+Web SQL database maximum quota per database. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -680,7 +681,7 @@ Web SQL database maximum quota per database. Not supported in Android.
 	<WebSQLDBQuota value="20000"/>
 
 ### WebSQLDBPath
-Path to an existing directory to store Web SQL databases. Not supported in Android.
+Path to an existing directory to store Web SQL databases. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -694,7 +695,7 @@ Path to an existing directory to store Web SQL databases. Not supported in Andro
 
 ## ApplicationCache
 ### ApplicationCacheQuota
-Application Cache data maximum quota per application. Not supported in Android.
+Application Cache data maximum quota per application. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -705,7 +706,7 @@ Application Cache data maximum quota per application. Not supported in Android.
 	<ApplicationCacheQuota value="20000"/>
 
 ### ApplicationCachePath
-Path to an existing directory to store Application Cache data. Not supported in Android.
+Path to an existing directory to store Application Cache data. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -1211,6 +1212,22 @@ There are some platform and engine exclusive issues you may encounter that are k
 #### Example
 	:::xml
 	<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
+
+###EnableSSL3
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability.
+
+**Possible Values**
+
+* 0 – Disabled
+* 1 – Enabled
+
+**Platforms** 
+
+* WM/CE Zebra Webkit Only
+
+#### Example
+	:::xml
+	<EnableSSL3 value="1"/>
 
 ### UserAgent
 When visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:
