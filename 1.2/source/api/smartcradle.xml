@@ -36,7 +36,7 @@ The ebapi.js file is necessary for all single API inclusions.
         </TEMPLATES>
 
          <PROPERTIES access="STATIC" usePropertyBag="none">
-			<PLATFORM>Android,WM</PLATFORM>
+			<PLATFORM>Android,CE</PLATFORM>
             <DESC>The following properties configure the Smart Cradle API</DESC>
             <PROPERTY name="chargeState" type="STRING" generateAccessors="true">
                 <DESC>Sets the charge state of the cradle.  Values can be either 'Fast' or 'Slow'.</DESC>
@@ -84,7 +84,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
         <METHODS access="STATIC">
             <METHOD name="unlock">
-            	<PLATFORM>Android,WM</PLATFORM>
+            	<PLATFORM>Android,CE</PLATFORM>
                 <DESC>Unlocks the terminal from the cradle for the specified period. For Android, the smoothing effect by default is false.</DESC>
                 <PARAMS>
                     <PARAM name="ledOnDuration" type="INTEGER">
@@ -152,7 +152,7 @@ The ebapi.js file is necessary for all single API inclusions.
         </USER_OVERVIEW>
 
         <VER_INTRODUCED>5.1.0</VER_INTRODUCED>
-        <PLATFORM>WM,Android</PLATFORM>
+        <PLATFORM>CE,Android</PLATFORM>
         <REMARKS>
             <REMARK title="Flashing the Cradle LEDs">
                 <DESC>There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.

@@ -74,7 +74,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -99,7 +99,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -124,7 +124,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -146,7 +146,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -168,7 +168,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -190,7 +190,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -240,7 +240,7 @@ CAPI version of the cradle. Not Applicable for Android.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###chargeState
 
@@ -265,7 +265,7 @@ Sets the charge state of the cradle.  Values can be either 'Fast' or 'Slow'.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###columnId
 
@@ -284,7 +284,7 @@ The current Column ID of the cradle in the matrix. In Android, the range of colu
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###driverVersion
 
@@ -303,7 +303,7 @@ Driver version of the cradle. Not Applicable for Android.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###firmwareVersion
 
@@ -322,7 +322,7 @@ Firmware version of the cradle.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###hardwareId
 
@@ -341,7 +341,7 @@ Hardware ID of the cradle
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###mfgDate
 
@@ -360,7 +360,7 @@ Manufacture date of the cradle in DD-MM-YY format. Not Applicable for Android.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###partNumber
 
@@ -379,7 +379,7 @@ Part number of the cradle.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###rowId
 
@@ -398,7 +398,7 @@ The current Row ID of the cradle in the matrix. In Android, the range of rowId i
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###serialNumber
 
@@ -417,7 +417,7 @@ Serial number of the cradle.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###wallId
 
@@ -436,7 +436,7 @@ The current Wall ID of the cradle in the matrix. In Android, the range of wallId
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ##Remarks
 
