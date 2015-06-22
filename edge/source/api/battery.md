@@ -40,7 +40,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
 
 
 ### batteryDiagnostics()
-The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'
+The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'. In Android, Currently only supported on the MC18 device
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
