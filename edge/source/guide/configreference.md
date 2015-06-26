@@ -859,7 +859,11 @@ Specifies the technique used to scroll the viewport:
 
 ## Authentication
 ### Username
-Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication. 
+
+If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+
+Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter the credential multiple times.
 
 **Possible Values**
 
@@ -870,7 +874,11 @@ Specifies the username to be provided automatically when the Enterprise Browser 
 	<Username value="username"/>
 
 ### Password
-Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.
+
+If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+
+Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter credential multiple times.
 
 **Possible Values**
 
