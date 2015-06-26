@@ -56,7 +56,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -216,7 +216,7 @@ Only supported by the MC18 device.  Sets an average current consumption in mA th
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###refreshInterval
 
@@ -256,7 +256,7 @@ Only supported by the MC18 device.  Sets the desired working time (in minutes) o
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ##Remarks
 
