@@ -859,7 +859,11 @@ Specifies the technique used to scroll the viewport:
 
 ## Authentication
 ### Username
-Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication. 
+
+If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+
+> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter the credential multiple times.
 
 **Possible Values**
 
@@ -870,7 +874,11 @@ Specifies the username to be provided automatically when the Enterprise Browser 
 	<Username value="username"/>
 
 ### Password
-Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.
+
+If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+
+> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter credential multiple times.
 
 **Possible Values**
 
@@ -1276,6 +1284,8 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 ### CaFile
 A file of CA certificates in PEM format. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for details.
 
+> Note: Enteprise Browser only supports single certificate file in `pem` format. If multiple certificates need to be passed to the Webkit Browser(WM/CE), please add the contents of the `.pem` certificates to a single file using any standard text editor and then set the path of the updated local file to cafile in config.xml
+
 **Possible Values**
 
 * Local File name on the device.
@@ -1283,6 +1293,15 @@ A file of CA certificates in PEM format. See <a href="http://www.openssl.org/doc
 #### Example
 	:::xml
 	<CaFile value="cert-file-name"/>
+
+### CaPath
+>Note : This setting is not supported in Enterprise Browser.
+
+A directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
+
+**Possible Values**
+
+* Local File path on the device.
 
 ### VerifyPeerCertificate
 Verify the server certificate against the internal certificates. It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development. A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.
