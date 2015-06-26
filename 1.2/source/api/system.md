@@ -1169,7 +1169,7 @@ For Windows Mobile and Windows CE the keyboard can be manually shown or hidden a
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###localServerPort
 
@@ -1245,7 +1245,7 @@ The OEM Information string for the terminal.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###osVersion
 
@@ -1510,7 +1510,7 @@ The Unique Unit IDentifier for the terminal.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###webviewFramework
 
