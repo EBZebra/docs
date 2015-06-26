@@ -302,7 +302,7 @@ class ApiConvert
 				#indicators += "\n* Windows Desktop"
 			end
 			if msionly
-				indicators += "\n* Symbol Devices Only"
+				indicators += "\n* Zebra Devices Only"
 			end
 		end
 		if indicators !=""
