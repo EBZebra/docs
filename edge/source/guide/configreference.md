@@ -136,7 +136,8 @@ The following is an example of a typical configuration file
 				<ZoomKey>
 					<ZoomInKey value="0x70"/> //Any function key can be applied
 					<ZoomOutKey value="0x71"/> //Any function key tag can be applied
-				</ZoomKey>				
+				</ZoomKey>
+				<isWindowsKey  value="0"/>				
 			</Application>
 		</Applications>
 	</Configuration>
@@ -1420,7 +1421,7 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 ### ZoomInKey
 This setting controls zoom behavior for enlarging text using a function key. You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
 
-**Support Platforms**
+**Supported Platforms**
 
 * Windows Mobile/CE (IE or Zebra Webkit)
 
@@ -1437,7 +1438,7 @@ This setting controls zoom behavior for enlarging text using a function key. You
 ### ZoomOutKey
 This setting controls zoom behavior for making text smaller using a function key.You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
 
-**Support Platforms**
+**Supported Platforms**
 
 * Windows Mobile/CE (IE or Zebra Webkit)
 
@@ -1450,6 +1451,23 @@ This setting controls zoom behavior for making text smaller using a function key
 #### Example
 	:::xml
 	<ZoomOutKey value="0x71"/>
+
+## isWindowsKey
+This feature will be supported from Enterprise Browser 1.2 and above when used with either PocketBrowser or RhoElements 2.x KeyCapture API. The `isWindowsKey` tag has been introduced to mimic Windows Mobile key codes for the device's hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. If it is set as 0 or not present, then the application will get the Android function key code value.
+
+**Supported Platforms**
+
+* Android (with PocketBrowser or RhoElements 2.x Key Capture API)
+
+**Possible Values**
+
+* 0 - Send Android Key Codes for F1 to F12
+* 1 - Send Windows Mobile Key Codes for F1 to F12
+
+
+#### Example
+	:::xml
+	<isWindowsKey value="1"/>
 
 
 ## Remarks
