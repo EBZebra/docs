@@ -91,6 +91,10 @@ var menuStrcture = [
 								name: 'Using Certificates',
 								link: '#guide-certificates',
 							},
+							{
+								name: 'SAP ITS Usage',
+								link: '#guide-sap',
+							},
 						]
 					}
 				]
