@@ -5,7 +5,7 @@
 To point Enterprise Browser to start with SAP ITS Mobile application, [startPage](../guide/configreference?General) parameter of the `Config.xml` must be set to the URL of SAP ITS Mobile application. 
 
 ### Enabling JavaScript APIs
-In order to use Enterprise Browser APIs, one must ensure to include the [respective JS files](..guide/apioverview) within the html file generated from the ABAP code in SAP Server. These files are included as part of the installation, and can be copied to your ABAP Server.
+In order to use Enterprise Browser APIs, one must ensure to include the [respective JS files](../guide/apioverview) within the html file generated from the ABAP code in SAP Server. These files are included as part of the installation, and can be copied to your ABAP Server.
 
 Enterprise Browser requires JS files for the Enterprise Browser API to function:
 

@@ -4,7 +4,7 @@ var menuStrcture = [
 		icon: 'fa fa-reorder',
 		items: [
 			{
-				name: 'About Enteprise Browser',
+				name: 'About Enterprise Browser',
 				link: '#guide-about',
 			},
 			{
