@@ -374,7 +374,9 @@ function loadDoc(key){
 	toc = $("#tocList").tocify({
 		selectors: "h2,h3",
 		context: "#markdownDoc",
-		history:false,
+		highlightOnScroll:false,
+		showAndHideOnScroll:false,
+		smoothScroll:false,
 		scrollTo:52
 	}).data("toc-tocify");
 	
