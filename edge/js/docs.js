@@ -72,6 +72,7 @@ $(document).ready(function(){
 	//Check for url change
 	$(window).on('hashchange', function(e)
 	{
+		console.log('hash change');
 		loadHash();
 	});
 	
@@ -342,6 +343,7 @@ function loadDoc(key){
 	}
 	var html = "";
 	
+	console.log('Start convert');
 	//Check if doc exist
 	if(getByKey(key) != undefined)
 	{
@@ -351,11 +353,14 @@ function loadDoc(key){
 	{
 		html = converter.makeHtml(getByKey('guide-about').md);
 	}
-
+	console.log('End convert');
+	
 	//change code blocks
 	html = html.replace(/<pre><code>(.*)/g,'<pre class="prettyprint"><code>');
 
+	console.log('about to add to view');
 	$("#markdownDoc").html(html);
+	console.log('added to view');
 	GA(key);
 	//Clear old ToC
 	if(toc != null)

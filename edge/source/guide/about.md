@@ -2,6 +2,25 @@
 ## Welcome To the Enterprise Browser
 Enterprise Browser is a powerful, next generation industrial browser enabling developers to build feature rich web applications that integrate seamlessly with the features in Symbol Technologies mobile computers and peripherals - such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3, and JavaScript) to run and integrate with virtually any Symbol Technologies devices running Microsoft&copy; Windows Mobile, Windows&copy; CE or Android. With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with todays highly-graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reducing costs and making the transition to next generation devices and operating systems fast, easy and affordable - especially in high volume mobile environments.
 
+## What's New
+
+* SAP ITS Mobile Compliance
+  * [SAP ITS Mobile Usage guide](../guide/sap)
+  * JavaScript keyCode support for SAP Apps.
+* New Device Support
+  * WorkAbout Pro 4 CE 6.0
+  * MC18 Android KitKat
+* New APIs
+  * [SmartCradle API](../api/smartcradle) 
+  * New BatteryDiagnostics method in the [Battery API](../api/battery)
+  * [Database API](../api/Database)
+  * [SymbolDevice API](../api/device)
+* New Feature Demo Application.
+* New configuration tags
+  * &ltZoomInKey&gt & &ltZoomOutKey&gt - To ease the usage of Applications running on Enterprise Browser, users can now configure Hardware Function Keys to perform ZoomIn and ZoomOut operations without having to make changes to the application. Applicable to Windows devices only
+  * &ltDisableScannerInApp&gt - This tag has been introduced to disable barcode scanning abilities for legacy Scanner API. This setting will not effect the behavior of barcode scanning in the License dialogue. Applicable to Windows devices only
+  * &ltisWindowsKey&gt - This tag has been introduced to mimic Windows Mobile key codes for the device's hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. Applicable to Android devices only which consists of hardware keys.
+
 ##Key Features
 
 ###Enterprise Browser: An application development toolkit for mobile cross-platform enterprise apps
