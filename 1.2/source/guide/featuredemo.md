@@ -196,8 +196,6 @@ If you are still having trouble getting The Feature Demo to work, try the follow
 
 * Check your device's [Integrator Guide](https://www.zebra.com/enterprisesupport) for proper DataWedge configuration
 
-* If your barcode scanner isn't working, you can fix this by installing the app [DataWedge](http://www.barcodedatalink.com/pages/datawedge.php) on your mobile device and [configuring the settings](https://serialio.com/support/knowledgebase/software/in-hand_apps/article/TC55) as described  
-
 * If your device won't display the Feature Demo Application screen, make sure that your Config.xml has the right path to your starter page  
 
 * Make sure that the wifi on your device is enabled and connected
