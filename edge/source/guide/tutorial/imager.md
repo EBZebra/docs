@@ -1,4 +1,5 @@
-﻿#Imager API Tutorial
+﻿
+#Imager API Tutorial
 
 This tutorial covers the use of the Enterprise Browser Imager API for capturing images using a device's camera hardware.
 
@@ -17,11 +18,11 @@ Enterprise Browser includes an API for capturing images using a device's on boar
 
 The following tutorial will walk through creating a working example application using these steps. 
 
-![Imager API tutorial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_01.png)
+![img](images/eb_tutorials/Imager_API_tutorial_01.png)
 
 The resulting example application will look like this:
 
-![Imager API tutorial image 2](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_02.png)
+![img](images/eb_tutorials/Imager_API_tutorial_02.png)
 
 ##Creating the App
 
@@ -35,26 +36,27 @@ HTML Starter Template:
 
     :::HTML
     <HTML>
-    <HEAD>
-    <script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>
-    <style>
-    h1{font-size:2.5em;background-color:lightgray;margin:5px;padding:5px;}
-    button{font-size:.5em;}
-    input{font-size:1.3em;}
-    #content{width:250px;border:black 1px solid}
-    #imgdata{margin:10px;top:150px;width:230px;height:150px;}
-    </style>
-    </HEAD>
-    <BODY>
-    <h1>Image Capture
-    <button onclick="window.location.href='./index.html'">Home</button>
-    <button onclick="EB.Application.quit();">Quit</button>
-    </h1>
-    <div id=controls >
-    </div> 
-    <div id=content >
-    </div>
-    </BODY>
+        <HEAD>
+            <script type="text/javascript" charset="utf-8" src="./ebapi-modules.js">
+            </script>
+            <style>
+            h1{font-size:2.5em;background-color:lightgray;margin:5px;padding:5px;}
+            button{font-size:.5em;}
+            input{font-size:1.3em;}
+            #content{width:250px;border:black 1px solid}
+            #imgdata{margin:10px;top:150px;width:230px;height:150px;}
+            </style>
+        </HEAD>
+        <BODY>
+            <h1>Image Capture
+            <button onclick="window.location.href='./index.html'">Home</button>
+            <button onclick="EB.Application.quit();">Quit</button>
+            </h1>
+            <div id=controls >
+            </div> 
+            <div id=content >
+            </div>
+        </BODY>
     <SCRIPT>
     </SCRIPT>
     </HTML>
@@ -200,22 +202,22 @@ In general, here's what is required:
 ###STEP 11: Testing the App
 * **Tap the Enterprise Browser icon** on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
 
-![Imager API tutorial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_03.png)
+![img](images/eb_tutorials/Imager_API_tutorial_03.png)
 
 * **Click on the cancel button** in the upper right hand corner of the screen to dismiss the message and open the Image Capture app. If you turn the device sideways it should look like this:
 
-![Imager API tutorial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_04.png)
+![img](images/eb_tutorials/Imager_API_tutorial_04.png)
 
 * **Click on the Open Capture Area button** to open the capture area. As you move the device around you will see the image change to whatever the device is pointing at. 
 
 * **Focus on the desired image and click on the Capture button**. The image is now fixed and will not change as you move the device around. 
     
-![Imager API tutorial image 5](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_05.png)
+![img](images/eb_tutorials/Imager_API_tutorial_05.png)
 
 * **Click the Clear button** and then click the Open Capture Area button again to open the capture area. Once you see that the area is active click on the Cancel button to cancel the capture. The image on the screen will be removed and the image display area will be empty again.
 
-![Imager API tutorial image 6](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_06.png)
+![img](images/eb_tutorials/Imager_API_tutorial_06.png)
 
 ###Conclusion
 
-This completes the Enterprise Browser Imager API tutorial. For more information on the Imager API, please refer to the [Enterprise Browser Imager API documentation](https://developer.motorolasolutions.com/docs/DOC-2673) on LaunchPad.
+This completes the Enterprise Browser Imager API tutorial. For more information on the Imager API, please refer to the [Enterprise Browser Imager API documentation](../api/Imager).
