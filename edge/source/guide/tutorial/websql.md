@@ -1,31 +1,31 @@
-﻿Web SQL API Tutorial
+﻿
+#Web SQL API Tutorial
+
 This tutorial covers the use of the HTML5 Web SQL API in Enterprise Browser for storing and retrieving data.
 
+##Prerequisites
 
-Prerequisites
 The following are required to complete this tutorial:
+
 * A background in HTML, CSS and JavaScript coding. 
 * Enterprise Browser installed on a development PC. 
 
-
 Because device specific APIs are not used in this tutorial it is technically possible to develop and test this application using a desktop browser. To simulate deployment and running on an actual Enterprise Browser instance you should consider developing and testing using a hardware device. The additional requirements for this are: 
+
 * A Zebra mobile device and USB cable.
 * Enterprise Browser installed on the Zebra device. 
-Coding for the Web SQL API
+
+##Coding for the Web SQL API
+
 Enterprise Browser includes support for the HTML5 Web SQL API for managing data. The steps shown below are typical for code that uses the API. This tutorial will walk through creating a working example application using these steps. 
 
-
- C:\Users\Mark\SkyDrive\Documents\Zebra-Enterprise-Browser\EB Developer Fundamentals\Working Copy\Tutorials\images\websql-api-steps.png 
-
-
+![img](images/eb_tutorials/WebSQL_API_tutorial_01.png)
 
 The resulting example application looks like this:
 
 
-   
 
-
-Creating the App
+##Creating the App
 
 
 The following HTML template will be used as a starting point for this tutorial. It includes the following features:
