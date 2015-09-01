@@ -203,7 +203,7 @@ This method removes the callback function from the trigger key by calling the sa
 
 Now that the JavaScript functions have been created we can hook them up to the control buttons.
 
-* **Open `keycap.html` and add `onClick` handlers to the input button tags as shown here:
+* **Open `keycap.html` and add `onClick` handlers** to the input button tags as shown here:
 
 Sample HTML:
 

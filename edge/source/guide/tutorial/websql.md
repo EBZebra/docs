@@ -102,7 +102,7 @@ Sample Config.xml:
     </WebDB>
 
 
-The WebDB section of the `config.xml` file shown above limits the size of the WebSQL database to 5MB and sets the database location in the root directory of the Enterprise Browser installation. If you choose, you can change the path to another location. For example, if your application is located in /storage/sdcard1/myapplication, you might want to locate your database in the same directory. In that case, the setting in the `config.xml` would be as follows: 
+The WebDB section of the `config.xml` file shown above limits the size of the WebSQL database to 5MB and sets the database location in the root directory of the Enterprise Browser installation. If you choose, you can change the path to another location. For example, if your application is located in **/storage/sdcard1/myapplication**, you might want to locate your database in the same directory. In that case, the setting in the `config.xml` would be as follows: 
 
 Sample Config.xml:
 
