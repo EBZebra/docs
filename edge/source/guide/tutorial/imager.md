@@ -7,10 +7,10 @@ This tutorial covers the use of the Enterprise Browser Imager API for capturing 
 
 The following are required to complete this tutorial:
 
-* A background in HTML, CSS and JavaScript coding.
-* Enterprise Browser installed on a development PC. 
-* A Zebra mobile device and USB cable.
-* Enterprise Browser installed on the Zebra device.
+* A background in HTML, CSS and JavaScript coding
+* Enterprise Browser installed on a development PC
+* A Zebra mobile device and USB cable
+* Enterprise Browser installed on the Zebra device
 
 ##Coding for the Imager API
 

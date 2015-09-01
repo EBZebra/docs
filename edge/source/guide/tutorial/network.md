@@ -7,10 +7,10 @@ This tutorial covers the use of the Enterprise Browser Network API to detect net
 
 The following are required to complete this tutorial:
 
-* A background in HTML, CSS and JavaScript coding. 
-* Enterprise Browser installed on a development PC. 
-* A Zebra mobile device and USB cable.
-* Enterprise Browser installed on the Zebra device. 
+* A background in HTML, CSS and JavaScript coding
+* Enterprise Browser installed on a development PC
+* A Zebra mobile device and USB cable
+* Enterprise Browser installed on the Zebra device
 
 ##Coding for the Network API
 Enterprise Browser includes an API for working with WAN and WiFi networks. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps. The application checks for server connectivity status based on a given URL.  

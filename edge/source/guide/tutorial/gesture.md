@@ -5,10 +5,10 @@ This tutorial covers the use of the Enterprise Browser Gesture API for recognizi
 
 The following are required to complete this tutorial:
 
-* A background in HTML, CSS and JavaScript coding. 
-* Enterprise Browser installed on a development PC. 
-* A Zebra mobile device and USB cable.
-* Enterprise Browser installed on the Zebra device. 
+* A background in HTML, CSS and JavaScript coding
+* Enterprise Browser installed on a development PC
+* A Zebra mobile device and USB cable
+* Enterprise Browser installed on the Zebra device
 
 ##Coding for the Gesture API
 Enterprise Browser includes an API for recognizing touch screen gestures. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps.

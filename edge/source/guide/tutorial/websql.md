@@ -7,13 +7,13 @@ This tutorial covers the use of the HTML5 Web SQL API in Enterprise Browser for 
 
 The following are required to complete this tutorial:
 
-* A background in HTML, CSS and JavaScript coding. 
-* Enterprise Browser installed on a development PC. 
+* A background in HTML, CSS and JavaScript coding
+* Enterprise Browser installed on a development PC
 
 Because device-specific APIs are not used in this tutorial, it is technically possible to develop and test this application using a desktop browser. To simulate deployment and running on an actual Enterprise Browser instance, you should consider developing and testing using a hardware device. The additional requirements for this are: 
 
-* A Zebra mobile device and USB cable.
-* Enterprise Browser installed on the Zebra device. 
+* A Zebra mobile device and USB cable
+* Enterprise Browser installed on the Zebra device
 
 ##Coding for the Web SQL API
 
