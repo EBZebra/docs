@@ -56,11 +56,11 @@ HTML Starter Template:
 ###STEP 1: Create the application file
 
 * **Create a directory** on your development machine for application files.
-* **Create a file named barcode.html** in your application directory and open it in a text editor.
+* **Create a file named `barcode.html`** in your application directory and open it in a text editor.
 * **Copy and paste the contents of the starter template** above into the file and save it.
 
 ###STEP 2: Add input field and control buttons.
-* **Open barcode.html** in a text editor.
+* **Open `barcode.html`** in a text editor.
 * **Add an input field** with the following definition to the content div.
 
 Sample HTML:
@@ -83,7 +83,7 @@ The Barcode API requires the Enterprise Browser API JavaScript file.
 * **Copy the ebapi-modules.js file** from `C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser`<br> 
 to your application directory. 
  
-* Open barcode.html for editing and **add the following as the first line in the HEAD** section. 
+* Open `barcode.html` for editing and **add the following as the first line in the HEAD** section. 
 
 Sample HTML:
 
@@ -143,7 +143,7 @@ NOTE: * **Make sure to save your app file** periodically as you edit.
 
 Now that the JavaScript functions have been created, we can hook them up to the control buttons.  
 
-* **Open barcode.html and add `onClick` handlers to the input button tags** as shown here:
+* **Open `barcode.html` and add `onClick` handlers to the input button tags** as shown here:
 
 Sample HTML:
 
