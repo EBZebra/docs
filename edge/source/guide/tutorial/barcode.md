@@ -19,7 +19,7 @@ Enterprise Browser includes an API for scanning barcodes. The steps shown below 
 
 The resulting example application looks like this:
 
-![img](images/eb_tutorials/Barcode_API_tutorial_02.png?raw=true)
+![img](images/eb_tutorials/Barcode_API_tutorial_02.png)
 
 ##Creating the App
 
@@ -106,9 +106,7 @@ In this method, two parameters are being passed to the `enable()` method. The fi
 
 ###STEP 5: Trigger a scan
 
-* **Press the device's hardware trigger button** to trigger a scan in our demo application. 
-
-If desired, it's also possible to trigger scans from an on-screen button by setting up the button to call the `EB.Barcode.start()` method.
+In the demo app, **scans will be triggered by pressing the device's hardware trigger button**. If desired, **it's also possible to trigger scans from an on-screen button by setting up the button to call the `EB.Barcode.start()` method**.
 
 For more information about using this method, please refer to the [Enterprise Browser Barcode API documentation](../api/barcode).
 
@@ -169,23 +167,23 @@ In general, here's what is required:
 
 * **Tap the Enterprise Browser icon on the device**. If the device is not yet licensed for Enterprise Browser, you will see the following screen:
 
-![img](images/eb_tutorials/Barcode_API_tutorial_03.png?raw=true)
+![img](images/eb_tutorials/Barcode_API_tutorial_03.png)
 
 * **Click on the cancel button** in the upper right hand corner of the screen to dismiss the message and open the Barcode app. If you turn the device sideways it should look like this:
 
-![img](images/eb_tutorials/Barcode_API_tutorial_04.png?raw=true)
+![img](images/eb_tutorials/Barcode_API_tutorial_04.png)
 
 * **Click on the Enable Scan button**.
 
-![img](images/eb_tutorials/Barcode_API_tutorial_05.png?raw=true)
+![img](images/eb_tutorials/Barcode_API_tutorial_05.png)
 
 * **Press the device's hardware trigger button**, point the device at a barcode and wait until you hear a beep signaling that the code has been captured. You should see the barcode number displayed in the input field. 
 
-![img](images/eb_tutorials/Barcode_API_tutorial_06.png?raw=true)
+![img](images/eb_tutorials/Barcode_API_tutorial_06.png)
 
 * **Click the Disable Scan button**. Then try pressing the device's hardware trigger again. This time the device should not scan. 
 
-![img](images/eb_tutorials/Barcode_API_tutorial_07.png?raw=true)
+![img](images/eb_tutorials/Barcode_API_tutorial_07.png)
 
 ###Conclusion
 
