@@ -24,9 +24,9 @@ The resulting example application looks like this:
 
 The following HTML template will be used as a starting point for this tutorial. It includes the following features:
 
-* Home button that returns the user to the Enterprise Browser start page. 
-* Quit button that exits Enterprise Browser. 
-* Styling to size components in an appropriate manner for use on a device. 
+* Home button that returns the user to the Enterprise Browser start page 
+* Quit button that exits Enterprise Browser
+* Styling to size components in an appropriate manner for use on a device
 
 HTML Starter Template:
 
@@ -57,13 +57,17 @@ HTML Starter Template:
 ###STEP 1: Create the application file
 
 * **Create a directory** on your development machine for application files. 
+
 * **Copy `ebapi-modules.js` from C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser to your application directory**. The Quit button relies on code in this JavaScript file. 
-* **Create a file named `gesture.html`** in your application directory and open it in a text editor.
-* **Copy the contents of the starter template** above into the file and save it.
+
+* **Create a file named `gesture.html`** in your application directory and open it in a text editor. Make sure the file doesn't have an invisible '.txt' extension. 
+
+* **Copy and paste the contents of the starter template above into the file** and save it.
 
 ###STEP 2: Add input field and control buttons
-* **Open `gesture.html`** in a text editor.
-* **Add three input buttons to the controls section**. The first button will be used to enable gestures, the second to enable gestures with diagnostics and the third to disable gestures. 
+The Gesture app will have three buttons: one to enable gestures, a second to enable gestures with diagnostics and the third to disable gestures. We'll append these two lines of code in a later step. For now: 
+
+* **Add three input buttons to the `controls div` section** of the `gesture.html` file you just created: 
 
 Sample HTML:
 
@@ -74,9 +78,11 @@ Sample HTML:
 
 
 ###STEP 3: Include the API JavaScript file
-* **Copy the `elements.js` file from C:\EnterpriseBrowser\JavaScriptFiles\BackwardCompatibility to your application directory**. The Gesture API requires this JavaScript file.  
- 
-* **Open `gesture.html` for editing and add the following as the first line** in the HEAD section. 
+* **Copy the `elements.js` file** from C:\EnterpriseBrowser\JavaScriptFiles\BackwardCompatibility to your application directory. The Gesture API requires this JavaScript file.  
+
+To include this JavaScript file in your app, 
+
+* **Add the following to `gesture.html`** as the first line in the HEAD section: 
 
 Sample HTML:
 
@@ -84,7 +90,7 @@ Sample HTML:
     <script type="text/javascript" charset="utf-8" src="./elements.js"></script>
 
 ###STEP 4: Define and create gestures
-* **Add the following method to the script section**, which appears after the body section.
+* **Add the following method to the script section** of `gesture html`:
 
 Sample JavaScript:
 
@@ -127,7 +133,9 @@ Gestures are created by setting several attributes and then executing `gesture.c
 >NOTE: For more details about defining gestures, please refer to the [Enterprise Browser Gesture API documentation](../api/Gesture). 
 
 ###STEP 5: Respond to gestures
-* The gesture handler in the previous method was set to `fnGestureDetected()`. **Add the method to the end of the script section**.
+The gesture handler in the previous method was set to `fnGestureDetected()`. 
+
+* **Add the `fnGestureDetected()` method to the end of the script section**.
 
 Sample JavaScript:
 
@@ -139,7 +147,7 @@ Sample JavaScript:
 Data is passed to the callback function in the form of a JSON object. The id of the gesture that was detected is one of the values passed. The code above posts an alert with the id of the detected gesture. In a production application, you might use the callback to initiate navigation. 
 
 ###STEP 6: Delete gestures
-* **Add a method called `fnGestureDisable()`** to delete any active gestures:
+* **Add the method `fnGestureDisable()`** to delete any active gestures:
 
 Sample JavaScript:
 
@@ -154,8 +162,8 @@ Sample JavaScript:
 
 When this function is called, it sets and then deletes the current gesture once for each of the gestures that were previously created. The last line displays a text indicator to the user.
 
-###STEP 7: Hook up JavaScript method to buttons 
-* **Open `gestures.html` and add `onClick` handlers to the input button tags** to hook the JavaScript functions to the control buttons, as shown here:
+###STEP 7: Hook JavaScript methods to buttons 
+* **In `gesture.html`, append `onClick` handler code to the input button tags** we created earlier. This will connect JavaScript functions to the buttons: 
 
 Sample JavaScript:
 
@@ -170,11 +178,22 @@ To test the application, you need to copy the application files to the device an
 
 In general, here's what is required:
 
-1. **Create a directory on your device** for the Gesture application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
+1. **Create a directory on your device** for the Gesture application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. We'll place our sample app's files in the device's root directory and show you how to modify the `config.xml` file accordingly. 
 2. **Copy the `gesture.html` and any JavaScript API files** you have included to the directory you created on the device. 
 3. **Copy the `config.xml` file to a suitable location on the development machine** from the Enterprise Browser install directory on the device and open it in a text editor. 
 4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `gesture.html` and save the changes. 
 5. **Copy the `config.xml` file back to its original location on the device**.    
+
+
+Sample `config.xml` showing path to Android app in root directory: 
+
+    :::HTML
+        <General>
+            <Name value="Gesture"/>
+            <StartPage value="file:///gesture.html" name="Gesture"/>
+            <UseRegularExpressions value="1"/>
+        </General>
+
 
 ###STEP 9: Testing the App
 * **Tap the Enterprise Browser icon** on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
