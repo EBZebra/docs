@@ -144,7 +144,7 @@ The `EB.Barcode.disable()` method on the first line shuts down the scanner and p
 
 Now that the JavaScript functions have been created, we can hook them to the control buttons.  
 
-* **In `barcode.html`, append `onClick` handler code to the input button tags** we created earlier: 
+* **In `barcode.html`, append `onClick` handler code to the input button tags** we created earlier (or simply replace the buttons created earlier with the function-appended button code below): 
 
 Sample HTML:
 

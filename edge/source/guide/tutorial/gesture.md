@@ -147,7 +147,9 @@ Sample JavaScript:
 Data is passed to the callback function in the form of a JSON object. The id of the gesture that was detected is one of the values passed. The code above posts an alert with the id of the detected gesture. In a production application, you might use the callback to initiate navigation. 
 
 ###STEP 6: Delete gestures
-* **Add the method `fnGestureDisable()`** to delete any active gestures:
+Next we'll add a means to delete any active gestures. 
+
+* **Add the method `fnGestureDisable()` to the end of the SCRIPT section:
 
 Sample JavaScript:
 
@@ -163,7 +165,9 @@ Sample JavaScript:
 When this function is called, it sets and then deletes the current gesture once for each of the gestures that were previously created. The last line displays a text indicator to the user.
 
 ###STEP 7: Hook JavaScript methods to buttons 
-* **In `gesture.html`, append `onClick` handler code to the input button tags** we created earlier. This will connect JavaScript functions to the buttons: 
+Now that the JavaScript functions have been created, we can hook them to the control buttons. 
+
+* **In `gesture.html`, append `onClick` handler code to the input button tags** we created earlier (or simply replace the buttons created earlier with the function-appended button code below): 
 
 Sample JavaScript:
 
