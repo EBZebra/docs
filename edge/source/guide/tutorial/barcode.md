@@ -17,7 +17,7 @@ Enterprise Browser includes an API for scanning barcodes. The steps shown below 
 
 ![img](images/eb_tutorials/Barcode_API_tutorial_01.png)
 
-The resulting example application looks like this:
+The resulting application will look like this:
 
 ![img](images/eb_tutorials/Barcode_API_tutorial_02.png)
 
@@ -56,19 +56,21 @@ HTML Starter Template:
 ###STEP 1: Create the application file
 
 * **Create a directory** on your development machine for application files.
-* **Create a file named `barcode.html`** in your application directory and open it in a text editor.
-* **Copy and paste the contents of the starter template** above into the file and save it.
+* **Create a file named `barcode.html`** in your application directory and open it in a text editor. Make sure the app isn't adding an invisible '.txt' extension. 
+* **Copy and paste the contents of the starter template above into the file** and save it.
 
 ###STEP 2: Add input field and control buttons.
-* **Open `barcode.html`** in a text editor.
-* **Add an input field** with the following definition to the content div.
+* **Add an input field to the `content div` section** of the `barcode.html` file you just created: 
 
 Sample HTML:
 
 		:::html
-		<input id="scanData" type=text ><br/>
+			<input id="scanData" type=text ><br/>
 
-* After the input field, **add two input buttons**. The first button will be used to enable scanning, the second to disable scanning. 
+
+Next we'll add two buttons: one to enable scanning and another to disable scanning. We'll append these two lines of code in a later step. For now: 
+
+* **Add two input buttons immediately after the input field**: 
 
 Sample HTML:
 
@@ -80,10 +82,11 @@ Sample HTML:
 
 The Barcode API requires the Enterprise Browser API JavaScript file. 
 
-* **Copy the ebapi-modules.js file** from `C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser`<br> 
-to your application directory. 
+* **Copy the `ebapi-modules.js` file** from **C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser** to your application directory. 
+
+To include this JavaScript file in your app, 
  
-* Open `barcode.html` for editing and **add the following as the first line in the HEAD** section. 
+* **Add the following to `barcode.html`** as the first line in the HEAD section: 
 
 Sample HTML:
 
@@ -91,7 +94,7 @@ Sample HTML:
 	<script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>
 
 ###STEP 4: Configure scanner settings and enable scanner
-* **Add the method`fnScanEnable()` to the script section** that appears **between the end body tag and the end html tag**.
+* **Add the method`fnScanEnable()` to the script section** that appears **between the end BODY tag and the end HTML tag**: 
 
 Sample JavaScript:
 
@@ -137,13 +140,11 @@ Sample JavaScript:
 
 The `EB.Barcode.disable()` method on the first line shuts down the scanner and prevents additional data captures. The second line displays a message for the user. 
 
-NOTE: * **Make sure to save your app file** periodically as you edit. 
+###STEP 8: Hook JavaScript method to buttons
 
-###STEP 8: Hook up JavaScript method to buttons
+Now that the JavaScript functions have been created, we can hook them to the control buttons.  
 
-Now that the JavaScript functions have been created, we can hook them up to the control buttons.  
-
-* **Open `barcode.html` and add `onClick` handlers to the input button tags** as shown here:
+* **In `barcode.html`, append `onClick` handler code to the input button tags** we created earlier: 
 
 Sample HTML:
 
@@ -157,11 +158,22 @@ To test the application, you need to copy the application files to the device an
 
 In general, here's what is required:
 
-1. **Create a directory on your device** for the Barcode application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
+1. **Create a directory on your device** for the Barcode application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. We'll place our sample app's files in the device's root directory and show you how to modify the `config.xml` file accordingly. 
 2. **Copy the `barcode.html` and any JavaScript API files** you have included to the directory you created on the device. 
 3. **Copy the `config.xml` file to a suitable location on the development machine** from the Enterprise Browser install directory on the device and open it in a text editor. 
 4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `barcode.html` and save the changes. 
-5. **Copy the `config.xml` file back to its original location on the device**.  
+5. **Copy the `config.xml` file back to its original location on the device**. 
+
+Sample `config.xml` showing path to Android app in root directory: 
+
+	:::HTML
+		<General>
+			<Name value="Barcode"/>
+			<StartPage value="file:///barcode.html" name="Barcode"/>
+			<UseRegularExpressions value="1"/>
+		</General>
+
+
 
 ##STEP 10: Testing the app
 
