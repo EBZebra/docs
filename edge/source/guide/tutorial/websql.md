@@ -69,8 +69,7 @@ HTML Starter Template:
 
 ###STEP 2: Add data display area and control buttons
 
-* **Open `websql.html`** in a text editor.
-* **Add a data display area** to the content div:  
+* **In `websql.html`, add a data display area to the `content div` section**:  
 
 Sample HTML: 
 
@@ -79,8 +78,7 @@ Sample HTML:
     </div>
 
 
-
-* **Add two input buttons using the code below** after the display-area code. The first button will be used to add records to the database. The second will erase all records from the database. 
+* **Add two input buttons in the bottom of the `content div` section** using the code below. The first button will be used to add records to the database. The second will erase all records from the database. 
 
 Sample HTML: 
 
@@ -89,7 +87,7 @@ Sample HTML:
     <input type=button value="Reset Database">
 
 
-###STEP 3: Configure Database Location
+###STEP 3: Configure database location
 
 The Enterprise Browser app's `config.xml` file holds several settings that affect WebSQL databases. 
 
@@ -118,7 +116,7 @@ The path shown here is valid for Android. The path for Windows Mobile/CE will va
 
 ###STEP 4: Create a database table
 
-* **Add the method `fnDBInit()`** to the SCRIPT section near the end of the `websql.html` file: 
+* **In `websql.html`, add the method `fnDBInit()` to the SCRIPT section**, which is between the end BODY and end HTML sections: 
 
 Sample JavaScript: 
 
@@ -143,7 +141,7 @@ Sample HTML:
     :::HTML
     <BODY onload="fnOnLoad();" >
 
-* **Add the following method at the beginning of the SCRIPT section**, above `fnDbInit()`:
+* **Add the `fnDbInit()` method as the first function in the SCRIPT section**:
 
 Sample JavaScript: 
 
@@ -158,7 +156,7 @@ The `fnDbDisplayData()` method used in the code above will be created in a later
 
 ###STEP 5: Insert data
 
-* **Add the method `fnDbAdd()` to the SCRIPT section**, after `fnDbInit()`:
+* **Add the `fnDbAdd()` method to the end of the SCRIPT section**:
 
 Sample JavaScript:
 
@@ -173,7 +171,7 @@ Sample JavaScript:
 
 This method executes a SQL statement to insert data into the Items table. For demo purposes, the data in this case is being provided by the `fnMakeName()` method, which returns a new randomly generated name each time it is called. In a real application, you might get data from input fields filled out by the user. 
 
-* **Add the `fnMakeName()` method after `fnDbAdd()`**:
+* **Add the `fnMakeName()` method to the end of the SCRIPT section**::
 
 Sample JavaScript:
 
@@ -259,16 +257,15 @@ Note how the data being inserted into the page includes a delete link for each r
 
 ###STEP 8: Hook JavaScript methods to buttons 
 
-Now that the JavaScript functions have been created, we can hook them up to the control buttons.
+Now that the JavaScript functions have been created, we can hook them to the control buttons.
 
-* **Open `websql.html` and add `onClick` handlers** to the input button tags as shown here:
+* **Add `onClick` handler code** to the input button tags** we created earlier (or **simply replace the buttons created earlier with the function-appended button code below**): 
 
 Sample HTML:
 
     :::HTML
-    <input type=button value="Add Record" onClick="fnDbAdd();">
-
-    <input type=button value="Reset Database" onClick="fnDbReset();">
+    <input type=button value="Add Record" onClick="fnDbAdd()" >
+    <input type=button value="Reset Database" onClick="fnDbReset()" >
 
 
 ###STEP 9: Copy files to the device
@@ -277,11 +274,26 @@ To test the application, you need to copy the application files to the device an
 
 In general, here's what is required:
 
-1. **Create a directory on your device** for the WebSQL application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
+1. **Create a directory on your device** for the WebSQL application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. We'll place our sample app's files in the device's root directory and show you how to modify the `config.xml` file accordingly.
 2. **Copy the `websql.html` and any JavaScript API files** you have included to the directory you created on the device. 
 3. **Copy the `config.xml` file to a suitable location on the development machine** from the Enterprise Browser install directory on the device and open it in a text editor. 
 4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `websql.html` and save the changes. 
 5. **Copy the `config.xml` file back to its original location on the device**.    
+
+Sample `config.xml` showing path to Android app in root directory: 
+
+    :::HTML
+        <General>
+            <Name value="WebSQL"/>
+            <StartPage value="file:///websql.html" name="WebSQL"/>
+            <UseRegularExpressions value="1"/>
+        </General>
+        ...
+        <WebDB>
+            <WebSQLDBQuota value="5000000"/>
+            <WebSQLDBPath value="file:///websql.html"/>
+        </WebDB>
+
 
 
 ###STEP 10: Testing the App

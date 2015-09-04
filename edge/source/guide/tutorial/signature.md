@@ -177,11 +177,22 @@ To test the application, you need to copy the application files to the device an
 
 In general, here's what is required:
 
-1. **Create a directory on your device** for the Signature application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
+1. **Create a directory on your device** for the Signature application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. We'll place our sample app's files in the device's root directory and show you how to modify the `config.xml` file accordingly.
 2. **Copy the `signature.html` and any JavaScript API files** you have included to the directory you created on the device. 
 3. **Copy the `config.xml` file to a suitable location on the development machine** from the Enterprise Browser install directory on the device and open it in a text editor. 
 4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `signature.html` and save the changes. 
 5. **Copy the `config.xml` file back to its original location on the device**.    
+
+Sample `config.xml` showing path to Android app in root directory: 
+
+    :::HTML
+        <General>
+            <Name value="Signature"/>
+            <StartPage value="file:///sigcap.html" name="Signature"/>
+            <UseRegularExpressions value="1"/>
+        </General>
+
+
 
 ###STEP 10: Testing the App
 
