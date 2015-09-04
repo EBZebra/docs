@@ -129,7 +129,7 @@ An alternate method, `show()`, allows you to designate a specific location on th
 
 ###STEP 6: Display the signature
 
-* **Add a method called onSigCapture(capData)** at the end of the SCRIPT section:
+* **Add a method called `onSigCapture(capData)`** at the end of the SCRIPT section:
 
 In the SCRIPT section between the end body tag and the end html tag
 
@@ -162,12 +162,12 @@ This method will be called by the Clear Signature button to reset the signature 
 
 Now that the JavaScript functions have been created, we can hook them to the control buttons. 
 
-* **Open `sigcap.html` and add `onClick` handlers** to the input button tags as shown here:
+* **Add `onClick` handler code to the input button tags** we created earlier (or **simply replace the buttons created earlier with the function-appended button code below**): 
 
 Sample HTML:
 
     :::HTML
-    <input type=button value="Capture Signature" onClick="fnSigCaptureStart();">
+    <input type=button value="Capture Signature" onClick="fnSigCaptureStart()" >
     <input type=button value="Clear Signature"   onClick="fnSigCaptureClear()" >
 
 
