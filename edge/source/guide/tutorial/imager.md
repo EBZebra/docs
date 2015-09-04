@@ -100,7 +100,7 @@ Sample HTML:
 
 ###STEP 4: Initialize capture settings and display capture area
 
-* **Add the method `fnImgCaptureEnable()` (without the line numbers)** to the script section, which is between the end BODY tag and the end HTML tag.  
+* **Add the method `fnImgCaptureEnable()` (without the line numbers)** to the SCRIPT section, which is between the end BODY tag and the end HTML tag.  
 
 Sample JavaScript: 
 
@@ -120,7 +120,7 @@ Lines 2-5 set the on-screen location of the displayed image capture area. Line 6
 
 ###STEP 5: Capture the image
 
-* **Add the method `fnImgCapture()`** at the end of the script section:
+* **Add the method `fnImgCapture()`** at the end of the SCRIPT section:
 
 Sample JavaScript: 
 
@@ -135,7 +135,7 @@ This method will be called when the user clicks on the Capture button or uses th
 ###STEP 6: Hide the capture screen
 After displaying the image capture area, there may be situations in which the user decides not to take a picture. In such cases, the `fnImgCaptureDisable()` method is used to cancel the image capture and un-map the hardware trigger button.
 
-* **Add the method `fnImgCaptureDisable()`** at the end of the script section:
+* **Add the method `fnImgCaptureDisable()`** at the end of the SCRIPT section:
 
 Sample JavaScript: 
 
@@ -147,7 +147,7 @@ Sample JavaScript:
 
 
 ###STEP 7: Display the image
-* **Add the method `fnImgCaptureDisable()`** at the end of the script section:
+* **Add the method `fnImgCaptureDisable()`** at the end of the SCRIPT section:
 
 Sample JavaScript:
 
@@ -162,7 +162,7 @@ Sample JavaScript:
 This method takes the image that has been passed as data in the `capData` JSON object and assigns it to the src attribute of the img display element which displays the image on-screen. 
 
 ###STEP 8: Add a method to clear the displayed image
-* For convenience, we will **add a method to clear the displayed image** at the end of the script section:
+* For convenience, we will **add a method to clear the displayed image** at the end of the SCRIPT section:
 
 Sample JavaScript: 
 

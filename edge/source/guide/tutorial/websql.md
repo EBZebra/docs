@@ -118,7 +118,7 @@ The path shown here is valid for Android. The path for Windows Mobile/CE will va
 
 ###STEP 4: Create a database table
 
-* **Add the method `fnDBInit()`** to the script section near the end of the `websql.html` file: 
+* **Add the method `fnDBInit()`** to the SCRIPT section near the end of the `websql.html` file: 
 
 Sample JavaScript: 
 
@@ -143,7 +143,7 @@ Sample HTML:
     :::HTML
     <BODY onload="fnOnLoad();" >
 
-* **Add the following method at the beginning of the script section**, above `fnDbInit()`:
+* **Add the following method at the beginning of the SCRIPT section**, above `fnDbInit()`:
 
 Sample JavaScript: 
 
@@ -158,7 +158,7 @@ The `fnDbDisplayData()` method used in the code above will be created in a later
 
 ###STEP 5: Insert data
 
-* **Add the method `fnDbAdd()` to the script section**, after `fnDbInit()`:
+* **Add the method `fnDbAdd()` to the SCRIPT section**, after `fnDbInit()`:
 
 Sample JavaScript:
 
@@ -194,7 +194,7 @@ Sample JavaScript:
 Data can be deleted by individual records or by deleting all records at once and resetting the database. We'll give you both methods. 
 
 ####Record by record:
-* **Add the method `fnDbDeleteRecord(id)` at the end of the script section** to allow deletion of individual records based on the record id: 
+* **Add the method `fnDbDeleteRecord(id)` at the end of the SCRIPT section** to allow deletion of individual records based on the record id: 
 
 Sample JavaScript:
 
@@ -209,7 +209,7 @@ Sample JavaScript:
 An id gets passed to this method, which it uses to execute a SQL delete statement for the given record. 
 
 ####All records at once:
-* **Add the method `fnDbReset()` at the end of the script section**:
+* **Add the method `fnDbReset()` at the end of the SCRIPT section**:
 
 Sample JavaScript:
 
@@ -231,7 +231,7 @@ This method executes two SQL statements. The first statement drops the existing 
 
 You may have noticed that we have been calling `fnDbDisplayData()` after each data operation. This method refreshes the screen with the latest contents of the database table.
 
-* **Add the method `fnDbDisplayData()` at the end of the script section**:
+* **Add the method `fnDbDisplayData()` at the end of the SCRIPT section**:
 
 Sample JavaScript:
 

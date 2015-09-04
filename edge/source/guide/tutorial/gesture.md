@@ -90,7 +90,7 @@ Sample HTML:
     <script type="text/javascript" charset="utf-8" src="./elements.js"></script>
 
 ###STEP 4: Define and create gestures
-* **Add the following method to the script section** of `gesture html`:
+* **Add the following method to the SCRIPT section** of `gesture html`:
 
 Sample JavaScript:
 
@@ -135,7 +135,7 @@ Gestures are created by setting several attributes and then executing `gesture.c
 ###STEP 5: Respond to gestures
 The gesture handler in the previous method was set to `fnGestureDetected()`. 
 
-* **Add the `fnGestureDetected()` method to the end of the script section**.
+* **Add the `fnGestureDetected()` method to the end of the SCRIPT section**.
 
 Sample JavaScript:
 
@@ -149,7 +149,7 @@ Data is passed to the callback function in the form of a JSON object. The id of 
 ###STEP 6: Delete gestures
 Next we'll add a means to delete any active gestures. 
 
-* **Add the method `fnGestureDisable()` to the end of the SCRIPT section:
+* **Add the method `fnGestureDisable()`** to the end of the SCRIPT section:
 
 Sample JavaScript:
 

@@ -102,7 +102,7 @@ Sample HTML:
 
 ###STEP 4: Initialize capture settings, display capture area
 
-* **Add the method `fnScanEnable()`** to the script section **between the end BODY tag and the end HTML tag**: 
+* **Add the method `fnScanEnable()`** to the SCRIPT section **between the end BODY tag and the end HTML tag**: 
 
 Sample JavaScript:
 
@@ -129,9 +129,9 @@ An alternate method, `show()`, allows you to designate a specific location on th
 
 ###STEP 6: Display the signature
 
-* **Add a method called onSigCapture(capData)** at the end of the script section:
+* **Add a method called onSigCapture(capData)** at the end of the SCRIPT section:
 
-In the script section between the end body tag and the end html tag
+In the SCRIPT section between the end body tag and the end html tag
 
 Sample JavaScript: 
 
@@ -146,7 +146,7 @@ Sample JavaScript:
 
 ###STEP 7: Clear the signature
 
-* **Add the method `onSigCaptureClear()`** at the end of the script section:
+* **Add the method `onSigCaptureClear()`** at the end of the SCRIPT section:
 
 Sample JavaScript:
 

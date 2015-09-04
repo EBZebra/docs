@@ -96,7 +96,7 @@ Sample HTML:
 
 ###STEP 4: Create a hash with settings, start connection test
 
-* **Add the method `fnDetectConnection()` to the script section** between the end BODY tag and the end HTML tag. 
+* **Add the method `fnDetectConnection()` to the SCRIPT section** between the end BODY tag and the end HTML tag. 
 
 Sample JavaScript: 
 
@@ -118,7 +118,7 @@ The `params_hash` parameter hash includes settings for the host URL, `pollInterv
 
 We need to add the callback function that was passed to `detectConnection()` in the previous method. 
 
-* **Add `onConnectionStatusChange()` at the end of the script section**. This method displays a message regarding the connection status to the user. 
+* **Add `onConnectionStatusChange()` at the end of the SCRIPT section**. This method displays a message regarding the connection status to the user. 
 
 Sample JavaScript: 
 
@@ -132,7 +132,7 @@ Sample JavaScript:
 
 Our callback method uses a utility function to display a date and time along with each status message. 
 
-* **Add the following function at the end of the script section**:
+* **Add the following function at the end of the SCRIPT section**:
 
 Sample JavaScript: 
 
@@ -169,7 +169,7 @@ Sample JavaScript:
 
 ###Step 6: Stop the connection test
 
-* **Add the following method to the end of the script section**. It will be used to cancel the connection polling that was started by the call to `detectConnection()`:
+* **Add the following method to the end of the SCRIPT section**. It will be used to cancel the connection polling that was started by the call to `detectConnection()`:
 
 Sample JavaScript: 
 

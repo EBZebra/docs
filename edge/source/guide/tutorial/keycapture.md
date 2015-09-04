@@ -98,7 +98,7 @@ Sample HTML:
 In order to make sure that key mappings are functioning properly, we need a way to identify keys and the key codes of keys that are being pressed. To do this, we will run the following code on startup to capture the keys and send their value to an element for display.  
 
 * **Open keycap.html** in a text editor.
-* **Add the following code to the script section** in the HEAD section at the top of the file: 
+* **Add the following code to the SCRIPT section** in the HEAD section at the top of the file: 
 
 Sample JavaScript:
 
@@ -119,7 +119,7 @@ Sample HTML:
 
 
 ###STEP 4: Turn key mappings on 
-* **Add the `fnKeyMapOn()` method** in the script section **between the end BODY tag and the end HTML tag**:  
+* **Add the `fnKeyMapOn()` method** in the SCRIPT section **between the end BODY tag and the end HTML tag**:  
 
 Sample JavaScript: 
 
@@ -157,7 +157,7 @@ In this method, we reset the key mappings by calling the same `remapKey()` metho
 
 The KeyCapture API also lets us map a custom function onto the device's trigger key.  
 
-* **Add a method called `fnTrigCaptureOn()`** at the end of the second script section after `fnKeyMapOff()`:
+* **Add a method called `fnTrigCaptureOn()`** at the end of the second SCRIPT section after `fnKeyMapOff()`:
 
 Sample JavaScript:
 
@@ -172,7 +172,7 @@ Sample JavaScript:
 This method calls the `captureTrigger()` method and passes a function that will then be called whenever the hardware trigger key is pressed. A text indicator is set so that the user knows that the trigger capture is in effect. 
 
 ###STEP 7: Respond to the trigger
-* **Add the trigger callback method `fnImgCaptureDisable()`** at the end of the second script section:
+* **Add the trigger callback method `fnImgCaptureDisable()`** at the end of the second SCRIPT section:
 
 Sample JavaScript:
 
@@ -186,7 +186,7 @@ The callback simply echoes the callback parameters to a display area on the scre
 
 ###STEP 8: Turn capture trigger off
 
-* **Add this method to reset the capture trigger** at the end of the second script section:
+* **Add this method to reset the capture trigger** at the end of the second SCRIPT section:
 
 Sample JavScript:
 

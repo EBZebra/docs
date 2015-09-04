@@ -94,7 +94,7 @@ Sample HTML:
 	<script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>
 
 ###STEP 4: Configure scanner settings and enable scanner
-* **Add the method`fnScanEnable()` to the script section** that appears **between the end BODY tag and the end HTML tag**: 
+* **Add the method`fnScanEnable()` to the SCRIPT section** that appears **between the end BODY tag and the end HTML tag**: 
 
 Sample JavaScript:
 
@@ -114,7 +114,7 @@ In the demo app, **scans will be triggered by pressing the device's hardware tri
 For more information about using this method, please refer to the [Enterprise Browser Barcode API documentation](../api/barcode).
 
 ###STEP 6: Process the results
-* **Add the method`fnBarcodeScanned()` at the end of the script section** to process scan results:
+* **Add the method`fnBarcodeScanned()` at the end of the SCRIPT section** to process scan results:
 
 Sample JavaScript: 
 
@@ -128,7 +128,7 @@ Sample JavaScript:
 `fnBarcodeScanned()` is a callback function we passed to `enable()`in the previous method. The JSON object passed to the function contains data captured during the scan. A `console.log()` statement is used to show the JSON object's contents for testing purposes. The last line takes the data attribute from the object and displays it in a text input field.
 
 ###STEP 7: Disable the scanner
-* **Add the method `fnScanDisable()` to the script section**:
+* **Add the method `fnScanDisable()` to the SCRIPT section**:
 
 Sample JavaScript:
 
