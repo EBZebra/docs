@@ -68,8 +68,9 @@ HTML Starter Template:
 * **Copy the contents of the starter template above** into the file and save it.
 
 ###STEP 2: Add image display area and control buttons
-* **Open `imgcap.html`** in a text editor.
-* **Add four input buttons to the controls div**. The first button will be used to activate the image capture area the others will be used to cancel the capture, capture an image and clear a currently displayed image.
+* **Add four input buttons to the `controls div`** of `imgcap.html`. 
+
+The first button will be used to activate the image capture area. The others will be used to cancel the capture, capture an image and clear a currently displayed image.
 
 Sample HTML:
 
@@ -79,21 +80,18 @@ Sample HTML:
     <input type=button value="Cancel">
     <input type=button value="Clear">
 
-
-
-* **Add an img element to the content div** that can be used to display captured images. 
+* **Add an img element to the `content div`** that can be used to display captured images. 
 
 Sample HTML:
 
     :::HTML
     <img src="" id="imgdata" />
 
-
    
 ###STEP 3: Include the API JavaScript file
 * **Copy the `elements.js` file** from C:\EnterpriseBrowser\JavaScriptFiles\BackwardCompatibility to your application directory. The Imager API requires this JavaScript file. 
  
-* **Open `imgcap.html` for editing and add the following** as the first line in the HEAD section. 
+* **Add the following to `imgcap.html`** as the first line in the HEAD section. 
 
 Sample HTML:
 
@@ -102,7 +100,7 @@ Sample HTML:
 
 ###STEP 4: Initialize capture settings and display capture area
 
-* **Add the method `fnImgCaptureEnable()`** to the script section between the end body tag and the end html tag.  
+* **Add the method `fnImgCaptureEnable()` (without the line numbers)** to the script section, which is between the end BODY tag and the end HTML tag.  
 
 Sample JavaScript: 
 
@@ -118,7 +116,7 @@ Sample JavaScript:
      9. }
 
 
-The code in lines 2-5 sets the location on screen where the image capture area will be displayed. Line 6 sets a callback function that will be called after an image capture is triggered. Line 7 maps the hardware trigger on the device to a function we will be using to execute the image capture. And in line 8 we call the `enable()` function, which displays the image capture area.    
+Lines 2-5 set the on-screen location of the displayed image capture area. Line 6 sets a callback function that will be called after an image capture is triggered. Line 7 maps the hardware trigger on the device to a function used to execute the image capture. And line 8 calls the `enable()` function, which displays the image capture area. **DO NOT include the line numbers in your app**. 
 
 ###STEP 5: Capture the image
 
@@ -135,6 +133,7 @@ Sample JavaScript:
 This method will be called when the user clicks on the Capture button or uses the device's hardware trigger button. The `capture()` method will trigger the API to save the current image and use that data to execute the previously set callback function.
 
 ###STEP 6: Hide the capture screen
+After displaying the image capture area, there may be situations in which the user decides not to take a picture. In such cases, the `fnImgCaptureDisable()` method is used to cancel the image capture and un-map the hardware trigger button.
 
 * **Add the method `fnImgCaptureDisable()`** at the end of the script section:
 
@@ -146,7 +145,6 @@ Sample JavaScript:
       keyCapture.triggerEvent = ''; 
     }
 
-After displaying the image capture area, there may be situations in which the user decides not to take a picture. In such cases, the `fnImgCaptureDisable()` method is used to cancel the image capture and un-map the hardware trigger button.
 
 ###STEP 7: Display the image
 * **Add the method `fnImgCaptureDisable()`** at the end of the script section:
@@ -164,7 +162,7 @@ Sample JavaScript:
 This method takes the image that has been passed as data in the `capData` JSON object and assigns it to the src attribute of the img display element which displays the image on-screen. 
 
 ###STEP 8: Add a method to clear the displayed image
-* For convenience we will **add a method to clear the displayed image**:
+* For convenience, we will **add a method to clear the displayed image** at the end of the script section:
 
 Sample JavaScript: 
 
@@ -175,13 +173,15 @@ Sample JavaScript:
     }
 
 
-###STEP 9: Hook up JavaScript method to buttons
-* **Open `imgcap.html` and add onClick handlers to the input button tags** to hook the JavaScript functions to the control buttons:
+###STEP 9: Hook JavaScript methods to buttons
+Now that the JavaScript functions have been created, we can hook them to the control buttons. 
+
+* **In `imgcap.html`, append `onClick` handler code to the input button tags** we created earlier (or **simply replace the buttons created earlier with the function-appended button code below**): 
 
 Sample JavaScript: 
 
     :::JavaScript
-    <input type=button value="Open Capture Area" onClick="fnImgCaptureEnable();">
+    <input type=button value="Open Capture Area" onClick="fnImgCaptureEnable()" >
     <input type=button value="Capture" onClick="fnImgCapture()" >
     <input type=button value="Cancel" onClick="fnImgCaptureDisable()" >
     <input type=button value="Clear"   onClick="fnClearImage()" >
@@ -193,11 +193,21 @@ To test the application, you need to copy the application files to the device an
 
 In general, here's what is required:
 
-1. **Create a directory on your device** for the Imager application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
+1. **Create a directory on your device** for the Imager application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. We'll place our sample app's files in the device's root directory and show you how to modify the `config.xml` file accordingly. 
 2. **Copy the `imager.html` and any JavaScript API files** you have included to the directory you created on the device. 
 3. **Copy the `config.xml` file to a suitable location on the development machine** from the Enterprise Browser install directory on the device and open it in a text editor. 
 4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `imager.html` and save the changes. 
 5. **Copy the `config.xml` file back to its original location on the device**.  
+
+Sample `config.xml` showing path to Android app in root directory: 
+
+    :::HTML
+        <General>
+            <Name value="Gesture"/>
+            <StartPage value="file:///gesture.html" name="Gesture"/>
+            <UseRegularExpressions value="1"/>
+        </General>
+
 
 ###STEP 11: Testing the App
 * **Tap the Enterprise Browser icon** on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
