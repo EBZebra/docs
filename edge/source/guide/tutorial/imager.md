@@ -203,8 +203,8 @@ Sample `config.xml` showing path to Android app in root directory:
 
     :::HTML
         <General>
-            <Name value="Gesture"/>
-            <StartPage value="file:///gesture.html" name="Gesture"/>
+            <Name value="Imager"/>
+            <StartPage value="file:///imager.html" name="Imager"/>
             <UseRegularExpressions value="1"/>
         </General>
 

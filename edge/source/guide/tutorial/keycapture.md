@@ -83,7 +83,7 @@ HTML Starter Template:
 * **Copy the `ebapi-modules.js` file** from `C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser`<br> 
 to your application directory. The KeyCapture API requires this JavaScript file.
  
-* Open `keycap.html` for editing and **add the following as the first line in the HEAD** section: 
+* **Add the following to `keycap.html` as the first line in the HEAD** section: 
 
 Sample HTML:
 
@@ -95,10 +95,9 @@ Sample HTML:
 
 ###STEP 3: Capture and display key values
 
-In order to make sure that key mappings are functioning properly, we need a way to identify keys and the key codes of keys that are being pressed. To do this, we will run the following code on startup to capture the keys and send their value to an element for display.  
+To verify that key mappings are functioning properly, we need a way to identify key codes of keys that are being pressed. To do this, we will run the following code on startup to capture the keys and send their value to an element for display. 
 
-* **Open keycap.html** in a text editor.
-* **Add the following code to the SCRIPT section** in the HEAD section at the top of the file: 
+* **In the the `keycap.html` file, insert the following code into the upper script section**, which is in the HEAD section: 
 
 Sample JavaScript:
 
@@ -110,7 +109,7 @@ Sample JavaScript:
     }
 
 
-* **Add an onload statement to the starting body tag** as shown here: 
+* **Replace the starting BODY tag** with the one that contains an `onload` statement as shown here: 
 
 Sample HTML:
 
@@ -136,8 +135,9 @@ Sample JavaScript:
 In the first three lines of code above, three keys are remapped: the volume-up and volume-down keys and the menu softkey on a TC55. After that we set a text indicator letting the user know that key mapping has been turned on. If you're working with a device other than the TC55, you'll be able to adjust which keys are mapped in a later step.
 
 ###STEP 5: Turn key mappings off
+The next function provides a way to remap and reset the keys. 
 
-* To provide a method to reset the key mappings, **add the following after the 'keymappings on' method**:
+* **Add the method `fnKeyMapOff()` at the bottom of the SCRIPT section**, which is between the end BODY tag and the end HTML tag:
 
 Sample JavaScript:
 
@@ -157,7 +157,7 @@ In this method, we reset the key mappings by calling the same `remapKey()` metho
 
 The KeyCapture API also lets us map a custom function onto the device's trigger key.  
 
-* **Add a method called `fnTrigCaptureOn()`** at the end of the second SCRIPT section after `fnKeyMapOff()`:
+* **Add method `fnTrigCaptureOn()` at the bottom of the SCRIPT section**, which is between the end BODY tag and the end HTML tag:
 
 Sample JavaScript:
 
@@ -172,7 +172,7 @@ Sample JavaScript:
 This method calls the `captureTrigger()` method and passes a function that will then be called whenever the hardware trigger key is pressed. A text indicator is set so that the user knows that the trigger capture is in effect. 
 
 ###STEP 7: Respond to the trigger
-* **Add the trigger callback method `fnImgCaptureDisable()`** at the end of the second SCRIPT section:
+* **Add the trigger callback method `fnImgCaptureDisable()`** at the bottom of the SCRIPT section, which is between the end BODY tag and the end HTML tag:
 
 Sample JavaScript:
 
@@ -186,7 +186,7 @@ The callback simply echoes the callback parameters to a display area on the scre
 
 ###STEP 8: Turn capture trigger off
 
-* **Add this method to reset the capture trigger** at the end of the second SCRIPT section:
+* **Add the method `fnTrigCaptureOff()` at the end of the SCRIPT section**, which is between the end BODY and end HTML tags:
 
 Sample JavScript:
 
@@ -197,13 +197,13 @@ Sample JavScript:
       document.getElementById('trigcap').style.color = "black";
     }
 
-This method removes the callback function from the trigger key by calling the same `captureTrigger()` method without a callback function.
+This method resets the capture trigger by removing the callback function from the trigger key and calling the same `captureTrigger()` method without a callback function.
 
-###STEP 9: Hook the JavaScript method to buttons
+###STEP 9: Hook the JavaScript methods to buttons
 
-Now that the JavaScript functions have been created we can hook them up to the control buttons.
+Now that the JavaScript functions have been created, we can hook them up to the control buttons.
 
-* **Open `keycap.html` and add `onClick` handlers** to the input button tags as shown here:
+* **In `keycap.html`, append `onClick` handler code to the button tags** we created earlier in the `controls div` section, (or **simply replace the two corresponding `div` sections with the function-appended ones below**):
 
 Sample HTML:
 
@@ -216,7 +216,7 @@ Sample HTML:
 
     <div>
       <input type=button value="TrigCap On"  onClick="fnTrigCaptureOn();" >
-      <input type=button value="TrigCap Off" onClick="fnTrigCaptureOff();">
+      <input type=button value="TrigCap Off" onClick="fnTrigCaptureOff();" >
       <span id=trigcap>KeyTrap is Off</span>
     </div>
 
@@ -227,11 +227,23 @@ To test the application, you need to copy the application files to the device an
 
 In general, here's what is required:
 
-1. **Create a directory on your device** for the KeyCapture application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
-2. **Copy the `keycapture.html` and any JavaScript API files** you have included to the directory you created on the device. 
+1. **Create a directory on your device** for the KeyCapture application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. We'll place our sample app's files in the device's root directory and show you how to modify the `config.xml` file accordingly. 
+2. **Copy the `keycap.html` and any JavaScript API files** you have included to the directory you created on the device. 
 3. **Copy the `config.xml` file to a suitable location on the development machine** from the Enterprise Browser install directory on the device and open it in a text editor. 
-4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `keycapture.html` and save the changes. 
+4. **Update the StartPage setting in `config.xml` to point to the location on the device** where you placed `keycap.html` and save the changes. 
 5. **Copy the `config.xml` file back to its original location on the device**.
+
+
+Sample `config.xml` showing path to Android app in root directory: 
+
+    :::HTML
+        <General>
+            <Name value="KeyCapture"/>
+            <StartPage value="file:///keycap.html" name="KeyCapture"/>
+            <UseRegularExpressions value="1"/>
+        </General>
+
+
 
 ###STEP 11: Testing the App
 * **Tap the Enterprise Browser icon** on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
