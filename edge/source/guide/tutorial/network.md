@@ -67,8 +67,7 @@ HTML Starter Template:
 * **Copy the contents of the starter template** above into the file and save it.
 
 ###STEP 2: Add URL input and control buttons
-* **Open `netcon.html`** in a text editor.
-* **Add two buttons and an input area into the controls div.** The first button will call the API to start polling the connection. The input element will provide the URL to poll for. The second button will call the API to stop polling the connection. 
+* **In `netcon.html`, add two buttons and an input area into the controls div.** 
 
 Sample HTML: 
 
@@ -77,13 +76,14 @@ Sample HTML:
     <input type=text  id="host" value = "www.zebra.com"><br/>
     <button>Stop Checking</button>
 
+The first button will call the API to start polling the connection. The input element will provide the URL to poll for. The second button will call the API to stop polling the connection. 
 
 ###STEP 3: Include the API JavaScript file
 * **Copy the `ebapi-modules.js` file** from
 `C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser` 
 to your application directory. This JavaScript file is required by the Network API.
 
-* **Open `netcon.html` and add the following** as the first line in the HEAD section. 
+* **Add the following as the first line in the HEAD section**: 
 
 Sample HTML: 
 
@@ -92,11 +92,9 @@ Sample HTML:
     </script>
 
 
-
-
 ###STEP 4: Create a hash with settings, start connection test
 
-* **Add the method `fnDetectConnection()` to the SCRIPT section** between the end BODY tag and the end HTML tag. 
+* **Add the method `fnDetectConnection()` to the SCRIPT section**, which is between the end BODY tag and the end HTML tag. 
 
 Sample JavaScript: 
 
@@ -168,8 +166,9 @@ Sample JavaScript:
 
 
 ###Step 6: Stop the connection test
+The next function will be used to cancel the connection polling that was started by the call to `detectConnection()`. 
 
-* **Add the following method to the end of the SCRIPT section**. It will be used to cancel the connection polling that was started by the call to `detectConnection()`:
+* **Add the following method to the end of the SCRIPT section**:
 
 Sample JavaScript: 
 
@@ -182,9 +181,9 @@ Sample JavaScript:
 
 ###STEP 7: Hook JavaScript method to buttons 
 
-Now that the JavaScript functions have been created we can hook them up to the control buttons.  
+Now that the JavaScript functions have been created, we can hook them to the control buttons.  
 
-* **Open `netcon.html` and add `onClick` handlers** to the button elements as shown here:
+* **Add `onClick` handler code to the input button tags** we created earlier (or **simply replace the contents of the `content div` section inserted earlier with the function-appended code below**):
 
 Sample HTML: 
 
