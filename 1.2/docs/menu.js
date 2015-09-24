@@ -59,9 +59,37 @@ var menuStrcture = [
 						icon: 'fa fa-terminal',
 						items: [
 							{
+								name: 'Barcode',
+								link: '#guide-tutorial-barcode',
+							},
+							{
+								name: 'Gesture',
+								link: '#guide-tutorial-gesture',
+							},
+							{
 								name: 'Hello EB',
 								link: '#guide-tutorial-helloeb',
-							}
+							},
+							{
+								name: 'Imager',
+								link: '#guide-tutorial-imager',
+							},
+							{
+								name: 'KeyCapture',
+								link: '#guide-tutorial-keycapture',
+							},
+							{
+								name: 'Network',
+								link: '#guide-tutorial-network',
+							},
+							{
+								name: 'Signature',
+								link: '#guide-tutorial-signature',
+							},
+							{
+								name: 'WebSQL',
+								link: '#guide-tutorial-websql',
+							}, 
 						]
 					}
 				]
