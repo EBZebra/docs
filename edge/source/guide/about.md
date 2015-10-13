@@ -44,13 +44,13 @@ Enterprise Browser is a powerful, next-geration industrial browser enabling deve
 * Enterprise Browser is compatible with legacy RhoElements JavaScript APIs enabling a clear path forward for "RhoElements Shared Runtime" users
 
 ###Unparalleled access to device capabilities
-* Access all device features, including bar code scanning, signature capture, printing, RFID and much more.
+* Access all device features, including bar code scanning, signature capture, printing, RFID and much more
 
 ###Thin client architecture
-* Simplifies device deployment and management by enabling instant application updates on devices; ensures version consistency.
+* Simplifies device deployment and management by enabling instant application updates on devices; ensures version consistency
 
 ###Operating system "lock out"
-* Hides access to distractions, such as web-browsing and games; simplifies user interface and eliminates risk of unauthorized changes to device settings.
+* Hides access to distractions, such as web-browsing and games; simplifies user interface and eliminates risk of unauthorized changes to device settings
 
 ###Full screen display
 * Maximizes available display space for a richer, more effective user interface; hides command bar and Start menu
@@ -61,22 +61,22 @@ Enterprise Browser is a powerful, next-geration industrial browser enabling deve
 ##Benefits
 
 ###Reduce application and development costs
-Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment.
+Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment
 
 ###Protect the business from OS market uncertainty
-Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on then Symbol Technologies platforms of yesterday (MPA2), today and tomorrow.
+Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on then Zebra Technologies platforms of yesterday (MPA2), today and tomorrow
 
 ###Reduce end-user training costs
 Enterprise Browser app development is incredibly intuitive for developers skilled in HTML5, CSS and JavaScript.
 
 ###Utilize every feature on every device - and attached peripheral
-Easily design rich applications that take advantage of all the available features on a device and its attached peripherals - from scanning bar codes to capturing RFID tags and processing payment cards.
+Easily design rich applications that take advantage of all the available features on a device and its attached peripherals - from scanning bar codes to capturing RFID tags and processing payment cards
 
 ###Create consumer-style apps - for business
-Without OS constraints to impact app design, a graphical user interface can be created that is every bit as engaging, intuitive and interactive as today's consumer applications. Completely control application behavior on different devices: You control how an application behaves on a given device. With automatic screen sizing, apps can look, feel and behave identically on all devices - or you can add new features or expand the presentation of existing features to take advantage of larger screens.
+Without OS constraints to impact app design, a graphical user interface can be created that is every bit as engaging, intuitive and interactive as today's consumer applications. Completely control application behavior on different devices: You control how an application behaves on a given device. With automatic screen sizing, apps can look, feel and behave identically on all devices - or you can add new features or expand the presentation of existing features to take advantage of larger screens
 
 ###Faster time to market
-A simplified application development approach allows for shorter time to market than ever before.
+A simplified application development approach allows for shorter time to market than ever before
 
 ## Supported Devices
 
@@ -135,7 +135,7 @@ A simplified application development approach allows for shorter time to market 
   <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="images/mc40.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC40</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC40</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  
  </tr><tr>
@@ -233,14 +233,14 @@ A simplified application development approach allows for shorter time to market 
   <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="images/tc55.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="images/tc70.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
-  <td class="clsSyntaxCells clsOddRow"><nobr>TC70 GA1</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.3 (KitKat)</td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC70 GA1, TC75</nobr></td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock</td>
  </tr>
 <tr>
