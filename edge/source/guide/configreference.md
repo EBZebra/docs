@@ -733,7 +733,19 @@ Path to an existing directory containing the NPAPI Plug-ins. **Not applicable to
 	:::xml
 	<NPAPIDirectory value="file:///path-to-NPAPI-dir"/>
 
-### Preloads \\ PreloadLegacyActiveX
+## Preloads
+### Preload
+Defines plug-ins to be pre-loaded rather than loading as needed by a program function. Pre-loading prevents application lag when a program function is called for the first time. For example, when Barcode.enable is called by an app, a slight lag will be seen as the Barcode DLL loads into memory. Specify a Preload tag for each module to be loaded when Enterprise Browser starts up. While multiple modules may be defined in the same DLL, list all pre-loaded modules for maximum benefit. For memory-constrained devices, pre-load all required modules to prevent an out-of-memory condition during execution. Does not apply to the Enterprise Tablet; plug-ins are integral to Enterprise Browser on this platform.
+
+**Possible Values**
+
+* Module name
+
+#### Example
+	:::xml
+	<Preload value="MyModule"/>
+
+### PreloadLegacyActiveX
 Determines whether to preload the ActiveX object in WebKit. Use this for backward compatibility with code written in PocketBrowser that used the ActiveXObject. Applies to WM CE with the Zebra Webkit only.
 
 **Possible Values**
@@ -745,7 +757,7 @@ Determines whether to preload the ActiveX object in WebKit. Use this for backwar
 	:::xml
 	<PreloadLegacyActiveX value="1"/>
 
-### Preloads \\ PreloadLegacyGeneric
+### PreloadLegacyGeneric
 Determines whether to preload the NPAPI plugin to mimic the Generic ActiveX object in WebKit. On the Enterprise Tablet this plugin is automatically loaded when the JSObjects plugin is preloaded.
 
 **Possible Values**
@@ -757,7 +769,7 @@ Determines whether to preload the NPAPI plugin to mimic the Generic ActiveX obje
 	:::xml
 	<PreloadLegacyGeneric value="1"/>
 
-### Preloads \\ PreloadLegacyODAX
+### PreloadLegacyODAX
 Determines whether to preload the NPAPI plug-in to mimic the ODAX ActiveX object in WebKit. Does not apply to the Enterprise Tablet. 
 
 **Possible Values**
@@ -784,7 +796,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 	<PreloadLegacyNoSIP value="1"/>
  -->
 
-### Preloads \\ PreloadLegacyAirBeam
+### PreloadLegacyAirBeam
 Not applicable to the Enterprise Tablet:
 
 Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX object in WebKit. Not applicable to the Enterprise Tablet.
@@ -798,7 +810,7 @@ Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX obje
 	:::xml
 	<PreloadLegacyAirBeam value="1"/>
 
-### Preloads \\ PreloadLegacyAPD
+### PreloadLegacyAPD
 Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit.
 
 **Possible Values**
@@ -810,7 +822,7 @@ Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in We
 	:::xml
 	<PreloadLegacyAPD value="1"/>
 
-### Preloads \\ 2PreloadJSObjects
+### 2PreloadJSObjects
 Whether or not to preload the NPAPI plugin to provide native JavaScript objects for each of the modules.
 
 **Possible Values**
@@ -821,19 +833,7 @@ Whether or not to preload the NPAPI plugin to provide native JavaScript objects 
 #### Example
 	:::xml
 	<2PreloadJSObjects value="1"/>
-
-## Preloads
-### Preload
-Defines plug-ins to be pre-loaded rather than loading as needed by a program function. Pre-loading prevents application lag when a program function is called for the first time. For example, when Barcode.enable is called by an app, a slight lag will be seen as the Barcode DLL loads into memory. Specify a Preload tag for each module to be loaded when Enterprise Browser starts up. While multiple modules may be defined in the same DLL, list all pre-loaded modules for maximum benefit. For memory-constrained devices, pre-load all required modules to prevent an out-of-memory condition during execution. Does not apply to the Enterprise Tablet; plug-ins are integral to Enterprise Browser on this platform.
-
-**Possible Values**
-
-* Module name
-
-#### Example
-	:::xml
-	<Preload value="MyModule"/>
-
+	
 ## Scrolling
 ### ScrollTechnique
 Specifies the technique used to scroll the viewport:
