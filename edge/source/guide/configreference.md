@@ -1112,7 +1112,7 @@ Specifies a .wav file to be played when the Imager captures an image. File must 
 
 ## GUI
 ### SignalRefresh
-Specifies the refresh rate of the signal display, see the Signal API for more information.
+Specifies the refresh rate (in milliseconds) of the signal display. See the [Signal API](#api-signalindicators) for more information. 
 
 **Possible Values**
 
@@ -1123,9 +1123,7 @@ Specifies the refresh rate of the signal display, see the Signal API for more in
 	<SignalRefresh value="1000"/>
 
 ### BatteryRefresh
-Specifies the refresh rate of the battery display, see the Battery API for more information. Not applicable to the Enterprise Tablet
-
-> Note: On Android devices the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on Android devices. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
+Specifies the refresh rate (in milliseconds) of the battery display. See the Battery API for more information. Does not apply to the Enterprise Tablet. Note: Not supported on Android devices, which employ an asynchronous battery notification scheme that fires a batteryEvent only when the battery level changes, and is more power-efficient than polling.
 
 **Possible Values**
 
@@ -1136,19 +1134,19 @@ Specifies the refresh rate of the battery display, see the Battery API for more 
 	<BatteryRefresh value="1000"/>
 
 ### HourglassEnabled
-By default an Hourglass will be displayed whilst navigating between pages, this setting can be used to disable that behavior.
+Controls whether the Hourglass icon will be displayed while navigating between pages (enabled by default). 
 
 **Possible Values**
 
 * 0 - Disabled
-* 1 - Enabled
+* **1 - Enabled**
 
 #### Example
 	:::xml
 	<HourglassEnabled value="1"/>
 
 ### HourglassLeft
-By default an Hourglass will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position. If not specified the hourglass will appear at the horizontal center of the screen.
+Controls the horizontal position of the Hourglass icon, which is displayed by default while navigating between pages. If not specified, the Hourglass will appear at the center of the screen.
 
 **Possible Values**
 
@@ -1159,7 +1157,7 @@ By default an Hourglass will be displayed whilst navigating between pages, this 
 	<HourglassLeft value="100"/>
 
 ### HourglassTop
-By default an Hourglass will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position. If not specified the hourglass will appear in the vertical center of the screen.
+Controls the vertical position of the Hourglass icon, which is displayed by default while navigating between pages. If not specified, the Hourglass will appear at the center of the screen.
 
 **Possible Values**
 
