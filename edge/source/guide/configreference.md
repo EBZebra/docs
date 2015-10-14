@@ -1,5 +1,7 @@
 # Config.XML Reference
-Runtime configuration of the Enterprise Browser is managed through an XML file called Config.xml. This file is *mandatory* for proper Enterprise Browser execution: not every setting has a default and if the configuration file cannot be found, the Enterprise Browser will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled your installation or the Enterprise Browser on your device.
+Runtime configuration settings of Enterprise Browser apps are managed through the Config.xml file. The Config.xml file is required; your app will not start without it. Config.xml determines features and behavior of the EB runtime, such as the keys that can be intercepted by an app and whether to pre-load modules on startup. A sample configuration file is provided as part of the Enterprise Browser installation, and contains defaults for many (though not all) of the most common settings. 
+
+The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility introduced with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](#utilities-ConfigEditor).   
 
 ## Configuration File Location
 The location of the configuration file loaded by the Enterprise Browser is dependent on a number of factors:
@@ -161,7 +163,8 @@ Defines the start page of a Enterprise Browser application, displayed at launch.
 	<StartPage value="http://www.hostsite.com/my_app_menu.html" name="Menu"/>
 
 ### Name
-The name of the application
+Stores the name of the application.
+
 **Possible Values**
 
 * ASCII text
@@ -171,7 +174,7 @@ The name of the application
 	<Name value="My App"/>
 
 ### UseRegularExpressions
-Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the KeyCapture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Regular Expressions are used to maintain backward compatibility with PocketBrowser syntax for controlling device capabilities. If backward compatibility is not required, regular expressions can safely be disabled, possibly improving app performance. Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser.
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the KeyCapture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Regular Expressions are used to maintain backward compatibility with PocketBrowser syntax for controlling device capabilities. If backward compatibility is not required, regular expressions can safely be disabled, possibly improving app performance. **Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.
 
 **Possible Values**
 
@@ -183,7 +186,7 @@ Determines behavior of Function keys on Windows Mobile and Windows CE devices. W
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. Applies to the Zebra WebKit engine on WM/CE devices and to the stock webkit on Android. Supported on WM/CE only when Zebra Webkit is used; proxy settings for Internet Explorer are picked up from the Windows connection manager.
+Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra WebKit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used; proxy settings for Internet Explorer are picked up from the Windows connection manager.
 
 **Possible Values**
 
@@ -194,7 +197,7 @@ Specifies the URL and port number for the HTTP proxy. Leave this field blank if 
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the URL and port number for the HTTPS proxy. Leave this field blank if no proxy is to be used. Applies to the Zebra WebKit engine on WM/CE devices and to the stock webkit on Android. Supported on WM/CE only when Zebra Webkit is used. Not otherwise supported on WM/CE; use HTTP_Proxy instead.
+Specifies the URL and port number for the HTTPS proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra WebKit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used. Not otherwise supported on WM/CE; use HTTP_Proxy instead.
 
 **Possible Values**
 
@@ -205,7 +208,7 @@ Specifies the URL and port number for the HTTPS proxy. Leave this field blank if
 	<HTTPS_Proxy value="https://my.proxy.com:8181"/>
 
 ### No_Proxy
-Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24. Applies only to the Zebra WebKit engine.
+Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24. **Applies only to the Zebra WebKit engine**.
 
 **Possible Values**
 
@@ -214,6 +217,74 @@ Used to specify sites to be accessed directly rather than through a proxy. Accep
 #### Example
 	:::xml
 	<No_Proxy value="*.my_app.com,http://internal.site.com"/>
+
+### SplashScreenPath
+Specifies the fully qualified path of an image to be displayed at device start-up. May contain path, be left empty or unspecified. Default values for Android and WM/CE are shown in the examples below. Image file must reside in device internal storage; removable storage media (i.e. SD card) are not supported. Supported file formats for WM/CE are .bmp, .png; for Android are .bmp, .gif, .jpg, .png. A 640 x 960 .png file is recommended; other resolutions may not display correctly. 
+
+**Possible Values**
+
+* fully qualified path and file name
+
+#### Example Android
+
+	:::xml
+	<SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png"/>
+
+#### Example WM/CE
+
+ 	:::xml
+
+	<SplashScreenPath value="file://%INSTALLDIR%\rho\apps\app\loading.png"/>
+
+
+### SplashScreenDuration
+**Applies only to Android devices**. Specifies the length of time (in milliseconds) to display the image defined by the SplashScreenDuration tag. It is recommended that the duration be greater than 3000 ms (3 seconds) to compensate for image loading time. Tag may be removed or left unspecified. 
+
+**Possible Values**
+
+* time in milliseconds (default = 0)
+ 
+#### Example: 
+
+	:::xml
+	<SplashScreenDuration value="0"/> //Applies to Android only
+
+
+## Intent
+### EnableReceiver
+Determines whether Enterprise Browser will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions. For more information about Intent, please refer to [the Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
+
+**Possible values**
+
+* **0 - Disabled (default)**
+* 1 - Enabled
+
+#### Example 
+	:::xml
+	<EnableReceiver  value="1"/>
+
+
+### IntentAction  	 
+Specifies the Action for which the receiver is to be registered. There must be at least one IntentAction value for a Receiver to be registered. IntentAction value can be an Android-defined or custom. 
+
+**Possible values**
+* string
+
+#### Example 
+	:::xml
+	<IntentAction  value="android.intent.action.VIEW"/>
+
+
+### IntentCategory  
+Specifies the Category under which the receiver is to be registered. There can be zero or many IntentCategory tags. IntentCategory values are Android-defined.
+
+**Possible values**
+* string
+
+#### Example
+	:::xml
+	<IntentCategory value="android.intent.category.LAUNCHER"/>
+
 
 ## DebugButtons
 ### DebugButtonsEnabled
@@ -573,7 +644,7 @@ Determines behavior of Function keys on Windows Mobile/CE and Android devices. W
 	<FunctionKeysCapturable value="1"/>
 
 ### EnableFunctionKey_X
-This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a tag using EnableFunctionKey_X, replacing the ‘X’ with the key number being enabled. For example, to enable F1, your tag will include EnableFunctionKey_F1 as below. See the sample Config.xml in the user guide for correct branch placement. Applies to Android and WM/CE. **Requires a preload of the KeyCapture module**.
+This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a tag using EnableFunctionKey_X, replacing the ‘X’ with the key number being enabled. For example, to enable F1, your tag will include EnableFunctionKey_F1 as below. See the sample Config.xml in the user guide for correct branch placement. **Applies to Android and WM/CE**. Requires a preload of the KeyCapture module.
 
 On the Enterprise tablet, this tag can be used to enable the 'P' keys. For compatibility with other devices, the 'P' keys are referred to as 'F' keys in the config file. To enable P2 key on the Enterprise Tablet, the tag EnableFunctionKey_F2 should be set to 1.  For Windows Mobile / CE this setting is not specific to the current application and will be applied globally on the device. **This feature can only be reset by performing a device warm boot**.
 
@@ -658,7 +729,7 @@ Used to persist data when using Read/WriteUserSetting.
 
 ## WebDB
 ### WebStorageDBPath
-Sets the path to an existing directory for storage of web storage databases. Applies to Windows Mobile/CE using the Zebra Webkit only. Case sensitive. 
+Sets the path to an existing directory for storage of web storage databases. **Applies to Windows Mobile/CE using the Zebra Webkit only**. Case sensitive. 
 
 **Possible Values**
 
@@ -671,7 +742,7 @@ Sets the path to an existing directory for storage of web storage databases. App
 	<WebStorageDBPath value="file:///path-to-web-storage"/>
 
 ### WebSQLDBQuota
-Sets the maximum per-database quota for Web SQL databases. Applies only to Windows Mobile/CE using the Zebra Webkit.
+Sets the maximum per-database quota for Web SQL databases. **Applies only to Windows Mobile/CE using the Zebra Webkit**.
 
 **Possible Values**
 
@@ -682,7 +753,7 @@ Sets the maximum per-database quota for Web SQL databases. Applies only to Windo
 	<WebSQLDBQuota value="20000"/>
 
 ### WebSQLDBPath
-Path to an existing directory to store Web SQL databases. Applies to only Windows Mobile/CE using the Zebra Webkit. Case sensitive. 
+Path to an existing directory to store Web SQL databases. **Applies only to Windows Mobile/CE using the Zebra Webkit. Case sensitive**. 
 
 **Possible Values**
 
@@ -696,7 +767,7 @@ Path to an existing directory to store Web SQL databases. Applies to only Window
 
 ## ApplicationCache
 ### ApplicationCacheQuota
-Application Cache data maximum quota per application. Applies to only Windows Mobile/CE using the Zebra Webkit.
+Application Cache data maximum quota per application. **Applies only to Windows Mobile/CE using the Zebra Webkit**.
 
 **Possible Values**
 
@@ -707,7 +778,7 @@ Application Cache data maximum quota per application. Applies to only Windows Mo
 	<ApplicationCacheQuota value="20000"/>
 
 ### ApplicationCachePath
-Path to an existing directory to store Application Cache data. Applies to only Windows Mobile/CE using the Zebra Webkit.
+Path to an existing directory to store Application Cache data. **Applies only to Windows Mobile/CE using the Zebra Webkit**.
 
 **Possible Values**
 
@@ -725,7 +796,7 @@ Path to an existing directory containing the NPAPI Plug-ins. **Not applicable to
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -746,7 +817,7 @@ Defines plug-ins to be pre-loaded rather than loading as needed by a program fun
 	<Preload value="MyModule"/>
 
 ### PreloadLegacyActiveX
-Determines whether to preload the ActiveX object in WebKit. Use this for backward compatibility with code written in PocketBrowser that used the ActiveXObject. Applies to WM CE with the Zebra Webkit only.
+Determines whether to preload the ActiveX object in WebKit. Use this for backward compatibility with code written in PocketBrowser that used the ActiveXObject. **Applies to WM CE with the Zebra Webkit only**.
 
 **Possible Values**
 
@@ -848,7 +919,7 @@ Specifies the technique used to scroll the viewport. **'FingerScroll'** is an An
 
 ## Authentication
 ### Username
-Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (“”). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE. 
+Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (“”). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE.** 
 
 **Possible Values**
 
@@ -859,7 +930,7 @@ Specifies the username to be provided automatically when Enterprise Browser is i
 	<Username value="username"/>
 
 ### Password
-Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (“”). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE. 
+Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (“”). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**.
 
 **Possible Values**
 
@@ -869,21 +940,89 @@ Specifies the password to be provided automatically when Enterprise Browser is i
 	:::xml
 	<Password value="password"/>
 
+
+### ExitPasswordEnabled 
+When enabled, prompts for a password when quitting an Enterprise Browser app. Password is stored using the ExitPasswordValue tag. Disabled by default. 
+
+**Possible Values**
+
+* **0 - Disabled (default)**
+* 1 - Enabled
+
+#### Example
+
+	:::xml
+	<ExitPasswordEnabled value="0"/>
+
+### ExitPasswordValue 
+Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to "1" and cannot be left empty.  
+
+**Possible Values**
+
+* string (password, empty by default) 
+
+#### Example
+
+	:::xml
+	<ExitPasswordValue value="zebra123"/>
+
+### SettingsButtonEnabled 
+When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. NOTE: When the IE engine is used on a Windows CE device, this feature might cause screen distortion when scrolling. 
+
+**Possible Values**
+
+* 0 - Disabled (default)
+* 1 - Enabled
+
+
+#### Example
+
+	:::xml
+	<SettingsButtonEnabled value="1"/>
+
+### SettingsPageProtectionEnabled 
+When enabled, prompts for a password before allowing access to the Settings page. Password is stored using the SettingsPagePassword tag. 
+
+**Possible Values**
+
+* 0 - Disabled
+* 1 - Enabled
+
+#### Example 
+
+	:::xml
+	<SettingsPageProtectionEnabled value="0"/>
+
+### SettingsPagePassword 
+Contains the password for accessing the Settings page when password function is enabled using the SettingsPageProtectionEnabled tag. Can be edited only when SettingsPageProtectionEnabled tag is set to "1" and cannot be left empty. 
+
+**Possible Values**
+
+* string (password, empty by default)
+
+#### Example
+
+	:::xml
+	<SettingsPagePassword value="zebra"/>
+
+
+
 ## HTMLStyles
 ### CaretWidth
-Specifies the width (in pixels) of the textbox / text-area caret. If unspecified, defaults to ‘1’. Applies only to Webkit on Windows Mobile or Windows CE. 
+Specifies the width (in pixels) of the textbox / text-area caret. If unspecified, defaults to ‘1’. **Applies only to Webkit on Windows Mobile or Windows CE**. 
 
 **Possible Values**
 
 * Integer values for caret width in pixels
 
 #### Example
+
 	:::xml
 	<CaretWidth value="3"/>
 
 
 ###ClearTypeEnabled
-Controls whether ClearType is used. Applies to Windows Mobile only.
+Controls whether ClearType is used. **Applies to Windows Mobile only**.
 
 **Possible Values**
 
@@ -953,7 +1092,7 @@ Controls whether text selection is enabled when dragging the stylus on the scree
 	<TextSelectionEnabled value="0"/>
 
 ### UseNativeFonts
-Controls which fonts will be used. When set to ‘0’ (default) the FreeType library will be used as on apps built with RMS 2.x. When set to ‘1’ the native font engine on the device is used. A setting of ‘1’ overrides the ‘FontFamily’ setting. On localized devices from 4.1 and higher, the native font engine will be used by default. The FreeType library cannot render localized characters such as Asian and some accented European characters. The log file displays the font engine in use on launch. Some early BSPs of CE7 do not support the native font render. Applies to Windows Mobile and Windows CE only. This config element is not currently available on the MC92, VC70 or WT41N0 devices.
+Controls which fonts will be used. When set to ‘0’ (default) the FreeType library will be used as on apps built with RMS 2.x. When set to ‘1’ the native font engine on the device is used. A setting of ‘1’ overrides the ‘FontFamily’ setting. On localized devices from 4.1 and higher, the native font engine will be used by default. The FreeType library cannot render localized characters such as Asian and some accented European characters. The log file displays the font engine in use on launch. Some early BSPs of CE7 do not support the native font render. **Applies only to Windows Mobile and Windows CE**. This config element is not currently available on the MC92, VC70 or WT41N0 devices.
 
 **Possible Values**
 
@@ -966,7 +1105,7 @@ Controls which fonts will be used. When set to ‘0’ (default) the FreeType li
 
 ## Soft Input Panel (SIP)
 ### ResizeOnSIP
-Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. Applies to Android and Windows Mobile only. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
+Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. **Applies only to Android and Windows Mobile**. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
 
 **Possible Values**
 
@@ -978,7 +1117,7 @@ Controls window resizing when the soft input panel (on-screen keyboard, or SIP) 
 	<ResizeOnSIP value="1"/>
 
 ### EnableSIP
-Controls whether soft input panel (on-screen keyboard, or SIP) will appear. Applies to Android only. This feature can be mimicked on WM/CE by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby ‘disabling’ its use.
+Controls whether soft input panel (on-screen keyboard, or SIP) will appear. **Applies to Android only**. This feature can be mimicked on WM/CE by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby ‘disabling’ its use.
 
 **Possible Values**
 
@@ -991,7 +1130,7 @@ Controls whether soft input panel (on-screen keyboard, or SIP) will appear. Appl
 
 ## System
 ### LowBatteryScan
-Controls whether the scanner can be used when battery charge level is low. Set to ‘0’ to disable scanning with low battery and ‘1’ to enable. Can be overridden by calling `Barcode.enable`. Applies to Android and WM/CE.
+Controls whether the scanner can be used when battery charge level is low. Set to ‘0’ to disable scanning with low battery and ‘1’ to enable. Can be overridden by calling `Barcode.enable`. **Applies to Android and WM/CE**.
 
 **Possible Values**
 
@@ -1111,6 +1250,7 @@ Specifies a .wav file to be played when the Imager captures an image. File must 
 	<ImageCaptureWav value="file://path-to-capture-wav-file"/>
 
 ## GUI
+
 ### SignalRefresh
 Specifies the refresh rate (in milliseconds) of the signal display. See the [Signal API](#api-signalindicators) for more information. 
 
@@ -1167,6 +1307,19 @@ Controls the vertical position of the Hourglass icon, which is displayed by defa
 	:::xml
 	<HourglassTop value="200"/>
 
+## DOM Injection
+### CustomDOMElements 
+Specifies the path of a device-resident file containing data for injected DOM elements. This feature permits the injection of one or more DOM elements (i.e. JavaScript, CSS or meta tags) into a running application without modifying the underlying application. Injected JavaScript can be local or server-based. For more information, please refer to the [DOM Injection guide](#DOMInjection). **Applies to Android and Windows Mobie/CE webkit engines**. 
+
+**Possible values**
+
+* fully qualified path and file name
+
+####Example
+	:::xml 
+	<CustomDOMElements value="file://%INSTALLDIR%\rho\apps\app\mytags.txt"/>
+
+
 ## Navigation
 ### BadLinkURI
 Specifies the ‘badlink’ URI file to be displayed when: 
@@ -1190,7 +1343,7 @@ The browser will automatically append the querystring value 'badlink' containing
 	<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
 
 ###EnableSSL3
-When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability. Applies to WM/CE with Zebra webkit only. 
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability. **Applies to WM/CE with Zebra webkit only**. 
 
 **Possible Values**
 
@@ -1243,13 +1396,13 @@ Sets the default viewport width for pages that do not have a viewport meta tag. 
 	<ViewportWidth value="1"/>
 
 ### CaFile
-Specifies the location of a device-resident file containing CA certificates in PEM format. Please [refer to openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. Applies to Android and Windows Mobile/CE. 
+Specifies the location of a device-resident file containing CA certificates in PEM format. Please [refer to openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. **Applies to Android and Windows Mobile/CE**. 
 
 > Note: Enteprise Browser only supports only a single certificate file in PEM format. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple `.pem` certificates can be combined into a single file using any standard text editor. The combined file can then be specified in the CaFile parameter. 
 
 **Possible Values**
 
-* Fully qualified local path and file name
+* file name
 
 #### Example
 	:::xml
@@ -1258,7 +1411,7 @@ Specifies the location of a device-resident file containing CA certificates in P
 ### CaPath
 >Note : This setting is not supported in Enterprise Browser.
 
-A directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
+Specifies a fully qualified path to the directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
 
 **Possible Values**
 
@@ -1281,7 +1434,7 @@ Specifies the location of the database to hold persistent cookies, if desired. I
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -1376,7 +1529,7 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](#
 
 ## ZoomKey
 ### ZoomInKey
-Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies to WM/CE with IE or Zebra Webkit only. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
 
 **Possible Values**
 
@@ -1387,7 +1540,7 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies to WM/CE with IE or Zebra Webkit only. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
 
 **Possible Values**
 
@@ -1410,9 +1563,9 @@ Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for th
 	:::xml
 	<isWindowsKey value="1"/>
 
-##Shortcut
+## Shortcut Utility
 ###ShortcutCreationEnabled
-Applicable only when using the Enterprise Browser Shortcut Creator utility. Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch, Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default. 
+Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch, Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default. **Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. For more information, please refer to the [Shortcut Creator guide](#ShortcutCreator). 
 
 **Possible Values**
 
@@ -1424,7 +1577,6 @@ Applicable only when using the Enterprise Browser Shortcut Creator utility. Cont
 #### Example
 	:::xml
 	<ShortcutCreationEnabled value="1"/>
-
 
 
 ## Remarks
