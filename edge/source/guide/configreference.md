@@ -1150,7 +1150,7 @@ Controls the horizontal position of the Hourglass icon, which is displayed by de
 
 **Possible Values**
 
-* Horizontal position in pixels.
+* Horizontal position in pixels
 
 #### Example
 	:::xml
@@ -1161,7 +1161,7 @@ Controls the vertical position of the Hourglass icon, which is displayed by defa
 
 **Possible Values**
 
-* Vertical position in pixels.
+* Vertical position in pixels
 
 #### Example
 	:::xml
@@ -1169,22 +1169,19 @@ Controls the vertical position of the Hourglass icon, which is displayed by defa
 
 ## Navigation
 ### BadLinkURI
-Navigates to the specified badlink uri when one of the following occurs:
+Specifies the ‘badlink’ URI file to be displayed when: 
 
-* There is an error attempting to navigate to the page, e.g. the device has no network connection.
-* The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
-* The user presses the stop button.
+1. An error occurs when attempting to navigate to a page (i.e. there's no network connection)
+2. A page times out (according to the timeout interval set in NavTimeout)
+3. The user presses the stop button. 
 
-The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the `file://` protocol, this way the browser can always access the file.
+The browser will automatically append the querystring value 'badlink' containing the URL of the page that could not be reached, and 'stop=true' if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be a device-resident file using the `file://` protocol so it’s accessible by the browser. 
 
-There are some platform and engine exclusive issues you may encounter that are known issues. These include:
-
-* On Windows mobile devices when using IE engine, if device has no network connection, navigation timeout message may be displayed.
-* IE engine, CE5 & CE6 truncate the request variables when a navigation to badlink occurs so, badlink page will be navigated to, but the reason for the failure may not be displayed.
+**Known issues**: If the device has no network connection, a navigation timeout message may be displayed on Windows Mobile devices using the IE engine. On CE5 and CE6, the IE engine will truncate the request variables when a navigation to badlink occurs and the reason for the failure may not be displayed. 
 
 **Possible Values**
 
-* File name and path stored locally on the device.
+* Fully qualified path and file name 
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -1193,33 +1190,26 @@ There are some platform and engine exclusive issues you may encounter that are k
 	<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
 
 ###EnableSSL3
-When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability.
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability. Applies to WM/CE with Zebra webkit only. 
 
 **Possible Values**
 
 * 0 – Disabled
 * 1 – Enabled
 
-**Platforms** 
-
-* WM/CE Zebra Webkit Only
-
 #### Example
 	:::xml
 	<EnableSSL3 value="1"/>
 
 ### UserAgent
-When visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:
+Stores information about the device’s operating environment. Can be used to spoof the device to a web server, for example to view content designed for the desktop on the mobile screen. When visiting a web server, the WebKit browser can be used to report its User-Agent header as the value specified. 
 
-* %p - platform name ("Windows CE " + version number)
-* %w - WebKit version number
-* %e - WebKit version number.
+Use the following substitution variables:
+%p – Platform name (“Windows CE ” + version number)
+%w – WebKit version number
+%e – Zebra WebKit version number
 
-Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
-
-From PB 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to PB 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"
-
-> Note: This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value.
+In PocketBrowser 2.1 and higher, the default value was changed to work out of the box with a greater number of server configurations. Prior to PocketBrowser 2.1, the default user agent was “Mozilla/5.0, AppleWebKit (KHTML, i.e. Gecko), MotorolaWebKit, Safari.” This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value. Android does not support a custom UserAgent. 
 
 **Possible Values**
 
@@ -1230,7 +1220,7 @@ From PB 2.1 onwards the default value was changed to work out of the box with a 
 	<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
 
 ### ViewportEnabled
-Whether to enable or disable viewport meta tag processing (default is enabled)
+Controls viewport meta tag processing (enabled by default).
 
 **Possible Values**
 
@@ -1242,24 +1232,24 @@ Whether to enable or disable viewport meta tag processing (default is enabled)
 	<ViewportEnabled value="1"/>
 
 ### ViewportWidth
-Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified). Specified using numbers, 1 being 1:1, < 1 being smaller than default, > 1 being larger than default.
+Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling. 
 
 **Possible Values**
 
-* A number > 0 specifying the width scale.
+* A number > 0 specifying the width scale
 
 #### Example
 	:::xml
 	<ViewportWidth value="1"/>
 
 ### CaFile
-A file of CA certificates in PEM format. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for details.
+Specifies the location of a device-resident file containing CA certificates in PEM format. Please [refer to openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. Applies to Android and Windows Mobile/CE. 
 
-> Note: Enteprise Browser only supports single certificate file in `pem` format. If multiple certificates need to be passed to the Webkit Browser(WM/CE), please add the contents of the `.pem` certificates to a single file using any standard text editor and then set the path of the updated local file to cafile in config.xml
+> Note: Enteprise Browser only supports only a single certificate file in PEM format. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple `.pem` certificates can be combined into a single file using any standard text editor. The combined file can then be specified in the CaFile parameter. 
 
 **Possible Values**
 
-* Local File name on the device.
+* Fully qualified local path and file name
 
 #### Example
 	:::xml
@@ -1272,22 +1262,22 @@ A directory containing CA certificates in PEM format (one certificate per file).
 
 **Possible Values**
 
-* Local File path on the device.
+* Local File path on the device
 
 ### VerifyPeerCertificate
-Verify the server certificate against the internal certificates. It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development. A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.
+Controls whether server certificates will be verified against the internal certificates. Enabled by default. Useful for debugging, a value of 0 (disabled) is equivalent to automatically clicking ‘OK’ on a web browser’s dialog when requesting approval for an untrusted certificate. **It is strongly recommended that this feature be enabled for deployment**. 
 
 **Possible Values**
 
-* 0 - Disable Peer certificate verification.
-* 1 - Enable Peer certificate verification.
+* 0 - Disable Peer certificate verification
+* 1 - Enable Peer certificate verification
 
 #### Example
 	:::xml
 	<VerifyPeerCertificate value="1"/>
 
 ### NetworkCookieDatabase
-If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies. If the specified file does not already exist then one will be created. The cookies will be loaded in from this file and saved back to it when the Enterprise Browser exits, unless the file is read only in which case it will not be overwritten. If not specified cookies will not persist.
+Specifies the location of the database to hold persistent cookies, if desired. If the specified file does not exist, one will be created. Persistent cookies will be loaded from this file and saved back to it when Enterprise Browser exits. If the file is read-only, it will not be overwritten. If not specified, cookies will not persist. Case sensitive. 
 
 **Possible Values**
 
@@ -1312,10 +1302,7 @@ The browser cache size, in whole MBs.
 
 ## DeviceKeys
 ### EnableCtrlKey_X
-This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.
-> Note CE Only:
-By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).
-
+Specifies which control-key combinations (copy, paste, etc.) should be enabled. To enable a control-key combination, define a tag using EnableCtrlKey_X, replacing the ‘X’ with the key being enabled. For example, to enable copying with control-C, your tag will include EnableCtrlKey_C as below. See the sample Config.xml file in user guide for correct branch placement. **All CTRL key combinations are disabled on Windows CE by default**. 
 
 **Possible Values**
 
@@ -1328,7 +1315,7 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 
 ## DefaultMetaTags
 ### MetaTag
-All Enterprise Browser Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by a tilde (~) character and then the properties of the module you wish to set, specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file. Meta tag properties and their possible values are explained in the corresponding API.
+Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag’s module, followed by the tilde character (~) and the properties of the module you wish to set, as specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the ‘additional information’ section in the help file. Meta tag properties and their possible values are explained in the corresponding API.
 
 **Possible Values**
 
@@ -1340,7 +1327,7 @@ All Enterprise Browser Meta Tags can be set by default in the configuration, mea
 
 ## Geolocation
 ### GeolocationEnabled
-Enables / disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.
+Controls HTML5 Geolocation. When enabled on a device that supports geolocation and is in range of a GPS network, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called, notifying the app that the permission to using Geolocation is disabled.
 
 **Possible Values**
 
@@ -1353,7 +1340,7 @@ Enables / disables HTML5 Geolocation. When enabled on a device supporting geoloc
 
 ## Engine
 ### EngineInUse
-If you are deploying a Webkit installation of EB to Windows CE6 or Windows Mobile 6.5 and above, you can select which engine to use (IE or Webkit) by editing this field in your `Config.xml` file. If you are deploying an IE only installation, Webkit will **not** be available as an option.
+Permits the selection of a rendering engine (IE or Webkit) when deploying a Webkit installation of Enterprise Browser to Windows CE6 or Windows Mobile 6.5 and above. If you are deploying an IE-only installation, Webkit will not be available as an option.
 
 **Possible Values**
 
@@ -1366,22 +1353,22 @@ If you are deploying a Webkit installation of EB to Windows CE6 or Windows Mobil
 
 ## TabInstance
 ### NewTabPhysicalMemLimit
-This setting controls whether a new Tab will be created using the NativeTabbar.create API when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is &gt;= 80%. If the tab is unable to be created due to this limit being reached the NativeTabbar.create API callback will contain a `tabEvent` = `onTabNewError`.
+Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when physical memory percentage hits a specific threshold. For example, if set to 80, new tabs will stop being created when physical memory usage on the device reaches or exceeds 80 percent the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
 **Possible Values**
 
-* 0 - 100 (percent). 100 means unlimited.
+* 0 - 100 (percent; 100 = unlimited)
 
 #### Example
 	:::xml
 	<NewTabPhysicalMemLimit value="50"/>
 
 ### NewTabVirtualMemLimit
-This setting controls whether a new Tab will be created using the NativeTabbar.create API when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is &gt;= 80%.If the tab is unable to be created due to this limit being reached the NativeTabbar.create API callback will contain a `tabEvent` = `onTabNewError`
+Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when a virtual memory usage percentage is hit. For example, if set to 80, new tabs will stop being created when the virtual memory usage reaches or exceeds 80 percent of the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
 **Possible Values**
 
-* 0 - 100 (percent). 100 means unlimited.
+* 0 - 100 (percent; 100 = unlimited).
 
 #### Example
 	:::xml
@@ -1389,45 +1376,29 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 
 ## ZoomKey
 ### ZoomInKey
-This setting controls zoom behavior for enlarging text using a function key. You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
-
-**Supported Platforms**
-
-* Windows Mobile/CE (IE or Zebra Webkit)
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies to WM/CE with IE or Zebra Webkit only. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
 
 **Possible Values**
 
-* Hexadecimal key code for any function key: F1 to F24
-
->Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).
+* Hexadecimal key code for any function key (F1 to F24)
 
 #### Example
 	:::xml
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-This setting controls zoom behavior for making text smaller using a function key.You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
-
-**Supported Platforms**
-
-* Windows Mobile/CE (IE or Zebra Webkit)
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies to WM/CE with IE or Zebra Webkit only. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
 
 **Possible Values**
 
-* Hexadecimal key code for any function key: F1 to F24
-
->Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).
+* Hexadecimal key code for any function key (F1 to F24)
 
 #### Example
 	:::xml
 	<ZoomOutKey value="0x71"/>
 
 ## isWindowsKey
-This feature will be supported from Enterprise Browser 1.2 and above when used with either PocketBrowser or RhoElements 2.x KeyCapture API. The `isWindowsKey` tag has been introduced to mimic Windows Mobile key codes for the device's hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. If it is set as 0 or not present, then the application will get the Android function key code value.
-
-**Supported Platforms**
-
-* Android (with PocketBrowser or RhoElements 2.x Key Capture API)
+Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for the device’s hardware keys when used with the KeyCapture API of PocketBrowser or RhoElements 2.x. When enabled, the application will substitute its normal Android kewys with the Windows Mobile function key code values for keys F1 through F12. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will get the Android function key code value. Supported on Android devices with PocketBrowser or RhoElements 2.x Key Capture API. 
 
 **Possible Values**
 
