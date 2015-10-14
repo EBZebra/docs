@@ -834,17 +834,13 @@ Determines whether to preload the NPAPI plug-in to provide native JavaScript obj
 
 ## Scrolling
 ### ScrollTechnique
-Specifies the technique used to scroll the viewport:
-
->Note: This setting is not supported on Android.
+Specifies the technique used to scroll the viewport. **'FingerScroll'** is an Android-only feature that permits scrolling around a page with finger swiping. **'Scrollbars'** will be presented when the page is too large to fit the viewport (not available on Android). **'None'** displays no scrollbars and the page will not respond to finger swipes. This setting is not supported on Windows CE using the IE rendering engine. FingerScroll may interfere with drawing on a Canvas element. 
 
 **Possible Values**
 
-* FingerScroll : You can scroll around the page using finger swiping.
-* Scrollbars : When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page (Not available on Android)
-* None : No scrollbars will be displayed and the page will not respond to finger swipes.
-
-> Note: This setting is not supported on Windows CE using the IE rendering engine.
+* FingerScroll
+* Scrollbars 
+* None 
 
 #### Example
 	:::xml
@@ -852,11 +848,7 @@ Specifies the technique used to scroll the viewport:
 
 ## Authentication
 ### Username
-Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication. 
-
-If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
-
-> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter the credential multiple times.
+Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (“”). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE. 
 
 **Possible Values**
 
@@ -867,11 +859,7 @@ If this setting is absent from the configuration file a popup dialog will be dis
 	<Username value="username"/>
 
 ### Password
-Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.
-
-If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
-
-> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter credential multiple times.
+Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (“”). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE. 
 
 **Possible Values**
 
@@ -883,7 +871,7 @@ If this setting is absent from the configuration file a popup dialog will be dis
 
 ## HTMLStyles
 ### CaretWidth
-This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.
+Specifies the width (in pixels) of the textbox / text-area caret. If unspecified, defaults to ‘1’. Applies only to Webkit on Windows Mobile or Windows CE. 
 
 **Possible Values**
 
@@ -895,7 +883,7 @@ This setting is a number which specifies the width of the textbox / text area ca
 
 
 ###ClearTypeEnabled
-Enables or Disables ClearType (Windows Mobile Only).
+Controls whether ClearType is used. Applies to Windows Mobile only.
 
 **Possible Values**
 
@@ -907,7 +895,7 @@ Enables or Disables ClearType (Windows Mobile Only).
 	<ClearTypeEnabled value="0"/>
 
 ###FitToScreenEnabled
-Automatically expands the application window to fit the screen (Windows Mobile with Internet Explorer Rendering Engine Only).
+Automatically expands the application window to fit the screen. Apples to Windows Mobile with Internet Explorer rendering engine only.
 
 **Possible Values**
 
@@ -919,7 +907,7 @@ Automatically expands the application window to fit the screen (Windows Mobile w
 	<FitToScreenEnabled value="0"/>
 
 ### FontFamily
-Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Symbol Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
+Specifies the default font to use when rendering text in web pages. Should be a TrueType font present on the device. Default font for all Zebra Technologies WM/CE devices is preset to ‘Tahoma’ and on Enterprise Tablet is 'Droid Sans Fallback.' The specified font must be stored in \Windows for WM/CE, and /system/fonts for Enterprise Tablet. Note that Tahoma has no italic or oblique variants. 
 
 **Possible Values**
 
@@ -930,18 +918,18 @@ Specifies the default font to use when rendering text in web pages.  The specifi
 	<FontFamily value="Tahoma"/>
 
 ### FontDirectory
-Specifies the font directory where true type fonts can be found.  On Windows the default font directory is `\Windows` on all Symbol Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.
+Specifies the location of TrueType fonts on the device. For Zebra Technologies WM/CE devices, the default font directory is \Windows. Does not apply to Enterprise Tablet.
 
 **Possible Values**
 
-* Relative directory containing the font files.
+* Relative directory containing the font files
 
 #### Example
 	:::xml
 	<FontDirectory value="\\Windows"/>
 
 ###JavascriptEnabled
-Enables or Disables Javascript (Windows Mobile Only).
+Controls whether JavaScript is enabled on Windows Mobile devices.
 
 **Possible Values**
 
@@ -953,9 +941,7 @@ Enables or Disables Javascript (Windows Mobile Only).
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page. 
-
-> Note: TextSelectionEnabled should be set to enabled in order to use Copy (Ctrl+C) and Paste(Ctrl+V) feature on Webkit (WM/CE).
+Controls whether text selection is enabled when dragging the stylus on the screen. When enabled, the scroll bar is recommended for scrolling the page. Should be set to '1' for access to Copy (Ctrl+C) and Paste (Ctrl+V) functions on Webkit for WM/CE.
 
 **Possible Values**
 
@@ -966,10 +952,8 @@ Enables or Disables selection of text when dragging the stylus on the screen. Wh
 	:::xml
 	<TextSelectionEnabled value="0"/>
 
-
-
 ### UseNativeFonts
-When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.
+Controls which fonts will be used. When set to ‘0’ (default) the FreeType library will be used as on apps built with RMS 2.x. When set to ‘1’ the native font engine on the device is used. A setting of ‘1’ overrides the ‘FontFamily’ setting. On localized devices from 4.1 and higher, the native font engine will be used by default. The FreeType library cannot render localized characters such as Asian and some accented European characters. The log file displays the font engine in use on launch. Some early BSPs of CE7 do not support the native font render. Applies to Windows Mobile and Windows CE only. This config element is not currently available on the MC92, VC70 or WT41N0 devices.
 
 **Possible Values**
 
@@ -980,9 +964,9 @@ When set to 0 (default) the FreeType library is used, this is the same as behavi
 	:::xml
 	<UseNativeFonts value="1"/>
 
-## SIP
+## Soft Input Panel (SIP)
 ### ResizeOnSIP
-When enabled the browser window will resize to accommodate the SIP (Soft Input Panel, the on-screen virtual keyboard) when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only.  This option is not compatible with CE or Finger Scrolling, the SIP will always appear at the bottom of the screen)
+Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. Applies to Android and Windows Mobile only. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
 
 **Possible Values**
 
@@ -994,7 +978,7 @@ When enabled the browser window will resize to accommodate the SIP (Soft Input P
 	<ResizeOnSIP value="1"/>
 
 ### EnableSIP
-Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard).  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)
+Controls whether soft input panel (on-screen keyboard, or SIP) will appear. Applies to Android only. This feature can be mimicked on WM/CE by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby ‘disabling’ its use.
 
 **Possible Values**
 
@@ -1007,7 +991,7 @@ Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard). 
 
 ## System
 ### LowBatteryScan
-Windows Mobile and CE only. Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling `Barcode.enable`.
+Controls whether the scanner can be used when battery charge level is low. Set to ‘0’ to disable scanning with low battery and ‘1’ to enable. Can be overridden by calling `Barcode.enable`. Applies to Android and WM/CE.
 
 **Possible Values**
 
@@ -1020,19 +1004,19 @@ Windows Mobile and CE only. Set to 0 to disable scanning when the battery is low
 
 ## Scanner
 ### DisableScannerDuringNavigation
-By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.
+Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. A setting of '0' will override this default behavior. Once enabled (either through meta tags, JavaScript or Ruby), the scanner will remain enabled in the foreground application until manually disabled. 
 
 **Possible Values**
 
-* 0 - The Scanner will remain enabled during page navigation
-* 1 - The Scanner will disable during a page navigation
+* 0 - The scanner will remain enabled during page navigation
+* 1 - The scanner will be disabled during page navigation
 
 #### Example
 	:::xml
 	<DisableScannerDuringNavigation value="1"/>
 
 ### DisableScannerInApp
-This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This setting will not effect the behavior of barcode scanning in the License dialog. 
+Used to disable barcode scanning capabilities for a previous scanner API. Does not apply to the [common Barcode API](#api-barcode), and will not effect the behavior of barcode scanning in the License dialog. Supported on WM/CE with IE or Zebra Webkit. Note: **The scanner will not be disabled if this parameter does not exist or does not contain a value**.
 
 **Supported Platforms**
 
@@ -1043,8 +1027,6 @@ This configuration option can be used to disable barcode scanning abilities for 
 * 0 - does not disable the scanner
 * 1 - disables the scanner (DefaultMetaTags, Meta Tags in HTML, Javascript API, ActiveXObject)
 
-> Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.
-
 #### Example
 	:::xml
 	<DisableScannerInApp value="1"/>
@@ -1052,18 +1034,18 @@ This configuration option can be used to disable barcode scanning abilities for 
 
 ## Sound
 ### DecodeVolume
-The volume of the device beeper when a barcode is scanned.
+Controls the volume of the device beeper when a barcode is scanned.
 
 **Possible Values**
 
-* 0 to 5 with 5 being the loudest
+* 0 – 5 (0 = off; 1 – 5 = lowest to loudest)
 
 #### Example
 	:::xml
 	<DecodeVolume value="3"/>
 
 ### DecodeFrequency
-The frequency of the device beeper when a barcode is successfully decoded.  This should be within the range of the beeper.
+Controls the frequency of the device beeper when a barcode is successfully decoded. Must be within the range of the beeper.
 
 **Possible Values**
 
@@ -1073,8 +1055,8 @@ The frequency of the device beeper when a barcode is successfully decoded.  This
 	:::xml
 	<DecodeFrequency value="0xFFFF"/>
 
-### InvalidDecodeFrequency<
-The frequency of the device beeper when a barcode is scanned but not successfully decoded.  This should be within the range of the beeper. Not applicable to the Enterprise Tablet.
+### InvalidDecodeFrequency
+Controls the frequency of the device beeper sound when a scanned barcode is not successfully decoded. This value (in hex) must be a frequency within the range of the device beeper. Not applicable to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -1085,46 +1067,44 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 	<InvalidDecodeFrequency value="0xFFFF"/>
 
 ### DecodeDuration
-The duration of the device beeper when a barcode is scanned.
+Controls the duration (in milliseconds) of the device beeper sound when a barcode is scanned.
 
 **Possible Values**
 
-* Milliseconds
+* number of milliseconds
 
 #### Example
 	:::xml
 	<DecodeDuration value="500"/>
 
 ### ScanDecodeWav
-Wave file to be played when the scanner successfully decodes a barcode.  This setting overrides the scanner beeper.
+Specifies a .wav file to be played when a scanned barcode is successfully decoded. File must be resident on the device. Overrides all scanner beeper settings. Not applicable to the Enterprise Tablet. Case sensitive.
 
 **Possible Values**
 
-* File name and path stored locally on the device.
+* Fully qualified path and file name
 
 #### Example
 	:::xml
 	<ScanDecodeWav value="file://path-to-success-wav-file"/>
 
 ### ScanInvalidWav
-.Wav file to be played when a barcode is scanned but not successfully decoded.  This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.
+Specifies a .wav file to be played when a scanned barcode is not successfully decoded. File must be resident on the device. Overrides all scanner beeper settings. Not applicable to the Enterprise Tablet. Case sensitive. 
 
 **Possible Values**
 
-* File name and path stored locally on the device.
+* Fully qualified path and file name
 
 #### Example
 	:::xml
 	<ScanInvalidWav value="file://path-to-fail-wav-file"/>
 
 ### ImagerCaptureWav
-.Wav file to be played when the Imager captures an image
+Specifies a .wav file to be played when the Imager captures an image. File must be resident on the device. Case sensitive. 
 
 **Possible Values**
 
-* File name and path stored locally on the device.
-
-> Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+* Fully qualified path and file name
 
 #### Example
 	:::xml
