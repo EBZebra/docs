@@ -797,8 +797,6 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
  -->
 
 ### PreloadLegacyAirBeam
-Not applicable to the Enterprise Tablet:
-
 Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX object in WebKit. Not applicable to the Enterprise Tablet.
 
 **Possible Values**
@@ -811,7 +809,7 @@ Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX obje
 	<PreloadLegacyAirBeam value="1"/>
 
 ### PreloadLegacyAPD
-Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit.
+Determines whether to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit.
 
 **Possible Values**
 
@@ -822,8 +820,8 @@ Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in We
 	:::xml
 	<PreloadLegacyAPD value="1"/>
 
-### 2PreloadJSObjects
-Whether or not to preload the NPAPI plugin to provide native JavaScript objects for each of the modules.
+### PreloadJSObjects
+Determines whether to preload the NPAPI plug-in to provide native JavaScript objects for each of the modules. On the Enterprise Tablet, this plug-in will be included if the JSObjects plug-in is preloaded.
 
 **Possible Values**
 
@@ -832,8 +830,8 @@ Whether or not to preload the NPAPI plugin to provide native JavaScript objects 
 
 #### Example
 	:::xml
-	<2PreloadJSObjects value="1"/>
-	
+	<PreloadJSObjects value="1"/>
+
 ## Scrolling
 ### ScrollTechnique
 Specifies the technique used to scroll the viewport:
