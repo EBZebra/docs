@@ -108,6 +108,6 @@ Possible Values (0, 1, or 2)
 
 * **0= create no shortcuts (default)**
 * 1= check for and create new shortcuts at every launch
-* 2= check for and create new shortcuts at initial launch only
+* 2= check for and create new shortcuts only at initial launch
 
 
