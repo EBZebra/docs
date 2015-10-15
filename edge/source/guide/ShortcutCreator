@@ -1,4 +1,5 @@
 EB Shortcut Creator Utility for Windows 
+
 EB Shortcut Creator is a Windows utility that quickly creates shortcuts for Enterprise Browser apps for Android and Windows Mobile/CE and can deploy them directly to devices. From a single screen, the tool can create and deploy multiple shortcuts, each with a unique name, startpage URL and Config.xml file, if desired. For Android, each shortcut also can have a unique icon. Shortcuts for different platforms can be created at one time and easily deployed to their respective platforms. 
 Shortcut Creator is included with Zebra Enterprise Browser 1.3. 
 QUICK STEPS for creating a shortcut

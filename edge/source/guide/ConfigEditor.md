@@ -1,73 +1,75 @@
-EB Config Editor Utility for Windows 
 
-Desktop Config Editor is a Windows utility that provides a quick and easy way to edit and deploy the Enterprise Browser Config.xml file, which controls the runtime behavior of Enterprise Browser apps. The tool pulls from connected device(s), explains the behavior of the selected XML tag, displays valid settings, parses and validates previously stored values, saves changes locally and deploys the file(s) to connected device(s) running Android or Windows Mobile/CE. 
+# Enterprise Browser Config Editor Utility
+
+
+## Config Editor Utility 
+
+The Config Editor is a Windows utility that provides a quick and easy way to edit and deploy the Enterprise Browser Config.xml file, which controls the runtime behavior of Enterprise Browser apps. The tool pulls from connected device(s), explains the behavior of the selected XML tag, displays valid settings, parses and validates previously stored values, saves changes locally and deploys the file(s) to connected device(s) running Android or Windows Mobile/CE. 
+
 The Desktop Config Editor is included with Zebra Enterprise Browser 1.3. 
-QUICK STEPS
-1. Select File > Open or Action > Pull From Device > [Device name] to open a Config.xml file 
-2. Navigate tree view to locate and edit desired tag(s) and edit their value(s)
-3. Press Save Config XML button to save changes
-4. Use Action > Push to Device > [Device name] to deploy saved Config.xml file to device 
--------------------------
-Using the Config Editor utility for Windows
+
+### QUICK STEPS
+1. Select **File>Open** or **Action>Pull From Device>[Device name]**.
+2. **Open the Config.xml file** to be edited. 
+3. In Config Editor window, navigate tree view to **locate and edit tag value(s)** as required.
+4. Press **Save Config XML** button to save changes.
+5. Use **Action>Push to Device>[Device name]** to deploy saved file to device. 
+
+## How to Use Config Editor
 To edit a file stored on a local development host: 
-1. On the menu bar, select File > Open FIle
-2. Browse to and open the Config.xml file
 
-<image1>
-<image2>
+* **Select File>Open File** from the menu bar.
+* Browse to and **open the Config.xml file** to be edited.
 
+![img](images/Utilities/ConfigEditor_02.png)
 
-To edit a file stored on a connected device (which must have an EB app installed):  
-Select Action > Pull From Device > [Device name] from the Config Editor menu bar.
+To edit a file stored on a connected device: 
+
+* **Select Action>Pull From Device>[Device name]** from the menu bar.
+
 The app's Config.xml file will be pulled from the selected device, stored locally on the development host, and opened in the utility for editing. 
 
-<image3>
+![img](images/Utilities/ConfigEditor_03.png)
+**Note**: This method requires that the device be visible to the host through Android Debug Bridge or ActiveSync, and that it have an EB app installed. See the [Connections section](index.html#guide-ConfigEditor?Connections) for details. 
 
+### Using Config Editor
 
-NOTE 
-If a device is not shown in the list of connected/detected devices, check the connection, as below. 
-For Windows Mobile/CE devices, the development host must have Active Sync installed and running with a device connected through USB or Bluetooth. For Android devices, the development host must have the Android Debug Bridge (ADB) installed and must connect to target devices via USB. In either case, the device also must contain an Enterprise Browser app as well as its accompanying Config.xml file.  
-Using Config Editor
 When a Config.xml file is opened, a Config Editor window will appear similar to the one below, with the file's tag names in a tree pane at left and an explanation of the selected tag's values and runtime behavior at right, along with an editor for its values. 
-Use the search field and button (seen below) to quickly find a particular tag in the tree. 
 
-<image4>
+* **Locate the tags to be edited** by scrolling the tree or using the search field and button (below). 
 
+![img](images/Utilities/ConfigEditor_04.png)
 
-As tag values are changed, Config Editor indicates that unsaved changes are present by placing an asterisk (*) in the title bar (as below). Press "Save Config XML" to store changes in the Config.xml file.
+* **Make changes to tag values as required**. 
 
-<image5>
+* **Press "Save Config XML"** to save changes in the Config.xml file.
 
+Config Editor indicates that unsaved changes are present by placing an asterisk (*) in the title bar (as below). 
 
-Push Changes To Device
-When the Config.xml file is configured correctly and changes have been saved, push changes to the device by selecting Action > Push to Device > [Device name]  from the menu bar. 
+![img](images/Utilities/ConfigEditor_05.png)
 
-<image6>
+* To push changes to the device, **select Action>Push to Device>[Device name]** from the menu bar.
 
+![img](images/Utilities/ConfigEditor_06.png)
 
-Use File > Save File As to save and/or rename additional copies of the Config.xml file as needed.   
+If multiple Config.xml files are desired, for example to test the behavior of various settings, select **File>Save File As** to save and/or rename additional copies of the Config.xml file as needed. 
 
-<image7>
+![img](images/Utilities/ConfigEditor_07.png)
 
-Tree View Features
-Right-click in the tree view to expose these features. 
-Expand all - Expands all XML tags to display all configurable settings.
-Collapse all - Collapses all tags to hide all nodes. 
-Refresh - Reloads the Config.xml file into the Editor, overwriting unsaved changes with the last-saved version. The refresh feature also can be used for editing multiple Config.xml files by overwriting one file with another, or when recovering from an accidental deletion or other mishap. 
+## Tree View Features
+The tree view offers these useful right-click features: 
 
-Online Help 
-Config Editor's Online Help opens the Enterprise Browser Config.XML Reference. For off-line viewing, download the Enterprise Browser User Guide (.zip). 
+* Expand all - Expands all XML tags to display all configurable settings.
+* Collapse all - Collapses all tags to hide all nodes. 
+* Refresh - Reloads the Config.xml file into the Editor, overwriting unsaved changes with the last-saved version. The refresh feature also can be used for editing multiple Config.xml files by overwriting one file with another, or when recovering from an accidental deletion or other mishap. 
 
-LINKS ABOVE
+## Config Editor Notes
 
-<image7>
-
-Config Editor Notes
 * Validation is performed only on tags accepting boolean or binary value sets. Validation is not performed on tags that accept free-form text or that initially contain a blank value. The values in such fields will be saved back to the Config.xml file unchanged. 
 
-* Enterprise Browser Config.xml files contain different sets of default values depending on the target platform. However, Config Editor does not differentiate between device platforms when pushing to devices. It's up to the user to manage the deployment process. 
+* Enterprise Browser Config.xml files contain different sets of default values depending on the target platform. However, Config Editor does not differentiate between device platforms when pushing to devices. It's up to the user to manage the deployment to the appopriate platform(s). 
 
-* Config Editor will automatically recognize and display tags in any Config.xml file, but cannot be used to add tags. 
+* Config Editor will automatically recognize and display tags in any Config.xml file, but cannot be used to add tags (use a text editor for that). 
 
 * Tags added to a Config.xml file beyond its default tag set will be displayed with a text box for storing and editing the values of those tags. 
 
@@ -78,3 +80,15 @@ Config Editor Notes
 * Use of Config Editor with Windows Mobile/CE devices requires ActiveSync and a USB or Bluetooth connection.  
 
 * Config Editor supports only the English-language versions of Windows, Android and Windows Mobile/CE. 
+
+## Connections
+Communication from the development host to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. If a device is not shown in Config Editor's list of connected/detected devices, please verify that the appropriate software and drivers are installed, and check the physical connection(s). 
+
+* **ADB supports USB only**
+* **ActiveSync supports USB or Bluetooth** 
+* **Device(s) must contain an EB app and its Config.xml file**  
+
+## Online Help 
+Config Editor's Online Help links to the [Enterprise Browser Config.XML Reference](http://ebzebra.github.io/docs/1.2/index.html#guide-configreference) in a browser. For off-line viewing, [download the Enterprise Browser User Guide (.zip)](https://github.com/EBZebra/docs/archive/gh-pages.zip). 
+
+![img](images/Utilities/ConfigEditor_08.png)

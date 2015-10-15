@@ -1,7 +1,7 @@
 # Config.XML Reference
 Runtime configuration settings of Enterprise Browser apps are managed through the Config.xml file. The Config.xml file is required; your app will not start without it. Config.xml determines features and behavior of the EB runtime, such as the keys that can be intercepted by an app and whether to pre-load modules on startup. A sample configuration file is provided as part of the Enterprise Browser installation, and contains defaults for many (though not all) of the most common settings. 
 
-The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility introduced with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](#utilities-ConfigEditor).   
+The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility included with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](index.html#guide-ConfigEditor). 
 
 ## Configuration File Location
 The location of the configuration file loaded by the Enterprise Browser is dependent on a number of factors:
@@ -1529,7 +1529,7 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](#
 
 ## ZoomKey
 ### ZoomInKey
-Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](#guide-configreference?Remarks).
 
 **Possible Values**
 
@@ -1540,7 +1540,7 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](#guide-configreference?Remarks).
 
 **Possible Values**
 
