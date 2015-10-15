@@ -1,7 +1,6 @@
 
 # Enterprise Browser Config Editor Utility
 
-
 ## Config Editor Utility 
 
 The Config Editor is a Windows utility that provides a quick and easy way to edit and deploy the Enterprise Browser Config.xml file, which controls the runtime behavior of Enterprise Browser apps. The tool pulls from connected device(s), explains the behavior of the selected XML tag, displays valid settings, parses and validates previously stored values, saves changes locally and deploys the file(s) to connected device(s) running Android or Windows Mobile/CE. 
@@ -15,15 +14,22 @@ The Desktop Config Editor is included with Zebra Enterprise Browser 1.3.
 4. Press **Save Config XML** button to save changes.
 5. Use **Action>Push to Device>[Device name]** to deploy saved file to device. 
 
-## How to Use Config Editor
-To edit a file stored on a local development host: 
+## Prerequisites
+* Windows development host
+* Zebra Enterprise Browser 1.3
+* USB driver for targeting Zebra devices
+* Android Debug Bridge (if targeting Android devices)
+* Microsoft ActiveSync (if targeting WIndows Mobile/CE devices)
+
+## Using Config Editor
+### Open a file stored on a development host
 
 * **Select File>Open File** from the menu bar.
 * Browse to and **open the Config.xml file** to be edited.
 
 ![img](images/Utilities/ConfigEditor_02.png)
 
-To edit a file stored on a connected device: 
+### Open a file stored on a connected device 
 
 * **Select Action>Pull From Device>[Device name]** from the menu bar.
 
@@ -32,7 +38,7 @@ The app's Config.xml file will be pulled from the selected device, stored locall
 ![img](images/Utilities/ConfigEditor_03.png)
 **Note**: This method requires that the device be visible to the host through Android Debug Bridge or ActiveSync, and that it have an EB app installed. See the [Connections section](index.html#guide-ConfigEditor?Connections) for details. 
 
-### Using Config Editor
+### Edit a Config.xml file
 
 When a Config.xml file is opened, a Config Editor window will appear similar to the one below, with the file's tag names in a tree pane at left and an explanation of the selected tag's values and runtime behavior at right, along with an editor for its values. 
 
@@ -88,7 +94,9 @@ Communication from the development host to target device(s) is handled by the [A
 * **ActiveSync supports USB or Bluetooth** 
 * **Device(s) must contain an EB app and its Config.xml file**  
 
+It might be necessary to install an OEM USB driver to make a USB-attached Android device visible to Windows. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
+
 ## Online Help 
-Config Editor's Online Help links to the [Enterprise Browser Config.XML Reference](http://ebzebra.github.io/docs/1.2/index.html#guide-configreference) in a browser. For off-line viewing, [download the Enterprise Browser User Guide (.zip)](https://github.com/EBZebra/docs/archive/gh-pages.zip). 
+Config Editor's Online Help links to the [Enterprise Browser Config.xml Reference](index.html#guide-configreference) in a browser. For off-line viewing, [download the Enterprise Browser User Guide (.zip)](https://github.com/EBZebra/docs/archive/gh-pages.zip). 
 
 ![img](images/Utilities/ConfigEditor_08.png)
