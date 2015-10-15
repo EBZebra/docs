@@ -4,7 +4,9 @@
 ## Overview
 The Printer API module allows an Enterprise Browser app to find, connect with, and print wirelessly to printers over Bluetooth and Wi-Fi from Android and Windows Mobie/CE devices. Beginning with EB 1.3, the same **printing capabilities are available via USB**. 
 
-To facilite USB printing, the Printer API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra Android device must be connected with a USB “On-The-Go” (OTG) cable or adapter to one of Zebra’s supported printers. Printing is supported via direct USB OTG connection or through a cradle with an OTG adapter.
+To facilite USB printing, the Printer API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB from a Zebra Android or Windows Mobile/CE device, it must be connected using a USB “On-The-Go” (OTG) cable or adapter to one of [Zebra's printers with USB support](index.html#api-printing?Printers). 
+
+> To print via USB, **Windows Mobile/CE devices also must be in 'Host Mode,'** which is found under USB Config in the Settings panel. 
 
 ## Enabling the API
 There are two methods of enabling the Printer API:
@@ -735,4 +737,50 @@ Type of printer - see PRINTER_TYPE_... constants.
 
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then **all** Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we cannot detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
 * When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer.searchPrinters should not return any non-printer devices,If USB printers are not supported by SDK or device searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; (for example executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED);
+
+## Printers
+<table class="table table-striped">
+<tr>
+<th class="text-centered">Device</th>
+<th class="text-centered"><nobr>Device family</nobr></th>
+<th class="text-centered">Device model(s)</th>
+<th class="text-centered">Operating System(s)</th>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/mobile/mz-220/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/x1426279604956.jpg.pagespeed.ic.F9pw8Srpwb.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MZ</b></td>
+<td class="clsSyntaxCells clsOddRow">MZ 220, MZ 320</td>
+<td class="clsSyntaxCells clsOddRow">Android, WM/CE</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>iMZ</b></td>
+<td class="clsSyntaxCells clsOddRow">iMZ 220, iMZ 320</td>
+<td class="clsSyntaxCells clsOddRow">Android, WM/CE</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
+<td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
+<td class="clsSyntaxCells usb comp">Android, WM/CE</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/passive-rfid/rp4t/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/1426279500551.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>P4T</b></td>
+<td class="clsSyntaxCells clsOddRow">P4T, RP4T Passive RFID Printer</td>
+<td class="clsSyntaxCells clsOddRow">Android, WM/CE</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="zd500rpic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/rfid/zd500r/_jcr_content/mainpar/tabscontainer/detailed-specs/content/subtabscontainer_540/zd500r/content/twocol_83b/leftpar/image_236a.img.png/1433356327246.png" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>ZD500R</b></td>
+<td class="clsSyntaxCells clsOddRow">ZD500R RFID Printer</td>
+<td class="clsSyntaxCells clsOddRow">Android, WM/CE</td>
+</tr>
+<td class="clsSyntaxCells clsOddRow"><b></b></td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is supported by EB 1.3 and higher.</td>
+<td class="clsSyntaxCells clsOddRow"><b></b></td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Zebra's QL Plus and QLn series printers DO NOT support Android USB printing.</td>
+</tr>
+</table>
+
               
