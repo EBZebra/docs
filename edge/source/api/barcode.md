@@ -1915,7 +1915,7 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.
+Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not override beeper and hence not supported.
 ####Access
 
 
@@ -2468,7 +2468,7 @@ Enables the verification of the I2of5 check digit.
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Selects the illumination mode to use.
+Selects the illumination mode to use. This property is currently being not supported on Android Platform
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
@@ -2487,7 +2487,6 @@ Selects the illumination mode to use.
 
 ####Platforms
 
-* Android
 * Windows Mobile
 * Windows CE
 * Zebra Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)

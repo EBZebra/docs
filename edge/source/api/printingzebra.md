@@ -2,7 +2,7 @@
 
 
 ## Overview
-The PrinterZebra API provides Zebra specific API access Zebra Bluetooth, WiFi Network printers and USB for Android. This API inherits all methods,properties,constants from the [Printer API](#api-printing)
+The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB printing for Android. This API inherits all methods, properties and constants from the [Printer API](#api-printing).
 ## Enabling the API
 There are two methods of enabling the Zebra Printing API:
 
@@ -460,7 +460,7 @@ Requests printer state with a list of parameters.
 * Works asynchronously and uses the callback to check the result.
 * Returns hash with status, and parameters as keys.
 
-NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
+NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a Bluetooth and USB connection.
 
 ####Parameters
 <ul><li>listOfParameters : <span class='text-info'>ARRAY</span><p>List of parameters for request from printer device. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>Parameter name - see constants with PRINTER_STATE_... </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
