@@ -2,7 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Printer" parent="Rho">
-        <HELP_OVERVIEW>The Printer Module provides the ability to find, connect and print via Bluetooth, Wi-Fi and USB.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The Printer API module allows an Enterprise Browser app to find, connect with, and print wirelessly to printers over Bluetooth and Wi-Fi from Android and Windows Mobie/CE devices. Beginning with EB 1.3, the same **printing capabilities are available via USB**. 
+
+        To facilite USB printing, the Printer API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB from a Zebra Android or Windows Mobile/CE device, it must be connected using a USB “On-The-Go” (OTG) cable or adapter to one of [Zebra's printers with USB support](index.html#api-printing?Printers). To print via USB, **Windows Mobile/CE devices also must be in 'Host Mode,'** which is found under USB Config in the Settings panel. 
+
+
+        </HELP_OVERVIEW>
         <MORE_HELP>
 This general API does not provide access to manufacturer-specific features such as those found in the [PrintingZebra API](printingzebra). If you wish to have access to both general *and* manufacturer-specific features, you must add both extensions to your `build.yml` file.
 
@@ -10,14 +15,15 @@ This general API does not provide access to manufacturer-specific features such 
 
 1. Windows Mobile/CE platforms require the Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes).
 2. Unless using the printer's 'line mode' (for sending raw text strings), Zebra recommends sending ZPL only.
-3. USB printing is supported for Android only.
+3. USB printing is supported for Android and Windows Mobile/CE devices.
 
 ## Enabling the API
-To use this API you must include the following extension in your `build.yml`
+To use this API you must include the following extension in your `build.yml`file:
+
     :::ruby
     extensions: ["printing"]
 
-> Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+> Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown in the [Build.yml guide](../guide/build_config#other-build-time-settings).
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
