@@ -32,119 +32,200 @@ The following is an example of a typical configuration file
 
 	:::xml
 	<?xml version="1.0"?>
-	<!-- Enterprise Browser Configuration file -->
-	<Configuration>
-		<DebugButtons>
-			<DebugButtonsEnabled value="0"/>
-		</DebugButtons>
-
-		<Logger>
-			<LogProtocol value="FILE"/>
-			<LogPort value="80"/>
-			<LogURI value="file://%INSTALLDIR%/log.txt"/>
-			<LogError value="1"/>
-			<LogWarning value="0"/>
-			<LogInfo value="0"/>
-			<LogUser value="1"/>
-			<LogMemory value="0"/>
-			<LogMemPeriod value="5000"/>
-			<LogMaxSize value="10"/>
-		</Logger>
-
-		<FileLocations>
-			<RegEXFile value="file://%INSTALLDIR%/RegEx.xml"/>
-		</FileLocations>
-
-		<Screen>
-			<FullScreen value="1"/>
-			<ShowLicenseConfirmation value="1"/>
-			<EnableZoom value="1"/>
-		</Screen>
-
-		<WebServer>
-			<Enabled VALUE="0"/>
-			<Port VALUE="8080"/>
-			<WebFolder VALUE="\www"/>
-			<Public VALUE="0"/>
-		</WebServer>
-
-		<DeviceKeys>
-			<EnableFunctionKey_F1 value="0"/>
-			<EnableFunctionKey_F2 value="0"/>
-			<EnableFunctionKey_F3 value="0"/>
-		</DeviceKeys>
-
-		<Navigation>
-			<NavTimeout value="45000"/>
-		</Navigation>
-
-		<Geolocation>
-			<GeolocationEnabled value="1"/>
-		</Geolocation>
-
-		<Engine>
-			<EngineInUse value="IE"/>
-		</Engine>
-
-		<Applications>
-			<Application>
-				<General>
-					<Name value="Menu"/>
-					<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-				</General>
-
-				<HTTP_Proxy value=""/>
-				<HTTPS_Proxy value=""/>
-
-				<WebDB>
-					<WebStorageDBPath value="file://%INSTALLDIR%"/>
-					<WebSQLDBQuota value="5000000"/>
-					<WebSQLDBPath value="file://%INSTALLDIR%"/>
-				</WebDB>
-
-				<ApplicationCache>
-					<ApplicationCachePath value="file://%INSTALLDIR%"/>
-					<ApplicationCacheQuota value="5000000"/>
-				</ApplicationCache>
-
-				<NPAPI>
-					<Preloads>
-						<PreloadLegacyGeneric value="1"/>
-						<PreloadLegacyODAX value="1"/>
-						<PreloadLegacyAirBeam value="1"/>
-						<PreloadLegacyAPD value="1"/>
-						<PreloadJSObjects value="1"/>
-					</Preloads>
-				</NPAPI>
-
-				<HTMLStyles>
-					<TextSelectionEnabled value="0"/>
-					<FontFamily value="Droid Sans Fallback"/>
-				</HTMLStyles>
-
-				<GUI>
-					<SignalRefresh value="5000"/>
-					<HourglassEnabled value="1"/>
-					<HourglassLeft value=""/>
-					<HourglassTop value=""/>
-				</GUI>
-
-				<Navigation>
-					<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
-					<EnableSSL3 value="1"/>
-					<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
-					<NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/>
-					<ViewportEnabled value="1"/>
-					<Cache value="5MB"/>
-				</Navigation>
-				<ZoomKey>
-					<ZoomInKey value="0x70"/> //Any function key can be applied
-					<ZoomOutKey value="0x71"/> //Any function key tag can be applied
-				</ZoomKey>
-				<isWindowsKey  value="0"/>				
-			</Application>
-		</Applications>
-	</Configuration>
+<Configuration>
+  <DebugButtons>
+    <DebugButtonsEnabled value="0" />
+  </DebugButtons>
+  <ExitPassword>
+    <ExitPasswordEnabled value="0" />
+    <ExitPasswordValue value="123" />
+  </ExitPassword>
+  <Settings>
+    <SettingsButtonEnabled value="0" />
+    <SettingsPageProtectionEnabled value="0" />
+    <SettingsPagePassword value="" />
+  </Settings>
+  <Shortcut>
+    <ShortcutCreationEnabled value="0" />
+  </Shortcut>
+  <ZoomKey>
+    <ZoomInKey value="" />
+    <ZoomOutKey value="" />
+  </ZoomKey>
+  <Logger>
+    <LogProtocol value="FILE" />
+    <LogPort value="80" />
+    <LogURI value="file://%INSTALLDIR%/Log.txt" />
+    <LogError value="1" />
+    <LogWarning value="1" />
+    <LogInfo value="1" />
+    <LogUser value="0" />
+    <LogMemory value="0" />
+    <LogMemPeriod value="5000" />
+    <LogMaxSize value="5000" />
+  </Logger>
+  <FileLocations>
+    <RegEXFile value="file://%INSTALLDIR%/RegEx.xml" />
+  </FileLocations>
+  <Screen>
+    <FullScreen value="1" />
+    <PageZoom value="1.0" />
+    <EnableZoom value="1" />
+  </Screen>
+  <SplashScreen>
+    <SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png" />
+    <SplashScreenDuration value="0" />
+  </SplashScreen>
+  <VoidConnection>
+    <TrackConnection value="0" />
+    <HostURL value="192.168.1.1" />
+    <Message value="Establishing Connection..." />
+    <Timeout value="30000" />
+    <PollInterval value="5000" />
+  </VoidConnection>
+  <DeviceKeys>
+    <FunctionKeysCapturable value="0" />
+    <EnableFunctionKey_F1 value="1" />
+    <EnableFunctionKey_F2 value="1" />
+    <EnableFunctionKey_F3 value="1" />
+    <EnableFunctionKey_F4 value="1" />
+    <EnableFunctionKey_F5 value="1" />
+    <EnableFunctionKey_F6 value="1" />
+    <EnableFunctionKey_F7 value="1" />
+    <EnableFunctionKey_F8 value="1" />
+    <EnableFunctionKey_F9 value="1" />
+    <EnableFunctionKey_F10 value="1" />
+    <EnableFunctionKey_F11 value="1" />
+    <EnableFunctionKey_F12 value="1" />
+    <EnableApplicationKey_A1 value="1" />
+    <EnableApplicationKey_A2 value="1" />
+    <EnableApplicationKey_A3 value="1" />
+    <EnableApplicationKey_A4 value="1" />
+    <EnableApplicationKey_A5 value="1" />
+    <EnableApplicationKey_A6 value="1" />
+    <EnableApplicationKey_A7 value="1" />
+    <EnableApplicationKey_A8 value="1" />
+  </DeviceKeys>
+  <Navigation>
+    <NavTimeout value="45000" />
+  </Navigation>
+  <Geolocation>
+    <GeolocationEnabled value="1" />
+  </Geolocation>
+  <ScreenOrientation>
+    <AutoRotate value="1" />
+  </ScreenOrientation>
+  <TabInstance>
+    <NewTabPhysicalMemLimit value="90" />
+    <NewTabVirtualMemLimit value="80" />
+  </TabInstance>
+  <Engine>
+    <EngineInUse value="ENGINE_TO_USE" />
+    <EngineTimeout value="60000" />
+  </Engine>
+  <UserData>
+  </UserData>
+  <Applications>
+    <Application>
+      <HTTP_Proxy value="" />
+      <HTTPS_Proxy value="" />
+      <isWindowsKey value="0" />
+      <IntentReceiver>
+        <EnableReceiver value="0" />
+        <IntentAction value="" />
+        <IntentCategory value="" />
+      </IntentReceiver>
+      <General>
+        <Name value="Menu" />
+        <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu" />
+        <UseRegularExpressions value="REGULAR_EXPRESSIONS_FLAG" />
+      </General>
+      <Scanner>
+        <DisableScannerDuringNavigation value="1" />
+      </Scanner>
+      <WebDB>
+        <WebStorageDBPath value="file://%INSTALLDIR%" />
+        <WebSQLDBQuota value="5000000" />
+        <WebSQLDBPath value="file://%INSTALLDIR%" />
+      </WebDB>
+      <ApplicationCache>
+        <ApplicationCachePath VALUE="file://%INSTALLDIR%" />
+        <ApplicationCacheQuota VALUE="5000000" />
+      </ApplicationCache>
+      <NPAPI>
+        <NPAPIDirectory value="file://%INSTALLDIR%/NPAPI/" />
+        <Preloads>
+          <PreloadLegacyActiveX value="0" />
+          <PreloadLegacyGeneric value="1" />
+          <PreloadLegacyODAX value="1" />
+          <PreloadLegacyNoSIP value="1" />
+          <PreloadLegacyAirBeam value="1" />
+          <PreloadLegacyAPD value="1" />
+          <PreloadJSObjects value="1" />
+        </Preloads>
+      </NPAPI>
+      <Preloads>
+        <Preload value="Hourglass" />
+        <Preload value="SIP" />
+        <Preload value="ScreenOrientation" />
+      </Preloads>
+      <Scrolling>
+        <ScrollTechnique VALUE="FingerScroll" />
+      </Scrolling>
+      <Authentication>
+        <Username VALUE="" />
+        <Password VALUE="" />
+      </Authentication>
+      <HTMLStyles>
+        <FitToScreenEnabled value="1" />
+        <ClearTypeEnabled value="1" />
+        <JavascriptEnabled value="1" />
+        <TextSelectionEnabled value="0" />
+        <FontFamily value="Droid Sans Fallback" />
+      </HTMLStyles>
+      <SIP>
+        <ResizeOnSIP value="0" />
+      </SIP>
+      <System>
+        <LowBatteryScan value="0" />
+      </System>
+      <Sound>
+        <DecodeVolume value="5" />
+        <DecodeFrequency value="0xBB8" />
+        <InvalidDecodeFrequency value="0x9C4" />
+        <DecodeDuration value="250" />
+        <ScanDecodeWav value="" />
+        <ScanInvalidWav value="" />
+        <ImagerCaptureWav value="" />
+      </Sound>
+      <GUI>
+        <SignalRefresh value="5000" />
+        <BatteryRefresh value="5000" />
+        <HourglassEnabled value="1" />
+        <HourglassLeft value="" />
+        <HourglassTop value="" />
+      </GUI>
+      <Navigation>
+        <BadLinkURI value="file://%INSTALLDIR%/badlink.html" />
+        <UserAgent value="Mozilla/5.0 (AndroidWebKit; U; /%p) AppleWebKit/%w (KHTML, like Gecko) Version/%e Mobile Safari/%w" />
+        <NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db" />
+        <ViewportEnabled value="1" />
+        <VerifyPeerCertificate value="1" />
+        <Cache VALUE="5MB" />
+      </Navigation>
+      <DeviceKeys>
+        <EnableCtrlKey_A value="1" />
+        <EnableCtrlKey_C value="1" />
+        <EnableCtrlKey_V value="1" />
+        <EnableCtrlKey_O value="0" />
+        <EnableCtrlKey_P value="0" />
+      </DeviceKeys>
+      <DefaultMetaTags>
+      </DefaultMetaTags>
+      <CustomDOMElements value="" />
+    </Application>
+  </Applications>
+</Configuration>
 
 ## General
 ### StartPage
