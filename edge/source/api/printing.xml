@@ -2,59 +2,63 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Printer" parent="Rho">
-        <HELP_OVERVIEW>The Printer API module allows an Enterprise Browser app to find, connect with, and print wirelessly to printers over Bluetooth and Wi-Fi from Android and Windows Mobie/CE devices. **Beginning with EB 1.3, printing capabilities also are available via USB from Android and WM/CE devices**. 
+        <HELP_OVERVIEW>The Printer API module allows an Enterprise Browser app to find, connect with, and print wirelessly to printers over Bluetooth and Wi-Fi from Android and Windows Mobie/CE devices. **USB printing from Android and WM/CE devices has been added in EB 1.3**. 
 
-To facilite USB printing, the Printer API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB from a Zebra Android or Windows Mobile/CE device, the device must be connected to one of several [Zebra printers with USB support](index.html#api-printing?Printers) using a USB “On-The-Go” (OTG) cable or adapter. **To print via USB from Windows Mobile/CE, the device also must be in 'Host Mode,' which is found under USB Config in the Settings panel**. </HELP_OVERVIEW>
+        To facilite USB printing, the Printer API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB from a Zebra Android or Windows Mobile/CE device, the device must be connected to one of several [Zebra printers with USB support](index.html#api-printing?Printers) using a USB “On-The-Go” (OTG) cable or adapter. **To print via USB from Windows Mobile/CE, the device also must be in 'Host Mode,' which is found under USB Config in the Settings panel**.
+
+</HELP_OVERVIEW>
         <MORE_HELP>
-This general API does not provide access to manufacturer-specific features such as those found in the [PrintingZebra API](printingzebra). If you wish to have access to both general *and* manufacturer-specific features, you must add both extensions to your `build.yml` file.
+        This general API does not provide access to manufacturer-specific features such as those found in the [PrintingZebra API](printingzebra). If you wish to have access to both general *and* manufacturer-specific features, you must add both extensions to your `build.yml` file.
 
-###Notes
+        ###Notes
 
-1. Windows Mobile/CE platforms require the Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes).
-2. Unless using the printer's 'line mode' (for sending raw text strings), Zebra recommends sending ZPL only.
-3. USB printing is supported for Android only.
+        1. Windows Mobile/CE platforms require the Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes).
+        2. Unless using the printer's 'line mode' (for sending raw text strings), Zebra recommends sending ZPL only.
+        3. USB printing is supported for Android only.
 
 ## Enabling the API
-To use this API you must include the following extension in your `build.yml`
-    :::ruby
-    extensions: ["printing"]
+        To use this API you must include the following extension in your `build.yml`:
+        :::ruby
+        extensions: ["printing"]
 
-> Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+        > Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+        ## JavaScript Usage
+        Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        ## Ruby Usage
+        Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
-        <MORE_HELP_EB>
-## Enabling the API
-There are two methods of enabling the Printing API:
 
-* Include all ebapi modules or
-* Include only the API modules you need
+    <MORE_HELP_EB>
+    There are two methods of enabling the Printer API:
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+    * Include all 'ebapi' modules
+    * Include only the API modules you need
 
-### Include all JS API modules
-To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+    Both methods are explained below. Either way, the included files will be from: 
+    `/Enterprise Browser/JavaScript Files/Enterprise Browser`, a directory on the computer that contains the Enterprise Browser installation.
 
-    :::html
-    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
-
-> Note: that the pathing for this file is relative to the current page.
-
-This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
-
-### Include only the modules you need
-To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Printing API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+    ### Include all JS API modules
+    To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
 
     :::html
-    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" charset="utf-8" src="eb.printer.js"&gt;&lt;/script&gt;
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-The ebapi.js file is necessary for all single API inclusions.
-        </MORE_HELP_EB>
+    > This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
+
+    ### Include only the modules you need
+    To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the Printer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.printer.js"></script>
+
+Note that `ebapi.js` is included first, followed by `eb.printer.js`, which is the Printer API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
+
+##Methods
+
+    </MORE_HELP_EB>
 
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
@@ -129,53 +133,53 @@ The ebapi.js file is necessary for all single API inclusions.
             </CONSTANT>
         </CONSTANTS>
 
-        <PROPERTIES>
-            <!-- Common properties -->
-            <DESC>General properties for Printer.</DESC>
-            <PROPERTY name="ID" type="STRING" readOnly="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Unique printer ID during application lifetime.</DESC>
-            </PROPERTY>
-            <PROPERTY name="deviceName" type="STRING" readOnly="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Bluetooth/Network name of printer.</DESC>
-            </PROPERTY>
-            <PROPERTY name="printerType" type="STRING" readOnly="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Type of printer - see PRINTER_TYPE_... constants.</DESC>
-            </PROPERTY>
-            <PROPERTY name="deviceAddress" type="STRING" readOnly="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. Note: iOS uses device serial number instead of mac address. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" </DESC>
-                <DESC_EB>IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" </DESC_EB>
-            </PROPERTY>
-            <PROPERTY name="devicePort" type="INTEGER" generateAccessors="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Default port when connecting using TCP/IP.</DESC>
-            </PROPERTY>
-            <PROPERTY name="connectionType" type="STRING" readOnly="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Type of connection to printer.</DESC>
-            </PROPERTY>
-            <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
-                <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want to real physical connection - use requestState() method with receive result in the callback. Only this way process real request to device and analyze answer from device.</DESC>
-            </PROPERTY>
-        </PROPERTIES>
+    <PROPERTIES>
+        <!-- Common properties -->
+        <DESC>General properties for Printer.</DESC>
+        <PROPERTY name="ID" type="STRING" readOnly="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>Unique printer ID during application lifetime.</DESC>
+        </PROPERTY>
+        <PROPERTY name="deviceName" type="STRING" readOnly="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>Bluetooth/Network name of printer.</DESC>
+        </PROPERTY>
+        <PROPERTY name="printerType" type="STRING" readOnly="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>Type of printer - see PRINTER_TYPE_... constants.</DESC>
+        </PROPERTY>
+        <PROPERTY name="deviceAddress" type="STRING" readOnly="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. Note: iOS uses device serial number instead of mac address. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" </DESC>
+            <DESC_EB>IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" </DESC_EB>
+        </PROPERTY>
+        <PROPERTY name="devicePort" type="INTEGER" generateAccessors="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>Default port when connecting using TCP/IP.</DESC>
+        </PROPERTY>
+        <PROPERTY name="connectionType" type="STRING" readOnly="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>Type of connection to printer.</DESC>
+        </PROPERTY>
+        <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
+            <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+            <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+            <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+            <DESC>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want to real physical connection - use requestState() method with receive result in the callback. Only this way process real request to device and analyze answer from device.</DESC>
+        </PROPERTY>
+    </PROPERTIES>
 
         <METHODS access="INSTANCE">
             <METHOD name="enumerateSupportedTypes" access="STATIC" hasCallback="optional">
@@ -208,8 +212,8 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                     <PARAM name="options" type="HASH">
                         <DESC>Options for discover.</DESC>
                         <CAN_BE_NIL/>
-                        <PARAMS>
-                            <PARAM name="printerType" type="STRING" default="PRINTER_TYPE_ANY">
+                       <PARAMS>
+                           <PARAM name="printerType" type="STRING" default="PRINTER_TYPE_ANY">
                                 <DESC>Printer types to search. Make sure that Printer type is supported by calling enumerateSupportedTypes method.</DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
