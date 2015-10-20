@@ -2,60 +2,60 @@
 
 ## On-device Config Editor
 
-The on-device configuration feature permits several key runtime settings contained in the Config.xml* file to be edited on-device, _without_ the aid of a PC. Apps made with Enterprise Browser 1.3 and higher have the ability to access key capture, zoom in/out, start page and other settings; a full list below. The settings panel can be secured with a password, assign an exit password to other EB apps, and show or hide its own control from the user interface. 
+The on-device configuration feature permits several key runtime settings contained in the Config.xml file to be edited on-device, _without_ the aid of a PC. Settings in the Config.xml file control all runtime behavior of an Enterprise Browser app. The file must reside on the target device for an EB app to launch. 
 
-On-device configuration works through a new interface in the Settings panel, and is supported on Android with the stock webkit and on Windows Mobile/CE platforms with the Zebra webkit and IE engine. Settings edited on the device take effect the first time Enterprise Browser is launched following the change. 
-
-Configuring the full set of [runtime settings in the Config.xml](../guide/configreference) still requires a computer, but that too has been made significantly easier in EB 1.3 with the introduction of the [Config Editor utility](../guide/ConfigEditor), a new utility for Windows that edits and deploys Config.xml files from a single panel.  
-
-* The Config.xml file contains settings for all runtime behavior of an Enterprise Browser app. It must reside on the target device or the app will not launch. 
-
-## Accessing On-Device Configuration 
-A button for accessing on-device configuration is displayed by default following the initial Enterprise Browser 1.3 installation, and thereafter when the EB app is restarted unless or until a different start page is assigned using the Startpage parameter. 
-
-The first time an Enterprise Browser 1.3 app is launched, a screen will appear like the one below. 
+EB 1.3 and higher apps for Android and Windows Mobile/CE can configure keycapture, zoom in/out, start page and other settings listed below. The settings panel can be secured with a password, can assign an exit password to other EB apps, and can be shown or hidden from the user interface. 
 
 
-image 1
+## Using On-Device Config
+A button for accessing on-device configuration is displayed by default following an initial Enterprise Browser 1.3 installation. Thereafter, it's displayed whenever the EB app is restarted until a different start page is assigned in the Startpage parameter of the Config.xml. 
 
-**To edit the config.xml file that's on the device, press the "Settings" button**. Pressing the "Return to OS" button will skip settings configuration and bring up the operating system. To display the Settings button again, simply relaunch Enterprise Browser app. 
-
-Pressing Settings will bring up a screen like the one below. 
+**The first time an Enterprise Browser 1.3 app is launched, a screen like the one below will appear**. 
 
 
-image 2
+![img](images/OndeviceConfig/On-device_config_01.png)
 
-**To activate your EB app's start page, enter the URL in the Value field of the StartPage parameter**, as highlighted below. 
+**Press the "Settings" button to edit the config.xml file that's on the device**. This will bring up a screen like the one below. 
 
-Unless you're done with settings, **Do not apply the changes yet**. The next time the app is launched, it will display its intended start page and not the Settings button. Fortunately, there's another way to access the Settings panel. 
+Pressing the "Return to OS" button will skip settings configuration and bring up the operating system. To display the Settings button again, simply relaunch the Enterprise Browser app. 
 
-**Set the Value of the Settings Button Enabled parameter to Enabled**. This will cause a Settings button to appear in the UI at all times. Notice that a password also can be applied to the Settings panel, if desired. 
+![img](images/OndeviceConfig/On-device_config_02.png)
 
-image 3
+**To activate your EB app's start page, enter the URL in the Value field of the StartPage parameter**, as highlighted above, but **do not apply the changes yet**.
+
+Unless you're done with settings, we don't want to apply changes because the next time the app is launched, it will display its intended start page and remove access to the Settings panel. So we must first enable another way to get to it, and that's with the SettingsButtonEnable paramter.
+
+**Set the SettingsButtonEnabled parameter to Enabled**. This will cause a Settings button to appear in the UI at all times. Notice from the next two fields that a password also can be applied to the Settings panel, if desired. 
+
+![img](images/OndeviceConfig/On-device_config_03.png)
 
 **Press Apply to update the Config.xml file with the new settings**. A screen like the one below will be displayed. Restart the app to activate the changes. 
 
-image 4
+![img](images/OndeviceConfig/On-device_config_04.png)
 
-Next time the app is restarted, a Settings button will appear in the UI like the one shown below. Other Action buttons are explained below. 
+Next time the app is restarted, a Settings button will appear in the UI like the one in the red box below.
 
-image 5
+![img](images/OndeviceConfig/On-device_config_05.png)
+
+**Note: When the IE engine is used on a Windows CE device, this feature might cause screen distortion when scrolling**.  
 
 ## Action Buttons
 
-The on-device settings panel presents four buttons.  These buttons are present at bottom of the settings page and each has an unique function which is described below.
+The on-device settings panel presents four buttons at the bottom of the Settings panel. Here's now they behave. 
          
-1. **Apply updates the config.xml** with the new values. Note that Startpage settings will persist after a cold boot or reinstallation of Enterprise Browser.  
+* **<u>Apply</u> updates the config.xml** with new values entered in the Value fields. **Note**: Startpage settings will persist after a cold boot or reinstallation of Enterprise Browser; others settings will not.   
 
-2. **Quit exits the app without saving**. If ExitPasswordEnabled parameter is Enabled, the Quit button will cause a password prompt to appear. 
+* **<u>Quit</u> exits the app without saving**. If ExitPasswordEnabled parameter is Enabled, the Quit button also will cause a password prompt to appear. 
 
-3. **Back navigates to the previous page** with no prompt. Unsaved changes are lost. 
+* **<u>Back</u> navigates to the previous page** with no prompt. Unsaved changes are lost. 
 
-4. **Reset will revert all settings the their default values**.
+* **<u>Reset</u> will revert all settings the their default values**.
 
-## On-Device Configurable Settings
+## Configurable Settings
+Below is the list of settings that can be configured on-device through an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the [Config.xml reference guide](../guide/configreference) 
+
 ### Debugbuttons
-When enabled, presents a set of controls useful for development and debugging purposes. Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling.
+When enabled, presents a set of controls useful for development and debugging purposes. **Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling**.
 
 ### HTTP_Proxy
 Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. **Applies only to WM/CE devices with the Zebra WebKit engine or Android with the stock webkit**. When Internet Explorer is used, proxy settings are picked up from Windows connection manager.
@@ -79,7 +79,7 @@ When enabled, prompts for a password when quitting an Enterprise Browser app. Pa
 Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to '1' and cannot be left empty.
 
 ### SettingsButtonEnabled
-When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. NOTE: When the IE engine is used on a Windows CE device, this feature might cause screen distortion when scrolling.
+When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. **Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling**.
 
 ### SettingsPageProtectionEnabled
 When enabled, prompts for a password before allowing access to the Settings page. Password is stored using the SettingsPagePassword tag.
@@ -97,8 +97,17 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies only to WM/CE with IE or Zebra Webkit. Other requirements are detailed in the Remarks section at the bottom of this guide.Read more.
 
 ### StartPage 
-Defines the start page of a Enterprise Browser application, displayed at launch. This should be a local file to avoid connectivity issues on startup. Case sensitive. This setting is stored in the Windows registry and persists after reboot. 
+Defines the start page of a Enterprise Browser application, displayed at launch. This should be a local file to avoid connectivity issues on startup. Case sensitive. This setting persists after cold reboot or reinstallation of the app. 
 
-**NOTE**: The Startpage value persists on the device even after a cold boot or uninstallation. If Enterprise Browser is re-installed, a prompt will be displayed on first launch offering to accept the previous Startpage or enter a new one. 
+## Notes
+* The Startpage value persists on the device even after a cold boot or uninstallation of Enterprise Browser. If EB is re-installed, a prompt will be displayed on first launch offering to accept the previous Startpage or enter a new one. 
+
+* On-device configuration is supported on Android with the stock webkit and on Windows Mobile/CE platforms with the Zebra webkit or IE engine. 
+
+* Settings edited on the device take effect the next time Enterprise Browser is launched. 
+
+* Configuring the full set of [runtime settings in the Config.xml](../guide/configreference) still requires a computer. 
+
+* To simplify PC-based set up of Config.xml files, please refer to the [Config Editor utility](../guide/ConfigEditor), a Windows utility new in EB 1.3 that edits and deploys Config.xml files from a single panel.
 
 
