@@ -8,24 +8,21 @@ With support for the legacy Application Programming Interfaces (APIs) used in Po
 
 ## What's New
 
-USB Printing
-Camera and Timer APIs
-On-Device Editing of runtime settings (Config.xml)
-Password access to Settings panel and app exiting
-
-
-* SAP ITS Mobile Compliance
-  * [SAP ITS Mobile Usage guide](../guide/sap)
-  * JavaScript keyCode support for SAP Apps.
-* New Device Support
-  * WorkAbout Pro 4 CE 6.0
-  * MC18 Android KitKat
+* USB Printing for Android Windows Mobile/CE
+* [On-Device Editing](../guide/OnDeviceConfig) of runtime settings (Config.xml)
+* Password access to Settings panel and app exiting
+* [Config Editor](../guide-ConfigEditor) utility for Windows
+* [Shortcut Creator](../guide-ShortcutCreator) utility for Windows
+* Support for Android 4.4 KitKat on:
+  * TC55
+  * MC40
+  * TC70
+  * TC75
 * New APIs
-  * [SmartCradle API](../api/smartcradle) 
-  * New BatteryDiagnostics method in the [Battery API](../api/battery)
-  * [Database API](../api/Database)
-  * [SymbolDevice API](../api/device)
-* New Feature Demo Application.
+  * [Camera API](../api/Camera)
+  * [Timer API](../api/Timer)
+
+
 * New configuration tags
   * &lt;ZoomInKey&gt; & &lt;ZoomOutKey&gt; - To ease the usage of Applications running on Enterprise Browser, users can now configure Hardware Function Keys to perform ZoomIn and ZoomOut operations without having to make changes to the application. Applicable to Windows devices only.
   * &lt;DisableScannerInApp&gt; - This tag has been introduced to disable barcode scanning abilities for legacy Scanner API. This setting will not effect the behavior of barcode scanning in the License dialogue. Applicable to Windows devices only.
