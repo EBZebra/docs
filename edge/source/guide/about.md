@@ -1,10 +1,18 @@
-# About Enterprise Browser
+# Enterprise Browser 1.3
 
 ## Welcome To the Enterprise Browser
 
-Enterprise Browser is a powerful, next-geration industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals - such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Microsoft&copy; Windows Mobile, Windows&copy; CE or Android. With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next generation devices and operating systems fast, easy and affordable - especially in high volume mobile environments.
+Enterprise Browser is a powerful, next-geration industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals - such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
+
+With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable--especially in high-volume mobile environments.
 
 ## What's New
+
+USB Printing
+Camera and Timer APIs
+On-Device Editing of runtime settings (Config.xml)
+Password access to Settings panel and app exiting
+
 
 * SAP ITS Mobile Compliance
   * [SAP ITS Mobile Usage guide](../guide/sap)
