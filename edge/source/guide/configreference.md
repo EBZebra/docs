@@ -541,13 +541,11 @@ Specifies the maximum allowable size of the log file, after which no more logs w
 
 ## FileLocations
 ### RegExFile
-**Applies only to Windows Mobile/CE**. Defines the location of the XML file that contains the conversions to be used for backward compatibility with EMML 1.0.
+**Applies only to Windows Mobile/CE**. Defines the location of RegEx.xml, the file that contains the conversions to be used for backward compatibility with EMML 1.0. Case sensitive. **Changing this file or its location is not recommended, as such changes might prevent an app from launching**.   
 
 **Possible Values**
 
 * Fully qualified path to file defining the regular expressions
-
-> Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
 #### Example
 	:::xml
