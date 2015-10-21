@@ -1194,7 +1194,7 @@ Controls whether JavaScript is enabled on Windows Mobile devices.
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Controls whether text selection is enabled when dragging the stylus on the screen. When enabled, the scroll bar is recommended for scrolling the page. Should be set to '1' for access to Copy (Ctrl+C) and Paste (Ctrl+V) functions on Webkit for WM/CE. **This tag is supported on WM/CE only when using the Zebra Webkit**. 
+**Applies only to WM/CE with Zebra Webkit**. Controls whether text selection is enabled when dragging the stylus on the screen. When enabled, the scroll bar is recommended for scrolling the page. Should be set to '1' for access to Copy (Ctrl+C) and Paste (Ctrl+V) functions on Webkit for WM/CE.  
 
 **Possible Values**
 
@@ -1206,7 +1206,7 @@ Controls whether text selection is enabled when dragging the stylus on the scree
 	<TextSelectionEnabled value="0"/>
 
 ### UseNativeFonts
-Controls which fonts will be used. When set to ‘0’ (default) the FreeType library will be used as on apps built with RMS 2.x. When set to ‘1’ the native font engine on the device is used. A setting of ‘1’ overrides the ‘FontFamily’ setting. On localized devices from 4.1 and higher, the native font engine will be used by default. The FreeType library cannot render localized characters such as Asian and some accented European characters. The log file displays the font engine in use on launch. Some early BSPs of CE7 do not support the native font render. **Applies only to Windows Mobile and Windows CE**. This config element is not currently available on the MC92, VC70 or WT41N0 devices.
+**Applies only to Windows Mobile and Windows CE**. Controls which fonts will be used. When set to ‘0’ (default) the FreeType library will be used as on apps built with RMS 2.x. When set to ‘1’ the native font engine on the device is used. A setting of ‘1’ overrides the ‘FontFamily’ setting. On localized devices from 4.1 and higher, the native font engine will be used by default. The FreeType library cannot render localized characters such as Asian and some accented European characters. The log file displays the font engine in use on launch. Some early BSPs of CE7 do not support the native font render. This config element is not currently available on the MC92, VC70 or WT41N0 devices.
 
 **Possible Values**
 
