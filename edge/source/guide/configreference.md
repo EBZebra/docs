@@ -300,7 +300,7 @@ Determines behavior of Function keys on Windows Mobile and Windows CE devices. W
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra WebKit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used; proxy settings for Internet Explorer are picked up from the Windows connection manager.
+Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra Webkit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used; proxy settings for Internet Explorer are picked up from the Windows connection manager.
 
 **Possible Values**
 
@@ -311,7 +311,7 @@ Specifies the URL and port number for the HTTP proxy. Leave this field blank if 
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the URL and port number for the HTTPS proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra WebKit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used. Not otherwise supported on WM/CE; use HTTP_Proxy instead.
+Specifies the URL and port number for the HTTPS proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra Webkit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used. Not otherwise supported on WM/CE; use HTTP_Proxy instead.
 
 **Possible Values**
 
@@ -322,7 +322,7 @@ Specifies the URL and port number for the HTTPS proxy. Leave this field blank if
 	<HTTPS_Proxy value="https://my.proxy.com:8181"/>
 
 ### No_Proxy
-Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24. **Applies only to the Zebra WebKit engine**.
+Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24. **Applies only to the Zebra Webkit engine**.
 
 **Possible Values**
 
@@ -931,7 +931,7 @@ Defines plug-ins to be pre-loaded rather than loading as needed by a program fun
 	<Preload value="MyModule"/>
 
 ### PreloadLegacyActiveX
-Determines whether to preload the ActiveX object in WebKit. Use this for backward compatibility with code written in PocketBrowser that used the ActiveXObject. **Applies to WM CE with the Zebra Webkit only**.
+Determines whether to preload the ActiveX object in webkit. Use this for backward compatibility with code written in PocketBrowser that used the ActiveXObject. **Applies to WM CE with the Zebra Webkit only**.
 
 **Possible Values**
 
@@ -943,7 +943,7 @@ Determines whether to preload the ActiveX object in WebKit. Use this for backwar
 	<PreloadLegacyActiveX value="1"/>
 
 ### PreloadLegacyGeneric
-Determines whether to preload the NPAPI plugin to mimic the Generic ActiveX object in WebKit. On the Enterprise Tablet this plugin is automatically loaded when the JSObjects plugin is preloaded.
+Determines whether to preload the NPAPI plugin to mimic the Generic ActiveX object in Webkit. On the Enterprise Tablet this plugin is automatically loaded when the JSObjects plugin is preloaded.
 
 **Possible Values**
 
@@ -955,7 +955,7 @@ Determines whether to preload the NPAPI plugin to mimic the Generic ActiveX obje
 	<PreloadLegacyGeneric value="1"/>
 
 ### PreloadLegacyODAX
-Determines whether to preload the NPAPI plug-in to mimic the ODAX ActiveX object in WebKit. Does not apply to the Enterprise Tablet. 
+Determines whether to preload the NPAPI plug-in to mimic the ODAX ActiveX object in Webkit. Does not apply to the Enterprise Tablet. 
 
 **Possible Values**
 
@@ -967,7 +967,7 @@ Determines whether to preload the NPAPI plug-in to mimic the ODAX ActiveX object
 	<PreloadLegacyODAX value="1"/>
 
 <!-- ### Preloads \\ PreloadLegacyNoSIP
-Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit.
+Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in Webkit.
 
 > Note: We recommend using the [Sip API](../api-Sip?Disabling%20the%20SIP) instead of this NOSIP setting.
 
@@ -982,7 +982,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
  -->
 
 ### PreloadLegacyAirBeam
-Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX object in WebKit. Not applicable to the Enterprise Tablet.
+Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX object in Webkit. Not applicable to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -994,7 +994,7 @@ Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX obje
 	<PreloadLegacyAirBeam value="1"/>
 
 ### PreloadLegacyAPD
-Determines whether to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit.
+Determines whether to preload the NPAPI plugin to mimic the APD ActiveX object in Webkit.
 
 **Possible Values**
 
@@ -1194,7 +1194,7 @@ Controls whether JavaScript is enabled on Windows Mobile devices.
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Controls whether text selection is enabled when dragging the stylus on the screen. When enabled, the scroll bar is recommended for scrolling the page. Should be set to '1' for access to Copy (Ctrl+C) and Paste (Ctrl+V) functions on Webkit for WM/CE.
+Controls whether text selection is enabled when dragging the stylus on the screen. When enabled, the scroll bar is recommended for scrolling the page. Should be set to '1' for access to Copy (Ctrl+C) and Paste (Ctrl+V) functions on Webkit for WM/CE. **This tag is supported on WM/CE only when using the Zebra Webkit**. 
 
 **Possible Values**
 
@@ -1457,7 +1457,7 @@ The browser will automatically append the querystring value 'badlink' containing
 	<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
 
 ###EnableSSL3
-When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability. **Applies to WM/CE with Zebra webkit only**. 
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability. **Applies to WM/CE with Zebra Webkit only**. 
 
 **Possible Values**
 
@@ -1476,7 +1476,7 @@ Use the following substitution variables:
 %w – WebKit version number
 %e – Zebra WebKit version number
 
-In PocketBrowser 2.1 and higher, the default value was changed to work out of the box with a greater number of server configurations. Prior to PocketBrowser 2.1, the default user agent was “Mozilla/5.0, AppleWebKit (KHTML, i.e. Gecko), MotorolaWebKit, Safari.” This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value. Android does not support a custom UserAgent. 
+In PocketBrowser 2.1 and higher, the default value was changed to work out of the box with a greater number of server configurations. Prior to PocketBrowser 2.1, the default user agent was “Mozilla/5.0, AppleWebKit (KHTML, i.e. Gecko), Motorola Webkit, Safari.” This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value. Android does not support a custom UserAgent. 
 
 **Possible Values**
 
