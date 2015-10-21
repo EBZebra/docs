@@ -685,7 +685,7 @@ Determines whether a web server will be running locally on the device to service
 	<Enabled value="1"/>
 
 ### Port
-Specifies the port number of the web server running locally on the device (default= 8080).
+Specifies the port number of the web server running locally on the device (default= 8080). **Port 80 is NOT suported on Android**. 
 
 **Possible Values**
 
@@ -1160,7 +1160,7 @@ Automatically expands the application window to fit the screen. Apples to Window
 	<FitToScreenEnabled value="0"/>
 
 ### FontFamily
-Specifies the default font to use when rendering text in web pages. Should be a TrueType font present on the device. Default font for all Zebra Technologies WM/CE devices is preset to ‘Tahoma’ and on Enterprise Tablet is 'Droid Sans Fallback.' The specified font must be stored in \Windows for WM/CE, and /system/fonts for Enterprise Tablet. Note that Tahoma has no italic or oblique variants. 
+**Applies to Android and WM/CE**. Specifies the default font to use when rendering text in web pages. Should be a TrueType font present on the device. Default font for all Zebra Technologies WM/CE devices is preset to ‘Tahoma’ and on Android--including Enterprise Tablet--is 'Droid Sans Fallback.' The specified font must be stored in \Windows for WM/CE, and /system/fonts for Android, Enterprise Tablet. Note that Tahoma has no italic or oblique variants. 
 
 **Possible Values**
 
@@ -1257,7 +1257,7 @@ Controls whether the scanner can be used when battery charge level is low. Set t
 
 ## Scanner
 ### DisableScannerDuringNavigation
-Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. A setting of '0' will override this default behavior. Once enabled (either through meta tags, JavaScript or Ruby), the scanner will remain enabled in the foreground application until manually disabled. **Applies to Android and WM/CE**.
+Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. A setting of '0' will override this default behavior. Once enabled, the scanner will remain enabled in the foreground application until manually disabled. **Applies to Android and WM/CE**.
 
 **Possible Values**
 
