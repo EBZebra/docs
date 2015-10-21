@@ -1257,7 +1257,7 @@ Controls whether the scanner can be used when battery charge level is low. Set t
 
 ## Scanner
 ### DisableScannerDuringNavigation
-Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. A setting of '0' will override this default behavior. Once enabled (either through meta tags, JavaScript or Ruby), the scanner will remain enabled in the foreground application until manually disabled. 
+Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. A setting of '0' will override this default behavior. Once enabled (either through meta tags, JavaScript or Ruby), the scanner will remain enabled in the foreground application until manually disabled. **Applies to Android and WM/CE**.
 
 **Possible Values**
 
