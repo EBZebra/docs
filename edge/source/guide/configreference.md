@@ -1,7 +1,7 @@
 # Config.XML Reference
 Runtime configuration settings of Enterprise Browser apps are managed through the Config.xml file. The Config.xml file is required; your app will not start without it. Config.xml determines features and behavior of the EB runtime, such as the keys that can be intercepted by an app and whether to pre-load modules on startup. A sample configuration file is provided as part of the Enterprise Browser installation, and contains defaults for many (though not all) of the most common settings. 
 
-The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility included with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](index.html#guide-ConfigEditor). 
+The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility included with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](../guide/ConfigEditor). 
 
 ## Configuration File Location
 The location of the configuration file loaded by the Enterprise Browser is dependent on a number of factors:
@@ -1679,7 +1679,7 @@ Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for th
 
 ## Shortcut Utility
 ###ShortcutCreationEnabled
-Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch, Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default. **Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. For more information, please refer to the [Shortcut Creator guide](#ShortcutCreator). 
+Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch, Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default. **Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. For more information, please refer to the [Shortcut Creator guide](../guide/ShortcutCreator). 
 
 **Possible Values**
 

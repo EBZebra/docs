@@ -36,7 +36,7 @@ The Desktop Config Editor is included with Zebra Enterprise Browser 1.3.
 The app's Config.xml file will be pulled from the selected device, stored locally on the development host, and opened in the utility for editing. 
 
 ![img](images/Utilities/ConfigEditor_03.png)
-**Note**: This method requires that the device be visible to the host through Android Debug Bridge or ActiveSync, and that it have an EB app installed. See the [Connections section](index.html#guide-ConfigEditor?Connections) for details. 
+**Note**: This method requires that the device be visible to the host through Android Debug Bridge or ActiveSync, and that it have an EB app installed. See the [Connections section](../guide/ConfigEditor?Connections) for details. 
 
 ### Edit a Config.xml file
 
@@ -97,6 +97,6 @@ Communication from the development host to target device(s) is handled by the [A
 It might be necessary to install an OEM USB driver to make a USB-attached Android device visible to Windows. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
 
 ## Online Help 
-Config Editor's Online Help links to the [Enterprise Browser Config.xml Reference](index.html#guide-configreference) in a browser. For off-line viewing, [download the Enterprise Browser User Guide (.zip)](https://github.com/EBZebra/docs/archive/gh-pages.zip). 
+Config Editor's Online Help links to the [Enterprise Browser Config.xml Reference](../guide/configreference) in a browser. For off-line viewing, [download the Enterprise Browser User Guide (.zip)](https://github.com/EBZebra/docs/archive/gh-pages.zip). 
 
 ![img](images/Utilities/ConfigEditor_08.png)

@@ -5,7 +5,7 @@ Shortcut Creator is a Windows utility that quickly creates shortcuts for Enterpr
 
 Shortcut Creator is included with Zebra Enterprise Browser 1.3. 
 
-For help editing Config.xml files, please refer to the [Config Editor utility guide](index.html#guide-ConfigEditor) and the [Config.xml Reference](index.html#guide-configreference). 
+For help editing Config.xml files, please refer to the [Config Editor utility guide](../guide/ConfigEditor) and the [Config.xml Reference](../guide/configreference). 
 
 
 ### QUICK STEPS
@@ -27,7 +27,7 @@ NOTE: Deployment behavior of Shortcut Creator is determined by the "shortcut" ta
 * **Android Debug Bridge (if targeting Android devices)**
 * **Microsoft ActiveSync (if targeting WIndows Mobile/CE devices)**
 
-EB Shortcut Creator is included with Zebra Enterprise Browser 1.3. If you don't already have EB 1.3, please [install Enterprise Browser](index.html#guide-setup), then resume from here. 
+EB Shortcut Creator is included with Zebra Enterprise Browser 1.3. If you don't already have EB 1.3, please [install Enterprise Browser](../guide/setup), then resume from here. 
 
 ## Using Shortcut Creator
 
@@ -67,7 +67,7 @@ Shortcut data is stored at the root level of the development host as:
 
 ![img](images/Utilities/Shortcut_Creator_04.jpg)
 
-**Note: Shortcut(s) will not appear on the device until after Enterprise Browser is launched. Shortcut creation is determined by a setting in the Config.xml file on the target device**. For more information, please refer to the [Troubleshooting section](index.html#guide-ShortcutCreator?Troubleshooting) or the [Config.xml Reference](index.html#guide-configreference). 
+**Note: Shortcut(s) will not appear on the device until after Enterprise Browser is launched. Shortcut creation is determined by a setting in the Config.xml file on the target device**. For more information, please refer to the [Troubleshooting section](../guide/ShortcutCreator?Troubleshooting) or the [Config.xml Reference](../guide/configreference). 
 
 ## Troubleshooting
 

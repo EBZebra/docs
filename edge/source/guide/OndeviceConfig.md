@@ -43,13 +43,13 @@ Next time the app is restarted, a Settings button will appear in the UI like the
 
 The on-device settings panel presents four buttons at the bottom of the Settings panel. Here's now they behave. 
          
-* **<u>Apply</u> updates the config.xml** with new values entered in the Value fields. **Note**: Startpage settings will persist after a cold boot or reinstallation of Enterprise Browser; others settings will not.   
+* **<u>Apply</u> updates the config.xml** with new values entered in the Value fields.    
 
-* **<u>Quit</u> exits the app without saving**. If ExitPasswordEnabled parameter is Enabled, the Quit button also will cause a password prompt to appear. 
+* **<u>Quit</u> exits the app without saving**. If ExitPasswordEnabled parameter is Enabled, the Quit button also will cause a password prompt to appear. Unsaved changes will be lost.
 
-* **<u>Back</u> navigates to the previous page** with no prompt. Unsaved changes are lost. 
+* **<u>Back</u> navigates to the previous page** with no prompt. Unsaved changes will be lost. 
 
-* **<u>Reset</u> will revert all settings the their default values**.
+* **<u>Reset</u> will revert all settings the factory default values** as described in the [Config.xml reference guide](../guide/configreference). 
 
 ## Configurable Settings
 Below is the list of settings that can be configured on-device through an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the [Config.xml reference guide](../guide/configreference) 
@@ -97,10 +97,9 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies only to WM/CE with IE or Zebra Webkit. Other requirements are detailed in the Remarks section at the bottom of this guide.Read more.
 
 ### StartPage 
-Defines the start page of a Enterprise Browser application, displayed at launch. This should be a local file to avoid connectivity issues on startup. Case sensitive. This setting persists after cold reboot or reinstallation of the app. 
+Defines the start page of a Enterprise Browser application, displayed at launch. This should be a local file to avoid connectivity issues on startup. Case sensitive.  
 
 ## Notes
-* The Startpage value persists on the device even after a cold boot or uninstallation of Enterprise Browser. If EB is re-installed, a prompt will be displayed on first launch offering to accept the previous Startpage or enter a new one. 
 
 * On-device configuration is supported on Android with the stock webkit and on Windows Mobile/CE platforms with the Zebra webkit or IE engine. 
 
