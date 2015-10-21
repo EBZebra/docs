@@ -756,9 +756,9 @@ The list below shows the behavior of the Enterprise Browser when Function Keys a
 	<FunctionKeysCapturable value="1"/>
 
 ### EnableFunctionKey_X
-**Applies to Android and WM/CE**. This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a tag using EnableFunctionKey_X, replacing the ‘X’ with the key number being enabled. For example, to enable F1, your tag will include EnableFunctionKey_F1 as below. See the sample Config.xml in the user guide for correct branch placement. Requires a preload of the KeyCapture module.
+**Applies to Android and WM/CE**. This setting is used to specify which Function keys (numbered F1 through F24) should be enabled (all Function keys are enabled by default). For each key to be enabled, define a tag using EnableFunctionKey_X, replacing the ‘X’ with the key number being enabled. For example, to enable F1, your tag will include EnableFunctionKey_F1 as below. See the sample Config.xml in the user guide for correct branch placement. Requires a preload of the KeyCapture module.
 
-On the Enterprise tablet, this tag can be used to enable the 'P' keys. For compatibility with other devices, the 'P' keys are referred to as 'F' keys in the config file. To enable P2 key on the Enterprise Tablet, the tag EnableFunctionKey_F2 should be set to 1.  For Windows Mobile / CE this setting is not specific to the current application and will be applied globally on the device. **This feature can only be reset by performing a device warm boot**.
+**On the Enterprise tablet**, this tag can be used to enable the 'P' keys. For compatibility with other devices, the 'P' keys are referred to as 'F' keys in the config file. To enable P2 key on the Enterprise Tablet, the tag EnableFunctionKey_F2 should be set to 1. **For WM/CE**, this setting is not specific to the current application and will be applied globally on the device. **This feature can only be reset by performing a device warm boot**.
 
 > Note: On the Zebra MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.
 
@@ -774,7 +774,7 @@ Interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown in t
 	<EnableFunctionKey_F1 value="1"/>
 
 ### EnableApplicationKey_X
-**Applies to Android and WM/CE**. Specifies which Application keys (numbered A1 to A16) should be enabled (all are disabled by default). For each key to be enabled, define a tag using EnableApplicationKey_X, replacing the ‘X’ with the key being enabled. For example, to enable key A5, your tag will include EnableApplicationKey_A5 as below. See the sample Config.xml file in user docs for correct branch placement. The "P" keys on Enterprise Tablet will be referred to as "F" keys in config file.
+**Applies to Android and WM/CE**. Specifies which Application keys (numbered A1 through A16) should be enabled (all are disabled by default). For each key to be enabled, define a tag using EnableApplicationKey_X, replacing the ‘X’ with the key being enabled. For example, to enable key A5, your tag will include EnableApplicationKey_A5 as below. See the sample Config.xml file in user docs for correct branch placement. The "P" keys on Enterprise Tablet will be referred to as "F" keys in config file.
 
 **Notes**
 
