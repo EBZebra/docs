@@ -23,17 +23,17 @@ Pressing the "Return to OS" button will skip settings configuration and bring up
 
 **To activate your EB app's start page, enter the URL in the Value field of the StartPage parameter**, as highlighted above, but **do not apply the changes yet**.
 
-Unless you're done with settings, we don't want to apply changes because the next time the app is launched, it will display its intended start page and remove access to the Settings panel. So we must first enable another way to get to it, and that's with the SettingsButtonEnable paramter.
+Applying changes immediately will display its intended start page and remove access to the Settings panel the next time the app is launched. If access to settings is still desired, you must enable it with the SettingsButtonEnable paramter.
 
-**Set the SettingsButtonEnabled parameter to Enabled**. This will cause a Settings button to appear in the UI at all times. Notice from the next two fields that a password also can be applied to the Settings panel, if desired. 
+**Set the SettingsButtonEnabled parameter to 'Enabled'** as in the screen below. This will cause a Settings button to appear in the UI at all times. Notice also in the screen that the field that follows enables a password to be applied to the Settings panel, if desired. 
 
 ![img](images/OndeviceConfig/On-device_config_03.png)
 
-**Press Apply to update the Config.xml file with the new settings**. A screen like the one below will be displayed. Restart the app to activate the changes. 
+**Press 'Apply' to update the Config.xml file with the new settings**. A screen like the one below will be displayed. Restart the app to activate the changes. 
 
 ![img](images/OndeviceConfig/On-device_config_04.png)
 
-Next time the app is restarted, a Settings button will appear in the UI like the one in the red box below.
+Next time the app launches, a Settings button will appear in the UI like the one in the red box below.
 
 ![img](images/OndeviceConfig/On-device_config_05.png)
 
@@ -45,14 +45,14 @@ The on-device settings panel presents four buttons at the bottom of the Settings
          
 * **<u>Apply</u> updates the config.xml** with new values entered in the Value fields.    
 
-* **<u>Quit</u> exits the app without saving**. If ExitPasswordEnabled parameter is Enabled, the Quit button also will cause a password prompt to appear. Unsaved changes will be lost.
+* **<u>Quit</u> exits the app without saving**. Unsaved changes will be lost. If ExitPasswordEnabled parameter is Enabled, the Quit button also will cause a password prompt to appear. 
 
 * **<u>Back</u> navigates to the previous page** with no prompt. Unsaved changes will be lost. 
 
-* **<u>Reset</u> will revert all settings the factory default values** as described in the [Config.xml reference guide](../guide/configreference). 
+* **<u>Reset</u> will revert all values to their factory defaults** as described in the [Config.xml reference guide](../guide/configreference). 
 
 ## Configurable Settings
-Below is the list of settings that can be configured on-device through an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the [Config.xml reference guide](../guide/configreference) 
+Below is the list of settings that can be configured on-device for an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the [Config.xml reference guide](../guide/configreference) 
 
 ### Debugbuttons
 When enabled, presents a set of controls useful for development and debugging purposes. **Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling**.
