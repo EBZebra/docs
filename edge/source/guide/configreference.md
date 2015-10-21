@@ -135,11 +135,6 @@ The following is an example of a typical configuration file, Android edition:
 	    <NewTabVirtualMemLimit value="80" />
 	  </TabInstance>
 	
-	  <Engine>
-	    <EngineInUse value="ENGINE_TO_USE" />
-	    <EngineTimeout value="60000" />
-	  </Engine>
-	 
 	  <UserData>
 	  </UserData>
 	 
