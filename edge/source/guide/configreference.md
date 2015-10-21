@@ -552,7 +552,7 @@ Specifies the maximum allowable size of the log file, after which no more logs w
 	<RegEXFile value="file://%INSTALLDIR%/RegEx.xml"/>
 
 ### PluginFile
-Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between modules and plug-ins on the device. **Not applicable to the Enterprise Tablet**.
+Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between modules and plug-ins on the device. **Not applicable to the Enterprise Tablet**. **Changing this file or its location is not recommended, as such changes might prevent an app from launching**. 
 
 **Possible Values**
 
