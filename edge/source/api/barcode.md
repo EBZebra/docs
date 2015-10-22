@@ -2468,7 +2468,7 @@ Enables the verification of the I2of5 check digit.
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Selects the illumination mode to use. This property is currently being not supported on Android Platform
+Selects the illumination mode to use. This property is not currently supported on Android.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):

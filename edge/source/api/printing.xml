@@ -4,9 +4,7 @@
     <MODULE name="Printer" parent="Rho">
 
 <HELP_OVERVIEW>
-The Printer API module allows an Enterprise Browser app to find, connect with, and print over Bluetooth, Wi-Fi **and USB** from Android and Windows Mobie/CE devices. 
-
-**USB printing was added in EB 1.3**. To facilite USB output, the Printer API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB from a Zebra Android or Windows Mobile/CE device, the device must be connected to one of several Zebra printers with USB support using a USB “On-The-Go” (OTG) cable or adapter. **To print via USB from Windows Mobile/CE, the device also must be in 'Host Mode,' which is found under USB Config in the Settings panel**.
+The Printer API module provides access to find, connect, and print over Bluetooth, Wi-Fi and USB from Android and Windows Mobie/CE devices.
 </HELP_OVERVIEW>
 
 <MORE_HELP>
