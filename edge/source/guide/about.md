@@ -2,17 +2,17 @@
 
 ## Welcome To the Enterprise Browser
 
-Enterprise Browser is a powerful, next-geration industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals - such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
+Enterprise Browser is a powerful, next-geration industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals. The EB base installation includes everything needed to quickly make devices for barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
 
 With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable--especially in high-volume mobile environments.
 
 ## What's New
 
-* USB Printing for Android Windows Mobile/CE
-* [On-Device Editing](../guide/OnDeviceConfig) of runtime settings (Config.xml)
-* Password access to Settings panel and app exiting
-* [Config Editor](../guide-ConfigEditor) utility for Windows
-* [Shortcut Creator](../guide-ShortcutCreator) utility for Windows
+* USB Printing for Android and Windows Mobile/CE
+* [On-Device Editing](../guide/OndeviceConfig) of runtime settings (Config.xml)
+* Password access to the Settings panel and exiting from an app
+* [Config Editor](../guide/ConfigEditor) utility for Windows
+* [Shortcut Creator](../guide/ShortcutCreator) utility for Windows
 * Support for Android 4.4 KitKat on:
   * TC55
   * MC40
@@ -20,28 +20,40 @@ With support for the legacy Application Programming Interfaces (APIs) used in Po
   * TC75
 * New APIs
   * [Camera API](../api/Camera)
-  * [Timer API](../api/Timer)
+  * [Timer API](../api-Timer)
 
+**New Android configuration tags**
 
-* New configuration tags
-  * &lt;ZoomInKey&gt; & &lt;ZoomOutKey&gt; - To ease the usage of Applications running on Enterprise Browser, users can now configure Hardware Function Keys to perform ZoomIn and ZoomOut operations without having to make changes to the application. Applicable to Windows devices only.
-  * &lt;DisableScannerInApp&gt; - This tag has been introduced to disable barcode scanning abilities for legacy Scanner API. This setting will not effect the behavior of barcode scanning in the License dialogue. Applicable to Windows devices only.
-  * &lt;isWindowsKey&gt; - This tag has been introduced to mimic Windows Mobile key codes for the device's hardware keys. When enabled, the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would normally send. This permits support for both device platforms with one codebase. Applicable to only Android devices with hardware keys.
+* **&lt;ZoomInKey&gt;** and **&lt;ZoomOutKey&gt;** enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device. 
+* **&lt;HTTP_Proxy&gt;** and **&lt;HTTPS_Proxy&gt;** enable specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device. 
+* **&lt;Username&gt;** and **&lt;Password&gt;** enable credentials to be entered automatically when navigating to a login page. Configurable on-device.  
+* **&lt;LogMemory&gt;** and **&lt;LogMemoryPeriod&gt;** controls memory used by logging and the time intervals between entries. 
+* **&lt;ResizeOnSIP&gt;** controls automatic window resizing when the soft input panel is displayed.
+* **&lt;DisableScannerDuringNav&gt;** controls whether scanner will be disabled when navigating away from a scanning page on which it was used. Formerly WM/CE-only.
+* **&lt;IntentReceiver**&gt;** and **&lt;IntentAction&gt;** permits an Enterprise Browser app to be called upon by others applications to perform actions. 
+
+**New Android and Windows Mobile/CE configuration tags**
+
+* **&lt;SplashScreenPath&gt;** specifies a local image to display on boot. Android also can control display duration.
+* **&lt;ExitPassword&gt;** can assign a password when attempting to exit an EB app. Configurable on-device. 
+* **&lt;SettingsButtonEnabled&gt;** enables a Settings (gear icon) button to be displayed in the UI. Configurable on-device. 
+* **&lt;CustomDOMElements&gt;** permits DOM injection of JavaScript, CSS or meta tags into a running application without modifying the underlying application.
+
 
 ##Key Features
 
 ###Enterprise Browser: An application development toolkit for mobile cross-platform enterprise apps
 * Supports all enterprise devices: mobile computers, tablets, kiosks, wearables and vehicle mount
-* Supports multiple operating systems: Windows&copy; Embedded Handheld, Windows&copy; CE, Windows&copy; Mobile and Android&copy;
+* Supports multiple operating systems: Android&copy, Windows&copy; Embedded Handheld, Windows&copy; CE and Windows&copy; Mobile;
 
 ###Build apps using HTML5, CSS and JavaScript
-* Use web skills to create beautiful applications
+* Use web skills to create great-looking applications
 * Based on open source and standard technologies, not proprietary toolkits
-* Access the world's largest developer community
+* Access to the world's largest developer community
 
 ###Common APIs across all enterprise devices
-* Single code base; does not require different APIs for different OSs to create a true write once, run anywhere experience
-* Easily access device capabilities with JavaScript APIs
+* Single code base; does not require different APIs for different OSs to create a true write-once, run-anywhere experience
+* Easily access native device hardware with JavaScript APIs
 
 ###Backward compatible with PocketBrowser
 * Enterprise Browser is compatible with legacy PocketBrowser APIs, enabling a clear path forward for legacy applications
