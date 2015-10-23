@@ -2,34 +2,36 @@
 
 
 ## Overview
-The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB printing for Android. This API inherits all methods, properties and constants from the [Printer API](#api-printing).
+The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB-capable printers for Android and Windows Mobile/CE. This API inherits all methods, properties and constants from the [Printer API](#api-printing).
 ## Enabling the API
-There are two methods of enabling the Zebra Printing API:
+There are two methods of enabling the Printer API:
 
-* Include all ebapi modules or
+* Include all 'ebapi' modules
 * Include only the API modules you need
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+Both methods are explained below. 
+
+Either way, the included files will be from: 
+`/Enterprise Browser/JavaScript Files/Enterprise Browser`,
+a directory on the computer that contains the Enterprise Browser installation.
 
 ### Include all JS API modules
-To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-> Note: that the pathing for this file is relative to the current page.
-
-This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+> This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
 
 ### Include only the modules you need
-To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Zebra Printing API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the Printer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
     <script type="text/javascript" charset="utf-8" src="eb.printer.js"></script>
     <script type="text/javascript" charset="utf-8" src="eb.printerzebra.js"></script>
 
-The ebapi.js file is necessary for all single API inclusions.
+> In the code lines above, notice that `ebapi.js` is included first, followed by `eb.printer.js` and `eb.printer.js`, which are the Printer APIs required for Enterprise Browser to output to Zebra printers. **This coding is required on each HTML page whenever an individual API will be called from that page**.
         
 
 
@@ -956,7 +958,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 
 * To use a Bluetooth connection on Android devices you should take into account the following preconditions: Before using the printer you should pair it using the Android system Bluetooth settings.
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
-* When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer.searchPrinters should not return any non-printer devices,If USB printers are not supported by SDK or device searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; (for example executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED);
+* When you call searchPrinters() with USB search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on the Zebra QLn320 printer. The searchPrinters method should not return any non-printer devices. If USB printers are not supported by the SDK or device, the searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED. For example, executing searchPrinters on an Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED.
 
             
 

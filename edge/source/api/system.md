@@ -1073,7 +1073,7 @@ Returns true if the device has touch screen capabilities.  For Win32 desktop bui
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-<span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password). Donot include 'http://' while setting the proxy uri. To set proxy for WebKit for Windows Mobile/CE use config.xml settings.
+<span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using the Network module. Example: 'user:password@url:port'. Supports basic authentication only. Do not include 'http://'. Setting this property overrides http_proxy_uri, http_proxy_host, http_proxy_port, http_proxy_user and http_proxy_password. Proxy settings for Windows Mobile/CE with Zebra WebKit should be configured in the config.xml file.
 ####Access
 
 
