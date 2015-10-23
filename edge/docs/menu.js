@@ -104,25 +104,34 @@ var menuStrcture = [
 						icon: 'fa fa-gears',
 						items: [
 							{
-								name: 'Config Reference',
-								link: '#guide-configreference',
-							},
-							{
 								name: 'App Shortcuts',
 								link: '#guide-shortcuts',
 							},
 							{
-								name: 'Viewport',
-								link: '#guide-viewport',
+								name: 'Config Editor utility',
+								link: '#guide-ConfigEditor',
+							},
+							{
+								name: 'Config.xml Reference',
+								link: '#guide-configreference',
+							},
+							{
+								name: 'SAP ITS Usage',
+								link: '#guide-sap',
+							},
+							{
+								name: 'Shortcut Creator utility',
+								link: '#guide-ShortcutCreator',
 							},
 							{
 								name: 'Using Certificates',
 								link: '#guide-certificates',
 							},
 							{
-								name: 'SAP ITS Usage',
-								link: '#guide-sap',
+								name: 'Viewport',
+								link: '#guide-viewport',
 							},
+							
 						]
 					}
 				]
