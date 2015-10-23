@@ -17,8 +17,9 @@ For help editing Config.xml files, please refer to the [Config Editor utility gu
 6. Click **Add to List** to store settings and create another, if desired. 
 7. Click **Save Shortcut** to save all shortcut settings for later retrieval.
 8. Click **Push to Device** to deploy (via ADB or ActiveSync).
+9. **Launch Enterprise Browser** to create shortcut(s) on device.  
 
-NOTE: Deployment behavior of Shortcut Creator is determined by the "shortcut" tag in the Config.xml file, and must be configured prior to deployment.  
+**NOTE: Shortcut creation behavior is determined by the &lt;shortcut&gt; tag in the Config.xml file, and must be configured prior to deployment**.  
 
 ## Prerequisites
 * **Windows development host**
