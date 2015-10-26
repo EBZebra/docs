@@ -5,6 +5,8 @@
 
 The Printer API module provides access to find, connect, and print over Bluetooth, Wi-Fi and USB from Android and Windows Mobie/CE devices.
 
+## Enabling the API
+
 There are two methods of enabling the Printer API:
 
 * Include all 'ebapi' modules
