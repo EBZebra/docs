@@ -2,7 +2,7 @@
 
 
 ## Overview
-The Timer API is used to create,start , stop and checking existance of timers.
+The Timer API is used to create, start, stop and check the existence of timers.
 ## Enabling the API
 
 There are two methods of enabling the Timer API:
