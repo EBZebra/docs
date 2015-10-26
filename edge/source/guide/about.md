@@ -4,7 +4,7 @@
 
 Enterprise Browser is a powerful, next-geration industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals. The EB base installation includes everything needed to quickly make devices for barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
 
-With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable--especially in high-volume mobile environments.
+With support for the legacy application programming interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable--especially in high-volume mobile environments.
 
 ## What's New
 
@@ -13,32 +13,36 @@ With support for the legacy Application Programming Interfaces (APIs) used in Po
 * Password access to the Settings panel and exiting from an app
 * [Config Editor](../guide/ConfigEditor) utility for Windows
 * [Shortcut Creator](../guide/ShortcutCreator) utility for Windows
+* Installer for Mac OS X systems
 * Support for Android 4.4 KitKat on:
   * TC55
   * MC40
   * TC70
   * TC75
 * New APIs
-  * [Camera API](../api/Camera)
-  * [Timer API](../api-Timer)
+  * [Camera API](../api/camera)
+  * [Timer API](../api/Timer)
 
 **New Android configuration tags**
 
-* **&lt;ZoomInKey&gt;** and **&lt;ZoomOutKey&gt;** enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device. 
-* **&lt;HTTP_Proxy&gt;** and **&lt;HTTPS_Proxy&gt;** enable specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device. 
-* **&lt;Username&gt;** and **&lt;Password&gt;** enable credentials to be entered automatically when navigating to a login page. Configurable on-device.  
+* **&lt;DisableScannerDuringNavigation&gt;** controls whether scanner will be disabled when navigating away from a scanning page on which it was used. Formerly WM/CE-only.
+* **&lt;HTTP_Proxy&gt;** and **&lt;HTTPS_Proxy&gt;** enables the specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device. 
+* **&lt;IntentReceiver&gt;** and **&lt;IntentAction&gt;** permits an Enterprise Browser app to be called upon by others applications to perform actions. 
 * **&lt;LogMemory&gt;** and **&lt;LogMemoryPeriod&gt;** controls memory used by logging and the time intervals between entries. 
 * **&lt;ResizeOnSIP&gt;** controls automatic window resizing when the soft input panel is displayed.
-* **&lt;DisableScannerDuringNav&gt;** controls whether scanner will be disabled when navigating away from a scanning page on which it was used. Formerly WM/CE-only.
-* **&lt;IntentReceiver**&gt;** and **&lt;IntentAction&gt;** permits an Enterprise Browser app to be called upon by others applications to perform actions. 
+* **&lt;Username&gt;** and **&lt;Password&gt;** enables credentials to be entered automatically when navigating to a login page. Configurable on-device.  
+* **&lt;ZoomInKey&gt;** and **&lt;ZoomOutKey&gt;** enables Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device. 
 
 **New Android and Windows Mobile/CE configuration tags**
 
-* **&lt;SplashScreenPath&gt;** specifies a local image to display on boot. Android also can control display duration.
-* **&lt;ExitPassword&gt;** can assign a password when attempting to exit an EB app. Configurable on-device. 
-* **&lt;SettingsButtonEnabled&gt;** enables a Settings (gear icon) button to be displayed in the UI. Configurable on-device. 
 * **&lt;CustomDOMElements&gt;** permits DOM injection of JavaScript, CSS or meta tags into a running application without modifying the underlying application.
-
+* **&lt;EnableApplicationKey_X&gt;** specifies which Application keys (numbered A1 through A16) should be enabled. 
+* **&lt;EnableFunctionKey_X&gt;** specifies which Function keys (numbered F1 through F24) should be enabled
+* **&lt;ExitPassword&gt;** enables a password prompt when attempting to exit an EB app. Configurable on-device. 
+* **&lt;FontFamily&gt;** specifies the default font to use when rendering text in web pages. 
+* **&lt;LowBatteryScan&gt;** controls whether the scanner can be used when battery charge level is low. 
+* **&lt;SettingsButtonEnabled&gt;** enables a Settings (gear icon) button to be displayed in the UI. Configurable on-device. 
+* **&lt;SplashScreenPath&gt;** specifies a local image to display on boot. Android also can control display duration.
 
 ##Key Features
 
