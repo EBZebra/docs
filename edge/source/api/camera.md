@@ -881,40 +881,40 @@ Setting the value of this property to "true", shall open the System ViewFinder w
 
 
 ###SDCard Access
-The capability for SDCard has already been granted on build, and any capability added by you will be ignored. This being the case, the following extensions will always be able to write to the SD card by default.
+SDCard access is eabled by default; grants of additional access will be ignored. The following extensions are able to write to the SD card by default.
 
 ###Camera Preview
-In some of the WM/CE devices, though user has opted for a full screen, preview rendering size is decided by the driver.
+Despite a user-selected full screen mode, preview rendering size will be overridden by the driver on some WM/CE devices.
 
 ###DataUri
-DataUri output is highly dependent on virtual space availability. DataUri may fail(Unresponsive/Reboot/Degraded Performance/Never load) in certain devices; recommended to use image path in such devices.
+DataUri output is dependent on availability of virtual space. DataUri may fail, be unresponsive, cause reboot, degraded performance or fail to load in certain devices. In such cases, image path is recommended.
 
 ###ImageUri
 Image uri display is dependent on browser capability.
 
 ###GetSupportedProperties in WP8
-WP8 does not support getSupportedProperties and SetSupportedProperties
+WP8 does not support getSupportedProperties or SetSupportedProperties.
 
 ###colorModel as Grayscale in Android
-Grayscale is supported only in consumer android devices for front camera
+Grayscale is supported only in consumer Android devices for the front camera.
 
 ###Invalid/Null values for properties in Android and iOS
-Only valid and non-empty values for properties are supported in Android and iOS
+Only valid and non-empty values for properties are supported in Android and iOS.
 
 ###Ruby Support
-Due to platform limitation imager and color camera is not supported in ruby applications for CE5 and CE6 devices.
+Due to platform limitations, imager and color camera are not supported in ruby applications for CE5 and CE6 devices.
 
 ###Camera in Suspend mode
-All WM and CE7 devices automatically turn off both color and imager cameras when the device is suspended. User has to restart the camera on resume. Whereas CE5 (eg:MC9000) and CE6 (eg: MC31) devices retain the preview on resuming from suspend state.
+All WM and CE7 devices automatically turn off both color and imager cameras when the device is suspended. User must restart the camera to resume. Whereas CE5 (eg: MC9000) and CE6 (eg: MC31) devices retain the preview on resuming from suspend state.
 
 ###Image saving while take picture
-Image captured in few devices(eg: Samsung), irrespective of picture taken (Landscape/Portrait) , will always save in Landscape Mode, Even though on the device it appears as captured(landscape/Portrait), when the same is copied to Desktop, you can see that it will be in Landscape Mode.This is default behaviour of the device
+In some devices (eg: Samsung), an image will be saved in landscape mode even if captured in portrait mode. This behavior is determined by device default settings.
 
 ###WM/CE devices lacking support
-Due to platform limitation devices such as ES400, MC65 and MC67 does not support color camera.
+Due to platform limitations, the ES400, MC65 and MC67 do not support the color camera.
 
-###takepicture Resolution Issue on Low Memory Device WP8
-Due to platform limitation devices such as ES400, MC65 and MC67 does not support color camera. On MC55 WM device, imager with Fullscreen window is not supported(eg:takePicture ). However user can still go ahead with following parameters such as previewLeft, previewWidth, previewTop, previewHeight to setup a user defined viewer window which can be supported by the device.
+###takePicture resolution issue on low memory device with WP8
+Due to platform limitations, the ES400, MC65 and MC67 do not support a color camera. The imager on the MC55 with WM does not support the Fullscreen window (eg: takePicture). Parameters such as previewLeft, previewWidth, previewTop, previewHeight are supported by the device to setup a user-defined viewer window.
 
-###Android  Black Image in Gallery for kitkat
-Whenever an image is taken from Rho camera,on opening galery or choose picture, we can see a black image, when system refreshes the gallery this will be gone.
+###Android KitKat gallery displays black image
+For images captured with the camera using a Rho app, the image might initially appear black. Refreshing the view corrects the problem.

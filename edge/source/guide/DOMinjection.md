@@ -1,10 +1,10 @@
 ## DOM Injection
 
-New in Enterprise Browser 1.3 is the ability to insert certain types of HTML5 code into the DOM without modifying the underlying application. This permits features, capabilities and even the look of one or more server-based Enterprise Browser app pages to be modified at runtime using meta tags, CSS and JavaScript stored in a text file on the device. 
+New in Enterprise Browser 1.3 is the ability to insert HTML5 code into the DOM without modifying the underlying application. This permits features, capabilities and even the look of one or more server-based Enterprise Browser app pages to be modified at runtime using meta tags, CSS and JavaScript stored in a text file on the device. 
 
 
 ####How it works
-The DOM injection capability is activated in 'extensions' section of the app's `build.yml`, which is enabled by default in EB 1.3 and higher apps. A text file is created to contain the elements and pages to be injected, and the file path is specified in the &lt;Application&gt; section of the `Config.xml`. Once in place, the app when executed assembles a list of the pages to receive injections and another of the elements to be injected for a given page whenever that page is displayed. 
+DOM injection is enabled by default in EB 1.3 and higher apps, and is activated by the presence of &lt;CustomDOMElements&gt; in the &lt;Application&gt; section of the app's `Config.xml` file. This new tag should contain a fully qualified path to the device-resident file that you create to store the list of DOM elements to be injected and the pages into which they are to be injected. With this in place, the app when executed assembles a list of the pages to receive injections and another of the elements to be injected for a given page whenever that page is displayed. **The injected code itself can be local, server-based or a combination**.
 
 DOM Injection is **supported on Android with the stock webkit, Windows Mobile/CE with the Zebra Webkit and on Windows CE with the IE engine**. DOM injection is NOT currently supported on Windows Mobile with the IE engine. No special licensing is required. 
 
@@ -38,6 +38,19 @@ When multiple extensions are used, separate them with commas.
 
 ut **injected code itself can be either local or server-based**. 
 
+	:::xml
+	<script type='text/javascript' src='./mytest.js' pages='p1;p2'/>
+	<script type='text/javascript' src='./mytest.js' pages='*'/>
+	<script type='text/javascript' src='http://192.168.10.1:8081/test.js' pages='*'/>
+	<script type='text/javascript' src='file://\programfiles\enterprisebrowser\rho\apps\app\test.js' pages='p1;p2'/>
+	<meta http-equiv="refresh" content="30" pages='p1;p2'/> 
+	< meta http-equiv="refresh" content="30" pages='*'/>
+	<META HTTP-Equiv="scanner" Content="Enable" pages='*'/>
+	<!--META HTTP-Equiv="scanner" Content="Enable" pages='*'-->
+	<link rel="stylesheet" type="text/css" href="mystyle.css" pages='p1;p2'/>
+	<link rel="stylesheet" type="text/css" href="mystyle.css" pages='*'/>
+	<!--link rel="stylesheet" type="text/css" href="mystyle.css" pages='*'-->
+	<link rel="stylesheet" type="text/css" href="file://\programfiles\enterprisebrowser\rho\apps\app\mystyle.css" pages='p1;p2'>
 
 
 
