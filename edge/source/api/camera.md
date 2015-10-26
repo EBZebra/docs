@@ -2,7 +2,7 @@
 
 
 ## Overview
-The Camera API provides access to your device's Camera(s). Use this API to give users the ability to take a photo via one of the device's cameras and return it to the application. Photos can either be stored on the device and optionally transfered to an online server using the Network API or can be returned as a DataURI object for storing or display.
+The Camera API provides access to the device camera(s). Use this API to give users the ability to take a photo via one of the cameras and return it to the application. Photos can either be stored on the device as an image file or returned as a DataURI object for storage and/or display. Optionally, image files also can be transfered to online storage using the Network API.
 ## Enabling the API
 
 There are two methods of enabling the Camera API:
