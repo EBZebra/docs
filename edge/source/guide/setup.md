@@ -1,42 +1,42 @@
 # Installation
 ## Desktop Installation
 
-Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. There are just a few hardware requirements.  
+Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a computer that can connect to one or more **[supported Zebra devices](index.html) running Android, Windows Mobile or Windows CE. See Prerequisites for connection details. 
 
-### Prerequisites 
-
-* A system **running Windows or Mac OS X** (Macs have limited features)
-* One or more **[supported Zebra devices](index.html)** running **Android, Windows Mobile or Windows CE**
-
-### Mac OS X Support
+#####Mac OS X Support
 Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for installation on Mac OS X systems. This permits Mac users to: 
 
-* Copy EnterpriseBrowser.apk (app) files to Android devices.
-* Copy EnterpriseBrowser cab files to servers for mass deployment. 
-* Create shortcuts to Android apps using the EnterpriseBrowser native widget.
-(available in the device after installing the EB app) 
-* Access the Enterprise Browser demo app.
-* Easily link to EB online help.
+* Copy EnterpriseBrowser.apk (app) files to Android devices
+* Copy EnterpriseBrowser cab files to servers for mass deployment 
+* Create shortcuts to Android apps using the EB native widget
+(in the device after installing the EB app) 
+* Access the Enterprise Browser demo app
+* Easily link to EB online help
 
-### Installation
+### Prerequisites
 
-* [Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and launch the installer (.msi or .dmg) file.
+* **A computer running Windows or Mac OS X** (limited functionality)
+* **USB driver for targeting Zebra devices** (Windows only)
+* **Android Debug Bridge (if targeting Android devices)**
+* **Microsoft ActiveSync (if targeting Windows Mobile/CE devices)**
 
-Windows systems will display an image similar to this: 
+### Windows Installation
+
+* [Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and launch the installer (.msi) file.
+
+**Windows systems** will display an image similar to the one below: 
 ![img](images/getting-started/setup/setup-msi-install.png)
 
-
-
-At this point you should now have an item in the start menu structured as follows:
-
-* Enterprise Browser
-	* Documentation
-	* Enterprise Browser Installer
-	* Enterprise Browser Runtimes
-	* JavaScript Files
+* When it finishes, **select Enterprise Browser > EnterpriseBrowser Installer** from the Start menu which should look similar to the one below: 
 
 <!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
 ![img](images/getting-started/setup/Shortcut_Creator_01.jpg)
+
+
+### Mac OS X Installation
+**Mac OS X systems** will display an image similar to the one below: 
+![img](images/getting-started/setup/setup-dmg-install.png)
+
 
 ## Device Deployment
 To install the Enterprise Browser runtime onto your device, follow the steps below:
@@ -153,3 +153,12 @@ If you installed the persistant version of Enterprise Browser, it will not be re
 
 ### Android
 Use Android Settings applet to remove the Enterprise Browser from the device.
+
+## Connections
+Communication from the development host to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. If a device is not shown, please verify that the appropriate software and drivers are installed, and check the physical connection(s). 
+
+* **ADB supports USB only**
+* **ActiveSync supports USB or Bluetooth** 
+* **Device(s) must contain an EB app and its Config.xml file**  
+
+It might be necessary to install an OEM USB driver to make a USB-attached Android device visible to Windows. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.

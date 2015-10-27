@@ -26,7 +26,7 @@ For help editing Config.xml files, please refer to the [Config Editor utility gu
 * **Zebra Enterprise Browser 1.3**
 * **USB driver for targeting Zebra devices**
 * **Android Debug Bridge (if targeting Android devices)**
-* **Microsoft ActiveSync (if targeting WIndows Mobile/CE devices)**
+* **Microsoft ActiveSync (if targeting Windows Mobile/CE devices)**
 
 EB Shortcut Creator is included with Zebra Enterprise Browser 1.3. If you don't already have EB 1.3, please [install Enterprise Browser](../guide/setup), then resume from here. 
 
