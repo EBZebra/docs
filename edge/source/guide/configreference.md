@@ -1175,7 +1175,7 @@ Specifies the location of TrueType fonts on the device. For Zebra Technologies W
 	<FontDirectory value="\\Windows"/>
 
 ###JavascriptEnabled
-Controls whether JavaScript is enabled on Windows Mobile devices.
+Controls whether JavaScript is enabled on Windows Mobile devices. **Applies only to Windows Mobile with IE engine**. JavaScript is always enabled on Android and WM/CE with Zebra webkit. 
 
 **Possible Values**
 
