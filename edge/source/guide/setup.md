@@ -1,16 +1,31 @@
 # Installation
 ## Desktop Installation
-To install the EB on your device, there are two requirements:
 
-* Your device must be a **Symbol Device**.
-* Your device's OS must be either **Windows Mobile, Windows CE, or Android**.
+Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. There are just a few hardware requirements.  
 
-Installing Enterprise Browser on your desktop will provide you will all you need to get started.
+### Prerequisites 
 
-1. Download the Enterprise Browser MSI.
-2. Install the MSI.
+* A system **running Windows or Mac OS X** (Macs have limited features)
+* One or more **[supported Zebra devices](index.html)** running **Android, Windows Mobile or Windows CE**
 
+### Mac OS X Support
+Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for installation on Mac OS X systems. This permits Mac users to: 
+
+* Copy EnterpriseBrowser.apk (app) files to Android devices.
+* Copy EnterpriseBrowser cab files to servers for mass deployment. 
+* Create shortcuts to Android apps using the EnterpriseBrowser native widget.
+(available in the device after installing the EB app) 
+* Access the Enterprise Browser demo app.
+* Easily link to EB online help.
+
+### Installation
+
+* [Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and launch the installer (.msi or .dmg) file.
+
+Windows systems will display an image similar to this: 
 ![img](images/getting-started/setup/setup-msi-install.png)
+
+
 
 At this point you should now have an item in the start menu structured as follows:
 
@@ -20,7 +35,8 @@ At this point you should now have an item in the start menu structured as follow
 	* Enterprise Browser Runtimes
 	* JavaScript Files
 
-![img](images/getting-started/setup/setup-start-menu-items.png)
+<!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
+![img](images/getting-started/setup/Shortcut_Creator_01.jpg)
 
 ## Device Deployment
 To install the Enterprise Browser runtime onto your device, follow the steps below:

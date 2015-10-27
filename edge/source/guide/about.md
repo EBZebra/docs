@@ -13,7 +13,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * Password access to the Settings panel and exiting from an app
 * [Config Editor](../guide/ConfigEditor) utility for Windows
 * [Shortcut Creator](../guide/ShortcutCreator) utility for Windows
-* Installer for Mac OS X systems
+* Installer for Mac OS X with support for deployment and [other features](../guide/setup) 
 * Support for Android 4.4 KitKat on:
   * TC55
   * MC40
