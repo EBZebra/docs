@@ -2468,12 +2468,12 @@ Enables the verification of the I2of5 check digit.
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Selects the illumination mode to use. This property is not currently supported on Android.
+Selects the illumination mode to use. Not currently supported on Android (illumination is always on).
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.ILLUMINATION_AUTO - String: auto Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.
+* Constant: EB.Barcode.ILLUMINATION_AUTO - String: auto Auto-exposure algorithms will decide whether illumination is required. Not currently supported on Android.
 * Constant: EB.Barcode.ILLUMINATION_ALWAYS_ON - String: alwaysOn External illumination is always on.
 * Constant: EB.Barcode.ILLUMINATION_ALWAYS_OFF - String: alwaysOff External illumination is always off.
 ####Access
@@ -2489,7 +2489,7 @@ Selects the illumination mode to use. This property is not currently supported o
 
 * Windows Mobile
 * Windows CE
-* Zebra Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)
+* Zebra Devices Only(Imager / Camera Scanners on Symbol Technologies devices)
 
 ###invalidDecodeFrequency
 
