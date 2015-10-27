@@ -33,11 +33,6 @@ Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for i
 ![img](images/getting-started/setup/Shortcut_Creator_01.jpg)
 
 
-### Mac OS X Installation
-**Mac OS X systems** will display an image similar to the one below: 
-![img](images/getting-started/setup/setup-dmg-install.png)
-
-
 ## Device Deployment
 To install the Enterprise Browser runtime onto your device, follow the steps below:
 
@@ -52,6 +47,18 @@ Here is what the Installer looks like; options on the left, explanations on the 
 ![img](images/getting-started/setup/setup-eb-installer-platform-select.png)
 
 > Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
+
+
+### Mac OS X Installation
+**Mac OS X systems** will display an image similar to the one below: 
+![img](images/getting-started/setup/setup-dmg-install.png)
+
+* **Drag the EnterpriseBrowser icon into the Applications folder**.
+
+The Enterprise Browser files and folders will be copied into the Application folder on the host Mac, creating the directory structure shown below: 
+
+![img](images/getting-started/setup/setup-macosx-directories.png)
+
 
 ### Android Devices
 To connect your Android device to your Windows computer, you'll need two things:
