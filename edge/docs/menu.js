@@ -116,6 +116,10 @@ var menuStrcture = [
 								link: '#guide-configreference',
 							},
 							{
+								name: 'DOM Injection Guide',
+								link: '#guide-DOMinjection',
+							},
+							{
 								name: 'On-device Config',
 								link: '#guide-OndeviceConfig',
 							},
