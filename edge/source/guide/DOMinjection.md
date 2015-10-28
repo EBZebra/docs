@@ -1,8 +1,10 @@
-## DOM Injection
+#Enterprise Browser DOM Injection
+
+## About DOM Injection
 
 New in Enterprise Browser 1.3 is the ability to insert CSS, JavaScript and meta tags into the DOM without modifying the underlying application. This permits features, capabilities and even the look of one or more server-based Enterprise Browser app pages to be modified at runtime using DOM elements stored in a text file on the device. 
 
-DOM injection is enabled by default in EB 1.3 and higher apps, and is **activated by  the &lt;CustomDOMElements&gt; in the &lt;Application&gt; section** of the app's `Config.xml` file. This new tag will contain a fully qualified path to the device-resident file that you create, which stores the DOM element(s) to be injected and the names of the pages to receive injections whenever displayed. **Injected JavaScript can be local, server-based or in any combination thereof**.
+DOM injection is enabled by default in EB 1.3 and higher apps, and is **activated by  the &lt;CustomDOMElements&gt; in the &lt;Application&gt; section** of the app's `Config.xml` file. This new tag will contain a fully qualified path to the device-resident file that you create, which stores the DOM element(s) to be injected and the names of the pages to receive injections whenever displayed. **Injected CSS and JavaScript can be local, server-based or in any combination thereof**.
 
 * **DOM injection device support**: 
 	* **Android with stock webkit**
@@ -81,10 +83,9 @@ Attributes of DOM Injection tags:
 
 * Assumes an '.html' file extention; specify extension if different
 * For local files, works from directory relative to the installation root; include qualified path if different 
-* For server-based JavaScript, works relative to the app's start page; include qualified URL if different
+* For server-based CSS or JavaScript files, works relative to the app's start page; include qualified URL if different
 * Accepts wildcard (*) character to inject all files in relative or specified directory
 * Accepts URLs for server-based JavaScript files only
-* Injected CSS files must be local
 * Meta tag data must be contained completely within the tags file  
 * If using server-based JavaScript, see JavaScript Injection section (below) for dependancy cautions 
 
