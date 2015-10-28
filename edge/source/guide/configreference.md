@@ -28,11 +28,12 @@ The following substitution variables are available in the configuration file
 </table>
 
 ## Config.xml File Format
-The following is an example of a typical configuration file, Android edition:
+The following is an example of a typical configuration file, Android edition. **Important differences exist with Windows Mobile/CE version**.  
 
 	:::xml
 	<?xml version="1.0"?>
-	<!-- Enterprise Browser Configuration file for Android-->
+	<!-- Enterprise Browser 1.3 Configuration file for Android-->
+	<!-- IMPORTANT: Differences exist in Windows Mobile/CE version--> 
 	<Configuration>
 	  <DebugButtons>
 	    <DebugButtonsEnabled value="0" />
@@ -557,7 +558,7 @@ Specifies location of the plug-in file (a .DLL on the device), which facilitates
 
 #### Example
 	:::xml
-	<PluginFile value="file://path-to-plugin-file"/>
+	<PluginFile value="file://%INSTALLDIR%\Config\Plugin.xml"/>
 
 ## Screen
 ### FullScreen
