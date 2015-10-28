@@ -27,13 +27,22 @@ PT 105137576
 **You must manually uninstall the prior version of Enterprise Browser** before installing the new one. Otherwise, skip to step 2. 
 
 1. **Select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
-2. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and launch the installer** (.msi) file.
+2. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi)
+3. **Launch the installer** (.msi) file**; accept licence agreement and follow other prompts. 
 
-An image will appear similar to the one below: 
+When the installation finishes, an image will appear similar to the one below: 
 
-![img](images/getting-started/setup/setup-msi-install.png)
+<!--![img](images/getting-started/setup/setup-msi-install.png)-->
 
-When the first part completes, **select Enterprise Browser > EnterpriseBrowser Installer** from the Start menu, which should look similar to the one below: 
+![img](images/getting-started/setup/ebsetup_01.jpg)
+
+With the 'Launch' box checked, **click "Close" to quit the installer and launch Enterprise Browser**. 
+
+![img](images/getting-started/setup/ebsetup_02.jpg)
+
+When finished, click next to Launch Enterprise Browser. 
+
+the first part completes, **select Enterprise Browser > EnterpriseBrowser Installer** from the Start menu, which should look similar to the one below: 
 
 <!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
 ![img](images/getting-started/setup/Shortcut_Creator_01.jpg)
