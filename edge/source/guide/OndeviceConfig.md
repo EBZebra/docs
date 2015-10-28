@@ -70,13 +70,13 @@ Controls whether server certificates will be verified against the internal certi
 Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (""). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE.
 
 ### Password
-Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (""). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE.
+**WARNING: Accepts alpha-numeric characters only. Entering non-text characters (< > \ / " ') in the password field will corrupt the Config.xml file**. Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (""). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**.
 
 ### ExitPasswordEnabled
 When enabled, prompts for a password when quitting an Enterprise Browser app. Password is stored using the ExitPasswordValue tag. Disabled by default.
 
 ### ExitPasswordValue
-Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to '1' and cannot be left empty.
+**WARNING: Accepts alpha-numeric characters only. Entering non-text characters (< > \ / " ') in the password field will corrupt the Config.xml file**. Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to '1' and cannot be left empty. **Applies to Android and WM/CE**.
 
 ### SettingsButtonEnabled
 When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. **Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling**.
