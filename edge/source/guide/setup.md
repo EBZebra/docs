@@ -6,11 +6,13 @@ Installing Enterprise Browser on your system will provide all the software neces
 #####Mac OS X Support
 Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for installation on Mac OS X systems. This permits Mac users to: 
 
-* Copy EnterpriseBrowser .apk files to Android devices
-* Copy EnterpriseBrowser .cab files to servers for mass deployment 
-* Create shortcuts to Android apps using the EB native widget
+* **Copy EnterpriseBrowser .apk files** to Android devices
+* **Copy EnterpriseBrowser .cab files** to a server for mass deployment
+* **Create shortcuts to Android apps** using the EB native widget (in device after installing the EB app)
 * Access the Enterprise Browser demo app
 * Easily link to EB online help
+
+<!-- * Copy EnterpriseBrowser .cab files to Windows Mobile/CE devices -->
 
 ### Prerequisites
 
@@ -19,72 +21,69 @@ Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for i
 * **Android Debug Bridge (if targeting Android devices)**
 * **Microsoft ActiveSync (if targeting Windows Mobile/CE devices)**
 
-PT 105137576
-
 ### Windows Installation
 
-####If upgrading from a prior version: 
-**The previous version of Enterprise Browser must be uninstalled before installing the new one**. If not upgrading, skip to step 2. 
+####If upgrading from a prior version...
 
 ![img](images/getting-started/setup/ebsetup_00.jpg)
 
-1. **Select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
-2. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi)** installation package (.msi).  
-3. **Launch the installer** file**; accept licence agreement and follow other prompts. 
+**...uninstall the older version of Enterprise Browser before installing the new one**. 
 
-When the installation finishes, a screen will appear similar to the one below: 
+If not upgrading, skip to step 3. 
+
+1. **Backup any data stored in the C:\EnterpriseBrowser directory**; step 2 will cause it to be lost. 
+2. To unstall, **select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
+3. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) installation package** (.msi).  
+4. **Launch the installer file**; accept the licence agreement and follow the other prompts. When the installation finishes, a screen will appear similar to the one below. 
+5. **Click "Close" to quit the installer and launch Enterprise Browser**. (Be sure the 'Launch' box is checked). 
 
 <!--![img](images/getting-started/setup/setup-msi-install.png)-->
 
 ![img](images/getting-started/setup/ebsetup_01.jpg)
 
-**Click "Close" to quit the installer and launch Enterprise Browser**. (Be sure the 'Launch' box checked). 
+This will display the Enterprise Browser's 'Installer' screen, which looks similar to the one below, with supported platforms for selection on the left, and a description of the selected platform on the right. 
 
-This will display the main Enterprise Browser deploy screen, which looks similar to the one below:
+To bring up this screen at a later time, select **Start Menu > Enterprise Browser > Enterprise Browser Installer**. It's there in the sample Start menu, above. 
+
+For Windows-only shops, **skip down to the Device Deployment section**. 
 
 ![img](images/getting-started/setup/ebsetup_02.jpg)
 
 <!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
 
-## Device Deployment
-To install the Enterprise Browser runtime onto your device, follow the steps below:
-
-1. Connect your device to you PC via the USB cable and wait for Microsoft ActiveSync/Device Center to connect.
-2. From your Start Menu browse to the "Enterprise Browser \ Enterprise Browser Installer" and select it.
-3. You will be presented with options to choose which variant of Enterprise Browser they wants to install on the device.
-4. Information pertaining to each of these options is available on the screen so you can select the appropriate Runtime.
-5. Depending on the device operating system, you will have different steps. See below for your device specific operating system.
-
-Here is what the Installer looks like; options on the left, explanations on the right.
-
-![img](images/getting-started/setup/setup-eb-installer-platform-select.png)
-
-> Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
-
-
 ### Mac OS X Installation
-[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and open the disk image (.dmg) file.
+1. **[Download the Enterprise Browser disk image](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi)** (.dmg) file. 
+2. **Double-click the .dmg file to open it**. A window will open like the image below. 
+3. **Drag the Enterprise Browser icon into the Applications folder** indicated by the arrow to copy the files.
 
-**Mac OS X systems** will display an image similar to the one below: 
 ![img](images/getting-started/setup/setup-dmg-install.png)
 
-**Drag the EnterpriseBrowser icon into the Applications folder**.
+The Enterprise Browser files and folders will be copied into the Application folder on the host Mac, creating a directory structure similar to the one shown in the image below: 
 
-The Enterprise Browser files and folders will be copied into the Application folder on the host Mac, creating the directory structure shown below: 
 ![img](images/getting-started/setup/setup-macosx-directories.png)
 
+It's important to note that **files under the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to some of the runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
 
-The widget appears is in the device after installing the EB app. 
+
+## Device Deployment
+Communication from the host computer to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
+
+* **ADB supports USB connections only**
+* **ActiveSync supports USB and Bluetooth connections** 
+
+Once a connection has been established, install the Enterprise Browser runtime onto a device:
+
+1. Select **Start > Enterprise Browser > Enterprise Browser Installer** to  bring up the EB Installer.
+2. **Select the platform that matches the device being targeted**. Information in the right-hand pane will vary accordingly.
+3. **Continue to the section below that corresponds with the selected device platform**. 
+
+<!--![img](images/getting-started/setup/setup-eb-installer-platform-select.png)-->
+
+> Note: Once the Enterprise Browser is deployed to a device, restart the device to generate file and folder structures for proper EB operation.
+
 
 
 ## Connections
-Communication from the development host to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. If a device is not shown, please verify that the appropriate software and drivers are installed, and check the physical connection(s). 
-
-* **ADB supports USB only**
-* **ActiveSync supports USB or Bluetooth** 
-* **Device(s) must contain an EB app and its Config.xml file**  
-
-It might be necessary to install an OEM USB driver to make a USB-attached Android device visible to Windows. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
 
 
 ## INFORMATION TO BE CHECKED
