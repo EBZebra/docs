@@ -1,33 +1,39 @@
-# Installation
-## Desktop Installation
+# Enterprise Browser Installation
+## Installation on a desktop or laptop 
 
-Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a computer that can connect to one or more **[supported Zebra devices](index.html)** running Android, Windows Mobile or Windows CE. See Prerequisites for connection details. 
+Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a **computer that connects via ADB or ActiveSync to one or more [supported Zebra devices](index.html) running Android, Windows Mobile or Windows CE**. See the Prerequisites section for connection details. 
 
 #####Mac OS X Support
 Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for installation on Mac OS X systems. This permits Mac users to: 
 
-* Copy EnterpriseBrowser.apk (app) files to Android devices
-* Copy EnterpriseBrowser cab files to servers for mass deployment 
+* Copy EnterpriseBrowser .apk files to Android devices
+* Copy EnterpriseBrowser .cab files to servers for mass deployment 
 * Create shortcuts to Android apps using the EB native widget
-(in the device after installing the EB app) 
 * Access the Enterprise Browser demo app
 * Easily link to EB online help
 
 ### Prerequisites
 
-* **A computer running Windows or Mac OS X** (limited functionality)
-* **USB driver for targeting Zebra devices** (Windows only)
+* **A computer running Windows or Mac OS X** (Macs offer a subset of functions)
+* **USB driver for targeting Zebra devices** (required on Windows only)
 * **Android Debug Bridge (if targeting Android devices)**
 * **Microsoft ActiveSync (if targeting Windows Mobile/CE devices)**
 
+PT 105137576
+
 ### Windows Installation
 
-[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and launch the installer (.msi) file.
+####Before proceeding: 
+**You must manually uninstall the prior version of Enterprise Browser** before installing the new one. Otherwise, skip to step 2. 
 
-**Windows systems** will display an image similar to the one below: 
+1. **Select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
+2. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) and launch the installer** (.msi) file.
+
+An image will appear similar to the one below: 
+
 ![img](images/getting-started/setup/setup-msi-install.png)
 
-When it finishes, **select Enterprise Browser > EnterpriseBrowser Installer** from the Start menu, which should look similar to the one below: 
+When the first part completes, **select Enterprise Browser > EnterpriseBrowser Installer** from the Start menu, which should look similar to the one below: 
 
 <!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
 ![img](images/getting-started/setup/Shortcut_Creator_01.jpg)
@@ -59,6 +65,9 @@ Here is what the Installer looks like; options on the left, explanations on the 
 
 The Enterprise Browser files and folders will be copied into the Application folder on the host Mac, creating the directory structure shown below: 
 ![img](images/getting-started/setup/setup-macosx-directories.png)
+
+
+The widget appears is in the device after installing the EB app. 
 
 
 ## Connections
