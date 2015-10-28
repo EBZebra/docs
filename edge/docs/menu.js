@@ -104,11 +104,11 @@ var menuStrcture = [
 						icon: 'fa fa-gears',
 						items: [
 							{
-								name: 'App Shortcuts',
+								name: 'App Shortcuts Guide',
 								link: '#guide-shortcuts',
 							},
 							{
-								name: 'Config Editor utility',
+								name: 'Config Editor Utility',
 								link: '#guide-ConfigEditor',
 							},
 							{
@@ -116,19 +116,23 @@ var menuStrcture = [
 								link: '#guide-configreference',
 							},
 							{
+								name: 'On-device Config',
+								link: '#guide-OndeviceConfig',
+							},
+							{
 								name: 'SAP ITS Usage',
 								link: '#guide-sap',
 							},
 							{
-								name: 'Shortcut Creator utility',
+								name: 'Shortcut Creator Utility',
 								link: '#guide-ShortcutCreator',
 							},
 							{
-								name: 'Using Certificates',
+								name: 'Certificate Usage',
 								link: '#guide-certificates',
 							},
 							{
-								name: 'Viewport',
+								name: 'Viewport Usage',
 								link: '#guide-viewport',
 							},
 							
