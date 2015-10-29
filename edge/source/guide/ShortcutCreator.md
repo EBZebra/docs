@@ -73,7 +73,7 @@ After the desired shortcuts have been created (using steps 1-6 above) and saved,
 
 `C:\EnterpriseBrowserShortcutFiles\EnterpriseBrowserShortcutFiles\EBShortcuts.xml` 
 
-In the same location are custom folders named for each shortcut created (see image below). 
+In the same location are custom folders named for each shortcut created: 
 
 ![img](images/Utilities/Shortcut_Creator_07.jpg)
 
@@ -83,7 +83,7 @@ To deploy using an MDM, **the entire structure (in the red box) must be replicat
 
 1. **Browse to the folder: `C:\EnterpriseBrowserShortcutFiles\`** (which contains a like-named folder with the EBShortcut.xml file and individual shortcut folders inside).
 2. **Set the MDM to copy this folder and its contents to the root level of the Android device**, for example `/storage/sdcard0/`. Shortcuts will appear the next time Enterprise Browser is launched on the device.
-3. **Issue the following command to the Android activity manager** to launch Enterprise Browser automatically after MDM deployment: 
+3. **Issue the following command to the Android activity manager** to launch Enterprise Browser automatically after MDM deployment (optional): 
 
 		:::term
 		adb shell am start com.symbol.enterprisebrowser
@@ -98,7 +98,13 @@ To deploy using an MDM, **the entire structure (in the red box) must be replicat
 
 Shortcuts will appear the next time Enterprise Browser is launched on the device. 
 
->**Note: The file structure described here must be replicated exactly for proper shortcut operation. It's important that these automatically generated shortcut files and folders are not modified in any way. If changes to shortcuts are required, please use the Shortcut Creator utility. Customizing shortcut data files manually could result in unknown failures**.
+**Notes** 
+
+* **File structure must be replicated exactly** for proper shortcut operation.
+* Automatically generated shortcut **files and folders must not be modified by hand**. 
+* **Customizing shortcut data files manually could result in unknown failures**.
+* **To change shortcut settings, use the Shortcut Creator utility** and redeploy. 
+* Existing **shortcuts on target device(s) will be overwritten** when redeployed. 
 
 ## Troubleshooting
 
