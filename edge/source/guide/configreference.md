@@ -3,7 +3,7 @@ Runtime configuration settings of Enterprise Browser apps are managed through th
 
 The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility included with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](../guide/ConfigEditor). 
 
-## Configuration File Location
+## Configuration file location
 The location of the configuration file loaded by the Enterprise Browser is dependent on a number of factors:
 
 * When running on the Enterprise Tablet the configuration file is read from `/Android/data/com.symbol.enterprisebrowser/Config.xml`.
@@ -14,7 +14,7 @@ For persistent installations, on cold boot the `Config.xml` file is copied from 
 
 >Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
-## Substitution Variables
+## Substitution variables
 The following substitution variables are available in the configuration file
 <table class="re-table">
 	<tr>
@@ -27,8 +27,10 @@ The following substitution variables are available in the configuration file
 	</tr>
 </table>
 
-## Config.xml File Format
-The following is an example of a typical configuration file, Android edition. **Important differences exist with Windows Mobile/CE version**.  
+## Config.xml file format
+The following is an example of a typical configuration file, Android edition. **Important differences exist between Android and Windows Mobile/CE settings in the Config.xml file**, mainly involving directory struture and file naming. Use care when setting these values. 
+
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
 
 	:::xml
 	<?xml version="1.0"?>
@@ -535,7 +537,7 @@ Specifies the maximum allowable size of the log file, after which no more logs w
 	:::xml
 	<LogMaxSize value="100"/>
 
-## FileLocations
+## File locations
 ### RegExFile
 **Applies to Android and Windows Mobile/CE**. Defines the location of RegEx.xml, which contains conversions to be used for backward compatibility with EMML 1.0. Case sensitive. **Changing this file or its location is not recommended, and might prevent an app from launching**.   
 
@@ -810,7 +812,7 @@ Defines the amount of time (in milliseconds) the application should wait to esta
 	<NavTimeout value="30000"/>
 
 
-## ScreenOrientation
+## Screen orientation
 ### AutoRotate
 When disabled the orientation of the screen will not change as the device is rotated and vice versa. This is a screen rotation lock.
 
@@ -1031,6 +1033,8 @@ Specifies the technique used to scroll the viewport. **'FingerScroll'** is an An
 
 ## Authentication
 ### Username
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
 Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (“”). Enterprise Browser will permit multiple incorrect entries before presenting the 'HTTP 401 Unauthorized' page. **Applies to Android and WM/CE.** 
 
 **Possible Values**
@@ -1042,7 +1046,9 @@ Specifies the username to be provided automatically when Enterprise Browser is i
 	<Username value="username"/>
 
 ### Password
-**WARNING: Accepts alpha-numeric characters only. Entering non-text characters (< > \ / " ') in the password field will corrupt the Config.xml file**. Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (“”). Enterprise Browser will permit multiple incorrect entries before presenting the 'HTTP 401 Unauthorized' page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**. 
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
+Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (“”). Enterprise Browser will permit multiple incorrect entries before presenting the 'HTTP 401 Unauthorized' page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**. 
 
 **Possible Values**
 
@@ -1067,7 +1073,9 @@ When enabled, prompts for a password when quitting an Enterprise Browser app. Pa
 	<ExitPasswordEnabled value="0"/>
 
 ### ExitPasswordValue 
-**WARNING: Accepts alpha-numeric characters only. Entering non-text characters (< > \ / " ') in the password field will corrupt the Config.xml file**. Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to "1" and cannot be left empty.  
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
+Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to "1" and cannot be left empty.  
 
 **Possible Values**
 
@@ -1419,7 +1427,7 @@ Controls the vertical position of the Hourglass icon, which is displayed by defa
 	:::xml
 	<HourglassTop value="200"/>
 
-## DOM Injection
+## DOM injection
 ### CustomDOMElements 
 Specifies the path of a device-resident file containing data for injected DOM elements. This feature permits the injection of one or more DOM elements (i.e. JavaScript, CSS or meta tags) into a running application without modifying the underlying application. Injected JavaScript can be local or server-based. For more information, please refer to the [DOM Injection guide](#DOMInjection). **Applies to Android and Windows Mobie/CE webkit engines**. 
 
@@ -1565,7 +1573,7 @@ The browser cache size, in whole MBs.
 	:::xml
 	<Cache value="5"/>
 
-## DeviceKeys
+## Device keys
 ### EnableCtrlKey_X
 Specifies which control-key combinations (copy, paste, etc.) should be enabled. To enable a control-key combination, define a tag using EnableCtrlKey_X, replacing the ‘X’ with the key being enabled. For example, to enable copying with control-C, your tag will include EnableCtrlKey_C as below. See the sample Config.xml file in user guide for correct branch placement. **All CTRL key combinations are disabled on Windows CE by default**. 
 
@@ -1578,7 +1586,7 @@ Specifies which control-key combinations (copy, paste, etc.) should be enabled. 
 	:::xml
 	<EnableCtrlKey_C value="1"/>
 
-## DefaultMetaTags
+## Default MetaTags
 ### MetaTag
 Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag’s module, followed by the tilde character (~) and the properties of the module you wish to set, as specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the ‘additional information’ section in the help file. Meta tag properties and their possible values are explained in the corresponding API.
 
@@ -1616,7 +1624,7 @@ Permits the selection of a rendering engine (IE or Webkit) when deploying a Webk
 	:::xml
 	<EngineInUse value="IE"/>
 
-## TabInstance
+## Tab instance
 ### NewTabPhysicalMemLimit
 Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when physical memory percentage hits a specific threshold. For example, if set to 80, new tabs will stop being created when physical memory usage on the device reaches or exceeds 80 percent the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
@@ -1675,7 +1683,7 @@ Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for th
 	:::xml
 	<isWindowsKey value="1"/>
 
-## Shortcut Utility
+## Shortcut utility
 ###ShortcutCreationEnabled
 Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch, Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default. **Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. For more information, please refer to the [Shortcut Creator guide](../guide/ShortcutCreator). 
 
