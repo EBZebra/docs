@@ -1114,6 +1114,8 @@ When enabled, prompts for a password before allowing access to the Settings page
 	<SettingsPageProtectionEnabled value="0"/>
 
 ### SettingsPagePassword 
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
 Contains the password for accessing the Settings page when password function is enabled using the SettingsPageProtectionEnabled tag. Can be edited only when SettingsPageProtectionEnabled tag is set to "1" and cannot be left empty. 
 
 **Possible Values**
@@ -1124,7 +1126,6 @@ Contains the password for accessing the Settings page when password function is 
 
 	:::xml
 	<SettingsPagePassword value="zebra"/>
-
 
 
 ## HTMLStyles

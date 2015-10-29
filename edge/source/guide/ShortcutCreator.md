@@ -40,7 +40,7 @@ A Shortcut Creator window will appear, similar to the one below.
 
 ![img](images/Utilities/Shortcut_Creator_02.jpg)
 
-### Create Shortcut(s)
+### Create shortcut(s)
 
 1. **Select the platform** (Android or Windows Mobile/CE) to be targeted by the shortcut.
 2. **Select Default or Custom** for the Config.xml to be used with the shortcut (selecting Custom will cause the Startpage field to change to a navigation box).
@@ -54,21 +54,51 @@ After creating your first shortcut and adding it to the list, your screen should
 ![img](images/Utilities/Shortcut_Creator_03.jpg)
 
 * **Repeat Steps 1-6** until all the desired shortcuts are created and added to the list. 
-* **Click Save Shortcut** button to save all shortcut settings to the development host for later retrieval. 
+* **Click Save Shortcut** button to save all shortcut settings to the development host for later retrieval and/or mass deplyment. 
 
-Shortcut data is stored at the root level of the development host as: 
+### Deploy shortcut(s) from a PC
 
-`\EnterpriseBrowserShortcutFiles\EnterpriseBrowserShortcutFiles\EBShortcuts.xml` 
-
-### Deploy Shortcut(s)
-
-1. After desired shortcuts have been created, **click Push to Device**. A screen similar the one below will appear. 
+1. After desired shortcuts have been created using steps 1-6 above and saved, **click Push to Device**. A screen similar the one below will appear. 
 2. **Select the desired platform and click Deploy Shortcuts** to deploy via ADB or ActiveSync. Shortcuts will be pushed to the device. 
 3. **Launch Enterprise Browser** to create shortcuts on the device.  
 
 ![img](images/Utilities/Shortcut_Creator_04.jpg)
 
 **Note: Shortcut(s) will not appear on the device until after Enterprise Browser is launched. Shortcut creation is determined by a setting in the Config.xml file on the target device**. For more information, please refer to the [Troubleshooting section](../guide/ShortcutCreator?Troubleshooting) or the [Config.xml Reference](../guide/configreference). 
+
+### Deploy shortcut(s) from a server
+Shortcuts can be copied to a server and easily deployed across an enterprise using a mobile device management (MDM) solution. 
+
+After the desired shortcuts have been created (using steps 1-6 above) and saved, shortcut data is stored on the PC in a file called `EBShortcuts.xml` in the following path: 
+
+`C:\EnterpriseBrowserShortcutFiles\EnterpriseBrowserShortcutFiles\EBShortcuts.xml` 
+
+In the same location are custom folders named for each shortcut created (see image below). 
+
+![img](images/Utilities/Shortcut_Creator_07.jpg)
+
+To deploy using an MDM, **the entire structure (in the red box) must be replicated on the target device(s)**. Follow the steps below from the PC that contains the shortcut data. **The proceess varies slightly for Android and Windows Mobile/CE**. 
+
+**For Android**:
+
+1. **Browse to the folder: `C:\EnterpriseBrowserShortcutFiles\`** (which contains a like-named folder with the EBShortcut.xml file and individual shortcut folders inside).
+2. **Set the MDM to copy this folder and its contents to the root level of the Android device**, for example `/storage/sdcard0/`. Shortcuts will appear the next time Enterprise Browser is launched on the device.
+3. **Issue the following command to the Android activity manager** to launch Enterprise Browser automatically after MDM deployment: 
+
+		:::term
+		adb shell am start com.symbol.enterprisebrowser
+
+
+**For Windows Mobile/CE**: 
+
+1. **Browse to the folder: `C:\EnterpriseBrowserShortcutFiles\`** (which contains a like-named folder with the EBShortcut.xml file and individual shortcut folders inside).
+2. **Set the MDM to copy this folder and its contents to the "\Application\" directory of the WM/CE device**. Once deployed, the path to the EBShortcuts.xml file on the device should be: 
+
+`\Application\EnterpriseBrowserShortcutFiles\EBshortcuts.xml`
+
+Shortcuts will appear the next time Enterprise Browser is launched on the device. 
+
+>**Note: The file structure described here must be replicated exactly for proper shortcut operation. It's important that these automatically generated shortcut files and folders are not modified in any way. If changes to shortcuts are required, please use the Shortcut Creator utility. Customizing shortcut data files manually could result in unknown failures**.
 
 ## Troubleshooting
 
