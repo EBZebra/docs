@@ -537,18 +537,22 @@ Specifies the maximum allowable size of the log file, after which no more logs w
 
 ## FileLocations
 ### RegExFile
-**Applies only to Windows Mobile/CE**. Defines the location of RegEx.xml, the file that contains the conversions to be used for backward compatibility with EMML 1.0. Case sensitive. **Changing this file or its location is not recommended, as such changes might prevent an app from launching**.   
+**Applies to Android and Windows Mobile/CE**. Defines the location of RegEx.xml, which contains conversions to be used for backward compatibility with EMML 1.0. Case sensitive. **Changing this file or its location is not recommended, and might prevent an app from launching**.   
 
 **Possible Values**
 
 * Fully qualified path to file defining the regular expressions
 
-#### Example
+#### Example - Android
 	:::xml
 	<RegEXFile value="file://%INSTALLDIR%/RegEx.xml"/>
 
+#### Example - Windows Mobile/CE
+	:::xml
+	<RegEXFile value="file://%INSTALLDIR%\Config\RegEx.xml"/>
+
 ### PluginFile
-Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between modules and plug-ins on the device. **Not applicable to the Enterprise Tablet**. **Changing this file or its location is not recommended, as such changes might prevent an app from launching**. 
+**Applies only to Windows Mobile/CE. Not applicable to the Enterprise Tablet**. Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between modules and plug-ins on the device. **Changing this file or its location is not recommended, and might prevent an app from launching**. 
 
 **Possible Values**
 
