@@ -8,6 +8,9 @@ EB 1.3 and higher apps for Android and Windows Mobile/CE can configure keycaptur
 
 
 ## Using On-Device Config
+
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
 A button for accessing on-device configuration is displayed by default following an initial Enterprise Browser 1.3 installation. Thereafter, it's displayed whenever the EB app is restarted until a different start page is assigned in the Startpage parameter of the Config.xml. 
 
 **The first time an Enterprise Browser 1.3 app is launched, a screen like the one below will appear**. 
@@ -52,7 +55,9 @@ The on-device settings panel presents four buttons at the bottom of the Settings
 * **<u>Reset</u> will revert all values to their factory defaults** as described in the [Config.xml reference guide](../guide/configreference). 
 
 ## Configurable Settings
-Below is the list of settings that can be configured on-device for an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the [Config.xml reference guide](../guide/configreference) 
+Below is the list of settings that can be configured on-device for an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the [Config.xml reference guide](../guide/configreference).
+
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**.  
 
 ### Debugbuttons
 When enabled, presents a set of controls useful for development and debugging purposes. **Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling**.
@@ -69,14 +74,20 @@ Controls whether server certificates will be verified against the internal certi
 ### Username
 Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (""). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE.
 
+**Important: Use alpha-numeric characters only**. 
+
 ### Password
-**WARNING: Accepts alpha-numeric characters only. Entering non-text characters (< > \ / " ') in the password field will corrupt the Config.xml file**. Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (""). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**.
+Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (""). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**.
+
+**Important: Use alpha-numeric characters only**. 
 
 ### ExitPasswordEnabled
 When enabled, prompts for a password when quitting an Enterprise Browser app. Password is stored using the ExitPasswordValue tag. Disabled by default.
 
 ### ExitPasswordValue
-**WARNING: Accepts alpha-numeric characters only. Entering non-text characters (< > \ / " ') in the password field will corrupt the Config.xml file**. Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to '1' and cannot be left empty. **Applies to Android and WM/CE**.
+Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to '1' and cannot be left empty. **Applies to Android and WM/CE**.
+
+**Important: Use alpha-numeric characters only**. 
 
 ### SettingsButtonEnabled
 When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. **Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling**.
@@ -109,4 +120,4 @@ Defines the start page of a Enterprise Browser application, displayed at launch.
 
 * To simplify PC-based set up of Config.xml files, please refer to the [Config Editor utility](../guide/ConfigEditor), a Windows utility new in EB 1.3 that edits and deploys Config.xml files from a single panel.
 
-
+* Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file. 
