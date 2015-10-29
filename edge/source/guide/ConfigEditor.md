@@ -22,6 +22,9 @@ The Desktop Config Editor is included with Zebra Enterprise Browser 1.3.
 * Microsoft ActiveSync (if targeting WIndows Mobile/CE devices)
 
 ## Using Config Editor
+
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
 ### Open a file stored on a development host
 
 * **Select File>Open File** from the menu bar.
