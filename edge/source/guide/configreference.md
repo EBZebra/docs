@@ -1684,9 +1684,9 @@ Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for th
 	:::xml
 	<isWindowsKey value="1"/>
 
-## Shortcut utility
+## Shortcut Creation
 ###ShortcutCreationEnabled
-Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch, Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default. **Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. For more information, please refer to the [Shortcut Creator guide](../guide/ShortcutCreator). 
+**Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch. Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default.  For more information, please refer to the [Shortcut Creator guide](../guide/ShortcutCreator). 
 
 **Possible Values**
 
