@@ -880,8 +880,8 @@ Setting the value of this property to "true", shall open the System ViewFinder w
 
 
 
-###SDCard Access
-SDCard access is eabled by default; grants of additional access will be ignored. The following extensions are able to write to the SD card by default.
+###SD Card Access
+SD Card access is enabled by default; grants of additional access will be ignored. The following extensions are able to write to the SD card by default.
 
 ###Camera Preview
 Despite a user-selected full screen mode, preview rendering size will be overridden by the driver on some WM/CE devices.
@@ -890,13 +890,13 @@ Despite a user-selected full screen mode, preview rendering size will be overrid
 DataUri output is dependent on availability of virtual space. DataUri may fail, be unresponsive, cause reboot, degraded performance or fail to load in certain devices. In such cases, image path is recommended.
 
 ###ImageUri
-Image uri display is dependent on browser capability.
+Image Uri display is dependent on browser capability.
 
 ###GetSupportedProperties in WP8
 WP8 does not support getSupportedProperties or SetSupportedProperties.
 
 ###colorModel as Grayscale in Android
-Grayscale is supported only in consumer Android devices for the front camera.
+Grayscale is supported only in the front camera of Android consumer devices.
 
 ###Invalid/Null values for properties in Android and iOS
 Only valid and non-empty values for properties are supported in Android and iOS.
@@ -907,14 +907,20 @@ Due to platform limitations, imager and color camera are not supported in ruby a
 ###Camera in Suspend mode
 All WM and CE7 devices automatically turn off both color and imager cameras when the device is suspended. User must restart the camera to resume. Whereas CE5 (eg: MC9000) and CE6 (eg: MC31) devices retain the preview on resuming from suspend state.
 
-###Image saving while take picture
-In some devices (eg: Samsung), an image will be saved in landscape mode even if captured in portrait mode. This behavior is determined by device default settings.
+###Image saving after taking picture
+In some devices (eg: Samsung), an image will be saved in landscape mode even if captured in portrait mode. This behavior is determined by the device's default settings.
 
 ###WM/CE devices lacking support
 Due to platform limitations, the ES400, MC65 and MC67 do not support the color camera.
 
-###takePicture resolution issue on low memory device with WP8
-Due to platform limitations, the ES400, MC65 and MC67 do not support a color camera. The imager on the MC55 with WM does not support the Fullscreen window (eg: takePicture). Parameters such as previewLeft, previewWidth, previewTop, previewHeight are supported by the device to setup a user-defined viewer window.
+###takePicture resolution issue on low-memory devices with WM
+Due to platform limitations, the ES400, MC65 and MC67 do not support a color camera. The imager on the MC55 with WM does not support the Fullscreen window (eg: takePicture). Parameters such as previewLeft, previewWidth, previewTop and previewHeight are supported by the device to set up a user-defined viewer window.
+
+###takePicture resolution issue on low-memory devices with WM
+Processor limitations of some devices may cause a low-resolution image captures to appear as a small preview with a black background when transitioning back to the application.
 
 ###Android KitKat gallery displays black image
-For images captured with the camera using a Rho app, the image might initially appear black. Refreshing the view corrects the problem.
+For images captured with the camera using a Rho app, the image might initially appear black. Refresh the view to correct the problem.
+
+###Android preview
+High-resolution settings are not recommended for low-memory devices. Image previews on tablet devices might appear stretched or shrunken.
