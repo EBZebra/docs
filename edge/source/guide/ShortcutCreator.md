@@ -152,8 +152,6 @@ Shortcut icons will be visible to the user in the device's main application area
 * **To change shortcut settings, use the Shortcut Creator utility** and redeploy. 
 * Existing **shortcuts on target device(s) will be overwritten** when redeployed. 
 
-PT 105047880
-
 ## Troubleshooting
 
 ![img](images/Utilities/Shortcut_Creator_05.jpg)
