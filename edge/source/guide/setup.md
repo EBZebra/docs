@@ -4,12 +4,12 @@
 Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a **computer that connects via ADB or ActiveSync to one or more [supported Zebra devices](index.html) running Android, Windows Mobile or Windows CE**. See the Prerequisites section for connection details. 
 
 #####Mac OS X Support
-Enterprise Browser 1.3 and higher can be downloaded as a disk image (.dmg) for installation on Mac OS X systems. This permits Mac users to: 
+Enterprise Browser now offers limited support for Mac OS X. The Enterprise Browser 1.3 device installer packages can now be downloaded as a disk image (.dmg) file, permitting Mac users to: 
 
 * **Copy EnterpriseBrowser .apk files** to Android devices
-* **Copy EnterpriseBrowser .cab files** to a server for mass deployment
+* **Copy EnterpriseBrowser .cab files** to an MDM system for mass deployment
 * **Create shortcuts to Android apps** using the EB native widget (in device after installing the EB app)
-* Access the Enterprise Browser demo app
+* Access the EB demo app
 * Easily link to EB online help
 
 <!-- * Copy EnterpriseBrowser .cab files to Windows Mobile/CE devices -->
@@ -54,7 +54,7 @@ For Windows-only shops, **skip down to the Device Deployment section**.
 ### Mac OS X Installation
 1. **[Download the Enterprise Browser disk image](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi)** (.dmg) file. 
 2. **Double-click the .dmg file to open it**. A window will open like the image below. 
-3. **Drag the Enterprise Browser icon into the Applications folder** indicated by the arrow to copy the files.
+3. **Drag and drop the Enterprise Browser icon onto the Applications folder** (in the direction of the arrow). 
 
 ![img](images/getting-started/setup/setup-dmg-install.png)
 
@@ -62,11 +62,11 @@ The Enterprise Browser files and folders will be copied into the Application fol
 
 ![img](images/getting-started/setup/setup-macosx-directories.png)
 
-It's important to note that **files under the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to some of the runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
+It's important to note that **files in the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to some of the runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
 
 
 ## Device Deployment
-Communication from the host computer to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
+Communication from the host computer to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. If the device isn't visible to Windows, refer to the [Connections section](../guide/setup?Connections), below. 
 
 * **ADB supports USB connections only**
 * **ActiveSync supports USB and Bluetooth connections** 
@@ -79,29 +79,24 @@ Once a connection has been established, install the Enterprise Browser runtime o
 
 <!--![img](images/getting-started/setup/setup-eb-installer-platform-select.png)-->
 
-> Note: Once the Enterprise Browser is deployed to a device, restart the device to generate file and folder structures for proper EB operation.
-
+> **Note: Once the Enterprise Browser is deployed to a device, restart the device to generate file and folder structures for proper application operation**.
 
 
 ## Connections
+### Android devices
 
+Connecting an Android device to a Windows computer requires:
 
-## INFORMATION TO BE CHECKED
-### Android Devices
-To connect your Android device to your Windows computer, you'll need two things:
+* **USB drivers** for the specific hardware being used
+* **The Android ADT bundle** to make devices visible to apps 
 
-1. USB Drivers for your device. - Drivers to allow your device to interface with your computer.
-2. Android ADT bundle with platform-tools (adb). - Tools to let other programs on your computer interface with your device.
+####STEP 1: USB drivers
+If Windows doesn't see your Zebra device, visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers) and download the latest driver from the list that will appear there. 
 
-#### USB Drivers
-To install the drivers for that device. Usually this is done by simply plugging the device into the machine. Most of the time, the device driver will install automatically and you'll be good to go. If not, you'll need to download the drivers for that device. To get the drivers for your device, you'll need to find the device page on [motorolasolutions.com](http://www.motorolasolutions.com/). The best way to do this is enter your device's model number into the search bar at the top of the landing page. Once you have found your device, you should see a tab to download software. For instance, the drivers for the TC55 are [here](http://goo.gl/mjrqMM).
+For non-Zebra hardware, visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of device.
 
-The page you want should look something like this:
-
-![img](images/getting-started/setup/setup-device-drivers-download.png)
-
-#### Android ADT Bundle
-To get the ADT bundle, which includes the Android SDK, you can go [here](http://developer.android.com/sdk/index.html). You'll specify your build of Windows (32-bit or 64-bit) and agree to the terms and download the bundle. This will come as an archive and you'll need to extract it somewhere where you'll remember it as you'll need to refer to it later.
+#### STEP 2: Android ADT 
+Visit To get the ADT bundle, which includes the Android SDK, you can go [here](http://developer.android.com/sdk/index.html). You'll specify your build of Windows (32-bit or 64-bit) and agree to the terms and download the bundle. This will come as an archive and you'll need to extract it somewhere where you'll remember it as you'll need to refer to it later.
 
 Once you have extracted all the files in the ADT bundle, you'll need to add the platform-tools path to your path environment variable so that Windows can access it without referring to the entire path each time you use it. To do this, open your environment variables settings: right-click "Computer" -> Properties -> "Advanced System Settings" -> "Environment Variables" button. The window should look similar to this.
 
@@ -187,3 +182,10 @@ If you installed the persistant version of Enterprise Browser, it will not be re
 
 ### Android
 Use Android Settings applet to remove the Enterprise Browser from the device.
+
+<!-- To install the drivers for that device. Usually this is done by simply plugging the device into the machine. Most of the time, the device driver will install automatically and you'll be good to go. If not, you'll need to download the drivers for that device. To get the drivers for your device, you'll need to find the device page on [motorolasolutions.com](http://www.motorolasolutions.com/). The best way to do this is enter your device's model number into the search bar at the top of the landing page. Once you have found your device, you should see a tab to download software. For instance, the drivers for the TC55 are [here](http://goo.gl/mjrqMM).
+
+The page you want should look something like this:
+
+![img](images/getting-started/setup/setup-device-drivers-download.png) -->
+
