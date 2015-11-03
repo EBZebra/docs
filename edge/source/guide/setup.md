@@ -1,7 +1,7 @@
 # Enterprise Browser Installation
-## Installation on a desktop or laptop 
+## Installation on Host PC 
 
-Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a **computer that connects via ADB or ActiveSync to one or more [supported Zebra devices](index.html) running Android, Windows Mobile or Windows CE**. See the Prerequisites section for connection details. 
+Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a **desktop or laptop that connects via ADB or Mobile Device Center (or ActiveSync on WinXP) to one or more [supported Zebra devices](index.html) running Android, Windows Mobile or Windows CE**. See the Prerequisites section for connection details. 
 
 #####Mac OS X Support
 Enterprise Browser now offers limited support for Mac OS X. The Enterprise Browser 1.3 device installer packages can now be downloaded as a disk image (.dmg) file, permitting Mac users to: 
@@ -18,8 +18,10 @@ Enterprise Browser now offers limited support for Mac OS X. The Enterprise Brows
 
 * **A computer running Windows or Mac OS X** (Macs offer a subset of functions)
 * **USB driver for targeting Zebra devices** (required on Windows only)
-* **Android Debug Bridge (if targeting Android devices)**
-* **Microsoft ActiveSync (if targeting Windows Mobile/CE devices)**
+* **Android Debug Bridge** (if targeting Android devices)
+* **Microsoft Mobile Device Center** (if targeting Windows Mobile/CE devices; included with Windows 7)
+
+>**Note: Mobile Device Center replaced Microsoft ActiveSync starting with Windows Vista. Installation from Windows XP systems requires ActiveSync**. 
 
 ### Windows Installation
 
@@ -27,7 +29,7 @@ Enterprise Browser now offers limited support for Mac OS X. The Enterprise Brows
 
 ![img](images/getting-started/setup/ebsetup_00.jpg)
 
-**...uninstall the older version of Enterprise Browser before installing the new one**. 
+####...uninstall the older version of Enterprise Browser before installing the new one.
 
 If not upgrading, skip to step 3. 
 
@@ -43,9 +45,9 @@ If not upgrading, skip to step 3.
 
 This will display the Enterprise Browser's 'Installer' screen, which looks similar to the one below, with supported platforms for selection on the left, and a description of the selected platform on the right. 
 
-To bring up this screen at a later time, select **Start Menu > Enterprise Browser > Enterprise Browser Installer**. It's there in the sample Start menu, above. 
+To bring up this screen at a later time, select **Start Menu > Enterprise Browser > Enterprise Browser Installer**. 
 
-For Windows-only shops, **skip down to the Device Deployment section**. 
+For Windows-only shops, **instructions continue in the 'Deployment to devices' section** below. 
 
 ![img](images/getting-started/setup/ebsetup_02.jpg)
 
@@ -65,7 +67,7 @@ The Enterprise Browser files and folders will be copied into the Application fol
 It's important to note that **files in the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to some of the runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
 
 
-## Device Deployment
+## Deployment to Device(s)
 Communication from the host computer to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. If the device isn't visible to Windows, refer to the [Connections section](../guide/setup?Connections), below. 
 
 * **ADB supports USB connections only**
@@ -73,14 +75,16 @@ Communication from the host computer to target device(s) is handled by the [Andr
 
 Once a connection has been established, install the Enterprise Browser runtime onto a device:
 
-1. Select **Start > Enterprise Browser > Enterprise Browser Installer** to  bring up the EB Installer.
-2. **Select the platform that matches the device being targeted**. Information in the right-hand pane will vary accordingly.
-3. **Continue to the section below that corresponds with the selected device platform**. 
+![img](images/getting-started/setup/setup-eb-installer-platform-select.jpg)
 
-<!--![img](images/getting-started/setup/setup-eb-installer-platform-select.png)-->
+1. Select **Start -> Enterprise Browser -> Enterprise Browser Installer** to bring up the EB Installer. A window will appear similar to the image above.  
+2. **Select the platform that matches the device, OS and web view being targeted**. Information in the right-hand pane will vary accordingly.
+3. **Click Deploy and foillow prompts that appear**. A window will appear similar to the image below. 
+4. **Restart the device to complete the installation**.
 
-> **Note: Once the Enterprise Browser is deployed to a device, restart the device to generate file and folder structures for proper application operation**.
+> **Note: For persistent installations on Windows CE (the lower-most two options on the 'Installer' screen above), a cold boot/PS clean boot is required to activate**.
 
+![img](images/getting-started/setup/WM_setup_01.jpg)
 
 ## Connections
 ### Android devices
@@ -119,6 +123,7 @@ To add the platform-tools path to your system's environment variable:
 		:::term
 		c:\> dir /s adb.exe 
 
+PT - 105137576
 
 This will display the path(s) to all instances of adb.exe on the system drive. 
 
@@ -142,21 +147,28 @@ If everything is setup correctly, you should see something like this:
 
 The system is now ready to deploy Enterprise Browser apps and shortcuts to an Android device.
 
-### Windows Mobile/Windows CE Devices
-To connect your WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
+### Windows Mobile/CE devices
+Upon connecting a Windows Mobile/CE device to a Windows 7 (or higher) PC, the Mobile Device Center application and all necessary drivers are supposed to install automatically and immediately recognize the device. If that doesn't happen immediately, try one or more of the following:   
 
-> Note: Connecting your device to a USB 3.0 port may result in the device not being recognized by your computer. Be sure to connect the device to a USB 2.0 port.
+* **Be sure the device is plugged into a _USB 2.0_ port** (not USB 3.0)
+* **Allow Windows to search for updates** if prompted after plugging in the device
+* If no such prompt appears, **go to Device Manager and select Action -> 'Scan for hardware changes'** When USB drivers are installed correctly, a box like the image below will appear.  
+* **Restart Windows after any software or driver is installed or updated** 
 
-With your device connected and recognized by the OS and the Mobile Device Center application, you should see something like this.
+![img](images/getting-started/setup/WM_setup_00.jpg)
+
+> **Note: Windows might not recognize some devices might when connected to a USB 3.0 port. Try a USB 2.0 port instead**.
+
+When a device is properly connected and recognized, the Mobile Device Center application should appear something like this:
 
 ![img](images/getting-started/setup/setup-mobile-device-center-connected.png)
 
-Now that your device is connected and recognized by your computer, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
+The system is now ready to deploy Enterprise Browser using the Enterprise Browser installer:
 
-1. The ActiveSync installer will install the selected Enterprise Browser runtime files to your device. 
-2. If you have chosen to install the Persistent Runtime for Windows then you are required to Cold Boot/Clean PS the device after installation.
+1. The ActiveSync installer will deploy the selected Enterprise Browser runtime files to the device. 
+2. If installing one of the the persistent runtimes for Windows CE, a cold boot/clean PS will be required after installation.
 
-> Note if you are given a choice of which directory to install to select the default option, regardless of what you select, Enterprise Browser will install into the default location.
+> **Note: Prior to installation, a prompt is displayed on some devices for selecting the installation location. Regardless of the choice, Enterprise Browser will be installed in `\Program Files\EnterpriseBrowser\`.
 
 ![img](images/getting-started/setup/setup-deploying-winmo.png)
 
