@@ -85,34 +85,54 @@ Once a connection has been established, install the Enterprise Browser runtime o
 ## Connections
 ### Android devices
 
-Connecting an Android device to a Windows computer requires:
+Using Enterprise Browser on a Windows system to target an Android device requires:
 
-* **USB drivers** for the specific hardware being used
-* **The Android ADT bundle** to make devices visible to apps 
+* **USB drivers** for the specific hardware device being targeted
+* **The Android ADT bundle** to make devices visible and to push files 
+* **A path to `adb.exe`** in the host system's environment variable
 
-####STEP 1: USB drivers
-If Windows doesn't see your Zebra device, visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers) and download the latest driver from the list that will appear there. 
+####STEP 1: Get USB drivers
+Visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers) and download the latest driver from the list that will appear there. 
 
 For non-Zebra hardware, visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of device.
 
-#### STEP 2: Android ADT 
-Visit To get the ADT bundle, which includes the Android SDK, you can go [here](http://developer.android.com/sdk/index.html). You'll specify your build of Windows (32-bit or 64-bit) and agree to the terms and download the bundle. This will come as an archive and you'll need to extract it somewhere where you'll remember it as you'll need to refer to it later.
+#### STEP 2: Get Android ADT 
+Visit the [Android Developer Tools page](http://developer.android.com/sdk/index.html) and download the Android SDK to match your system (Mac OS X, Linux or Windows 32/64). 
 
-Once you have extracted all the files in the ADT bundle, you'll need to add the platform-tools path to your path environment variable so that Windows can access it without referring to the entire path each time you use it. To do this, open your environment variables settings: right-click "Computer" -> Properties -> "Advanced System Settings" -> "Environment Variables" button. The window should look similar to this.
+#### STEP 3: Update system path
+The EB installer and its utilities use adb to push files to the device. Since its location could vary with any given system, the path to adb **must** available system-wide so that EB can simply execute 'abd.exe' rather than the explicit path.
 
-![img](images/getting-started/setup/setup-environment-variables-window.png)
+To add the platform-tools path to your system's environment variable: 
 
-In the lower part of the window, find the "Path" System variable, click on it, and click the "Edit" button. Now you'll need to add a semi-colon (;) and the path to your android "platform-tools" folder to this string.
+* Right-click 'Computer' and **select -> Properties**
+* **Select 'Advanced System Settings'** in the System Properties window
+* In the 'Advanced' tab, **Click the 'Environment Variables' button** to bring up a window similar to the one below:
 
-For example:
-if your platform-tools directory path is `C:\android\sdk\platform-tools`, you would add `;C:\android\sdk\platform-tools` to the end of the Path System variable.
+![img](images/getting-started/setup/setup-environment-variables-window.jpg)
 
-Now you should be able to access the adb command from any directory using your command-prompt. To make sure that your device is setup and will interface with the EB Installer, connect your device via USB, ensure that USB debugging is enabled, open a command prompt (cmd.exe) and run the command:
+* **In the <u>LOWER</u> window, scroll down to 'Path'**
+* **Select Path and click 'Edit...'** to bring up the path for editing
+* **Add a semi-colon (;) to the end of the line followed by the path to 'abd.exe'**
+* **If you're not sure of the path, the following DOC command will reveal it**: 
+
+		:::term
+		c:\> dir /s adb.exe 
+
+This will display the path(s) to all instances of adb.exe on the system drive. 
+
+* **Enter the path to the `\platform-tools` directory** if there's more than one. 
+* **For this example, we would add `;C:\Users\AppData\Local\Android\sdk\platform-tools`** at the end of the System Environment Variable Path.  
+* **Close the dialog and restart the system**. 
+
+
+![img](images/getting-started/setup/dos_dir_command.png)
+
+* **To confirm that the path is correct, connect the device and run the following command:  
 
 	:::term
 	$ adb devices
 
-Which, if your device is setup correctly, you should see something like this:
+If everything is setup correctly, you should see something like this:
 
 ![img](images/getting-started/setup/setup-adb-devices-output.png)
 
