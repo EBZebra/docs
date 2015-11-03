@@ -113,36 +113,34 @@ To add the platform-tools path to your system's environment variable:
 * **In the <u>LOWER</u> window, scroll down to 'Path'**
 * **Select Path and click 'Edit...'** to bring up the path for editing
 * **Add a semi-colon (;) to the end of the line followed by the path to 'abd.exe'**
-* **If you're not sure of the path, the following DOC command will reveal it**: 
+* **If you're not sure of the path, the following DOS command will reveal it**: 
+
 
 		:::term
 		c:\> dir /s adb.exe 
 
+
 This will display the path(s) to all instances of adb.exe on the system drive. 
 
-* **Enter the path to the `\platform-tools` directory** if there's more than one. 
-* **For this example, we would add `;C:\Users\AppData\Local\Android\sdk\platform-tools`** at the end of the System Environment Variable Path.  
-* **Close the dialog and restart the system**. 
-
+* If there's more than one, **enter the path to the `\platform-tools` directory**
+* **The correct string for this example would be `;C:\Users\AppData\Local\Android\sdk\platform-tools`** (with semi-colon separator)
+* **Close the dialog and restart the system** 
 
 ![img](images/getting-started/setup/dos_dir_command.png)
 
-* **To confirm that the path is correct, connect the device and run the following command:  
+* **To confirm that the path is correct**, connect the device and run the following command:  
 
-	:::term
-	$ adb devices
+		:::term
+		$ adb devices
+
 
 If everything is setup correctly, you should see something like this:
 
-![img](images/getting-started/setup/setup-adb-devices-output.png)
+![img](images/getting-started/setup/adb_devices_command.png)
 
-Now that you have your android device connected to your computer through adb, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
+<!-- ![img](images/getting-started/setup/setup-deploying-android.png)-->
 
-When you choose to deploy to your android device you'll see a message asking you to make sure that your device is recognized by the `adb devices` command then, you should see something like this.
-
-![img](images/getting-started/setup/setup-deploying-android.png)
-
-After this step. the EB should be deployed on your Android device.
+The system is now ready to deploy Enterprise Browser apps and shortcuts to an Android device.
 
 ### Windows Mobile/Windows CE Devices
 To connect your WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
