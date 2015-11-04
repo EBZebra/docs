@@ -12,7 +12,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * [On-Device editing](../guide/OndeviceConfig) of runtime settings in Config.xml
 * Password access to the Settings panel and exiting from an app
 * [Config Editor](../guide/ConfigEditor) utility for Windows to ease Config.xml setup
-* [Shortcut Creator](../guide/ShortcutCreator) utility for Windows
+* [Shortcut Utility](../guide/ShortcutCreator) tool for Windows to ease shortcut creation 
 * [DOM Injection](../guide/DOMinjection) feature for on-the-fly app enhancement
 * Installer for Mac OS X with support for deployment and [other features](../guide/setup) 
 * Support for Android 4.4 KitKat on:
