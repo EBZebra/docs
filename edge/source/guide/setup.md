@@ -86,6 +86,8 @@ Once a connection has been established, install the Enterprise Browser runtime o
 
 ![img](images/getting-started/setup/WM_setup_01.jpg)
 
+> **Note**: Prior to installation, some Windows devices might prompt for the installation location on the device. **Enterprise Browser overrides any selection made here; it will always be installed in `\Program Files\EnterpriseBrowser\`**.
+
 ## Connections
 ### Android devices
 
@@ -161,16 +163,7 @@ When a device is properly connected and recognized, the Mobile Device Center app
 
 ![img](images/getting-started/setup/setup-mobile-device-center-connected.png)
 
-The system is now ready to deploy Enterprise Browser using the Enterprise Browser installer:
-
-1. The ActiveSync installer will deploy the selected Enterprise Browser runtime files to the device. 
-2. If installing one of the the persistent runtimes for Windows CE, a cold boot/clean PS will be required after installation.
-
-> **Note**: Prior to installation, some devices might prompt for the installation location. **Enterprise Browser will be installed in `\Program Files\EnterpriseBrowser\`, overriding any selection**.
-
-![img](images/getting-started/setup/WM_setup_01.jpg)
-
-<!--![img](images/getting-started/setup/setup-deploying-winmo.png)-->
+The system is now ready to deploy Enterprise Browser using the Enterprise Browser installer. 
 
 ## Manual Deployment
 Enterprise Browser runtimes can be individually pushed to devices from Windows or Mac OS machines and unpackaged by hand on the device. 
@@ -244,5 +237,14 @@ Use Android Settings applet to remove the Enterprise Browser from the device.-->
 
 The page you want should look something like this:
 
-![img](images/getting-started/setup/setup-device-drivers-download.png) -->
+![img](images/getting-started/setup/setup-device-drivers-download.png) 
+
+1. The ActiveSync installer will deploy the selected Enterprise Browser runtime files to the device. 
+2. If installing one of the the persistent runtimes for Windows CE, a cold boot/clean PS will be required after installation.
+
+> **Note**: Prior to installation, some Windows devices might prompt for the installation location on the device. **Enterprise Browser overrides any selection made here; it will always be installed in `\Program Files\EnterpriseBrowser\`**.
+
+![img](images/getting-started/setup/WM_setup_01.jpg)
+
+<!-- ![img](images/getting-started/setup/setup-deploying-winmo.png)-->
 
