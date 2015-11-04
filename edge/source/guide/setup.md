@@ -96,15 +96,15 @@ Requirements for using Enterprise Browser on a Windows system to target an Andro
 * **A path to `adb.exe`** in the host system's environment variable
 
 ####STEP 1: Get USB drivers
-Visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers) and download the latest driver from the list. 
+Visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers), download and install the latest driver from the list. 
 
 For non-Zebra hardware, visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of device.
 
 #### STEP 2: Get Android ADT 
-Visit the [Android Developer Tools page](http://developer.android.com/sdk/index.html) and download the Android SDK to match your system (Mac OS X, Linux or Windows 32/64). 
+Visit the [Android Developer Tools page](http://developer.android.com/sdk/index.html), download and install the Android SDK to match your system (Mac OS X, Linux or Windows 32/64). 
 
 #### STEP 3: Update system path
-The EB installer and its utilities use adb to push files to the device. Since its location could vary with any given system, the path to adb **must** available system-wide so that EB can simply execute 'abd.exe' rather than the explicit path.
+Add the full path to `adb.exe` to your system path. The EB installer and its utilities use adb to push files to Android devices. Since its location could vary with any given system, the path to adb.exe **must** be available system-wide so that EB can simply execute 'abd.exe' rather than repeating the explicit path with every push function. 
 
 To add the platform-tools path to your system's environment variable: 
 
@@ -173,15 +173,15 @@ The system is now ready to deploy Enterprise Browser using the Enterprise Browse
 <!--![img](images/getting-started/setup/setup-deploying-winmo.png)-->
 
 ## Manual Deployment
-Enterprise Browser runtimes can be individually pushed to devices and unpackaged there by hand. 
+Enterprise Browser runtimes can be individually pushed to devices from Windows or Mac OS machines and unpackaged by hand on the device. 
 
-After installing the Enterprise Browser (.msi) as above: 
+After installing the Enterprise Browser (.msi or .dmg) as above: 
 
-&#49;. Go to **Start Menu -> Enterprise Browser -> Resources ->Enterprise Browser Runtimes**. 
+&#49;. On Windows, go to **Start Menu -> Enterprise Browser -> Resources ->Enterprise Browser Runtimes**. On Mac, open the **Applications -> Enterprise Browser -> Runtimes** folder. 
 
 ![img](images/getting-started/setup/EB_resources_menu.jpg)
 
-This will bring up a window that looks similar to the image below: 
+On Windows, this will bring up a window that looks similar to the image below: 
 
 ![img](images/getting-started/setup/setup-enterprise-browser-runtimes.png)
 
