@@ -5,7 +5,7 @@ Shortcut Utility is a Windows tool that quickly creates shortcuts for Enterprise
 
 Shortcut Utility is included with Zebra Enterprise Browser 1.3. 
 
->**This tool relies on settings in the Config.xml**, a device-resident file that controls all runtime settings for Enterprise Browser. For help editing Config.xml files, please refer to the [Config Editor utility guide](../guide/ConfigEditor) and the [Config.xml Reference](../guide/configreference). 
+>**IMPORTANT: This tool relies on settings in the Config.xml**, a device-resident file that controls all runtime settings for Enterprise Browser. For help editing Config.xml files, please refer to the [Config Editor utility guide](../guide/ConfigEditor) and the [Config.xml Reference](../guide/configreference). 
 
 ### QUICK STEPS
 1. Use these instructions only after [installing Enterprise Browser](../guide-setup) (version 1.3 is required). 
@@ -71,7 +71,11 @@ In the same location are custom folders named for each shortcut created, with th
 
 ![img](images/Utilities/Shortcut_Creator_04.jpg)
 
->**Note: Shortcut(s) will not appear on the device until after Enterprise Browser is launched following deployment. Shortcut creation behavior is controlled by the &lt;shortcut&gt; tag in the Config.xml file on the target device**. For more information, please refer to the [Troubleshooting section](../guide/ShortcutCreator?Troubleshooting) or the [Config.xml Reference](../guide/configreference). 
+**Notes**
+
+* **Shortcut(s) appear on the device _after_ Enterprise Browser is launched following deployment**.
+* **Shortcuts are created _only_ if the &lt;ShortcutCreationEnabled&gt; tag value = 1 or 2**. See [Troubleshooting section](../guide/ShortcutCreator?Troubleshooting). 
+* **Shortcuts are placed in the Home Screen on Android and in the Main Screen of WM/CE**. 
 
 ### Mass Deployment (via MDM)
 
@@ -114,15 +118,19 @@ In the same location are custom folders named for each shortcut created, with th
 
 **Android**
 
-* **Copy Config.xml and .apk to**: `<internal storage>/Android/data/com.symbol.enterprisebrowser/`
+* **Copy Config.xml and .apk to**: `<internal storage>/Android/data/com.symbol.enterprisebrowser/` (i.e. '/storage/sdcard0/...')
 
-* **Copy shortcut dir to**: `<internal storage>/EnterpriseBrowserShortcutFiles/`
+* **Copy shortcut dir to**: `<internal storage>/EnterpriseBrowserShortcutFiles/` 
 
 **WM/CE**
 
-* **Copy Config.xml and .cab file to**: `<internal storage>\Program Files\EnterpriseBrowser\Config\`
+* **Copy Config.xml and .cab file to**: `<internal storage>\Program Files\EnterpriseBrowser\Config\` (i.e. '\ ...')
 
 * **Copy shortcut dir to**: `<internal storage>\Application\EnterpriseBrowserShortcutFiles\`
+
+
+**<u>DO NOT deploy to removeable storage</u>**. 
+
 
 &#55;. Shortcuts will be created on the device the next time Enteprise Browser is launched following deployment. **Optionally, launch Enterprise Browser from the MDM using one of the following commands**: 
 
