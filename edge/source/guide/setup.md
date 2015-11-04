@@ -82,21 +82,21 @@ Once a connection has been established, install the Enterprise Browser runtime o
 3. **Click Deploy and foillow prompts that appear**. A window will appear similar to the image below. 
 4. **Restart the device to complete the installation**.
 
-> **Note: For persistent installations on Windows CE (the lower-most two options on the 'Installer' screen above), a cold boot/PS clean boot is required to activate**.
+> **Note: For persistent installations on Windows CE (the lower-most two options on the 'Installer' screen above), a cold boot/cleanPS (clean persistent storage) is required to activate**.
 
 ![img](images/getting-started/setup/WM_setup_01.jpg)
 
 ## Connections
 ### Android devices
 
-Using Enterprise Browser on a Windows system to target an Android device requires:
+Requirements for using Enterprise Browser on a Windows system to target an Android device:
 
 * **USB drivers** for the specific hardware device being targeted
 * **The Android ADT bundle** to make devices visible and to push files 
 * **A path to `adb.exe`** in the host system's environment variable
 
 ####STEP 1: Get USB drivers
-Visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers) and download the latest driver from the list that will appear there. 
+Visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers) and download the latest driver from the list. 
 
 For non-Zebra hardware, visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of device.
 
@@ -123,15 +123,13 @@ To add the platform-tools path to your system's environment variable:
 		:::term
 		c:\> dir /s adb.exe 
 
-PT - 105137576
-
-This will display the path(s) to all instances of adb.exe on the system drive. 
-
-* If there's more than one, **enter the path to the `\platform-tools` directory**
-* **The correct string for this example would be `;C:\Users\AppData\Local\Android\sdk\platform-tools`** (with semi-colon separator)
-* **Close the dialog and restart the system** 
+This command should result in something like this: 
 
 ![img](images/getting-started/setup/dos_dir_command.png)
+
+* If there's more than one path to adb.exe, **enter the one that ends with `\platform-tools`**
+* **The correct string for this example would be `;C:\Users\AppData\Local\Android\sdk\platform-tools`** (notice the semi-colon separator at the beginning of the line)
+* **Close the dialog and restart the system** 
 
 * **To confirm that the path is correct**, connect the device and run the following command:  
 
@@ -148,7 +146,7 @@ If everything is setup correctly, you should see something like this:
 The system is now ready to deploy Enterprise Browser apps and shortcuts to an Android device.
 
 ### Windows Mobile/CE devices
-Upon connecting a Windows Mobile/CE device to a Windows 7 (or higher) PC, the Mobile Device Center application and all necessary drivers are supposed to install automatically and immediately recognize the device. If that doesn't happen immediately, try one or more of the following:   
+Upon connecting a Windows Mobile/CE device to a Windows 7 (or higher) PC, the Mobile Device Center application and all necessary drivers are supposed to install automatically and recognize the device. If that doesn't happen immediately, try one or more of the following:   
 
 * **Be sure the device is plugged into a _USB 2.0_ port** (not USB 3.0)
 * **Allow Windows to search for updates** if prompted after plugging in the device
@@ -157,7 +155,7 @@ Upon connecting a Windows Mobile/CE device to a Windows 7 (or higher) PC, the Mo
 
 ![img](images/getting-started/setup/WM_setup_00.jpg)
 
-> **Note: Windows might not recognize some devices might when connected to a USB 3.0 port. Try a USB 2.0 port instead**.
+> **Note: If Windows doesn't recognize a devices connected to a USB 3.0 port, try connecting it to a USB 2.0 port**.
 
 When a device is properly connected and recognized, the Mobile Device Center application should appear something like this:
 
@@ -168,41 +166,70 @@ The system is now ready to deploy Enterprise Browser using the Enterprise Browse
 1. The ActiveSync installer will deploy the selected Enterprise Browser runtime files to the device. 
 2. If installing one of the the persistent runtimes for Windows CE, a cold boot/clean PS will be required after installation.
 
-> **Note: Prior to installation, a prompt is displayed on some devices for selecting the installation location. Regardless of the choice, Enterprise Browser will be installed in `\Program Files\EnterpriseBrowser\`.
+> **Note**: Prior to installation, some devices might prompt for the installation location. **Enterprise Browser will be installed in `\Program Files\EnterpriseBrowser\`, overriding any selection**.
 
-![img](images/getting-started/setup/setup-deploying-winmo.png)
+![img](images/getting-started/setup/WM_setup_01.jpg)
 
-Once you have finished the deploying process on your computer, there is another installation process you must complete on your device.
+<!--![img](images/getting-started/setup/setup-deploying-winmo.png)-->
 
 ## Manual Deployment
-The Enterprise Browser runtime can also be installed manually by the user. Please follow the following steps to carry out manual installation.
+Enterprise Browser runtimes can be individually pushed to devices and unpackaged there by hand. 
 
-1. Download the Enterprise Browser MSI.
-2. Install the MSI. 
-3. You should see the following Start Menu Entries after MSI installation is complete.
-	* Enterprise Browser
-		* Documentation
-		* Enterprise Browser Installer
-		* Enterprise Browser Runtimes
-		* JavaScript Files
-4. Click on the Enterprise Browser Runtimes Start Menu item. This will open up Windows Explorer and point to a folder where all the Runtimes are available.
-5. Choose the appropriate Runtime.
-6. Copy and Paste to your connected device.
-7. Open the File location on your device where you have copied the Runtime and click to install.
-8. If you are installing a Persistent Runtime then you are required to Coldboot/CleanPS the device after installation.
+After installing the Enterprise Browser (.msi) as above: 
+
+&#49;. Go to **Start Menu -> Enterprise Browser -> Resources ->Enterprise Browser Runtimes**. 
+
+![img](images/getting-started/setup/EB_resources_menu.jpg)
+
+This will bring up a window that looks similar to the image below: 
 
 ![img](images/getting-started/setup/setup-enterprise-browser-runtimes.png)
 
-Once the installation is completed on your device, you can start Enterprise Browser on your device by clicking the associated icon form the programs group/Apps.
+&#50;. **Copy the desired runtime to the root directory of the device**. 
 
-## Launching Enterprise Browser
-Launching Enterprise Browser after installing on the device, will launch a default welcome start page that is included with the installation
+&#51;. From the device, **use a file explorer to locate and execute the runtime**. 
 
->Note: On Android, if you do not disconnect the device from your laptop, you will see the application being forced closed. The USB storage option needs to be turned off so that Enterprise Browser can launch properly.
+&#52;. **Reboot the device** to complete the installation. 
 
-After launching, a default [configuration file](../guide/configreference) will be created. You will need to modify this to make Enterprise Browser [start with your application](../guide/launching).
+&#53;. **If a persistent runtime was installed, perform a coldboot/cleanPS** on the device to activate the runtime.
 
-## Removing Enterprise Browser
+## Launching the EB App 
+After installation, an Enterprise Browser app icon will appear **in the all-apps section of Android devices** and **in the Main app menu of Windows Mobile/CE**. The first time an Enterprise Browser 1.3 app is launched, it starts with default runtime settings as defined in the Config.xml file on the device. Refer to the [Config.xml Reference guide](../guide/configreference) for complete details.  
+
+By default, a screen like the one below will appear: 
+
+![img](images/OndeviceConfig/On-device_config_01.png)
+
+Pressing the "Return to OS" button will skip settings configuration and bring up the operating system. To display the Settings button again, simply relaunch the Enterprise Browser app. 
+
+**Press the "Settings" button to edit the on-device config.xml file**. A screen like the image below will appear:
+
+![img](images/OndeviceConfig/On-device_config_02.png)
+
+###Activating your start page
+**To activate your EB app's start page, enter the URL in the Value field of the StartPage parameter**, as highlighted above, but **do not apply the changes yet**. Applying changes immediately will cause the new start page to be displayed next time EB is launched and will remove access to the Settings panel. 
+
+**WARNING: Free-form text fields such as 'username' and 'password' can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields (except in a URL field) will corrupt the Config.xml file**. 
+
+**If on-device access to runtime settings is desired after you've set your start page (for example, to experiement with various settings before deployment), set the SettingsButtonEnabled parameter to 'Enable'** (as below). This will cause a Settings button to appear in the UI at all times. Passwords also can be set here, if desired. 
+
+![img](images/OndeviceConfig/On-device_config_03.png)
+
+**Press 'Apply' to update the Config.xml file with the new settings**. A screen like the one below will be displayed. Restart the app to activate the changes. 
+
+![img](images/OndeviceConfig/On-device_config_04.png)
+
+The Settings button, if enabled, appears in the UI like the one in the red box below.
+
+![img](images/OndeviceConfig/On-device_config_05.png)
+
+**Note: When the IE engine is used on a Windows CE device**, displaying the Settings button in this way might cause screen distortion when scrolling.
+
+**WARNING: Free-form text fields such as 'username' and 'password' can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields (except in a URL field) will corrupt the Config.xml file**. 
+
+The on-device settings panel provides access to just a small subset of Enterprise Browser runtime settings. For access to all settings, please refer to the [On-device Configuration guide](../guide-OndeviceConfig).
+
+<!--## Removing Enterprise Browser
 
 ### Windows Mobile
 Remove Enterprise Browser by removing the application.
@@ -211,7 +238,7 @@ Remove Enterprise Browser by removing the application.
 If you installed the persistant version of Enterprise Browser, it will not be removed after a cold boot. To remove it, you will need to manually remove the folder and CPY files that are found in the non-volatile area of memory.
 
 ### Android
-Use Android Settings applet to remove the Enterprise Browser from the device.
+Use Android Settings applet to remove the Enterprise Browser from the device.-->
 
 <!-- To install the drivers for that device. Usually this is done by simply plugging the device into the machine. Most of the time, the device driver will install automatically and you'll be good to go. If not, you'll need to download the drivers for that device. To get the drivers for your device, you'll need to find the device page on [motorolasolutions.com](http://www.motorolasolutions.com/). The best way to do this is enter your device's model number into the search bar at the top of the landing page. Once you have found your device, you should see a tab to download software. For instance, the drivers for the TC55 are [here](http://goo.gl/mjrqMM).
 
