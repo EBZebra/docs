@@ -43,11 +43,11 @@ If not upgrading, skip to step 3.
 
 ![img](images/getting-started/setup/ebsetup_01.jpg)
 
-This will display the Enterprise Browser's 'Installer' screen, which looks similar to the one below, with supported platforms for selection on the left, and a description of the selected platform on the right. 
+This will display the Enterprise Browser's 'Installer' screen, which looks similar to the one below. Supported platforms are the left with a description when selected on the right. 
 
-To bring up this screen at a later time, select **Start Menu > Enterprise Browser > Enterprise Browser Installer**. 
+To bring up this screen at a later time, select **Start Menu -> Enterprise Browser -> Enterprise Browser Installer**. 
 
-For Windows-only shops, **instructions continue in the 'Deployment to devices' section** below. 
+For Windows-only shops, **instructions continue in the 'Deployment to devices' section**, below. 
 
 ![img](images/getting-started/setup/ebsetup_02.jpg)
 

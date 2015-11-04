@@ -1,15 +1,15 @@
-# Enterprise Browser Shortcut Creator Utility for Windows
+# Enterprise Browser Shortcut Utility for Windows
 
-## Shortcut Creator Utility
-Shortcut Creator is a Windows utility that quickly creates shortcuts for Enterprise Browser apps for Android and Windows Mobile/CE and can deploy them directly to devices. From a single screen, the tool can create and deploy multiple shortcuts, each with a unique name, startpage URL and Config.xml file, if desired. For Android, each shortcut also can have a unique icon. Shortcuts for different platforms can be created at one time and easily deployed en masse to their respective platforms using a Mobile Device Management (MDM) system. 
+## Shortcut Utility
+Shortcut Utility is a Windows tool that quickly creates shortcuts for Enterprise Browser apps for Android and Windows Mobile/CE and can deploy them directly to devices. From a single screen, the tool can create and deploy multiple shortcuts, each with a unique name, startpage URL and Config.xml file, if desired. For Android, each shortcut also can have a unique icon. Shortcuts for different platforms can be created at one time and easily deployed en masse to their respective platforms using a Mobile Device Management (MDM) system. 
 
-Shortcut Creator is included with Zebra Enterprise Browser 1.3. 
+Shortcut Utility is included with Zebra Enterprise Browser 1.3. 
 
 >**This tool relies on settings in the Config.xml**, a device-resident file that controls all runtime settings for Enterprise Browser. For help editing Config.xml files, please refer to the [Config Editor utility guide](../guide/ConfigEditor) and the [Config.xml Reference](../guide/configreference). 
 
 ### QUICK STEPS
 1. Use these instructions only after [installing Enterprise Browser](../guide-setup) (version 1.3 is required). 
-2. Open Shortcut Creator and **select a platform** (Android or Windows Mobile/CE).
+2. Open Shortcut Utility and **select a platform** (Android or Windows Mobile/CE).
 3. **Select Default or Custom** Config.xml (if Custom, navigate to the file).
 4. **Enter a name** for the shortcut.
 5. **Specify a start page** URL.
@@ -28,15 +28,15 @@ Shortcut Creator is included with Zebra Enterprise Browser 1.3.
 * **Android Debug Bridge (if targeting Android devices)**
 * **Microsoft ActiveSync (if targeting Windows Mobile/CE devices)**
 
-EB Shortcut Creator is included with Zebra Enterprise Browser 1.3. If you don't already have EB 1.3, please [install Enterprise Browser](../guide/setup), then resume from here. 
+EB Shortcut Utility is included with Zebra Enterprise Browser 1.3. If you don't already have EB 1.3, please [install Enterprise Browser](../guide/setup), then resume from here. 
 
-## Using Shortcut Creator
+## Using Shortcut Utility
 
 * **Launch the "Shortcuts Utility"** from the Enterprise Browser folder of the Windows Start Menu, as below. 
 
 ![img](images/Utilities/Shortcut_Creator_01.jpg)
 
-A Shortcut Creator window will appear, similar to the one below.  
+A Shortcut Utility window will appear, similar to the one below.  
 
 ![img](images/Utilities/Shortcut_Creator_02.jpg)
 
@@ -149,14 +149,14 @@ Shortcut icons will be visible to the user in the device's main application area
 * **File structure must be replicated exactly** for proper shortcut operation.
 * Automatically generated shortcut **files and folders must not be modified by hand**. 
 * **Customizing shortcut data files manually could result in unknown failures**.
-* **To change shortcut settings, use the Shortcut Creator utility** and redeploy. 
+* **To change shortcut settings, use the Shortcut Utility** and redeploy. 
 * Existing **shortcuts on target device(s) will be overwritten** when redeployed. 
 
 ## Troubleshooting
 
 ![img](images/Utilities/Shortcut_Creator_05.jpg)
 
-For shortcut deployment, Shortcut Creator communicates with Android devices over USB using the Android Debug Bridge (ADB). To ensure that ADB is installed and communicating with a device: 
+For shortcut deployment, Shortcut Utility communicates with Android devices over USB using the Android Debug Bridge (ADB). To ensure that ADB is installed and communicating with a device: 
 
 * Open a command prompt and navigate to the folder containing the adb.exe utility.
 * Run the "adb devices" command. The screen below shows a failed communication attempt followed by a successful one. 

@@ -128,7 +128,7 @@ var menuStrcture = [
 								link: '#guide-sap',
 							},
 							{
-								name: 'Shortcut Creator Utility',
+								name: 'Shortcut Utility',
 								link: '#guide-ShortcutCreator',
 							},
 							{
