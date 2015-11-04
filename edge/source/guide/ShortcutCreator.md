@@ -113,7 +113,7 @@ In the same location are custom folders named for each shortcut created, with th
 &#54;. To deploy shortcuts _**and**_ the Enterprise Browser app using an MDM system:
 
 * **Set the MDM to replicate the entire shortcut directory structure (in the red box) to the target device(s)**.
-* **Set the MDM to deploy the .apk or .cab file appropriate for the platform**. This will create the Enteprise Browser directory structure on the device (as below). 
+* **Set the MDM to deploy the .apk or .cab file appropriate for the platform**. This will create the Enteprise Browser directory structure on the device (including shortcut files for all included platforms; on-device deployment will be platform-specific).
 * **Copy the new Config.xml (modified in step 3) <u>to its original location on the target device**</u>: 
 
 **Android**
@@ -155,6 +155,8 @@ Shortcut icons will be visible to the user in the device's main application area
 **Notes** 
 
 * **File structure must be replicated exactly** for proper shortcut operation.
+* **Shortcut files for all platforms (Android, WM, CE) are copied to the device**. 
+* **When created on the device, shortcuts for other platforms are ignored**.
 * Automatically generated shortcut **files and folders must not be modified by hand**. 
 * **Customizing shortcut data files manually could result in unknown failures**.
 * **To change shortcut settings, use the Shortcut Utility** and redeploy. 
@@ -162,31 +164,12 @@ Shortcut icons will be visible to the user in the device's main application area
 
 ## Troubleshooting
 
+Shortcut Utility communicates with Android devices via ADB (USB only) and with Windows Mobile/CE devices through Mobile Device Center (or ActiveSync on WinXP) over USB or Bluetooth. If you're seeing a message like the one below or having other communication-related issues, please refer to the Connections section of the [Enterprise Browser installation guide](../guide-setup?Connections). 
+
 ![img](images/Utilities/Shortcut_Creator_05.jpg)
 
-For shortcut deployment, Shortcut Utility communicates with Android devices over USB using the Android Debug Bridge (ADB). To ensure that ADB is installed and communicating with a device: 
-
-* Open a command prompt and navigate to the folder containing the adb.exe utility.
-* Run the "adb devices" command. The screen below shows a failed communication attempt followed by a successful one. 
-
-If your device fails, it might be necessary to install an OEM USB driver to make a USB-attached Android device visible. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
-
-
-![img](images/Utilities/Shortcut_Creator_06.jpg)
-
-### Connections
-Communication from the development host to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. If a device is not shown, please verify that the appropriate software and drivers are installed, and check the physical connection(s). 
-
-* **ADB supports USB only**
-* **ActiveSync supports USB or Bluetooth** 
-* **Device(s) must contain an EB app and its Config.xml file**  
-
-It might be necessary to install an OEM USB driver to make a USB-attached Android device visible to Windows. Visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware.
-
 ### Config.xml
-Shortcut creation is determined by a setting in the Config.xml file on the target device. After shortcut data is pushed to the device, shortcuts are created at the next Enterprise Browser launch. Shortcut creation thereafter depends on how the shortcut tag is configured in the Config.xml file. See options below. Whether deploying to Android or Windows Mobile/CE, the device must contain an Enterprise Browser app with a Config.xml file that includes the "shortcut" tag. The available options are as follows:  
-
-#### Example XML
+If shortcuts are being deployed to the device but not showing up, **check the Config.xml to ensure that the &lt;ShortcutCreationEnabled&gt; tag has a value or 1 or 2**.  
 
  	:::xml
 
@@ -195,7 +178,7 @@ Shortcut creation is determined by a setting in the Config.xml file on the targe
 	</shortcut>
 
 
-Possible Values (0, 1, or 2)
+On-device shortcut creation is determined by this setting, and behavior thereafter depends which value is selected. Available options:  
 
 * **0= create no shortcuts (default)**
 * 1= check for and create new shortcuts at every launch
