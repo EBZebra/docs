@@ -34,7 +34,7 @@ Enterprise Browser now offers limited support for Mac OS X. The Enterprise Brows
 If not upgrading, skip to step 3. 
 
 1. **Backup any data stored in the C:\EnterpriseBrowser directory**; step 2 will cause it to be lost. 
-2. To unstall, **select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
+2. To install, **select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
 3. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) installation package** (.msi).  
 4. **Launch the installer file**; accept the licence agreement and follow the other prompts. When the installation finishes, a screen will appear similar to the one below. 
 5. **Click "Close" to quit the installer and launch Enterprise Browser**. (Be sure the 'Launch' box is checked). 
@@ -79,10 +79,10 @@ Once a connection has been established, install the Enterprise Browser runtime o
 
 1. Select **Start -> Enterprise Browser -> Enterprise Browser Installer** to bring up the EB Installer. A window will appear similar to the image above.  
 2. **Select the platform that matches the device, OS and web view being targeted**. Information in the right-hand pane will vary accordingly.
-3. **Click Deploy and foillow prompts that appear**. A window will appear similar to the image below. 
+3. **Click Deploy and follow prompts that appear**. A window will appear similar to the image below. 
 4. **Restart the device to complete the installation**.
 
-> **Note: For persistent installations on Windows CE (the lower-most two options on the 'Installer' screen above), a cold boot/cleanPS (clean persistent storage) is required to activate**.
+> **Note: For persistent installations on Windows CE (the lowermost two options on the 'Installer' screen above), a cold boot/cleanPS (clean persistent storage) is required to activate**.
 
 ![img](images/getting-started/setup/WM_setup_01.jpg)
 
@@ -118,7 +118,7 @@ To add the platform-tools path to your system's environment variable:
 
 * **In the <u>LOWER</u> window, scroll down to 'Path'**
 * **Select Path and click 'Edit...'** to bring up the path for editing
-* **Add a semi-colon (;) to the end of the line followed by the path to 'abd.exe'**
+* **Add a semicolon (;) to the end of the line followed by the path to 'abd.exe'**
 * **If you're not sure of the path, the following DOS command will reveal it**: 
 
 
@@ -130,7 +130,7 @@ This command should result in something like this:
 ![img](images/getting-started/setup/dos_dir_command.png)
 
 * If there's more than one path to adb.exe, **enter the one that ends with `\platform-tools`**
-* **The correct string for this example would be `;C:\Users\AppData\Local\Android\sdk\platform-tools`** (notice the semi-colon separator at the beginning of the line)
+* **The correct string for this example would be `;C:\Users\AppData\Local\Android\sdk\platform-tools`** (notice the semicolon separator at the beginning of the line)
 * **Close the dialog and restart the system** 
 
 * **To confirm that the path is correct**, connect the device and run the following command:  
@@ -184,7 +184,7 @@ On Windows, this will bring up a window that looks similar to the image below:
 
 &#52;. **Reboot the device** to complete the installation. 
 
-&#53;. **If a persistent runtime was installed, perform a coldboot/cleanPS** on the device to activate the runtime.
+&#53;. **If a persistent runtime was installed, perform a cold boot/cleanPS** on the device to activate the runtime.
 
 ## Launching the EB App 
 After installation, an Enterprise Browser app icon will appear **in the all-apps section of Android devices** and **in the Main app menu of Windows Mobile/CE**. The first time an Enterprise Browser 1.3 app is launched, it starts with default runtime settings as defined in the Config.xml file on the device. Refer to the [Config.xml Reference guide](../guide/configreference) for complete details.  
@@ -204,7 +204,7 @@ Pressing the "Return to OS" button will skip settings configuration and bring up
 
 **WARNING: Free-form text fields such as 'username' and 'password' can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields (except in a URL field) will corrupt the Config.xml file**. 
 
-**If on-device access to runtime settings is desired after you've set your start page (for example, to experiement with various settings before deployment), set the SettingsButtonEnabled parameter to 'Enable'** (as below). This will cause a Settings button to appear in the UI at all times. Passwords also can be set here, if desired. 
+**If on-device access to runtime settings is desired after you've set your start page (for example, to experiment with various settings before deployment), set the SettingsButtonEnabled parameter to 'Enable'** (as below). This will cause a Settings button to appear in the UI at all times. Passwords also can be set here, if desired. 
 
 ![img](images/OndeviceConfig/On-device_config_03.png)
 
@@ -228,7 +228,7 @@ The on-device settings panel provides access to just a small subset of Enterpris
 Remove Enterprise Browser by removing the application.
 
 ### Windows CE
-If you installed the persistant version of Enterprise Browser, it will not be removed after a cold boot. To remove it, you will need to manually remove the folder and CPY files that are found in the non-volatile area of memory.
+If you installed the persistent version of Enterprise Browser, it will not be removed after a cold boot. To remove it, you will need to manually remove the folder and copy files that are found in the non-volatile area of memory.
 
 ### Android
 Use Android Settings applet to remove the Enterprise Browser from the device.-->
