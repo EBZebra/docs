@@ -108,7 +108,7 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies only to WM/CE with IE or Zebra Webkit. Other requirements are detailed in the Remarks section at the bottom of this guide.Read more.
 
 ### StartPage 
-Defines the start page of a Enterprise Browser application, displayed at launch. This should be a local file to avoid connectivity issues on startup. Case sensitive.  
+Defines the start page of the Enterprise Browser application displayed at launch. A device-resident file is recommended to avoid connectivity issues on startup. **StartPage entry must be a fully qualified local path using `file://` or URL using `http://`**. Case sensitive. 
 
 ## Notes
 
@@ -118,6 +118,6 @@ Defines the start page of a Enterprise Browser application, displayed at launch.
 
 * Configuring the full set of [runtime settings in the Config.xml](../guide/configreference) still requires a computer. 
 
-* To simplify PC-based set up of Config.xml files, please refer to the [Config Editor utility](../guide/ConfigEditor), a Windows utility new in EB 1.3 that edits and deploys Config.xml files from a single panel.
+* To simplify PC-based set up of Config.xml files, please refer to the [Config Editor utility](../guide/ConfigEditor) for Windows desktops than can edit and deploy Config.xml files from a single panel.
 
-* Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file. 
+* Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields may corrupt the Config.xml file. 

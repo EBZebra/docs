@@ -45,7 +45,7 @@ A Shortcut Utility window will appear, similar to the one below.
 1. **Select the platform** (Android or Windows Mobile/CE) to be targeted by the shortcut.
 2. **Select Default or Custom** for the Config.xml to be used with the shortcut (selecting Custom will cause the Startpage field to change to a navigation box).
 3. **Enter a name** for the shortcut.
-4. **Specify a start page**. Must be a fully qualified local path using `file:///` or URL using `http://`. (**If 'Custom' was chosen in step 3, navigate to the Config.XML file to be used**). 
+4. **Specify a start page**. Must be a fully qualified local path using `file://` or URL using `http://`. (**If 'Custom' was chosen in step 3, navigate to the Config.XML file to be used**). 
 5. **Select an icon** for your shortcut (Android only). If left blank, the default Enterprise Browser shortcut icon will be used.
 6. Click **Add to List** to store settings in the list at right.
 
