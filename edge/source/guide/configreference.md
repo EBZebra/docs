@@ -260,7 +260,7 @@ The following is an example of a typical configuration file, Android edition. **
 
 ## General
 ### StartPage
-Defines the start page of a Enterprise Browser application, displayed at launch. This should be a local file to avoid connectivity issues on startup. Case sensitive. 
+Defines the start page of the Enterprise Browser application displayed at launch. A device-resident file is recommended to avoid connectivity issues on startup. **StartPage entry must be a fully qualified local path using `file://` or URL using `http://`**. Case sensitive. 
 
 **Possible Values**
 
