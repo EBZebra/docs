@@ -21,7 +21,7 @@ Enterprise Browser now offers limited support for Mac OS X. The Enterprise Brows
 * **Android Debug Bridge** (if targeting Android devices)
 * **Microsoft Mobile Device Center** (if targeting Windows Mobile/CE devices; included with Windows 7)
 
->**Note: Mobile Device Center replaced Microsoft ActiveSync starting with Windows Vista. Installation from Windows XP systems requires ActiveSync**. 
+Note: Mobile Device Center replaced Microsoft ActiveSync starting with Windows Vista. Installation from Windows XP systems requires ActiveSync. 
 
 ### Windows Installation
 
@@ -36,7 +36,7 @@ If not upgrading, skip to step 3.
 1. **Backup any data stored in the C:\EnterpriseBrowser directory**; step 2 will cause it to be lost. 
 2. To install, **select Start Menu > Enterprise Browser > Uninstall Enterprise Browser** and follow the prompts. 
 3. **[Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) installation package** (.msi).  
-4. **Launch the installer file**; accept the licence agreement and follow the other prompts. When the installation finishes, a screen will appear similar to the one below. 
+4. **Launch the installer file**; accept the licence agreement and follow the other prompts. When the installation finishes, a screen will appear similar to the image below. 
 5. **Click "Close" to quit the installer and launch Enterprise Browser**. (Be sure the 'Launch' box is checked). 
 
 <!--![img](images/getting-started/setup/setup-msi-install.png)-->
@@ -47,7 +47,7 @@ This will display the Enterprise Browser's 'Installer' screen, which looks simil
 
 To bring up this screen at a later time, select **Start Menu -> Enterprise Browser -> Enterprise Browser Installer**. 
 
-For Windows-only shops, **instructions continue in the 'Deployment to devices' section**, below. 
+For Windows-only shops, **instructions continue in the 'Deployment to Device(s)' section**, below. 
 
 ![img](images/getting-started/setup/ebsetup_02.jpg)
 
@@ -64,34 +64,85 @@ The Enterprise Browser files and folders will be copied into the Application fol
 
 ![img](images/getting-started/setup/setup-macosx-directories.png)
 
-It's important to note that **files in the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to some of the runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
-
+It's important to note that **files in the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
 
 ## Deployment to Device(s)
-Communication from the host computer to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by [Microsoft ActiveSync](http://www.microsoft.com/en-us/download/details.aspx?id=15) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. If the device isn't visible to Windows, refer to the [Connections section](../guide/setup?Connections), below. 
+###From a Windows host
+On Windows host systems, communication from the host to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by Mobile Device Center (or ActiveSync on WinXP) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. If the device isn't visible to Windows, refer to the [Connections section](../guide/setup?Connections), below. 
 
 * **ADB supports USB connections only**
-* **ActiveSync supports USB and Bluetooth connections** 
+* **Mobile Device Center supports USB and Bluetooth connections** 
 
 Once a connection has been established, install the Enterprise Browser runtime onto a device:
 
 ![img](images/getting-started/setup/setup-eb-installer-platform-select.jpg)
 
 1. Select **Start -> Enterprise Browser -> Enterprise Browser Installer** to bring up the EB Installer. A window will appear similar to the image above.  
-2. **Select the platform that matches the device, OS and web view being targeted**. Information in the right-hand pane will vary accordingly.
-3. **Click Deploy and follow prompts that appear**. A window will appear similar to the image below. 
+2. **Select the platform that matches the device, OS and web view being targeted**. Information in the right-hand pane will vary according to the selection.
+3. **Click 'Deploy' and follow prompts**. A window will appear similar to the image below. 
 4. **Restart the device to complete the installation**.
 
-> **Note: For persistent installations on Windows CE (the lowermost two options on the 'Installer' screen above), a cold boot/cleanPS (clean persistent storage) is required to activate**.
+> **Note: For persistent installations on Windows CE (the lowermost two options on the 'Installer' screen above), a cold boot/cleanPS (clean persistent storage) is required to complete the installation**.
 
 ![img](images/getting-started/setup/WM_setup_01.jpg)
 
 > **Note**: Prior to installation, some Windows devices might prompt for the installation location on the device. **Enterprise Browser overrides any selection made here; it will always be installed in `\Program Files\EnterpriseBrowser\`**.
 
+###From a Mac to Android
+The preferred deployment method of Enterprise Browser runtimes from a Mac OS host system to Android target devices is with the Android File Transfer utility. **If Android File Transfer is already installed, skip to step 5**.  
+
+&#49;. **Visit the [Android File Transfer page](https://www.android.com/filetransfer/)**.
+
+&#50;. **Download and open the Android File Transfer .dmg file**. 
+
+&#51;. **Drag the Android File Transfer app into the Applications folder** on the host Mac.
+
+&#52;. **Plug in the Android target device** and unlock the screen. The device file system should automatically appear on the Mac in a window similar to the image below (It's sometimes necessary to launch the app manually.). 
+
+&#53;. **Copy the Enterprise Browser runtime for Android to internal storage**, which is opened by default. Storage buttons (red arrow) will be shown only if an additional storage card is present in the device.
+
+![img](images/getting-started/setup/AndroidFileTransfer.png)
+
+**Note: All connected devices must be unlocked before any file transfers can be performed**. 
+
+&#54;. **Using the File Browser app on the device, navigate to and execute the runtime** to unpackage its files and directories. 
+
+&#55;.  **Restart the device** to complete the installation. 
+
+Refer to the [On-device Configuration guide](../guide-OndeviceConfig) for help configuring Enterprise Browser following installation.  
+
+###From a Mac to Windows Mobile/CE
+The preferred deployment method of Enterprise Browser runtimes from a Mac OS host system to Windows Mobile/CE devices is using Bluetooth. 
+
+&#49;. **Set the Windows Mobile/CE device as discoverable** in the MotoBTUI app. 
+
+&#50;. **Pair the device with the Mac** using the Mac's Bluetooth Preferences panel. Enter pairing code and follow additional prompts as necessary. 
+
+&#51;. **Right-click the newly paired device and select 'Send File to Device...'** (as below). 
+
+![img](images/getting-started/setup/PocketPCsend.png)
+
+&#52;. A file dialog will apppear. **Navigate to and select the Enterprise Browser runtime** to be deployed to the WM/CE device and click Send.   
+
+While the file is in transit, a dialog will appear on the Mac similar to the image below: 
+
+![img](images/getting-started/setup/BluetoothDeploy.png)
+
+&#53;. When the transfer is complete, **tap 'Yes' on the device** to save the file.
+
+&#54;. **Using the File Explorer app, navigate to and execute the runtime** to unpackage its files and directories. 
+
+&#55;. **Restart the device** to complete the installation. 
+
+**Note: Copy Enterprise Runtimes to internal storage only**.
+
+Refer to the [On-device Configuration guide](../guide-OndeviceConfig) for help configuring Enterprise Browser following installation.  
+
+
 ## Connections
 ### Android devices
 
-Requirements for using Enterprise Browser on a Windows system to target an Android device:
+Requirements for using the Enterprise Browser Installer on a Windows system to target an Android device:
 
 * **USB drivers** for the specific hardware device being targeted
 * **The Android ADT bundle** to make devices visible and to push files 
