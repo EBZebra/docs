@@ -135,31 +135,15 @@ d. **Copy directory structure (in the red box) to the target device**:
 
 **<u>DO NOT deploy to removeable storage</u>**. 
  
-e. Launch Enterprise Browser on the device to create shortcut(s).
- 
-> **Note**: During deployment, it's possible that shortcut data for multiple platforms will be copied onto the given device (i.e. Android shortcut data on a Windows Mobile device, etc.). Shortcuts when generated will be platform-appropriate. 
-
-
-<!-- &#55;. Shortcuts will be created on the device the next time Enteprise Browser is launched following deployment. **Optionally, launch Enterprise Browser from the MDM using one of the following commands**: 
-
-Android: 
-
-		:::term
-		adb shell am start com.symbol.enterprisebrowser
-
-Windows Mobile/CE: 
-
-		:::term
-		( ---> info to come <--- ) 
--->
+e. **Launch Enterprise Browser on the device to create shortcut(s)**.
 
 Shortcut icons will be visible to the user in the device's main application area or menu. From a system perspective, shortcut files are stored this way: 
 
-**Android** shortcut files are not exposed to the end user.
+**Android**: shortcut files are not exposed to the end-user.
 
-**Windows Mobile** `.lnk` files are deployed in the `\​Windows\StartMenu\Programs` directory and named after the shortcut. 
+**Windows Mobile**: `.lnk` files are deployed in the `\​Windows\StartMenu\Programs` directory and named after the shortcut. 
 
-**Windows CE** `.lnk` files are deployed in `\​Windows\Programs` and `\​Windows\Desktop` directories  and named after the shortcut.
+**Windows CE**: `.lnk` files are deployed in `\​Windows\Programs` and `\​Windows\Desktop` directories  and named after the shortcut.
 
 **Notes** 
 
@@ -193,4 +177,16 @@ On-device shortcut creation is determined by this setting, and behavior thereaft
 * 1= check for and create new shortcuts at every launch
 * 2= check for and create new shortcuts only at initial launch
 
+<!-- &#55;. Shortcuts will be created on the device the next time Enteprise Browser is launched following deployment. **Optionally, launch Enterprise Browser from the MDM using one of the following commands**: 
+
+Android: 
+
+		:::term
+		adb shell am start com.symbol.enterprisebrowser
+
+Windows Mobile/CE: 
+
+		:::term
+		( ---> info to come <--- ) 
+-->
 
