@@ -2,25 +2,25 @@
 
 ## Welcome To the Enterprise Browser
 
-Enterprise Browser is a powerful, next-geration industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals. The EB base installation includes everything needed to quickly make devices for barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
+Enterprise Browser is a powerful, next-generation industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals. The EB base installation includes everything needed to quickly make devices for barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
 
 With support for the legacy application programming interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable--especially in high-volume mobile environments.
 
 ## What's New
 
-* USB Printing for Android and Windows Mobile/CE
-* [On-Device editing](../guide/OndeviceConfig) of runtime settings in Config.xml
-* Password access to the Settings panel and exiting from an app
-* [Config Editor](../guide/ConfigEditor) utility for Windows to ease Config.xml setup
-* [Shortcut Utility](../guide/ShortcutCreator) tool for Windows to ease shortcut creation 
-* [DOM Injection](../guide/DOMinjection) feature for on-the-fly app enhancement
-* Installer for Mac OS X with support for deployment and [other features](../guide/setup) 
-* Support for Android 4.4 KitKat on:
-  * TC55
-  * MC40
-  * TC70
-  * TC75
-* New APIs
+* **USB Printing** for Android and Windows Mobile/CE
+* **[On-Device editing](../guide/OndeviceConfig)** of runtime settings in Config.xml
+* **Password protection** for Settings panel and exiting from an app
+* **[Config Editor](../guide/ConfigEditor) utility** for Windows desktops to ease runtime setup
+* **[Shortcut Utility](../guide/ShortcutCreator) tool** to ease shortcut creation on devices
+* **[DOM Injection](../guide/DOMinjection) feature** for on-the-fly app enhancement
+* **Installer for Mac OS X** with support for deployment and [other features](../guide/setup) 
+* **Support for Android 4.4 KitKat** on:
+  * **TC55**
+  * **MC40**
+  * **TC70**
+  * **TC75**
+* **New APIs:**
   * [Camera API](../api/camera)
   * [Timer API](../api/Timer)
 
@@ -28,11 +28,11 @@ With support for the legacy application programming interfaces (APIs) used in Po
 
 * **&lt;DisableScannerDuringNavigation&gt;** controls whether scanner will be disabled when navigating away from a scanning page on which it was used. Formerly WM/CE-only.
 * **&lt;HTTP_Proxy&gt;** and **&lt;HTTPS_Proxy&gt;** enables the specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device. 
-* **&lt;IntentReceiver&gt;** and **&lt;IntentAction&gt;** permits an Enterprise Browser app to be called upon by others applications to perform actions. 
-* **&lt;LogMemory&gt;** and **&lt;LogMemoryPeriod&gt;** controls memory used by logging and the time intervals between entries. 
+* **&lt;IntentReceiver&gt;** and **&lt;IntentAction&gt;** permit an Enterprise Browser app to be called upon by others applications to perform actions. 
+* **&lt;LogMemory&gt;** and **&lt;LogMemoryPeriod&gt;** control memory used by logging and the time intervals between entries. 
 * **&lt;ResizeOnSIP&gt;** controls automatic window resizing when the soft input panel is displayed.
-* **&lt;Username&gt;** and **&lt;Password&gt;** enables credentials to be entered automatically when navigating to a login page. Configurable on-device.  
-* **&lt;ZoomInKey&gt;** and **&lt;ZoomOutKey&gt;** enables Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device. 
+* **&lt;Username&gt;** and **&lt;Password&gt;** enable credentials to be entered automatically when navigating to a login page. Configurable on-device.  
+* **&lt;ZoomInKey&gt;** and **&lt;ZoomOutKey&gt;** enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device. 
 
 **New Android and Windows Mobile/CE configuration tags**
 
@@ -41,6 +41,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * **&lt;EnableFunctionKey_X&gt;** specifies which Function keys (numbered F1 through F24) should be enabled
 * **&lt;ExitPassword&gt;** enables a password prompt when attempting to exit an EB app. Configurable on-device. 
 * **&lt;FontFamily&gt;** specifies the default font to use when rendering text in web pages. 
+* **&lt;FunctionKeysCapturable&gt;** works with the Key Capture API to enable function keys to be capturable globally on the device.
 * **&lt;LowBatteryScan&gt;** controls whether the scanner can be used when battery charge level is low. 
 * **&lt;SettingsButtonEnabled&gt;** enables a Settings (gear icon) button to be displayed in the UI. Configurable on-device. 
 * **&lt;SplashScreenPath&gt;** specifies a local image to display on boot. Android also can control display duration.
@@ -48,8 +49,8 @@ With support for the legacy application programming interfaces (APIs) used in Po
 ##Key Features
 
 ###Enterprise Browser: An application development toolkit for mobile cross-platform enterprise apps
-* Supports all enterprise devices: mobile computers, tablets, kiosks, wearables and vehicle mount
-* Supports multiple operating systems: Android&copy, Windows&copy; Embedded Handheld, Windows&copy; CE and Windows&copy; Mobile;
+* Supports all enterprise devices: mobile computers, tablets, kiosks, wearables and vehicle-mounted devices
+* Supports multiple operating systems: Android&copy;, Windows&copy; Embedded Handheld, Windows&copy; CE and Windows&copy; Mobile
 
 ###Build apps using HTML5, CSS and JavaScript
 * Use web skills to create great-looking applications
@@ -57,7 +58,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * Access to the world's largest developer community
 
 ###Common APIs across all enterprise devices
-* Single code base; does not require different APIs for different OSs to create a true write-once, run-anywhere experience
+* Single code base; does not require different APIs for different OSs to create a true write-once, run-anywhere apps with a consistent UI
 * Easily access native device hardware with JavaScript APIs
 
 ###Backward compatible with PocketBrowser
@@ -65,7 +66,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * EMML (Meta Tag) support extended to Android
 
 ###Backward compatible with RhoElements
-* Enterprise Browser is compatible with legacy RhoElements JavaScript APIs enabling a clear path forward for "RhoElements Shared Runtime" users
+* Enterprise Browser is compatible with legacy RhoElements JavaScript APIs, enabling a clear path forward for "RhoElements Shared Runtime" users
 
 ###Unparalleled access to device capabilities
 * Access all device features, including bar code scanning, signature capture, printing, RFID and much more
@@ -73,10 +74,11 @@ With support for the legacy application programming interfaces (APIs) used in Po
 ###Thin client architecture
 * Simplifies device deployment and management by enabling instant application updates on devices; ensures version consistency
 
-###Operating system "lock out"
+###Offers operating system "lock out"
 * Hides access to distractions, such as web-browsing and games; simplifies user interface and eliminates risk of unauthorized changes to device settings
+* Password-protect settings screen and prevent any app from exiting
 
-###Full screen display
+###Full-screen display
 * Maximizes available display space for a richer, more effective user interface; hides command bar and Start menu
 
 ###Extensive logging capability
@@ -85,22 +87,22 @@ With support for the legacy application programming interfaces (APIs) used in Po
 ##Benefits
 
 ###Reduce application and development costs
-Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment
+Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices and operating systems;  provides highly cost effective support for a mixed-OS environment.
 
 ###Protect the business from OS market uncertainty
-Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on then Zebra Technologies platforms of yesterday (MPA2), today and tomorrow
+Devices and platforms can continue to churn without impacting your business. These OS-agnostic applications work on Symbol, Motorola and Zebra Technologies platforms of yesterday (MPA2), today and tomorrow.
 
 ###Reduce end-user training costs
 Enterprise Browser app development is incredibly intuitive for developers skilled in HTML5, CSS and JavaScript.
 
 ###Utilize every feature on every device - and attached peripheral
-Easily design rich applications that take advantage of all the available features on a device and its attached peripherals - from scanning bar codes to capturing RFID tags and processing payment cards
+Easily design rich applications that take advantage of all the available features on a device and its attached peripherals - from scanning bar codes to capturing RFID tags and processing payment cards.
 
 ###Create consumer-style apps - for business
-Without OS constraints to impact app design, a graphical user interface can be created that is every bit as engaging, intuitive and interactive as today's consumer applications. Completely control application behavior on different devices: You control how an application behaves on a given device. With automatic screen sizing, apps can look, feel and behave identically on all devices - or you can add new features or expand the presentation of existing features to take advantage of larger screens
+Without OS constraints to impact app design, a graphical user interface can be created that is every bit as engaging, intuitive and interactive as today's consumer applications. Provides complete control of application behavior on different devices. With automatic screen resizing, apps can look, feel and behave identically on all devices, or display new features or expand the presentation of existing features to take advantage of larger screens.
 
 ###Faster time to market
-A simplified application development approach allows for shorter time to market than ever before
+A simplified application development approach allows for shorter time to market than ever before.
 
 ## Supported Devices
 
@@ -124,7 +126,7 @@ A simplified application development approach allows for shorter time to market 
   <td class="clsSyntaxCells clsOddRow"><img id="et1Pic" src="images/et1.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>ET1</b></td>
   <td class="clsSyntaxCells clsOddRow">ET1 (Enterprise Tablet), ET1 WAN</td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.1 (Jelly Bean)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  </tr>
  <tr>
@@ -152,7 +154,7 @@ A simplified application development approach allows for shorter time to market 
   <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="images/mc3200.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)<br>Windows CE 7.0</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.1 (Jelly Bean)<br>Windows CE 7.0</td>
   <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit, Android Stock</td>
  </tr>
  <tr>
@@ -201,7 +203,7 @@ A simplified application development approach allows for shorter time to market 
   <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="images/mc67.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
   <td class="clsSyntaxCells clsOddRow">MC67</td>
-  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (Jelly Bean)</td>
   <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit, Android Stock</td>
  </tr>
  <tr>
