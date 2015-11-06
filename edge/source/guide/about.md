@@ -1,52 +1,109 @@
 # Enterprise Browser 1.3
 
-## Welcome To the Enterprise Browser
+## Welcome to the Enterprise Browser
 
 Enterprise Browser is a powerful, next-generation industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals. The EB base installation includes everything needed to quickly make devices for barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE. 
 
 With support for the legacy application programming interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today's highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable--especially in high-volume mobile environments.
 
-## What's New
+## What's New in v1.3
 
-* **USB Printing** for Android and Windows Mobile/CE
-* **[On-Device editing](../guide/OndeviceConfig)** of runtime settings in Config.xml
-* **Password protection** for Settings panel and exiting from an app
-* **[Config Editor](../guide/ConfigEditor) utility** for Windows desktops to ease runtime setup
-* **[Shortcut Utility](../guide/ShortcutCreator) tool** to ease shortcut creation on devices
-* **[DOM Injection](../guide/DOMinjection) feature** for on-the-fly app enhancement
-* **Installer for Mac OS X** with support for deployment and [other features](../guide/setup) 
-* **Support for Android 4.4 KitKat** on:
-  * **TC55**
-  * **MC40**
-  * **TC70**
-  * **TC75**
-* **New APIs:**
+###Zebra Device Support
+  * **MC40** Android KitKat
+  * **TC55** Android KitKat
+  * **TC70 (GA2)** Android KitKat
+  * **TC75** Android KitKat
+
+###New APIs
   * [Camera API](../api/camera)
+  * [Intent API](../api/Intent)
   * [Timer API](../api/Timer)
+  * [SIP API](../api/Sip)
 
-**New Android configuration tags**
+###New Features
+* **[DOM Injection](#guide-DOMinjection)** provides ability to include/inject JavaScript, Meta Tags and CSS into the DOM of an Enterprise Browser application, allowing application behavior to be changed at runtime without modifying the source code.
 
-* **&lt;DisableScannerDuringNavigation&gt;** controls whether scanner will be disabled when navigating away from a scanning page on which it was used. Formerly WM/CE-only.
-* **&lt;HTTP_Proxy&gt;** and **&lt;HTTPS_Proxy&gt;** enables the specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device. 
-* **&lt;IntentReceiver&gt;** and **&lt;IntentAction&gt;** permit an Enterprise Browser app to be called upon by others applications to perform actions. 
-* **&lt;LogMemory&gt;** and **&lt;LogMemoryPeriod&gt;** control memory used by logging and the time intervals between entries. 
-* **&lt;ResizeOnSIP&gt;** controls automatic window resizing when the soft input panel is displayed.
-* **&lt;Username&gt;** and **&lt;Password&gt;** enable credentials to be entered automatically when navigating to a login page. Configurable on-device.  
-* **&lt;ZoomInKey&gt;** and **&lt;ZoomOutKey&gt;** enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device. 
+* **[Android Intent Broadcast Receiver Support](#api-Intent)** enables Enterprise Browser applications to register as a receiver and listen for broadcast messages.
 
-**New Android and Windows Mobile/CE configuration tags**
+* **[Configuration Editor Tool](#guide-ConfigEditor)** is a desktop utility that simplifies configuration of Enterprise Browser runtime settings. 
 
-* **&lt;CustomDOMElements&gt;** permits DOM injection of JavaScript, CSS or meta tags into a running application without modifying the underlying application.
-* **&lt;EnableApplicationKey_X&gt;** specifies which Application keys (numbered A1 through A16) should be enabled. 
-* **&lt;EnableFunctionKey_X&gt;** specifies which Function keys (numbered F1 through F24) should be enabled
-* **&lt;ExitPassword&gt;** enables a password prompt when attempting to exit an EB app. Configurable on-device. 
-* **&lt;FontFamily&gt;** specifies the default font to use when rendering text in web pages. 
-* **&lt;FunctionKeysCapturable&gt;** works with the Key Capture API to enable function keys to be capturable globally on the device.
-* **&lt;LowBatteryScan&gt;** controls whether the scanner can be used when battery charge level is low. 
-* **&lt;SettingsButtonEnabled&gt;** enables a Settings (gear icon) button to be displayed in the UI. Configurable on-device. 
-* **&lt;SplashScreenPath&gt;** specifies a local image to display on boot. Android also can control display duration.
+* **[Custom Shortcut Creation Tool](#guide-ShortcutCreator)** simplifies the creation of shortcuts for different Enterprise Browser applications from the desktop.  
 
-##Key Features
+* **[Custom Splash Screen Support](#guide-configreference?SplashScreenPath)** provides the option of displaying a custom screen when an Enterprise Browser app starts up.
+
+* **[Password On Exit](#guide-configreference?ExitPasswordEnabled)** can be used to prevent an end-user from exiting an Enterprise Browser application without a password.  
+
+* **[On-Device Configuration](#guide-OndeviceConfig)** enables on-demand editing of key Enterprise Browser configuration settings in real time, without connecting the device to the desktop.
+
+* **[Installer for Mac OS](#guide-setup)** provides access to Enterprise Browser device executables, JavaScript include files, help docs and other resources for Mac OS developers and users.
+
+* **[USB Printing Support in Printer API](#api-printingzebra)** provides support for direct output to Zebra printers via USB cable.  
+
+* **New WiFi and Battery Indicators for High Resolution Zebra Android Devices** provide new icons that are easier to read on high-resolution screens. 
+
+* **[On-Device Debugging](#guide-debuggingjs)** provides a view into a running application for advanced debugging and optimization.
+
+###New Tags for Android and WM/CE
+*These configuration tags apply to both platforms unless otherwise noted*. 
+
+**Splash Screen Configuration**
+
+* **[&lt;SplashScreenPath&gt;](#guide-configreference?SplashScreenPath)** specifies the fully qualified path of an image to be displayed when the device starts up. 
+* **[&lt;SplashScreenDuration&gt;](#guide-configreference?SplashScreenDuration)** specifies the length of time (in milliseconds) to display the splash screen image **(Android only)**.
+
+**Shortcut Creation Configuration**
+
+* **[&lt;ShortcutCreationEnabled&gt;](#guide-configreference?ShortcutCreationEnabled)** controls the automatic creation of shortcuts on the device. 
+
+**DOM Injection Configuration**
+
+* **[&lt;CustomDOMElements&gt;](#guide-configreference?CustomDOMElements)** specifies the path of a device-resident file containing data for injected DOM elements.
+
+**Settings Screen Configuration**
+
+* **&lt;[SettingsButtonEnabled&gt;](#guide-configreference?SettingsPageProtectionEnabled)** places a button at the bottom-right corner of all screens that invokes the Settings page.
+* **[&lt;SettingsPageProtectionEnabled&gt;](#guide-configreference?SettingsPageProtectionEnabled)** prompts for a password before allowing access to the Settings page.
+* **[&lt;SettingsPagePassword&gt;](#guide-configreference?SettingsPagePassword)** contains the password for accessing the Settings page when password function is enabled using the &lt;SettingsPageProtectionEnabled&gt; tag. 
+
+**Password On Exit Prompt**
+
+* **[&lt;ExitPasswordEnabled&gt;](#guide-configreference?ExitPasswordEnabled)** prompts for a password when quitting an Enterprise Browser application.
+* **[&lt;ExitPasswordValue&gt;](#guide-configreference?ExitPasswordValue)** contains the password for quitting Enterprise Browser when function is enabled using the &lt;ExitPasswordEnabled&gt; tag. 
+
+**Intent Configuration Option** (Android only)
+
+* **[&lt;EnableReceiver&gt;](#guide-configreference?EnableReceiver)** enables a mechanism through which the application can be called upon by other apps to perform Actions. 
+* **[&lt;IntentAction&gt;](#guide-configreference?IntentAction)** specifies the Action for which the receiver is to be registered. 
+* **[&lt;IntentCategory&gt;](#guide-configreference?IntentCategory)** specifies the Category under which the receiver is to be registered.
+
+Intent is supported on Android only. For more information, please refer to the [Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
+
+###New Tags for Android
+*These configuration tags were previously supported only on WM/CE*. 
+
+* **[&lt;ZoomInKey&gt;](#guide-configreference?ZoomInKey) [&lt;ZoomOutKey&gt;](#guide-configreference?ZoomOutKey)** enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device.
+
+* **[&lt;HTTP_Proxy&gt;](#guide-configreference?HTTP_Proxy) [&lt;HTTPS_Proxy&gt;](#guide-configreference?HTTPS_Proxy)** enable the specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device.
+
+* **[&lt;Username&gt;](#guide-configreference?Username) [&lt;Password&gt;](#guide-configreference?Password)** enable credentials to be entered automatically when navigating to a login page. Configurable on-device.  
+
+* **[&lt;LogMemory&gt;](#guide-configreference?LogMemory) [&lt;LogMemPeriod&gt;](#guide-configreference?LogMemPeriod)** control memory used by logging and the time intervals between entries.
+
+* **[&lt;ResizeOnSIP&gt;](#guide-configreference?ResizeOnSIP)** controls automatic window resizing when the soft input panel is displayed.
+
+* **[&lt;LowBatteryScan&gt;](#guide-configreference?LowBatteryScan)** controls whether the scanner can be used when battery charge level is low. 
+
+* **[&lt;DisableScannerDuringNavigation&gt;](#guide-configreference?DisableScannerDuringNavigation)** controls whether the scanner will be disabled when navigating away from a scanning page on which it was used.
+
+* **[&lt;FunctionKeysCapturable&gt;](#guide-configreference?FunctionKeysCapturable)** works with the Key Capture API to enable function keys to be capturable globally on the device.
+
+* **[&lt;EnableFunctionKey_X&gt;](#guide-configreference?EnableFunctionKey_X)** specifies which Function keys (numbered F1 through F24) should be enabled.
+
+* **[&lt;EnableApplicationKey_X&gt;](#guide-configreference?EnableApplicationKey_X)** specifies which Application keys (numbered A1 through A16) should be enabled.
+
+* **[&lt;FontFamily&gt;](#guide-configreference?FontFamily)** specifies the default font to use when rendering text in web pages. 
+
+##Key EB Features
 
 ###Enterprise Browser: An application development toolkit for mobile cross-platform enterprise apps
 * Supports all enterprise devices: mobile computers, tablets, kiosks, wearables and vehicle-mounted devices
@@ -265,11 +322,18 @@ A simplified application development approach allows for shorter time to market 
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="images/tc70.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
-  <td class="clsSyntaxCells clsOddRow"><nobr>TC70 GA1, TC75</nobr></td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC70 (GA1, GA2)</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock</td>
  </tr>
-<tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc75Pic" src="images/tc75.png" height="75"></td>
+  <td class="clsSyntaxCells clsOddRow"><b>TC75</b></td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC75</nobr></td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock</td>
+ </tr>
+ <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="images/workaboutpro.png" ></td>
   <td class="clsSyntaxCells clsOddRow"><b>Workabout</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>Workabout Pro 4</nobr></td>
