@@ -14,6 +14,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
   * **TC70 (GA2)** Android KitKat
   * **TC75** Android KitKat
 
+[Full supported device list](#index.html?Mobile)
 ###New APIs
   * [Camera API](../api/camera)
   * [Intent API](../api/Intent)
@@ -29,7 +30,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 
 * **[Custom Shortcut Creation Tool](#guide-ShortcutCreator)** simplifies the creation of shortcuts for different Enterprise Browser applications from the desktop.  
 
-* **[Custom Splash Screen Support](#guide-configreference?SplashScreenPath)** provides the option of displaying a custom screen when an Enterprise Browser app starts up.
+* **[Custom Splash Screen Support](#guide-configreference?SplashScreenPath)** provides the option of displaying a custom screen when the device starts up.
 
 * **[Password On Exit](#guide-configreference?ExitPasswordEnabled)** can be used to prevent an end-user from exiting an Enterprise Browser application without a password.  
 
@@ -163,7 +164,7 @@ A simplified application development approach allows for shorter time to market 
 
 ## Supported Devices
 
-###Mobile Computers
+###Mobile
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
   <th class="clsSyntaxHeadings"></th>
@@ -342,7 +343,7 @@ A simplified application development approach allows for shorter time to market 
  </tr>
 </tbody></table>
 
-###Vehicle Computers
+###Vehicle
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
   <th class="clsSyntaxHeadings"></th>
@@ -374,7 +375,7 @@ A simplified application development approach allows for shorter time to market 
  </tr>
 </tbody></table>
 
-###Micro-Kiosks
+###Micro-Kiosk
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
   <th class="clsSyntaxHeadings"></th>
@@ -406,7 +407,7 @@ A simplified application development approach allows for shorter time to market 
  </tr>
 </tbody></table>
 
-###Wearable Computers
+###Wearable
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
   <th class="clsSyntaxHeadings"></th>
