@@ -14,7 +14,8 @@ With support for the legacy application programming interfaces (APIs) used in Po
   * **TC70 (GA2)** Android KitKat
   * **TC75** Android KitKat
 
-[Full supported device list](#index.html?Mobile)
+[See all supported devices](#index.html?Mobile)
+
 ###New APIs
   * [Camera API](../api/camera)
   * [Intent API](../api/Intent)
