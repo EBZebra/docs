@@ -331,7 +331,7 @@ Used to specify sites to be accessed directly rather than through a proxy. Accep
 	<No_Proxy value="*.my_app.com,http://internal.site.com"/>
 
 ### SplashScreenPath
-Specifies the fully qualified path of an image to be displayed at device start-up. May contain path, be left empty or unspecified. Default values for Android and WM/CE are shown in the examples below. Image file must reside in device internal storage; removable storage media (i.e. SD card) are not supported. Supported file formats for WM/CE are .bmp, .png; for Android are .bmp, .gif, .jpg, .png. A 640 x 960 .png file is recommended; other resolutions may not display correctly. 
+Specifies the fully qualified path of an image to be displayed at app start-up. If tag is removed or left unspecified, default EB splash screen will be displayed. Default values for Android and WM/CE are shown in the examples below. Image file must reside in device internal storage; removable storage (i.e. SD card) is not supported. Supported file formats for WM/CE are .bmp, .png; for Android are .bmp, .gif, .jpg, .png. A 640 x 960 .png file is recommended; other resolutions may not display correctly. 
 
 **Possible Values**
 
@@ -350,7 +350,7 @@ Specifies the fully qualified path of an image to be displayed at device start-u
 
 
 ### SplashScreenDuration
-**Applies only to Android devices**. Specifies the length of time (in milliseconds) to display the image defined by the SplashScreenDuration tag. It is recommended that the duration be greater than 3000 ms (3 seconds) to compensate for image loading time. Tag may be removed or left unspecified. 
+**Applies only to Android devices**. Specifies the length of time (in milliseconds) to display the image defined by the SplashScreenDuration tag. It is recommended that the duration be greater than 3000 ms (3 seconds) to compensate for image loading time. If tag is removed or left unspecified, will default to 0 seconds. 
 
 **Possible Values**
 

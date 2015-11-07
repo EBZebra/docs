@@ -30,7 +30,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 
 * **[Custom Shortcut Creation Tool](#guide-ShortcutCreator)** simplifies the creation of shortcuts for different Enterprise Browser applications from the desktop.  
 
-* **[Custom Splash Screen Support](#guide-configreference?SplashScreenPath)** provides the option of displaying a custom screen when the device starts up.
+* **[Custom Splash Screen Support](#guide-configreference?SplashScreenPath)** provides the option of displaying a custom screen when the app starts up.
 
 * **[Password On Exit](#guide-configreference?ExitPasswordEnabled)** can be used to prevent an end-user from exiting an Enterprise Browser application without a password.  
 
@@ -49,7 +49,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 
 **Splash Screen Configuration**
 
-* **[&lt;SplashScreenPath&gt;](#guide-configreference?SplashScreenPath)** specifies the fully qualified path of an image to be displayed when the device starts up. 
+* **[&lt;SplashScreenPath&gt;](#guide-configreference?SplashScreenPath)** specifies the fully qualified path of an image to be displayed when the app starts up. 
 * **[&lt;SplashScreenDuration&gt;](#guide-configreference?SplashScreenDuration)** specifies the length of time (in milliseconds) to display the splash screen image **(Android only)**.
 
 **Shortcut Creation Configuration**
