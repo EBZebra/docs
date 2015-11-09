@@ -89,7 +89,7 @@ Attributes of DOM Injection tags:
 * Meta tag data must be contained completely within the tags file  
 * If using server-based JavaScript, see JavaScript Injection section (below) for dependancy cautions 
 
-* When tags are completed, **store the tags file on the device** and make note of the path. 
+* When tags are completed, **store the tags file on the device** and make note of the path 
 
 ### Step 2- Specify path to tags file in Config.xml
 
