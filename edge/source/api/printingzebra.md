@@ -433,7 +433,7 @@ Synchronous Return:
 Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously; use callback to check the result.
 
 ####Parameters
-<ul><li>formatPathOnPrinter : <span class='text-info'>STRING</span><p>The location of the file on the printer (e.g. "E:FORMAT.ZPL"). </p></li><li>vars : <span class='text-info'>HASH</span><p>An Hash which contains the key / value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as Strings, i.e. '1':'field1' etc. CPCL format do not supported - only ZPL! </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>formatPathOnPrinter : <span class='text-info'>STRING</span><p>The location of the file on the printer (e.g. "E:FORMAT.ZPL"). </p></li><li>vars : <span class='text-info'>HASH</span><p>A Hash containing the key / value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as Strings, i.e. '1':'field1' etc. Only ZPL format is supported; CPCL format is not supported. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>

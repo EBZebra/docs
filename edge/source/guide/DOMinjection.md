@@ -85,7 +85,7 @@ Attributes of DOM Injection tags:
 * For local files, works from directory relative to the installation root; include qualified path if different 
 * For server-based CSS or JavaScript files, works relative to the app's start page; include qualified URL if different
 * Accepts wildcard (*) character to inject all files in relative or specified directory
-* Accepts URLs for server-based JavaScript files only
+* Accepts URLs for server-based CSS and JavaScript files only
 * Meta tag data must be contained completely within the tags file  
 * If using server-based JavaScript, see JavaScript Injection section (below) for dependancy cautions 
 
