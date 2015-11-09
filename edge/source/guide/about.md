@@ -25,7 +25,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 ###New Features
 * **[DOM Injection](#guide-DOMinjection)** provides ability to include/inject JavaScript, Meta Tags and CSS into the DOM of an Enterprise Browser application, allowing application behavior to be changed at runtime without modifying the source code.
 
-* **[Android Intent Broadcast Receiver Support](#api-Intent)** enables Enterprise Browser applications to register as a receiver and listen for broadcast messages.
+* **[Android Intent Broadcast Receiver Support](#guide-configreference?Intent)** enables Enterprise Browser applications to register as a receiver and listen for broadcast messages.
 
 * **[Configuration Editor Tool](#guide-ConfigEditor)** is a desktop utility that simplifies configuration of Enterprise Browser runtime settings. 
 
@@ -42,6 +42,8 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * **[USB Printing Support in Printer API](#api-printingzebra)** provides support for direct output to Zebra printers via USB cable.  
 
 * **New WiFi and Battery Indicators for High Resolution Zebra Android Devices** provide new icons that are easier to read on high-resolution screens. 
+
+* **New UI graphics for Control/Debug buttons**.  
 
 * **[On-Device Debugging](#guide-debuggingjs)** provides a view into a running application for advanced debugging and optimization.
 
