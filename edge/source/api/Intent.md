@@ -41,9 +41,9 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
 
 ### send(<span class="text-info">HASH</span> params)
-Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
+Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android, the receiver can be a native Android application set up with an Intent-Filter that will trigger based on the parameters of this method.
 
-> Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI.
+**Android Note**: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. The only valid way for an Android app to pass a private file from a package directly to another application is to set the 'uri' parameter with content URI. 
             
 
 ####Parameters
