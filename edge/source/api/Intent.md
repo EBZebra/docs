@@ -120,6 +120,7 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
