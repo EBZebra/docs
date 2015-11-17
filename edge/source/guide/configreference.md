@@ -380,6 +380,7 @@ Determines whether Enterprise Browser will recieve Intent actions, which work wi
 Specifies the Action for which the receiver is to be registered. There must be at least one IntentAction value for a Receiver to be registered. IntentAction value can be an Android-defined or custom. 
 
 **Possible values**
+
 * string
 
 #### Example 
@@ -391,6 +392,7 @@ Specifies the Action for which the receiver is to be registered. There must be a
 Specifies the Category under which the receiver is to be registered. There can be zero or many IntentCategory tags. IntentCategory values are Android-defined.
 
 **Possible values**
+
 * string
 
 #### Example
