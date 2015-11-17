@@ -149,3 +149,15 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.Intent.stopListening()</code> 
+
+
+##Remarks
+
+
+
+###Registering Intent Receiver
+
+                    
+For an Android app to receive intent data, the Intent receiver must be registered in the app's `Config.xml` file. Please refer to the <a href="#guide-configreference?Intent">Intent section of the EB Config Reference</a> for more information. 
+                    
+                
