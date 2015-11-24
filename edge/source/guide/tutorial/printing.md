@@ -1,6 +1,6 @@
 # Printing API Tutorial
 
-This tutorial covers the use of the Enterprise Browser [Printer API](#api-printing) and [PrinterZebra API](#api-printingzebra), as well as some of the typical considerations when working with USB and wireless printers. 
+This tutorial covers the use of the Enterprise Browser [Printer API](../api-printing) and [PrinterZebra API](../api-printingzebra), as well as some of the typical considerations when working with USB and wireless printers. 
 
 The level of instruction in this tutorial is higher than that of other EB tutorials. Completion of the main training module and several additional EB tutorials is recommended (see below). This tutorial enables the sample app from the MBS1018 lesson to print a ticket with a barcode that contains a summary of error data to a printer attached directly to the mobile device.
 
@@ -22,7 +22,7 @@ The following are **strongly recommended**:
 
 * Completion of the [MBS1018 Enterprise Browser Development Fundamentals](https://www.youtube.com/watch?v=7llcPIWazkU) training (or equivalent knowledge)
 * Completion of sample application from the MBS1018 training
-* Completion of one or more EB API tutorials ([Barcode API Tutorial](#guide-tutorial-barcode) at minimum)
+* Completion of one or more EB API tutorials ([Barcode API Tutorial](../guide-tutorial-barcode) at minimum)
 
 ##Coding for the Printing API
 
@@ -71,7 +71,7 @@ Using the Print APIs requires inclusion of individual print modules `eb.printer.
 	:::JavaScript
 	<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-For more information about how to include API modules, please refer to the [Printing API](#api-printing). 
+For more information about how to include API modules, please refer to the [Printing API](../api-printing). 
 
 Next we'll add a Print button to the main HTML form add a placeholder for displaying print status and log messages and alerts. Such feedback is important for letting the user know of printing progress and potential connection errors, lack of paper, etc. A status window also is more user-friendly than bombarding them with alerts and pop-ups. We will these objects right after the quit button.
 
@@ -90,9 +90,11 @@ Next we'll add a Print button to the main HTML form add a placeholder for displa
 		</BODY>
 
 ###The main flow
-The key printing process flow fits in four lines of code and can be generally described like this:
+The key printing process flow can be accomplished with the following four lines of code. Each is described in the comments.
 
-		:::JavaScript
+<b>Copy the four lines of JavaScript code (comments are optional) and paste them into the BODY section of the sample app:</b>
+
+	:::JavaScript
 	// some prep here, then search all the printers,
 	// this can take some time – must use callback:
 
@@ -111,7 +113,9 @@ The key printing process flow fits in four lines of code and can be generally de
 	// prints text, barcodes, images, templates, raw ZPL 
 	// other command languages, etc.: 
 
-		myPrinter.print...(<data>) //printFromFile, printStoredFormat, printRawString, etc
+		myPrinter.print...(<data>) 
+
+	//printFromFile, printStoredFormat, printRawString, etc
 
 This is the minimal logic required. Let’s implement it and later see what additional features we might need.
 
@@ -379,4 +383,4 @@ Tap the Enterprise Browser icon on the device. If the device is not yet licensed
 	  [put the flow here once done]
 
 ###Conclusion
-This completes the Enterprise Browser Printing tutorial. For more information, please refer to the [Enterprise Browser Printer API documentation](#api-printing). 
+This completes the Enterprise Browser Printing tutorial. For more information, please refer to the [Enterprise Browser Printer API documentation](../api-printing). 
