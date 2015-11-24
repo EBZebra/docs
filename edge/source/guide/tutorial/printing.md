@@ -94,15 +94,15 @@ Next we'll add a Print button to the main HTML form add a placeholder for displa
 ###The main flow
 The key printing process flow can be accomplished with the four lines of code in the section below. Each line is described by comments above it.
 
-<b>&#49;. Read the following four lines of JavaScript code and the comments that explain them.  into the BODY section of the sample app:</b>
+<b>&#49;. Read the following four lines of JavaScript code and above each the comments that explain them:</b>
 
 	:::JavaScript
-	// Search for all available printers using a callback
-	// This can take some time depending on nearby devices
+	// Search for all available printers using a callback.
+	// This can take some time depending on nearby devices:
 
 		EB.PrinterZebra.searchPrinters (<search params>, search_callback)
 
-	// Select a printer by considering what was found: 0 or >1
+	// Select a printer by considering what was found: 0 or >1.
 	// Consider displaying a UI to pick and pair with the right one:
 
 		var myPrinter = EB.PrinterZebra.getPrinterByID()
@@ -111,49 +111,45 @@ The key printing process flow can be accomplished with the four lines of code in
 
 		myPrinter.connect(connect_callback)
 
-	// Print. Also takes time and uses callback.
+	// Print. Also takes time and uses a callback.
 	// Send text, barcodes, images, templates, raw ZPL 
-	// or other command languages, etc. 
+	// or other command languages, etc.: 
 
 		myPrinter.print...(<data>) 
 
-	//printFromFile, printStoredFormat, printRawString, etc
+	//Methods include printFromFile, printStoredFormat, printRawString, etc.
 
-Although the four lines above are the minimal logic required, there are many ways to improve the pairing and printing experience. We'll implement these first and then explore what additional features we might want.
+Although the four methods above are the minimal logic required for printing, there are several ways to improve pairing, printing and the overall user experience. We'll implement those basic methods next, and explore additional features that we might want to add.
 
-Since all the code is callback-based, the actual code structure may be presented as nested inline functions, as shown below. The comments show additional work that logically should be there, but isn’t strictly necessary for the proof-of-concept code. 
+Since all the code is callback-based, the actual code structure can be presented as nested inline functions, as shown below. The comments describe the code and/or additional work that could logically be added but isn’t strictly necessary for this proof-of-concept app. 
 
-<b>&#50;. 
+<b>&#50;. Find the four methods above nested within the JavaScript function below:</b>
 
-		:::JavaScript
-	function print_ticket() {
-	/* 
-	some prep here, discussed later
-	...
-	then search all the printers 
-	*/
-			EB.PrinterZebra.searchPrinters (<search params here>, function(cb) {	
-		/* 
-		do some prep here, such as checking if we have actually found any printers
-		... 
-		then decide if this is the right one and connect
-		note that this callback will be called individually for every printer found this simple code expects just one printer
-		*/
-			var myPrinter = EB.PrinterZebra.getPrinterByID(cb.printerID)
-			myPrinter.connect(function(cb){
-		/*
-		check if connection is success 
-		check printer state and set any options and parameters
-		upload any images and format files
-		check if the printer is ready, then print
-		...
-		*/
-		// Assuming printer is in ZPL mode, ready and many other assumptions
+	:::JavaScript
+	// Do some prep work (discussed later) then search all printers: 
 
-			myPrinter.printRawString('^XA^FO20,20^AD^FDTest^XZ',{},function(cb) {
+		function print_ticket() {
+		EB.PrinterZebra.searchPrinters (<search params here>, function(cb) {	
+	 
+	// Prep work includes checking for found printers,  
+	// locating the right one and connecting to it.
+	// Note an individual callback for every printer found. 
+	// This simple code expects just one printer.
+	
+		var myPrinter = EB.PrinterZebra.getPrinterByID(cb.printerID)
+		myPrinter.connect(function(cb){
 
-		// update status, display "please wait ", error processing, etc
-		// can be ignored for PoC code, but a bad idea in production
+	// If connection is successful, 
+	// check printer state and set options and parameters.
+	// Upload images and format files.
+	// If printer is ready, print.
+
+	// Assuming printer is ready, is in ZPL mode and many other assumptions:
+
+		myPrinter.printRawString('^XA^FO20,20^AD^FDTest^XZ',{},function(cb) {
+
+	// Update status, display "please wait," error processing, etc.
+	// Can be ignored in prototype, but not in production.
 				})	
 			})
 		})
