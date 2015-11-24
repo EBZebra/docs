@@ -66,25 +66,28 @@ At the end of this tutorial, the resulting application will look like the one be
 
 ###Preparation
 
---------->>>>>>> NUMBER THESE STEPS <<<<<<<----------
-
-First, let’s add the Print button to our main HTML form. We will also add a placeholder for print status to hold various log messages and alerts during the print. This is very useful to let the user know of printing progress, potential connection errors, lack of paper, etc, when you don’t want to bombard them with alerts and popups. We will add all this right after the quit button. 
-
-		:::JavaScript
-		<button onClick="EB.Application.quit()">Quit</button>
-	<!-- insert the following after the line above -->
-		<button id=”PrintBtn” onClick="print_ticket()">Print</button>
-		<div><span id="print_status"></span></div>
-	<!-- insert the above before the line below -->
-		</BODY>
-
-
-The Print APIs requires individual print `modules eb.printer.js` and `eb.printerzebra.js`, which are part of the `ebapi-modules.js` library. This latter library should should already have been included in the app's HTML file:
+Using the Print APIs requires inclusion of individual print modules `eb.printer.js` and `eb.printerzebra.js`, which are part of the `ebapi-modules.js` library. Before we begin, make sure that the `ebapi-modules.js` library is the first line in the HEAD section of the sample app's HTML file with the following JavaScript:
 
 	:::JavaScript
 	<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
 For more information about how to include API modules, please refer to the [Printing API](#api-printing). 
+
+Next we'll add a Print button to the main HTML form add a placeholder for displaying print status and log messages and alerts. Such feedback is important for letting the user know of printing progress and potential connection errors, lack of paper, etc. A status window also is more user-friendly than bombarding them with alerts and pop-ups. We will these objects right after the quit button.
+
+<b>Insert the following two lines of JavaScript as indicated in the comments:</b>
+
+		:::JavaScript
+		<button onClick="EB.Application.quit()">Quit</button>
+
+	<!-- insert the following two lines after the line above... -->
+		
+		<button id=”PrintBtn” onClick="print_ticket()">Print</button>
+		<div><span id="print_status"></span></div>
+	
+	<!-- ...and before the line below -->
+
+		</BODY>
 
 ###The main flow
 The key printing process flow fits in four lines of code and can be generally described like this:
