@@ -66,7 +66,9 @@ At the end of this tutorial, the resulting application will look like the one be
 
 ###Preparation
 
-Using the Print APIs requires inclusion of individual print modules `eb.printer.js` and `eb.printerzebra.js`, which are part of the `ebapi-modules.js` library. Before we begin, make sure that the `ebapi-modules.js` library is the first line in the HEAD section of the sample app's HTML file with the following JavaScript:
+Using the Print APIs requires inclusion of individual print modules `eb.printer.js` and `eb.printerzebra.js`, which are part of the `ebapi-modules.js` library. So before we begin...
+
+<b>&#49;. Confirm that the following JavaScript is in the HEAD section of the sample app's HTML file</b>:
 
 	:::JavaScript
 	<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
@@ -75,7 +77,7 @@ For more information about how to include API modules, please refer to the [Prin
 
 Next we'll add a Print button to the main HTML form add a placeholder for displaying print status and log messages and alerts. Such feedback is important for letting the user know of printing progress and potential connection errors, lack of paper, etc. A status window also is more user-friendly than bombarding them with alerts and pop-ups. We will these objects right after the quit button.
 
-<b>Insert the following two lines of JavaScript as indicated in the comments:</b>
+<b>&#50;. Insert the following two lines of JavaScript as indicated in the comments below:</b>
 
 		:::JavaScript
 		<button onClick="EB.Application.quit()">Quit</button>
@@ -85,41 +87,43 @@ Next we'll add a Print button to the main HTML form add a placeholder for displa
 		<button id=”PrintBtn” onClick="print_ticket()">Print</button>
 		<div><span id="print_status"></span></div>
 	
-	<!-- ...and before the line below -->
+	<!-- ...and before the end of the BODY section: -->
 
 		</BODY>
 
 ###The main flow
-The key printing process flow can be accomplished with the following four lines of code. Each is described in the comments.
+The key printing process flow can be accomplished with the four lines of code in the section below. Each line is described by comments above it.
 
-<b>Copy the four lines of JavaScript code (comments are optional) and paste them into the BODY section of the sample app:</b>
+<b>&#49;. Read the following four lines of JavaScript code and the comments that explain them.  into the BODY section of the sample app:</b>
 
 	:::JavaScript
-	// some prep here, then search all the printers,
-	// this can take some time – must use callback:
+	// Search for all available printers using a callback
+	// This can take some time depending on nearby devices
 
 		EB.PrinterZebra.searchPrinters (<search params>, search_callback)
 
-	// to select a printer, consider what was found: 0 or >1,
-	// potentially displaying UI to pick and pair with the right one:
+	// Select a printer by considering what was found: 0 or >1
+	// Consider displaying a UI to pick and pair with the right one:
 
 		var myPrinter = EB.PrinterZebra.getPrinterByID()
 
-	// actually connect, might take time, so has async callback:
+	// Connect to device. Async callback allows for possible delay:
 
 		myPrinter.connect(connect_callback)
 
-	// finally print, also takes time – use callback
-	// prints text, barcodes, images, templates, raw ZPL 
-	// other command languages, etc.: 
+	// Print. Also takes time and uses callback.
+	// Send text, barcodes, images, templates, raw ZPL 
+	// or other command languages, etc. 
 
 		myPrinter.print...(<data>) 
 
 	//printFromFile, printStoredFormat, printRawString, etc
 
-This is the minimal logic required. Let’s implement it and later see what additional features we might need.
+Although the four lines above are the minimal logic required, there are many ways to improve the pairing and printing experience. We'll implement these first and then explore what additional features we might want.
 
-Since all the code is callback-based, the actual code structure may be presented as follows (note the nested inline functions). The comments show additional work that logically should be there, but isn’t strictly necessary for the proof-of-concept code:
+Since all the code is callback-based, the actual code structure may be presented as nested inline functions, as shown below. The comments show additional work that logically should be there, but isn’t strictly necessary for the proof-of-concept code. 
+
+<b>&#50;. 
 
 		:::JavaScript
 	function print_ticket() {
@@ -144,7 +148,7 @@ Since all the code is callback-based, the actual code structure may be presented
 		check if the printer is ready, then print
 		...
 		*/
-		// Assumung printer is in ZPL mode, ready and many other addumptinons
+		// Assuming printer is in ZPL mode, ready and many other assumptions
 
 			myPrinter.printRawString('^XA^FO20,20^AD^FDTest^XZ',{},function(cb) {
 
