@@ -22,17 +22,18 @@ The following are **strongly recommended**:
 
 * Completion of the [MBS1018 Enterprise Browser Development Fundamentals](https://www.youtube.com/watch?v=7llcPIWazkU) training (or equivalent knowledge)
 * Completion of sample application from the MBS1018 training
-* Completion of several EB API tutorials ([Barcode API Tutorial](#guide-tutorial-barcode) at minimum)
+* Completion of one or more EB API tutorials ([Barcode API Tutorial](#guide-tutorial-barcode) at minimum)
 
 ##Coding for the Printing API
 
-The Printing API follows the same logic as Enterprise Browser’s many other APIs that work with peripherals: 
+Those who've completed the Barcode tutorial will find the Printer tutorial quite similar. All calls are callback-based and the process follows the Search → Connect → Initialize → Act formula used by other Zebra APIs that work with peripherals. 
 
-####Search → Connect → Initialize → Act
 
-All of these calls are callback-based. If you've already completed the Barcode tutorial, you'll find the Printer APIs to be quite similar. Below, the printing process is condensed into its three basic steps: 
+###Overview
 
-####1-Connect:
+Condensed into its basic steps, the printing process involves: 
+
+####1-Search and Connect:
 
 * Find and enumerate all visible devices (consider USB, BT and Wi-Fi connections)
 * Identify the desired output device 
@@ -40,60 +41,73 @@ All of these calls are callback-based. If you've already completed the Barcode t
 
 ####2-Initialize:
 
-* Check for printer readiness (connection, media, doors open, etc
+* Check for printer readiness (connection, media, open doors, etc.)
 * Initialize printer
-* Configuration parameters, template, etc.
+* Configure parameters, invoke template, etc.
 
 ####3-Print:
 
 * Send raw ZPL data, text, images, templates
-* Check status
+* Check results and status
 
-The resulting example application will look like the image below. Note the 'Print' button at the bottom: 
+###Sample app
+
+The starting point for this tutorial is the sample app from the MBS1018 lesson. If you have not completed that training or didn't save the app, please [download the sample app]() now. 
+
+To this app, we will add:
+
+* A 'Print' button
+* The code required to find, connect and print
+
+At the end of this tutorial, the resulting application will look like the one below: 
 
 <img style="height:400px" src="images/eb_tutorials/Printing_API_tutorial_02.png"/>
 
-The starting point for this tutorial is the resulting app from MBS1018. If you have completed the main training, you already have it. If not – download the samples from <here>. We will need to add the following to this app:
-
-* The Print button, using the same logic as before
-* The code to find, connect and use the printer
-
-This tutorial shows the basic code sequence to illustrate the core principles and highlights aspects that you may want to expand on in the full-blown production app.
 
 ###Preparation
 
-First, let’s add the Print button to our main HTML form. We will also add a placeholder for print status to hold various log messages and alerts during the print. This is very useful to let the user know of printing progress, potential connection errors, lack of paper, etc, when you don’t want to bombard them with alerts and popups. We will add all this right after the quit button. Italics indicate the existing code.
+--------->>>>>>> NUMBER THESE STEPS <<<<<<<----------
+
+First, let’s add the Print button to our main HTML form. We will also add a placeholder for print status to hold various log messages and alerts during the print. This is very useful to let the user know of printing progress, potential connection errors, lack of paper, etc, when you don’t want to bombard them with alerts and popups. We will add all this right after the quit button. 
 
 		:::JavaScript
 		<button onClick="EB.Application.quit()">Quit</button>
-	<!-- insert after the line above -->
+	<!-- insert the following after the line above -->
 		<button id=”PrintBtn” onClick="print_ticket()">Print</button>
 		<div><span id="print_status"></span></div>
-	<!-- insert before the line below -->
+	<!-- insert the above before the line below -->
 		</BODY>
 
 
-The Print APIs requires individual print modules eb.printer.js and eb.printerzebra.js, which are part of the ebapi-modules.js library. It should already be included in our HTML file:
+The Print APIs requires individual print `modules eb.printer.js` and `eb.printerzebra.js`, which are part of the `ebapi-modules.js` library. This latter library should should already have been included in the app's HTML file:
 
 	:::JavaScript
 	<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
+For more information about how to include API modules, please refer to the [Printing API](#api-printing). 
+
 ###The main flow
-The key printing process flow fits in four lines of code and can be described on high level as this:
+The key printing process flow fits in four lines of code and can be generally described like this:
 
 		:::JavaScript
-	// some prep here, then search all the printers, takes time – must use callback
+	// some prep here, then search all the printers,
+	// this can take some time – must use callback:
+
 		EB.PrinterZebra.searchPrinters (<search params>, search_callback)
 
-	// choose which one to use, more considerations appy (what is found 0 or >1)?
-	// potentially displaying some UI for user to pick the right one, pair over BT, etc
+	// to select a printer, consider what was found: 0 or >1,
+	// potentially displaying UI to pick and pair with the right one:
+
 		var myPrinter = EB.PrinterZebra.getPrinterByID()
 
-	// actually connect, might take time, so has async callback
+	// actually connect, might take time, so has async callback:
+
 		myPrinter.connect(connect_callback)
 
 	// finally print, also takes time – use callback
-	// prints text, barcodes, images, teplates, raw ZPL and other command languages, etc
+	// prints text, barcodes, images, templates, raw ZPL 
+	// other command languages, etc.: 
+
 		myPrinter.print...(<data>) //printFromFile, printStoredFormat, printRawString, etc
 
 This is the minimal logic required. Let’s implement it and later see what additional features we might need.
