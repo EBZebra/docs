@@ -1,15 +1,15 @@
 # Printing
 ## Overview
-RhoMobile Suite 5.3 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile/CE. **New in version 5.3 is the ability to print via USB to Windows Mobile/CE devices**, building on similar support for Android devices introduced in 5.1.  
+Enterprise Browser 1.3 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile/CE. **New in version 1.3 is the ability to print via USB to Windows Mobile/CE devices**, building on similar support for Android devices introduced in 1.3.  
 
-To facilite USB printing, the RhoMobile printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](#zebra-printers-with-usb-printing). Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel.
+To facilite USB printing, the Enterprise Browser printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](#zebra-printers-with-usb-printing). Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel.
 
-This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
+This guide is designed to provide an overview of the steps necessary to enable printing in an Enterprise Browser application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
 ## 1- Enable Print APIs
-The [RhoMobile APIs](apisummary) provide two APIs for printing. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) API is the printer-type API for Zebra printers. 
+Enterprise Browser provides two APIs for printing. The [Printing API](../api/printing) is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra API](../api/printingzebra) is the printer-type API for Zebra printers. 
 
-**To enable printing in your application, your `build.yml` must include both of these extensions**. 
+**To enable printing in your application, your `build.yml` must i`nclude both of these extensions**. 
 
 Example `build.yml` command: 
 
@@ -112,7 +112,7 @@ Sample JavaScript code:
 			}
 		});
 
-Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
+Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in EB 1.3.**
 <br>
 
 ####USB Compatibility Alerts
@@ -133,7 +133,7 @@ Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB`
 
 The script in STEP 2 executes the callback function of the [searchPrinters](../api/printing#msearchPrintersSTATIC) method, which returns a unique printerID property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional callback will be triggered and will contain no printerID, signaling the end of search and that it's safe to connect to a printer.
 
-NOTE: This `printerID` is a unique identifier that is tracked by the RhoMobile framework. It has no relation to ID numbers that a printer manufacturer might be using.
+NOTE: This `printerID` is a unique identifier that is tracked by the Enterprise Browser framework. It has no relation to ID numbers that a printer manufacturer might be using.
 
 At this time there should be one or more `printerID` values in the `printers` array variable. To access one, create an instance of the Printer class by calling the [getPrinterByID](../api//printingzebra#mgetPrinterByIDSTATIC) method and passing a `printerID` as a string to the vairable `myPrinter`:
 
@@ -362,10 +362,10 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 * Windows CE only - You'll also need to install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
 
 #### Printing-Service Installation
-* The .cab file for the printing service is held inside the `printing-service` folder inside your RhoMobile Suite installation directory located at `C:\<path to your rhomobile suite installation>\printing-service\PrintingService.cab`
+* The .cab file for the printing service is held inside the `printing-service` folder inside your Enterprise Browser Suite installation directory located at `C:\<path to your Enterprise Browser suite installation>\printing-service\PrintingService.cab`
 
 #### Limitations
-* The printing service currently supports a single client at a time. Multi-client printing will be introduced in a future version of RMS.
+* The printing service currently supports a single client at a time. Multi-client printing will be introduced in a future version of EB.
 * The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with Bluetooth printers.
 * The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.
 
