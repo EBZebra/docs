@@ -41,7 +41,7 @@ Condensed into its basic steps, the printing process involves:
 
 ####2-Initialize:
 
-* Check for printer readiness (connection, media, open doors, etc.)
+* Check for printer readiness (connection, media, open panels, etc.)
 * Initialize printer
 * Configure parameters, invoke template, etc.
 
@@ -52,12 +52,13 @@ Condensed into its basic steps, the printing process involves:
 
 ###Sample app
 
-The starting point for this tutorial is the sample app from the MBS1018 lesson. If you have not completed that training or didn't save the app, please [download the sample app]() now. 
+The starting point for this tutorial is the sample app from the MBS1018 lesson. If you have not completed that training or didn't save the app, please [download the sample app](https://github.com/EBZebra/docs/blob/5fed402c62f66f56c6ab914fd0236fad0f8df191/images/MBS1018_sample_app.html.zip?raw=true) now. 
 
-To this app, we will add:
+Using this app, the tutorial will demonstrate how to:
 
-* A 'Print' button
-* The code required to find, connect and print
+* Add a 'Print' button to an existing app page
+* Structure the code required to find and connect to a printer
+* Send print jobs of various types
 
 At the end of this tutorial, the resulting application will look like the one below: 
 
@@ -77,7 +78,7 @@ For more information about how to include API modules, please refer to the [Prin
 
 Next we'll add a Print button to the main HTML form add a placeholder for displaying print status and log messages and alerts. Such feedback is important for letting the user know of printing progress and potential connection errors, lack of paper, etc. A status window also is more user-friendly than bombarding them with alerts and pop-ups. We will these objects right after the quit button.
 
-<b>&#50;. Insert the following two lines of JavaScript as indicated in the comments below:</b>
+<b>&#50;. To add a Print button, insert the following two lines of JavaScript as indicated in the comments below:</b>
 
 		:::JavaScript
 		<button onClick="EB.Application.quit()">Quit</button>
@@ -94,7 +95,7 @@ Next we'll add a Print button to the main HTML form add a placeholder for displa
 ###The main flow
 The key printing process flow can be accomplished with the four lines of code in the section below. Each line is described by comments above it.
 
-<b>&#49;. Read the following four lines of JavaScript code and above each the comments that explain them:</b>
+<b>&#51;. Take a look at the following four lines of JavaScript code and the comments that explain them above each:</b>
 
 	:::JavaScript
 	// Search for all available printers using a callback.
@@ -119,11 +120,11 @@ The key printing process flow can be accomplished with the four lines of code in
 
 	//Methods include printFromFile, printStoredFormat, printRawString, etc.
 
-Although the four methods above are the minimal logic required for printing, there are several ways to improve pairing, printing and the overall user experience. We'll implement those basic methods next, and explore additional features that we might want to add.
+Although the four methods above are the minimal logic required for printing, there are several ways to improve pairing, printing and the overall user experience. We'll implement those basic methods next, and explore additional features that might be desireable.
 
-Since all the code is callback-based, the actual code structure can be presented as nested inline functions, as shown below. The comments describe the code and/or additional work that could logically be added but isn’t strictly necessary for this proof-of-concept app. 
+Since all the code is callback-based, the actual code structure can be presented as nested inline functions (shown below). The comments describe the code and/or additional work that could logically be added but isn’t strictly necessary for this proof-of-concept app. 
 
-<b>&#50;. Find the four methods above nested within the JavaScript function below:</b>
+<b>&#52;. Find the four methods above nested within the JavaScript function below:</b>
 
 	:::JavaScript
 	// Do some prep work (discussed later) then search all printers: 
@@ -155,54 +156,51 @@ Since all the code is callback-based, the actual code structure can be presented
 		})
 	}
 
-This is the key “skeleton” code. Even without everything mentioned in comments, this code will actually print something. Just add the search parameters based on the printer connection type here are the sample search parameter hashes:
+This is the key “skeleton” code. Even without everything mentioned in comments, this code will actually print something to the connected printer. Below are the printer connection types and the sample search parameter hashes. 
 
-TCP/IP (wired or Wi-Fi) with specific address and port:
+<b>&#53;. Add the appropriate code based on the printer to be connected</b>:
+
+<b>TCP/IP (wired or Wi-Fi)</b> with specific address and port:
 
 		:::JavaScript
 	{"deviceAddress":"1.2.3.4","devicePort":6101,"connectionType":EB.Printer.CONNECTION_TYPE_TCP}
 
 If the IP address is not specified, the device will sweep the entire /8 (255.0.0.0) subnet, and generally cause a long delay. 
 
-Bluetooth with specific MAC Address:
+<b>Bluetooth</b> with specific MAC Address:
 
 		:::JavaScript
 	{"deviceAddress":"00225898D8CB","connectionType":EB.Printer.CONNECTION_TYPE_BLUETOOTH}
 
-If no BlueTooth MAC address is specified, all devices within range--headsets, laptops, TVs and printers-–will be returned. EB cannot identify a printing device until after it has paired with one.
+If no Bluetooth MAC address is specified, all devices within range--headsets, laptops, TVs and printers-–will be returned. EB cannot identify a printing device until after it has paired with one.
 
-Android OS security model does not allow for easy programmatic pairing, so currently user will have to do it manually.
+**NOTE: The Android security model does not allow for easy programmatic pairing; the user must perform pairing manually**.
 
-USB: 
+<b>USB</b>: 
 
 		:::JavaScript
 	{"connectionType":EB.Printer.CONNECTION_TYPE_USB}
-	USB Port must be in Host mode before you have started the app.
-	Later, check more defaults and parameters in the API Reference and see why you can even use just {}!
 
-More considerations for each connection type are present in the “Remarks” section of API reference. 
+<b> For USB connections, device must be in 'USB Host mode'</b> before the app is started. For more more information about this and other connection types, defaults and [parameters], please refer to the [Printer API reference](../api-printing) and its [Remarks section](../api-printing?Remarks).  
 
-Here you go! Try it! Chances are – it will print. But chances are, it would not. Why?
-This code relies on numerous dangerous assumptions, which may be ok for a carefully prepared PoC, but not for real life. Some of these assumptions include: 
+If unable to print, please check the following assumptions:  
 
 * Only a single printer is connected
-* Printer is accessible (paired over BT, etc)
+* Printer is accessible and/or 'discoverable' (over BT, etc.)
 * Printer connection is always successful
 * Printer is loaded with media and ready to print
-* Media is of the right type, length etc
+* Media is of the right type, size, etc.
 * Printer is correctly pre-configured to work with the data we want to print (all the settings and options, correct command language and mode used)
-
-In addition, this code has more problems, which we will deal with in the next section. Making a pause now would be a good thing.
 
 ###Adding flesh to the bones
 
-In the previous section we have created the “skeleton” code for printing PoC. However, this code has numerous problems, which can be grouped in three categories.
+In the previous section we created the “skeleton” code for printing. The problems in this proof-of-concept app can be grouped in three categories: 
 
-* Numerous dangerous assumptions
-* Does not reflect the real-life logic and flow 
-* Hard to manage and inflexible with all the nested inline functions
+1. Numerous assumptions
+2. Does not reflect real-world logic and flow 
+3. Nested inline functions make inflexible and hard to manage
 
-Let’s deal with these problems two and three first. Currently, we have three inline callbacks. This code is not very easy to read, not very flexible and also has a fatal flaw.
+Let’s deal with problems two and three first. Currently, we have three inline callbacks: 
 
 		:::JavaScript
 	function print_ticket() {
@@ -215,8 +213,9 @@ Let’s deal with these problems two and three first. Currently, we have three i
 		})
 	}
 
+Aside from being inflexible and hard to read, the code also has a fatal flaw; the first callback (for searchPrinters) will be called for every printer. While it will work perfectly well for a single printer, it might waste time attepmting to connect and print if more than one printer is found. 
 
-The first callback (for searchPrinters) will be called for every printer. If left as is, it will work nicely for a single printer, but how many times will it attempt to connect and print if more than one printer was found? Let’s disentangle everything:
+<b>So let's disentangle everything</b>:
 
 		:::JavaScript
 	function print_ticket() {
@@ -235,42 +234,52 @@ The first callback (for searchPrinters) will be called for every printer. If lef
 	function print_callback(cb) {
 	}
 
-Now, let’s think logically and pose a few questions you’ll want to answer when adding printing to your app:
+<b> Next, let’s think logically about adding printing capability to an app</b>:
 
-* Does it make sense to begin searching for printers only after user had pressed “Print”? Isn’t it a bit too late?
+* Does it make sense to begin searching for printers only after user has pressed 'Print'?
+* If not, when is the best time to search for and connect to a printer?
+* How much time will the search for a printer require? 
+* How will that delay affect the user experience?
+* Should the Print button be disabled until a printer is connected?
+* What should be displayed before a printer is selected?
 
-* How long will the search take? How will it affect the user experience?
-Shouldn’t I have disabled the Print button when no printers are found (or have done something else, such as displayed an error message or prompted user to select the right printer?)
+When a single printer is connected via USB cable, most of these questions become irrelevant. But when Wi-Fi or Bluetooth are involved, or if the app is intended for more general purposes, these issues become important to the user experience.
 
-In case of a single printer connected via USB cable – none of this is a serious issue. In case of Wi-Fi, Bluetooth or a more universal app, you might want to pause and think.
+One approach is to search for printers as soon as the app loads and determine actions based on how many are found (0, 1 or >1): 
 
-How can we address these? Probably, a good idea would be to search for printers as soon as the app loads, see how many we found (0, 1, >1) and take action based on this. The action may be disabling the print functionality (if the business process allows it), prompting user to connect a printer, prompting user the select the printer when more than one is found. 
+<b>1. If no printers are found</b>, disable print functionality (if the business process allows it). 
 
-In our example we decided to disable the Print button upon page load and only enable it if a suitable printer is found. Here’s what sample code may look like:
+<b>2. If a single printer is found</b>, connect to it. 
+
+<b>3. If more than one printer is found</b>, prompt the user to select the desired printer. 
+
+In our example, we decided to disable the Print button upon page load, enabling it only if a suitable printer is found. Here’s what that sample code might look like:
 
 		:::JavaScript
-	// will hold all the printers found, if we expect more than one
-	// global var for simplicity sake
+	// will hold all the printers found if more than one is expected
+	// global var used for simplicity
 
 		var printers_array = [] 
 
-		function onLoad () { // called by our sample app when the page loads
+		function onLoad () { // called when the page loads
 		
-		// ... other app init code here ...
+		// ... other app init code goes here ...
 
 		EB.PrinterZebra.searchPrinters (<search params>, search_callback)
 		
-		// ... other app init code here ...
+		// ... other app init code goes here ...
 	}
 
-	function search_callback(cb) {	// this is triggered for EVERY device found
+	function search_callback(cb) {	// triggered for EVERY device found
+
 		if(cb.status == 'PRINTER_STATUS_SUCCESS' && cb.printerID != undefined) {
 			v_out('#print_status', "Found printer: " + cb.printerID)			
 			var p = EB.PrinterZebra.getPrinterByID(cb.printerID)
 
-			// Only add a device if it has supported printer type. 
-			// Here we choose zebra.Check the API reference for more supported types.
-			// of course, this code can do more complex checks
+			// Add a device only if it has supported printer type 
+			// Here we choose zebra.Check - the API reference for more supported types.
+			// This code also can do more complex checks
+
 			if (p.printerType == PRINTER_TYPE_ZEBRA) printers_array.push(p)
 		}
 		else {
@@ -282,74 +291,86 @@ In our example we decided to disable the Print button upon page load and only en
 This code will find all the printers and populate the printers_array with the Printer instances that we need. Now, how would we actually know that the search is over and choose the printer to use? Since the code is async, we will need to specify search timeout as part of parameters, and then trigger an async timed function (using JS standard SetTimeout() call). The default timeout is 30 seconds. We’ll reduce it to 10.
 
 		:::JavaScript
-	var printers_array = [] 	// will hold all the printers found, if we expect more than one
-	var myPrinter = null 	// this will be the printer to use by the app
+	var printers_array = [] // will hold all the printers found, if we expect more than one
+	var myPrinter = null 	// this will be the printer to use
+	function onLoad () { 	// called when the page loads
 
-	function onLoad () { // called by our sample app when the page loads
 		// ... other app init code here ...
-		$('#PrintBtn').disabled = true
-		v_out('#print_status', "Searching for printers")
-		EB.PrinterZebra.searchPrinters ({"timeout":10000, <other params>}, search_callback)
-		var PrinterTimeout = setTimeout(process_found_printers, 10500)
+
+	$('#PrintBtn').disabled = true
+	v_out('#print_status', "Searching for printers")
+	EB.PrinterZebra.searchPrinters ({"timeout":10000, <other params>}, search_callback)
+	var PrinterTimeout = setTimeout(process_found_printers, 10500)
 	}
 
 	function process_found_printers() {
 
 		// first, stop the search if it's still on
 		// ideally, the code below should be within the callback of stopSearch()
-		EB.PrinterZebra.stopSearch()
+
+	EB.PrinterZebra.stopSearch()
+
 		// but we want it simple
 
-		if (printers_array.length < 1 ) { // no printers found
-			v_out('#print_status', "No printers found")
-			do_something_when_no_printers_found() // your own logic here
-			return
+	if (printers_array.length < 1 ) { // no printers found
+		v_out('#print_status', "No printers found")
+		do_something_when_no_printers_found() // your own logic here
+		return
 		}	
 
-		if (printers_array.length > 1) { // multiple printers found
-			v_out('#print_status', "Multiple printers found")
-			myPrinter = choose_one_printer_somehow() // ex. let user choose from menu
-		} else { // exactly one printer found
-			v_out('#print_status', "Printer found")
-			myPrinter = printers_array[0]
-		}
+	if (printers_array.length > 1) { // multiple printers found
+		v_out('#print_status', "Multiple printers found")
+		myPrinter = choose_one_printer_somehow() // let user choose from menu
+
+	} else { // exactly one printer found
+		v_out('#print_status', "Printer found")
+		myPrinter = printers_array[0]
+	}
 		$('#PrintBtn').disabled = false // enable print button
-		v_out('#print_status', "Connecting to printer " + myPrinter.ID) 	// could specify name or IP instead of ID based on your use case 
+		v_out('#print_status', "Connecting to printer " + myPrinter.ID) 
+
+		// could specify name or IP instead of ID based on your use case 
+
 		myPrinter.connect(connect_callback)
 	}
 
-Now our code actually can search for printers and connect to the chosen one. Once the connection is made (successfully) we can actually enabling printing functionality. Then our print_ticket() function will be simplified to this, which makes a lot more sense:
+Now our code actually can search for printers and connect to the chosen one. Once a successful connection is made, we can enable printing functionality. Then our print_ticket() function will be simplified to the following, which makes a lot more sense:
 
 	:::JavaScript
 	function print_ticket() { myPrinter.printRawString(<string>,{},print_callback) }
 
-Now we can connect to printer once and print different information from many different parts of our app without any overhead. But is this good enough? We still have a lot of assumptions about the printer state and configuration. We’ll deal with those next.
+Our code now connects to a printer one time and can print information from different parts of the app without additional overhead. However, we still have several assumptions about the printer state and its configuration. We’ll deal with those next.
 
 ###Working with the printer
 
-Now that we have printer found and connected, we want to ensure it’s properly set up and ready to print. Typical tasks and checks here are as follows:
+Now that a printer is found and connected, we want to ensure it’s properly set up and ready to print. Typical tasks and checks are as follows:
 
-Is printer correctly configured (control language, printer settings, media settings, etc)?
+<b>&#49;. Check that the printer is correctly configured</b> in terms of control language, printer settings, media settings, etc.:
 
-		:::JavaScript
-	getAllProperties(),getProperties(),getProperty()
-	setProperties(),setProperty()
-	enumerateSupportedControlLanguages()
-	If printing images or ZPL templates (called “formats”), are those present in the printer? Do we need to push them?
-	retrieveFileNames(),retrieveFileNamesWithExtensions()
-	storeImage(), <store format?>
+* `getAllProperties()`, `getProperties()`, `getProperty()`
+* `setProperties()`, `setProperty()`
+* `enumerateSupportedControlLanguages()`
 
-Once printer is all set up and configured, is it ready to print (i.e. door not open, media is there, etc)?
+<b>&#50;. If printing images and/or ZPL templates (aka 'formats')</b>, check that they're resident in the printer (and push if necessary): 
 
-		:::JavaScript
-	requestState()
+* `retrieveFileNames()`, `retrieveFileNamesWithExtensions()`
+* `storeImage()`
 
-Is the print attempt successful (print callback)?
+<b>&#51;. Check for printer readiness</b> (i.e. media present, all panels closed, etc.): 
 
-Which of these operations do you need to perform just once, and which every time before you print? Most likely, the first two are one-time (unless you actually have to reconfigure the printer for different print tasks), but the state request and status check should be done for every attempt.
+* `requestState()`
 
-		:::JavaScript
-	[put the code here one I figure it out]
+<b>&#52;. Did the job print successfully</b> (print callback)?
+
+Consider which of these operations must be performed: 
+
+* Just once when the app loads
+* Prior to sending every print job 
+* After sending every print job
+
+Unless reconfiguring the printer for varied tasks, the first two will most likely be required just when the app initially loads, and the latter two before and after every job. 
+
+<!--WORK IN PROGRESS
 
 [WIP] Additional considerations
 
@@ -380,7 +401,7 @@ Are you the only app using the printer? Do you need to disconnect from it?
 Tap the Enterprise Browser icon on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
 
 		:::JavaScript
-	  [put the flow here once done]
+	  [put the flow here once done] -->
 
 ###Conclusion
 This completes the Enterprise Browser Printing tutorial. For more information, please refer to the [Enterprise Browser Printer API documentation](../api-printing). 
