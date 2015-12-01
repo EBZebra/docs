@@ -445,43 +445,43 @@ A simplified application development approach allows for shorter time to market 
   <th class="text-centered">Interface(s)</th>
  </tr>
 <tr>
-<td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/mobile/mz-220/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/x1426279604956.jpg.pagespeed.ic.F9pw8Srpwb.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://raw.githubusercontent.com/EBZebra/docs/d05601dc71f2531672f39c00238de2ea250d851f/edge/images/zebra-mz220.jpg" width="175"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>MZ</b></td>
 <td class="clsSyntaxCells clsOddRow">MZ 220, MZ 320</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
-<td class="clsSyntaxCells clsOddRow">BT, Wi-Fi, USB</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
 </tr>
 <tr>
-<td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" width="175"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>iMZ</b></td>
 <td class="clsSyntaxCells clsOddRow">iMZ 220, iMZ 320</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
-<td class="clsSyntaxCells clsOddRow">BT, Wi-Fi, USB</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
 </tr>
 <tr>
-<td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" width="175"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
 <td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
-<td class="clsSyntaxCells usb comp">Android, Mac OS X, Windows Mobile, CE, x86</td>
-<td class="clsSyntaxCells clsOddRow">BT, Wi-Fi, USB</td>
+<td class="clsSyntaxCells usb comp">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
 </tr>
 <tr>
-<td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/passive-rfid/rp4t/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/1426279500551.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://raw.githubusercontent.com/EBZebra/docs/d05601dc71f2531672f39c00238de2ea250d851f/edge/images/zebra-p4t.jpg" width="175"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>P4T</b></td>
 <td class="clsSyntaxCells clsOddRow">P4T, RP4T Passive RFID Printer</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
-<td class="clsSyntaxCells clsOddRow">BT, Wi-Fi, USB</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
 </tr>
 <tr>
-<td class="clsSyntaxCells clsOddRow"><img id="zd500rpic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/rfid/zd500r/_jcr_content/mainpar/tabscontainer/detailed-specs/content/subtabscontainer_540/zd500r/content/twocol_83b/leftpar/image_236a.img.png/1433356327246.png" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><img id="zd500rpic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/rfid/zd500r/_jcr_content/mainpar/tabscontainer/detailed-specs/content/subtabscontainer_540/zd500r/content/twocol_83b/leftpar/image_236a.img.png/1433356327246.png" width="175"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>ZD500R</b></td>
 <td class="clsSyntaxCells clsOddRow">ZD500R RFID Printer</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
-<td class="clsSyntaxCells clsOddRow">BT, Wi-Fi, USB</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
 </tr>
 <td class="clsSyntaxCells clsOddRow"><b></b></td>
-<td class="clsSyntaxCells clsOddRow">These printers have been tested for compatibility with USB printing. Enterprise Browser supports numerous additional printers.</td>
+<td class="clsSyntaxCells clsOddRow"><b>These printers tested for USB compatibility. Numerous additional printers are supported.</b>.</td>
 <td class="clsSyntaxCells clsOddRow"></td>
-<td class="clsSyntaxCells clsOddRow"><b>NOTE: Zebra's QL Plus and QLn series printers DO NOT support USB printing from Android devices</b>.</td>
+<td class="clsSyntaxCells clsOddRow"><b>Zebra's QL Plus and QLn series printers do not supprot USB printing.</b>.</td>
 <td class="clsSyntaxCells clsOddRow"></td>
 </tr>
