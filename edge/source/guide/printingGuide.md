@@ -2,9 +2,11 @@
 ## Overview
 Enterprise Browser permits printing via Bluetooth, USB and Wi-Fi from mobile devices running Android and Windows Mobile/CE. To facilite USB printing, the Enterprise Browser 1.3 printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. 
 
-To print via USB, the Zebra device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](../?Printers). Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel. Connecting an OTG cable to an Android device invokes host mode automatically.
+**To print via USB, a USB "On-The-Go" (OTG) cable or adapter is required**. The Zebra computing device also must be connected to one of [Zebra's supported printers](../?Printers) or a compatible third-party printer. Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel. Connecting an OTG cable to an Android device invokes host mode automatically.
 
 This guide is designed to provide an overview of the steps necessary to enable printing in an Enterprise Browser application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build an application using the Zebra printing APIs. 
+
+For more information, please refer to the [Printing Tutorial](../guide-tutorial-printing).
 
 ## 1- Enable Print APIs
 Enterprise Browser provides two APIs for printing. The [Printer API](../api/printing) is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrinterZebra API](../api/printingzebra) is the printer-type API for Zebra printers. 
@@ -12,11 +14,11 @@ Enterprise Browser provides two APIs for printing. The [Printer API](../api/prin
 There are two methods of enabling the Printer API:
 
 * Include all 'ebapi' modules
-* Include only the API modules you need
+* Include only the API required modules
 
 Both methods are explained below. 
 
-Either way, the included files will be from: 
+Either way, the included files can be found in: 
 `/Enterprise Browser/JavaScript Files/Enterprise Browser`,
 a directory on the computer that contains the Enterprise Browser installation.
 
@@ -28,8 +30,8 @@ To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location a
 
 > This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
 
-### Include only the modules you need
-To include individual APIs, first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the Printer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
+### Include only the required modules
+To include individual APIs, first include the `ebapi.js` in the HTML, and then the additional required API file(s). For instance, to use the Printer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
@@ -38,10 +40,10 @@ To include individual APIs, first include the `ebapi.js` in your HTML, and then 
 > In the code lines above, notice that `ebapi.js` is included first, followed by `eb.printer.js`, which is the Printer API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
 
 ## 2- Find a Printer
-Before your app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
+Before an app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
 
 ###Finding via Bluetooth
-Printing via Bluetooth is supported for Android and Windows Mobile apps. **During Bluetooth discovery, the printer must be set to "discoverable."** The following JavaScript code looks for any Zebra printers discoverable via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
+Printing via Bluetooth is supported for Android and Windows Mobile/CE apps. **During Bluetooth discovery, the printer must be set to "discoverable."** The following JavaScript code looks for any Zebra printers discoverable via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
 
 Sample JavaScript code: 
 
@@ -282,7 +284,7 @@ Sample JavaScript code:
 	var addressFile = EB.RhoFile.join(EB.Application.publicFolder, 'address.cpcl');
 
 	//assuming you made an instance and connected per the previous instructions
-	
+
 	myPrinter.sendFileContents(addressFile,function(e){
 		console.log(e);
 		// Will return a PRINTER_STATUS... CONSTANT String

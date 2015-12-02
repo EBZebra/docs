@@ -4,6 +4,8 @@ This tutorial covers the use of the Enterprise Browser [Printer API](../api-prin
 
 The level of instruction in this tutorial is higher than that of other EB tutorials. Completion of the main training module and several additional EB tutorials is recommended (see below). This tutorial enables the sample app from the MBS1018 lesson to print a ticket with a barcode that contains a summary of error data to a printer attached directly to the mobile device.
 
+For more information, please refer to the [Printing Guide](../guide-printingGuide).
+
 **Note: The code in this tutorial does not implement barcode printing**.
 
 ##Prerequisites
@@ -14,8 +16,10 @@ The following are **required** to complete this tutorial:
 * Enterprise Browser installed on a development PC 
 * A Zebra mobile device and USB cable
 * Enterprise Browser installed on the Zebra device
-* A supported Zebra or third-party printer 
+* One of [Zebra's USB-supported printers](../?Printers) or a third-party printer 
+* A [USB "On-the-Go" cable](../guide-printingGuide) 
 * Appropriate printer drivers installed on the mobile device
+
 
 
 The following are **strongly recommended**:
