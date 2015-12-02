@@ -137,19 +137,7 @@ Sample JavaScript code:
 Use the `search.Printers` method and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in EB 1.3.**
 <br>
 
-####USB Compatibility Alerts
-
-* **A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals** such as flash drives, keyboards and printers. 
-
-* **Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle** that allows the TC7X to act as host or client, depending on the cable.
-
-* **The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP)**, portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
-
-* **Printing via USB from a cradled device is possible by inserting an OTG Micro Type A connector to the cradle** and connecting the USB-B (or Mini-B) end to the printer.
-
-* **OTG supports direct USB connections only**; the use of USB hubs is not supported by the OTG spec. 
-<br>  
-
+For more information about USB connections, please refer to the [USB Compatibility Notes](?USBCompatibilityNotes) later in this guide. 
 
 ## 3- Connect to a Printer
 
@@ -291,7 +279,9 @@ Sample JavaScript code:
 		});
 
 ## 7- Disconnect
-Whenever an app is finished printing, it's important to disconnect from the printer. This is especially important for Bluetooth connections. To disconnect, use the [disconnect](../api/printingzebra#mdisconnect) method:
+Whenever an app is finished printing, it's important to disconnect from the printer. This is especially important for Bluetooth connections. 
+
+**To disconnect, use the [disconnect](../api/printingzebra#mdisconnect) method**:
 
 	:::javacript
 	//assumes you already created an instance object from previous instructions
@@ -392,20 +382,37 @@ Sample JavaScript code:
 
 
 ## Platform Notes
-### Windows Mobile / Windows CE
+### Windows Mobile/CE
 #### Requirements
 Windows Mobile/CE require that a provided `printing-service` application is installed and always running in order to use the [Printing](../api/printing) and [PrintingZebra](../api/printingzebra) APIs.
 
 * Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device. You may find the device installation package on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\NETCFv35.wm.armv4i.cab`
 * Windows CE only - You'll also need to install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
 
-#### Printing-Service Installation
+###Printing-Service Installation
 * The .cab file for the printing service is held inside the `printing-service` folder inside your Enterprise Browser Suite installation directory located at `C:\<path to your Enterprise Browser suite installation>\printing-service\PrintingService.cab`
 
 #### Limitations
 * The printing service currently supports a single client at a time. Multi-client printing will be introduced in a future version of EB.
 * The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with Bluetooth printers.
 * The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.
+
+###USB Compatibility Notes
+
+* A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals such as flash drives, keyboards and printers. 
+
+* Windows Mobile/CE devices must manually be placed in 'Host Mode' (found under USB Config in the Settings panel). 
+
+* Connecting an OTG cable to an Android device invokes host mode automatically.
+
+* Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle that allows the TC7X to act as host or client, depending on the cable.
+
+* The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP), portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
+
+* Printing via USB from a cradled device is possible by inserting an OTG Micro Type A connector to the cradle and connecting the USB-B (or Mini-B) end to the printer.
+
+* OTG supports direct USB connections only; the use of USB hubs is not supported by the OTG spec. 
+
 
 <!-- <a name="zebra-printers-with-usb-printing"></a>
 
