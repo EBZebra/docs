@@ -99,17 +99,17 @@ var menuStrcture = [
 				]
 			},
 			{
-				name: 'Configuration',
+				name: 'Usage Guides',
 				icon: 'fa fa-gears',
 				link: '#',
 				items: [
 					{
-						title: 'Configuration',
+						title: 'Usage Guides',
 						icon: 'fa fa-gears',
 						items: [
 							{
-								name: 'App Shortcuts Guide',
-								link: '#guide-shortcuts',
+								name: 'Certificate Usage',
+								link: '#guide-certificates',
 							},
 							{
 								name: 'Config Editor Utility',
@@ -128,16 +128,16 @@ var menuStrcture = [
 								link: '#guide-OndeviceConfig',
 							},
 							{
+								name: 'Printing Guide',
+								link: '#guide-printingGuide',
+							},
+							{
 								name: 'SAP ITS Usage',
 								link: '#guide-sap',
 							},
 							{
-								name: 'Shortcut Utility',
+								name: 'Shortcut Guide and Utility',
 								link: '#guide-ShortcutCreator',
-							},
-							{
-								name: 'Certificate Usage',
-								link: '#guide-certificates',
 							},
 							{
 								name: 'Viewport Usage',

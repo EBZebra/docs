@@ -1,4 +1,4 @@
-# Printing
+# Printing With Enterprise Browser
 ## Overview
 Enterprise Browser permits printing via Bluetooth, USB and Wi-Fi from mobile devices running Android and Windows Mobile/CE. To facilite USB printing, the Enterprise Browser 1.3 printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. 
 
