@@ -2,7 +2,7 @@
 ## Overview
 Enterprise Browser permits printing via Bluetooth, USB and Wi-Fi from mobile devices running Android and Windows Mobile/CE. To facilite USB printing, the Enterprise Browser 1.3 printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. 
 
-**To print via USB, a USB "On-The-Go" (OTG) cable or adapter is required**. The Zebra computing device also must be connected to one of [Zebra's supported printers](../?Printers) or a compatible third-party printer. Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel. Connecting an OTG cable to an Android device invokes host mode automatically.
+**Printing via USB requires a USB "On-The-Go" (OTG) cable or adapter and one of [Zebra's printers with USB printing support](../?Printers)** or a compatible third-party printer. Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel. Connecting an OTG cable to an Android device invokes host mode automatically.
 
 This guide is designed to provide an overview of the steps necessary to enable printing in an Enterprise Browser application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build an application using the Zebra printing APIs. 
 

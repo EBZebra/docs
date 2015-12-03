@@ -438,7 +438,7 @@ A simplified application development approach allows for shorter time to market 
 ###Printers
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
-  <th class="clsSyntaxHeadings">These printers have been tested for USB compatibility. Zebra supports wireless printing on many other models.</th>
+  <th class="clsSyntaxHeadings">These printers have been tested for USB printing compatibility. Zebra supports wireless printing on many other models.</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Device models</th>
   <th class="clsSyntaxHeadings">Operating System(s)</th>
@@ -479,9 +479,10 @@ A simplified application development approach allows for shorter time to market 
 <td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
 <td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
 </tr>
+<td class="clsSyntaxCells clsOddRow"><b>NOTE</b>: Zebra's QL Plus and QLn series<br>printers do not support USB printing.</td>
 <td class="clsSyntaxCells clsOddRow"></td>
-<td class="clsSyntaxCells clsOddRow"><b>NOTE: Zebra's QL Plus and QLn series printers do not support USB printing.</b></td>
 <td class="clsSyntaxCells clsOddRow"></td>
 <td class="clsSyntaxCells clsOddRow"></td>
 <td class="clsSyntaxCells clsOddRow"></td>
 </tr>
+</tbody>
