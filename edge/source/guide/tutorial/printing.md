@@ -118,7 +118,7 @@ When finished, this portion of the HTML should look like this:
 <img style="height:80px" src="images/eb_tutorials/Printing_API_tutorial_03.png"/>
 
 ###The main flow
-The key printing process flow can be accomplished with the four lines of code in the section below. Each line is described by comments above it.
+The key printing process flow can be accomplished with the four lines of code in the section below.
 
 <b>&#52;. Without adding them in yet, look at the following four lines of JavaScript code and the comments that explain them above each:</b>
 
