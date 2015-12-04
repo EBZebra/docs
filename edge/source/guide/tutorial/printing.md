@@ -85,21 +85,42 @@ Next we'll add a Print button to the main HTML form add a placeholder for displa
 <b>&#50;. To add a Print button, insert the following two lines of JavaScript as indicated in the comments below:</b>
 
 		:::JavaScript
-		<button onClick="EB.Application.quit()">Quit</button>
 
-	<!-- insert the following two lines after the line above... -->
-		
+	// Copy the two lines below: 
+
 		<button id=”PrintBtn” onClick="print_ticket()">Print</button>
 		<div><span id="print_status"></span></div>
 	
-	<!-- ...and before the end of the BODY section: -->
+	// and paste them in between the 'Quit' button (below)...
+
+		<button onClick="EB.Application.quit()">Quit</button>
+
+	// ...and the </BODY> tag, which is near the very bottom of the file. 
 
 		</BODY>
+
+
+When finished, this portion of the HTML should look like this: 
+
+	:::JavaScript
+
+	//Here's roughly how the code should look after adding the 'Print' button:
+
+		<button onClick="EB.Application.quit()"	>Quit</button>
+
+		<button id=”PrintBtn” onClick="print_ticket()">Print</button>
+	    <div><span id="print_status"></span></div>
+		
+		</BODY>
+
+<b>&#51;. Save the change and reload the page</b>. A new 'Print' button will appear next to 'Reload' and 'Quit' buttons, similar to the image below: 
+
+<img style="height:80px" src="images/eb_tutorials/Printing_API_tutorial_03.png"/>
 
 ###The main flow
 The key printing process flow can be accomplished with the four lines of code in the section below. Each line is described by comments above it.
 
-<b>&#51;. Take a look at the following four lines of JavaScript code and the comments that explain them above each:</b>
+<b>&#52;. Without adding them in yet, look at the following four lines of JavaScript code and the comments that explain them above each:</b>
 
 	:::JavaScript
 	// Search for all available printers using a callback.
@@ -124,11 +145,11 @@ The key printing process flow can be accomplished with the four lines of code in
 
 	//Methods include printFromFile, printStoredFormat, printRawString, etc.
 
-Although the four methods above are the minimal logic required for printing, there are several ways to improve pairing, printing and the overall user experience. We'll implement those basic methods next, and explore additional features that might be desireable.
+The four methods above represent the minimal logic required for printing. However, there are several ways to improve pairing, printing and the overall user experience. We'll implement the printing app's basic methods first, and then explore ways to enhance it.
 
 Since all the code is callback-based, the actual code structure can be presented as nested inline functions (shown below). The comments describe the code and/or additional work that could logically be added but isn’t strictly necessary for this proof-of-concept app. 
 
-<b>&#52;. Find the four methods above nested within the JavaScript function below:</b>
+<b>&#53;. Find the four methods above nested within the JavaScript function below:</b>
 
 	:::JavaScript
 	// Do some prep work (discussed later) then search all printers: 
@@ -160,9 +181,9 @@ Since all the code is callback-based, the actual code structure can be presented
 		})
 	}
 
-This is the key “skeleton” code. Even without everything mentioned in comments, this code will actually print something to the connected printer. Below are the printer connection types and the sample search parameter hashes. 
+This is the key “skeleton” code. Even without everything described in the comments, this code will actually print something to the connected printer. Below are the printer connection types and the sample search parameter hashes. 
 
-<b>&#53;. Add the appropriate code based on the printer to be connected</b>:
+<b>&#54;. Add the appropriate code based on the printer to be connected</b>:
 
 <b>TCP/IP (wired or Wi-Fi)</b> with specific address and port:
 
@@ -178,12 +199,13 @@ If the IP address is not specified, the device will sweep the entire /8 (255.0.0
 
 If no Bluetooth MAC address is specified, all devices within range--headsets, laptops, TVs and printers-–will be returned. EB cannot identify a printing device until after it has paired with one.
 
-**NOTE: The Android security model does not allow for easy programmatic pairing; the user must perform pairing manually**.
+**NOTE: The Android security model does provide a simple means of pairing programmatically; pairing must be performed manually**.
 
 <b>USB</b>: 
 
 		:::JavaScript
 	{"connectionType":EB.Printer.CONNECTION_TYPE_USB}
+
 
 <b> For USB connections, device must be in 'USB Host mode'</b> before the app is started. For more more information about this and other connection types, defaults and [parameters], please refer to the [Printer API reference](../api-printing) and its [Remarks section](../api-printing?Remarks).  
 
