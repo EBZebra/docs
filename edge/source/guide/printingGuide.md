@@ -258,7 +258,7 @@ For example, let's say a file called `address.cpcl` is stored in the application
 	(401) 555-4CUT
 
 
-To access the `address.cpcl` file, use the [RhoFile.join](../api/File?join) helper function and the [Application.publicFolder](../api/Application#ppublicFolder) property to create a fully qualified path to the file. 
+To access the `address.cpcl` file, use the [RhoFile.join](../api/File?join) helper function and the [Application.publicFolder property](../api/Application?publicFolder) to create a fully qualified path to the file. 
 
 **Pass the fully qualified path created above to the [sendFileContents method](../api/printingzebra?sendFileContents(STRING path))**: 
 
@@ -335,7 +335,7 @@ Supported by ZPL only is `printStoredFormatWithHash`, a hash that contains the k
 This parameter will return a [PRINTER_STATUS...](../api/printingzebra?Constants) constant as a string.
 
 ## Printing Images
-For printers with graphics support, images are printed using the [printImageFromFile method](../api/printingzebra?printImageFromFile(STRING filePathOnDevice, INTEGER x, INTEGER y, HASH options)). For example, an image called `myImage.jpg` in your application's `public` folder could use the same [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder](../api/Application#ppublicFolder) property described above to create a fully qualified path to the `myImage.jpg` file. 
+For printers with graphics support, images are printed using the [printImageFromFile method](../api/printingzebra?printImageFromFile(STRING filePathOnDevice, INTEGER x, INTEGER y, HASH options)). For example, an image called `myImage.jpg` in your application's `public` folder could use the same [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder property](../api/Application?publicFolder) described above to create a fully qualified path to the `myImage.jpg` file. 
 
 **After creating the fully qualified path, pass the file to the [printImageFromFile method](../api/printingzebra?printImageFromFile(STRING filePathOnDevice, INTEGER x, INTEGER y, HASH options))**:
 
