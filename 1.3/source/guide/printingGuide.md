@@ -4,9 +4,9 @@ Enterprise Browser permits printing via Bluetooth, USB and Wi-Fi from mobile dev
 
 **Printing via USB requires a USB "On-The-Go" (OTG) cable or adapter and one of [Zebra's printers with USB printing support](../?Printers)** or a compatible third-party printer. Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel. Connecting an OTG cable to an Android device invokes host mode automatically.
 
-This guide is designed to provide an overview of the steps necessary to enable printing in an Enterprise Browser application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build an application using the Zebra printing APIs. 
+This guide is designed to provide an overview of the steps necessary to enable printing in an Enterprise Browser application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build an application using JavaScript and the Zebra printing APIs. 
 
-For more information, please refer to the [Printing Tutorial](../guide-tutorial-printing) and to the Platform Notes section later in this guide.
+For more information, please refer to the [Printing Tutorial](../guide-tutorial-printing) and to the Platform Notes section later in this guide. **All code samples are JavaScript**. 
 
 ## 1- Enable Print APIs
 Enterprise Browser provides two APIs for printing. The [Printer API](../api/printing) is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrinterZebra API](../api/printingzebra) is the printer-type API for Zebra printers. 
@@ -43,9 +43,9 @@ To include individual APIs, first include the `ebapi.js` in the HTML, and then t
 Before an app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters method](../api/printing?searchPrinters(HASH options)).
 
 ###Finding via Bluetooth
-Printing via Bluetooth is supported for Android and Windows Mobile/CE apps. **During Bluetooth discovery, the printer must be set to "discoverable."** The following JavaScript code looks for any Zebra printers discoverable via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
+Printing via Bluetooth is supported for Android and Windows Mobile/CE apps. During Bluetooth discovery, the printer must be set to "discoverable." 
 
-Sample JavaScript code: 
+**Look for any 'discoverable' Zebra printer via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter**:
 
 	:::javascript
 	var printers = [];
@@ -76,9 +76,9 @@ Sample JavaScript code:
 
 **TIP: To minimize search time, code should provide as many search parameters as possible**.
 
-The Bluetooth MAC address consists of six pairs of hexadecimal digits separated by colons. If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter: 
+The Bluetooth MAC address consists of six pairs of hexadecimal digits separated by colons. 
 
-Sample JavaScript code: 
+**Specify the Bluetooth MAC address (if known) as a `deviceAddress` using the `options` parameter**: 
 
 	:::javascript
 	EB.PrinterZebra.searchPrinters({ 
@@ -89,9 +89,7 @@ Sample JavaScript code:
 **NOTE**: When pairing with a Bluetooth device for the first time, a prompt might appear for a pairing PIN. Commonly used PINs: 0000, 1111 and 1234. Check the printer manufacturer's specifications.
 
 ###Finding via Wi-Fi
-Printing via Wi-Fi is supported for Android and Windows Mobile/CE apps. For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices:
-
-Sample JavaScript code:
+**Quickly identify known Wi-Fi printers, search using the `deviceAddress` and `devicePort` parameters**:
 
 	:::javascript
 	EB.Printer.searchPrinters({ 
@@ -103,9 +101,9 @@ Sample JavaScript code:
 **NOTE**: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's corresponding radio is turned on. If using Bluetooth, the printer should be set to "discoverable."
 
 ###Finding via USB
-Printing via USB is supported on Android and Windows Mobile/CE devices. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](../?Printers) **using an OTG cable or adapter.**  Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel.
+Printing via USB is supported from Zebra enterprise mobile computers only to [Zebra's supported printers](../?Printers), which must be connected **using an OTG cable or adapter.**  Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel.
 
-Sample JavaScript code: 
+**Use the `search.Printers` method and the `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device's USB port**:
 
 	:::javascript
 	var printers = [];
@@ -134,8 +132,6 @@ Sample JavaScript code:
 			}
 		});
 
-Use the `search.Printers` method and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in EB 1.3.**
-<br>
 
 For more information about USB connections, please refer to the Platform Notes section later in this guide. 
 
@@ -262,7 +258,7 @@ For example, let's say a file called `address.cpcl` is stored in the application
 	(401) 555-4CUT
 
 
-To access the `address.cpcl` file, use the [RhoFile.join](../api/File?join) helper function and the [Application.publicFolder](../api/Application#ppublicFolder) property to create a fully qualified path to the file. 
+To access the `address.cpcl` file, use the [RhoFile.join](../api/File?join) helper function and the [Application.publicFolder property](../api/Application?publicFolder) to create a fully qualified path to the file. 
 
 **Pass the fully qualified path created above to the [sendFileContents method](../api/printingzebra?sendFileContents(STRING path))**: 
 
@@ -339,7 +335,7 @@ Supported by ZPL only is `printStoredFormatWithHash`, a hash that contains the k
 This parameter will return a [PRINTER_STATUS...](../api/printingzebra?Constants) constant as a string.
 
 ## Printing Images
-For printers with graphics support, images are printed using the [printImageFromFile method](../api/printingzebra?printImageFromFile(STRING filePathOnDevice, INTEGER x, INTEGER y, HASH options)). For example, an image called `myImage.jpg` in your application's `public` folder could use the same [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder](../api/Application#ppublicFolder) property described above to create a fully qualified path to the `myImage.jpg` file. 
+For printers with graphics support, images are printed using the [printImageFromFile method](../api/printingzebra?printImageFromFile(STRING filePathOnDevice, INTEGER x, INTEGER y, HASH options)). For example, an image called `myImage.jpg` in your application's `public` folder could use the same [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder property](../api/Application?publicFolder) described above to create a fully qualified path to the `myImage.jpg` file. 
 
 **After creating the fully qualified path, pass the file to the [printImageFromFile method](../api/printingzebra?printImageFromFile(STRING filePathOnDevice, INTEGER x, INTEGER y, HASH options))**:
 
