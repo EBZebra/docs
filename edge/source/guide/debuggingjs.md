@@ -1,73 +1,32 @@
 # Debugging Enterprise Browser Apps
-This guide describes two methods of on-device debugging of Enterprise Browser apps. The first employs the Chrome browser and its Web Inspector, along with [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging). The second uses ['weinre'](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html), which refers to the node.js application <b>We</b>b <b>In</b>spector <b>Re</b>mote.
+This guide describes two methods of on-device debugging of Enterprise Browser apps. The first employs ['weinre'](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html), the node.js application <b>We</b>b <b>In</b>spector <b>Re</b>mote that's maintained by Apache. The other uses Chrome browser, its Web Inspector and [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging).  
 
-
-For developers targeting Android, the Chrome-based Web Inspector has the advantage of being easier to set up than weinre since it's built into the browser, and offers some nice plusses.  
-
-## On-Device Debugging with Chrome
-
-If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some fine visuals for testing, debugging and fine-tuning your app while it's running on the device. 
-
-Google Remote Debugging works with native Android apps that use WebView--such as those built with RhoMobile--as well as purely browser-based apps. It includes live screencasting from the remote unit to the development host, and supports port forwarding and virtual host mapping in case your device needs to access a development server. 
-
-###Requirements
-
-* Mac OS X or Windows development host
-* Chrome 32 or later installed 
-* A USB cable for connecting the target to the dev. host
-* A target device running Android 4.4 (KitKat) or later
-* USB debugging enabled on target
-* An app configured for WebView debugging
-
-###1. Enable Device Debugging
-The target device must have USB debugging enabled. This feature is found in **Settings >> Developer Options** panel, which is hidden by default. 
-
-![Developer Options](images/debugging/Android_developerOptions.png)
-
-Here's how to **unhide Developer options** (if neccessary) **and enable USB debugging**: 
-
-1. Go to **Settings >> About Phone**
-2. **Go to the 'Build Number' box** (by scrolling all the way to the bottom)
-3. **Tap the Build Number box seven times** 
-4. Then, go back to Settings and **tap Developer Options** 
-5. **Enable USB Debugging** by checking its box
-
-###2. Discover Device (in Desktop Chrome)
-If you haven't already done so, **connect your device to an available USB port on the development host** and **enable device detection in Chrome**: 
-
->![Chrome Detect](images/debugging/Chrome_detect_USB.png)
-
-1. Open a browser window and **enter 'chrome://inspect'** in the address bar. You should see a screen similar the one above.
-
-2. **Check the 'Discover USB Devices' checkbox**. Your mobile device should appear along with an alert on the device. 
-
-3. **Tap OK on the device** to complete the connection
-
-4. Linux- and Mac-based developers can skip to the next step. **Developers on Windows must install a USB driver** to make a USB-attached Android device visible. Visit [Google's USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware. 
-
-5. The final step is to **configure WebView for debugging**, which must be done from within the app. Fortunately, RhoMobile developers can skip this step too because the WebView components used by the RhoMobile Suite are automatically configured for debugging when deployed to devices with debug mode enabled.
-
-6. At this point you should be ready to begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
-
->![Chrome Web Inspect](images/debugging/Chrome_WebInspect.png)
-
+The Chrome-based method is easier to set up than weinre and offers some nice plusses, but it works only with Android.  
 
 ## On-Device Debugging with Weinre
-Weinre is a must have developer tool for testing or debugging your JavaScript Enterprise Browser application. Although a lot of testing and analysis can be done using emulators and your IDE, sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) as effectively. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the Enterprise Browser APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs.
+Weinre is a must-have developer tool for testing and debugging JavaScript Enterprise Browser application. Although much testing and analysis can be done using emulators and an IDE, applications often behave differently when running on hardware, and features such as [Barcode](../api/barcode) scanning cannot be accurately tested. Weinre solves these problems. Acting like a remote Web Inspector, the JavaScript Console in Weinre allows you to get familiar with the Enterprise Browser APIs right from that tab. This is much faster than fumbling through logs.
 
-For those who would rather see it in action, this guide is modeled after a [webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we are going to cover here. We will also be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary. You can use Weinre with any application or simply if you would just like to play around with the APIs to try out some code.
+This guide is modeled after a 14-minute [Weinre webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what's covered here. We'll be using the [Barcode Example app](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) for all of the examples in this guide. You're welcome to download the app and follow along, use your own app, or simply play around with the APIs and some code snippets.
 
-### Installing Weinre
-> Note: You must have admin/sudo privileges to install weinre and your device must be on the same WiFi network as your laptop.
+### Install Weinre
+<b>Note</b>: Admin/sudo privileges are required to install Weinre and the <b>target device must be on the same WiFi network as the development host</b>.
 
-Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Download node.js [here](http://nodejs.org/download/) and install it on your computer. Once it is installed, install weinre using the following command:
+Weinre is a Node.js application and is delivered via a Node Package installed with the `npm` command. 
+
+<b>&#49;. [Download node.js](http://nodejs.org/download/)</b>. 
+
+<b>&#49;. On Windows, install Weinre using the following command</b>:
 
     :::term
     $ npm -g install weinre
 
-> Note: Mac users you may have to include the 'sudo' prefix
+<b>Mac users might need to include the 'sudo' prefix</b>:
 
-More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html).
+
+    :::term
+    $ sudo npm -g install weinre
+
+For more information about installing and configuring Weinre, please refer to the [Weinre installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html).
 
 ### Starting Weinre
 Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be inaccessible from your device.
@@ -144,6 +103,53 @@ This tab is great for inspecting front-end UI or DOM performance. Each action in
 
 #### Resources Tab
 The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
+
+## On-Device Debugging with Chrome
+
+If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some fine visuals for testing, debugging and fine-tuning your app while it's running on the device. 
+
+Google Remote Debugging works with native Android apps that use WebView--such as those built with RhoMobile--as well as purely browser-based apps. It includes live screencasting from the remote unit to the development host, and supports port forwarding and virtual host mapping in case your device needs to access a development server. 
+
+###Requirements
+
+* Mac OS X or Windows development host
+* Chrome 32 or later installed 
+* A USB cable for connecting the target to the dev. host
+* A target device running Android 4.4 (KitKat) or later
+* USB debugging enabled on target
+* An app configured for WebView debugging
+
+###1. Enable Device Debugging
+The target device must have USB debugging enabled. This feature is found in **Settings >> Developer Options** panel, which is hidden by default. 
+
+![Developer Options](images/debugging/Android_developerOptions.png)
+
+Here's how to **unhide Developer options** (if neccessary) **and enable USB debugging**: 
+
+1. Go to **Settings >> About Phone**
+2. **Go to the 'Build Number' box** (by scrolling all the way to the bottom)
+3. **Tap the Build Number box seven times** 
+4. Then, go back to Settings and **tap Developer Options** 
+5. **Enable USB Debugging** by checking its box
+
+###2. Discover Device (in Desktop Chrome)
+If you haven't already done so, **connect your device to an available USB port on the development host** and **enable device detection in Chrome**: 
+
+>![Chrome Detect](images/debugging/Chrome_detect_USB.png)
+
+1. Open a browser window and **enter 'chrome://inspect'** in the address bar. You should see a screen similar the one above.
+
+2. **Check the 'Discover USB Devices' checkbox**. Your mobile device should appear along with an alert on the device. 
+
+3. **Tap OK on the device** to complete the connection
+
+4. Linux- and Mac-based developers can skip to the next step. **Developers on Windows must install a USB driver** to make a USB-attached Android device visible. Visit [Google's USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware. 
+
+5. The final step is to **configure WebView for debugging**, which must be done from within the app. Fortunately, RhoMobile developers can skip this step too because the WebView components used by the RhoMobile Suite are automatically configured for debugging when deployed to devices with debug mode enabled.
+
+6. At this point you should be ready to begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
+
+>![Chrome Web Inspect](images/debugging/Chrome_WebInspect.png)
 
 <!-- Once we figure out if this works, we can uncomment this piece. Leaving it out for now.
 ## Remote Debugging with a Browser's Web Inspector
