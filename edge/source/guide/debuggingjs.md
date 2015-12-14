@@ -9,13 +9,13 @@ Weinre is a must-have developer tool for testing and debugging JavaScript Enterp
 This guide is modeled after a 14-minute [Weinre webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what's covered here. We'll be using the [Barcode Example app](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) for all of the examples in this guide. You're welcome to download the app and follow along, use your own app, or simply play around with the APIs and some code snippets.
 
 ### Install Weinre
-<b>Note</b>: Admin/sudo privileges are required to install Weinre and the <b>target device must be on the same WiFi network as the development host</b>.
+<b>Note</b>: Admin/sudo privileges are required to install Weinre.
 
 Weinre is a Node.js application and is delivered via a Node Package installed with the `npm` command. 
 
-<b>&#49;. [Download node.js](http://nodejs.org/download/)</b>. 
+<b>&#49;. [Download node.js](http://nodejs.org/download/)</b> from the project's `/release` folder. 
 
-<b>&#49;. On Windows, install Weinre using the following command</b>:
+<b>&#50;. On Windows, install Weinre using the following command</b>:
 
     :::term
     $ npm -g install weinre
@@ -28,46 +28,61 @@ Weinre is a Node.js application and is delivered via a Node Package installed wi
 
 For more information about installing and configuring Weinre, please refer to the [Weinre installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html).
 
-### Starting Weinre
-Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be inaccessible from your device.
+### Start Weinre
+
+<b>IMPORTANT</b>: The target device must be on the same Wi-Fi network as the development host. When launched, Weinre must be bound to that network using the `boundhost` parameter (see below). Launching without this parameter will bind Weinre to the `localhost`, making it inaccessible from the device.
+
+
+<b>&#51;. Launch Weinre from the command line using the `--boundhost` option</b>:
 
     :::term
-    $ weinre --boundhost <your local IP address>
+    $ weinre --boundhost <development host IP address>
 
-Weinre will print out the address and port that you will use in order to continue.
+Weinre will respond with a message similar to the one below--an address and port that will be used to communicate with the device:
 
-For example, here is my output from the above command
 
     :::term
     2013-10-31T00:24:07.549Z weinre: starting server at http://192.168.1.128:8080
 
-Verify that Weinre is running correctly by navigating your browser to the address Weinre gives you. You should see a page like this.
+<b>&#52;. Using a browser, open the address and port provided by Weinre</b>. 
+
+The page should look something like this:
 
 ![img](images/debugging/weinre-web-console.png)
 
-### Enabling Weinre In Your App
-Notice the section in the web console labeled "Target Script". This is a string that you must copy into your app in order for Weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`. I'm going to put this line into my `barcode_enumerate.html` file so that when I load that file in my app, it will connect to Weinre and start capturing info. After editing this file, you would rebuild and relaunch the application so that the changes take effect. 
+### Enable Weinre In the App
+If all has gone well so far, the browser is displaying the Weinre Inspector Remote console. In the section labeled ‘Target Script,’ there's a string that contains a URL with the dev host's local IP address and port number, plus the name and path of the script file that Weinre needs to communicate with the target device.
 
-Here is what the line looks like in my HTML:
+Lower in the Target Script section is an example of how to embed the Target Script string between script tags:
+
+<b>Example Script String</b>:
+
+`<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`
+
+<b>&#53;. Copy and paste the example script string (above) into the `barcode_enumerate.html` file (or your corresponding app file).</b> 
+
+<b>&#54;. Copy the URL string referenced earlier and use it to replace the example URL</b>. Be sure to leave the quote marks on either side of the URL.
+
+The line in the HTML should look like this:
 
 ![img](images/debugging/weinre-target-script-example.png)
 
-Now that we have those steps out of the way, it's time to start up Weinre's `debug client user interface` by clicking the link in the  `Access Points` section of the page we just loaded in our browser.
+<b>&#55;. Start the Weinre debug UI by clicking the link in the Access Points section of the Weinre browser page</b>:
 
 ![img](images/debugging/weinre-link-to-debug-ui.png)
 
 ### Debug Client UI
-You may notice that there are many options at the top of the debug UI that very closely resemble the tools available in the Chrome Web Inspector. This is not by accident, these tools serve the same purpose as they would in the Chrome Web Inspector but these are for inspection on the device. 
+The image below shows the ‘Remote’ tab of Weinre’s Debug Client UI. The ‘Targets’ and ‘Clients’ sections contain one device each, and the green text indicates that both devices are communicating.
 
-Here you see both the Weinre debug UI connected to my device (when the device is connected, the Targets and Clients fields are populated with green text describing the device connection.) and my device's screen. I am screen-casting my Android device's screen to my monitor with the help of an app called [Droid@Screen](http://droid-at-screen.ribomation.com/) which uses USB and adb in order to stream screen shots to your computer. It's got some lag but is very useful.
+The inset image is a screenshot from the target Android device that’s being displayed by an app called [Droid@Screen](http://droid-at-screen.org/) . This useful screencasting tool uses USB and ADB to stream screen shots to the development host.
 
 ![img](images/debugging/weinre-debug-and-device.png)
 
-Now you can inspect your app just as you would any other HTML page if you were using the Chrome web inspector. Select the Elements tool at the top of the page and select an element to inspect. You will also see the element highlighted on your device showing you that two-way communication is established.
+At this point, the app can be inspected as with the web inspector of Chrome or any other tool. The Elements tab shown below demonstrates two-way communication between the device and the development host. Clicking on an element in the HTML will cause that element to be highlighted on the device’s UI.
 
 ![img](images/debugging/weinre-two-way-communication-inspection.png)
 
-You can use the Elements tool to change things on the app's view on the fly just by changing the code in the inspector itself. For instance, in the below images I am simply changing the text on the button from "Enumerate" to "Changed!".
+The Elements tab can be used for on-the-fly changes to CSS styling, API and method calls and any and all app UI settings. In the example below, the button text was changed from ‘Enumerate’ to ‘Changed!’ simply by editing the test in the Elements tab.
 
 <div class="span6" style="text-align:center">
     <p><b>Button text "Enumerate"</b></p>
@@ -78,59 +93,59 @@ You can use the Elements tool to change things on the app's view on the fly just
 </div>
 ![img](images/debugging/weinre-button-element-after-change.png)
 
-You can change pretty much any part of the view such as CSS styling and even which APIs and methods are called, but I chose to do a simple one for brevity's sake.
-
 ### Console and Issuing API Calls
-One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware APIs will only work on actual hardware, which means they cannot be tested in an emulator.
+One of the most versatile components of Weinre is its Console. Not only does it offer classic capabilities such as device visibility and monitoring during operation, but the Weinre Console also can access all of a device’s hardware fearures, issue commands and report how the device reacts.
 
-In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on and use the camera to scan a barcode.
+The example below shows results from an attempt to use the JavaScript API to check the target platform, use the camera to scan a barcode, and issue a command to the [ScreenOrientation API](../api/screenorientation) (which returned an error).
 
 ![img](images/debugging/weinre-barcode-take.png)
 
-As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is an ET1 which **is** in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the `Barcode.take()` method, so I know that the Barcode module is working properly.
+In the example, the Console is used to verify that JavaScript APIs are functioning properly. A return of the correct system platform ‘Android’ proves that the System API is working. A return of the correct scanned barcode value likewise proves that the Barcode module is working properly.
 
-Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api-barcode?take(HASH propertyMap)) method description. Using other means like looking in [your log file](../guide/logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
+<b>Here’s another important benefit of the Weinre console</b>.
+Notice that when the barcode callback handler function is executed, we are using the form `console.log(e)`, where `e` is the callback return object. This allows us to inspect the object right in the console. It also simplifies validation because we see that it contains a barcode property and a status property, exactly as described in the [Barcode.take( ) method](../api/barcode?take(HASH propertyMap)) description. Alternative means—such as adding code for outputting to a log, then for seaching and retrieving the information from the device—can be time consuming, tedious and error-prone.
 
 ### Other Tabs in Debugger UI
+Several other tabs in the debugging UI can be quite useful. 
+
 ![img](images/debugging/weinre-tabs.png)
-There are a few other tabs that we have seen in the debugger UI that I should briefly mention. 
 
 #### Network Tab
-This tab is great for inspecting what files the application is obtaining from the 'server'. Remember that when building an EB application, the 'server' is normally running on the device as well. However it is still important to inspect this as unnecessary processing of JavaScript or CSS files may be giving your application a lag that you may not have noticed while running the app in an emulator. There are many resources on the internet that describe using this tab in detail either in the context of Weinre or Chrome Dev Tools. Be sure to be aware of how to use this useful resource when optimizing your application.
+The Network tab <b>measures and displays the time required for HTTP requests</b> made by an application. Clicking on any of the resources in the left-hand pane will visually represent the delay as its headers and content are loaded and AJAX and other calls are made to remote servers. Data displayed when hovering over ‘Latency’ and ‘Timeline’ columns, andcan be used to help optimize load-time performance. Remember that EB application can have a 'server' running on the device as well as on the web. It is important to inspect the processing of JavaScript or CSS files and reduce lag wherever possible. 
 
 #### TimeLine Tab
-This tab is great for inspecting front-end UI or DOM performance. Each action in your user interface will be displayed and you can inspect for bottle necks in rendering, or other areas. Again there are many resources on the web that discuss this feature. We also did a full [webinar](https://developer.motorolasolutions.com/docs/DOC-1661) on the topic for detecting Reflows and the usual CSS suspects for performance hits on devices. Be sure to get familiar with these concepts and include them in your routine for application optimization.
+The Timeline tool <b>measures and displays the rendering time of each element of the user interface</b>, presenting a visual display similar to that of the Network tab. The Timeline tab is useful for finding bottlenecks in front-end UI or DOM performance.
+
+More information about Timeline can be found starting at 25:10 of Zebra’s [Front-End UI Optimization Webinar](https://developer.zebra.com/docs/DOC-1661). This one-hour video contains useful information about detecting reflows and other common problems that can bring mobile apps to a crawl.
 
 #### Resources Tab
-The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
+The Resources tab allows <b>displays the resources being used by the current Webview page</b>. Reources can include outside assets being called into the app such as images, JavaScript, stylesheets and cookies. Inspecting the resources can be useful if for ensuring that a particular resource has been loaded. This tab also can provide insight into other HTML5 features such as WebSQL and localStorage, if present.
 
 ## On-Device Debugging with Chrome
 
-If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some fine visuals for testing, debugging and fine-tuning your app while it's running on the device. 
+If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some great visuals for testing, debugging and fine-tuning your app while it's running on the device. 
 
-Google Remote Debugging works with native Android apps that use WebView--such as those built with RhoMobile--as well as purely browser-based apps. It includes live screencasting from the remote unit to the development host, and supports port forwarding and virtual host mapping in case your device needs to access a development server. 
+Google Remote Debugging works with native Android apps that use WebView as well as purely browser-based apps. It includes live screencasting from the remote unit to the development host, and supports port forwarding and virtual host mapping in case your device needs to access a development server. 
 
 ###Requirements
 
-* Mac OS X or Windows development host
-* Chrome 32 or later installed 
+* Mac OS X or Windows development host with [ADB](http://developer.android.com/tools/help/adb.html) installed
+* Chrome 32 or later installed (Chrome Canary recommended)
 * A USB cable for connecting the target to the dev. host
 * A target device running Android 4.4 (KitKat) or later
 * USB debugging enabled on target
 * An app configured for WebView debugging
 
 ###1. Enable Device Debugging
-The target device must have USB debugging enabled. This feature is found in **Settings >> Developer Options** panel, which is hidden by default. 
-
-![Developer Options](images/debugging/Android_developerOptions.png)
-
-Here's how to **unhide Developer options** (if neccessary) **and enable USB debugging**: 
+The target device must have USB debugging enabled. This feature is found in **Settings >> Developer Options** panel, which is hidden by default. Here's how to **unhide Developer options** (if neccessary) **and enable USB debugging**: 
 
 1. Go to **Settings >> About Phone**
 2. **Go to the 'Build Number' box** (by scrolling all the way to the bottom)
 3. **Tap the Build Number box seven times** 
-4. Then, go back to Settings and **tap Developer Options** 
-5. **Enable USB Debugging** by checking its box
+4. **Return to Settings** and **tap Developer Options** 
+5. **Place a check in the Enable USB Debugging** box
+
+![Developer Options](images/debugging/Android_developerOptions.png)
 
 ###2. Discover Device (in Desktop Chrome)
 If you haven't already done so, **connect your device to an available USB port on the development host** and **enable device detection in Chrome**: 
@@ -139,15 +154,13 @@ If you haven't already done so, **connect your device to an available USB port o
 
 1. Open a browser window and **enter 'chrome://inspect'** in the address bar. You should see a screen similar the one above.
 
-2. **Check the 'Discover USB Devices' checkbox**. Your mobile device should appear along with an alert on the device. 
+2. **Check the 'Discover USB Devices' checkbox**. Your mobile device should appear along with an alert on the device. (If no devices are visible, please refer to the [Connections](../guide/setup?Connections) section of the [Enterprise Browser Setup Guide](../guide/setup)). 
 
 3. **Tap OK on the device** to complete the connection
 
-4. Linux- and Mac-based developers can skip to the next step. **Developers on Windows must install a USB driver** to make a USB-attached Android device visible. Visit [Google's USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of hardware. 
+4. Linux- and Mac-based developers can skip to the next step. **Developers on Windows must install a USB driver** to make a USB-attached Android device visible. Please refer to the [Connections](../guide/setup?Connections) section of the [Enterprise Browser Setup Guide](../guide/setup)) for that procedure.
 
-5. The final step is to **configure WebView for debugging**, which must be done from within the app. Fortunately, RhoMobile developers can skip this step too because the WebView components used by the RhoMobile Suite are automatically configured for debugging when deployed to devices with debug mode enabled.
-
-6. At this point you should be ready to begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
+5. At this point you should be ready to begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
 
 >![Chrome Web Inspect](images/debugging/Chrome_WebInspect.png)
 
@@ -178,6 +191,4 @@ As with most web inspectors you can change attributes in the inspector...
  -->
 
 ### Further Research
-As you can probably guess by now, debugging using this method is very similar to debugging using your web browser's built in web inspector because that is exactly what you are doing. Any further tutorials concerning debugging in this fashion should be looked into via tutorials for the given web inspection utility of your respective web browser.
-
-* [Google Chrome Dev Tools Tutorial](https://developers.google.com/chrome-developer-tools/)
+For more information about debugging with Chrome, please refer to the [Google Chrome Dev Tools Tutorial](https://developers.google.com/chrome-developer-tools/). 
