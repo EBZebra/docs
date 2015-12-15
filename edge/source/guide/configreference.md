@@ -1652,7 +1652,7 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](.
 
 ## ZoomKey
 ### ZoomInKey
-Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**. 
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
 
 **Possible Values**
 
@@ -1681,7 +1681,6 @@ Allows hardware keys of an Android device running Enterprise Browser 1.2 (or lat
 * **0 - Disabled (default); Android key codes are used for all function keys**
 * 1 - Enabled; Windows Mobile key codes are substituted for all Android function keys
 
-
 #### Example
 	:::xml
 	<isWindowsKey value="1"/>
@@ -1700,6 +1699,7 @@ Allows hardware keys of an Android device running Enterprise Browser 1.2 (or lat
 #### Example
 	:::xml
 	<ShortcutCreationEnabled value="1"/>
+
 
 ## Remarks
 ### <a name="_caseSensitivity"></a>Case Sensitivity
