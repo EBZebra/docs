@@ -1,0 +1,71 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="EzNFC" parent="Rho">
+        <HELP_OVERVIEW>Example extension api</HELP_OVERVIEW>
+        <MORE_HELP>This is example of API. Implementation contain in extension.</MORE_HELP>
+    
+        <TEMPLATES>
+        </TEMPLATES>
+
+         <PROPERTIES access="STATIC">
+            <PROPERTY name="isSupported" type="BOOLEAN" default="false" generateAccessors="true">
+                <PLATFORM>Android</PLATFORM>
+                <DESC>returns is device NFC supported.</DESC>
+            </PROPERTY>
+			
+			<PROPERTY name="isEnabled" type="BOOLEAN" default="false" generateAccessors="true">
+                <PLATFORM>Android</PLATFORM>
+                <DESC>returns is device NFC is enabled.</DESC>
+            </PROPERTY>
+        </PROPERTIES>
+
+        <METHODS access="STATIC">
+
+            <METHOD name="enableAdapter" hasCallback="none">
+				<DESC>Navigates to device NFC Adapter settings screen if device's NFC Adapter is not enabled</DESC>
+                <RETURN type="BOOLEAN"/>
+            </METHOD>
+			
+			<METHOD name="enableRead" hasCallback="mandatory">
+				<DESC>Enables NFC read of the application if device is NFC supported</DESC>
+                <CALLBACK type="HASH">
+                    <DESC>List of callback data after the NFC Tag is read</DESC>
+                    <PARAMS>
+						<PARAM name="Type" type="STRING">
+                            <DESC>The Type of NFC Tag that has been read</DESC>
+                        </PARAM>
+                        <PARAM name="ID" type="STRING">
+                            <DESC>The ID of the Tag that has been read.</DESC>
+                        </PARAM>
+                        <PARAM name="Payload" type="STRING">
+                            <DESC>Payload is the data overall data of NFC Tag</DESC>
+                        </PARAM>
+                        <PARAM name="TNF" type="STRING">
+                            <DESC>TNF ia las 3 bits of Payload</DESC>
+                        </PARAM>
+                        <PARAM name="EncodingFormat " type="STRING">
+                            <DESC>Text encoding format applied</DESC>
+                        </PARAM>
+                        <PARAM name="data" type="STRING">
+                            <DESC>The String data that is read from Tag.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+			
+			<METHOD name="disableRead" hasCallback="none">
+				<DESC>disables NFC read of the Application</DESC>
+                
+            </METHOD>
+
+        </METHODS>
+        
+        <USER_OVERVIEW>
+        </USER_OVERVIEW>
+
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>
+         </PLATFORM>
+    </MODULE>
+</API>    
