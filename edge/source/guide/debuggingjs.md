@@ -210,34 +210,64 @@ As with most web inspectors you can change attributes in the inspector...
 ![img](images/debugging/changed_app_text.png)
  -->
 
-## Debugging with RD Inspector
+## Using Remote Debug Inspector
 
-The Ekioh Remote Debug Inspector tool is an for debugging apps running on Zebra Windows Mobile/CE devices devices that employ the Motorola Webkit, which also was developed by Ekioh. This tool installs on the device.  
+The Ekioh Remote Debug Inspector tool is for debugging apps running on Zebra Windows Mobile/CE devices that use 'Motorola' Webkit (aka Zebra Webkit), which was originally developed by Ekioh. Remote Debug Inspector installs on the device and requires a new tag in the Config.XML of the target app to make it work with desktop Chrome. 
 
 ### Prerequisites
-* A Mac (with ADB) or Windows 7 or later (with Mobile Device Center) 
-* A Zebra device running Windows Mobile/CE and the Motorola (Ekioh) Webkit
+* A Mac (with ADB) or Windows 7 or later PC (with Mobile Device Center) 
 * Enterprise Browser installed on the development host
-* An Enterprise Browser app configured for webview testing
-* A connection to the device via Bluetooth, USB or Wi-Fi 
+* Chrome browser installed (Mac or Windows)
+* A Zebra device running Windows Mobile/CE
+* An EB app installed with Webkit (not the IE Engine; see below)
+* A connection to the device for copying files (Bluetooth, USB or Wi-Fi)
+* The development host and device on the same subnet (over which to debug)
+
+<img style="height:300px" src="images/debugging/ebsetup_webkit.jpg"/>
+
+Enterprise Browser installer screen showing Webkit installation options
+
 
 ### Install 
 
-1. **[Download Remote Debug Inspector](https://github.com/rhomobile/Motorola-Extensions/blob/8728a3b73488fc468fb49fd406cb23f301fd43af/neon/Helium/HeliumForWindows/ThirdParty/Ekioh/InspectorInstaller/Inspector/inspector.CAB?raw=true)** tool.<br>
-2. **Copy the downloaded 'inspector.CAB' file to the device**.<br> 
-3. **Execute the file** to install. It will create `/inspector` folder on the device.<br>
-4. **next step**<br>
+&#49;. **[Download Remote Debug Inspector](https://github.com/rhomobile/Motorola-Extensions/blob/8728a3b73488fc468fb49fd406cb23f301fd43af/neon/Helium/HeliumForWindows/ThirdParty/Ekioh/InspectorInstaller/Inspector/inspector.CAB?raw=true)** tool.<br>
+&#50;. **Copy the downloaded 'inspector.CAB' file to the device**.<br> 
+&#51;. **Execute the file**, which will install into a folder called `/inspector` on the device.<br>
+&#52;. **Add to the Config.XML file** (of the target app) the following tags:<br>
+
+        :::xml
+        ...
+        </HTMLStyles>
+      
+        <RemoteDebug>
+            <ResourceFiles  value="file:///inspector/"/>
+            <ServerPort     value="7000"/>
+        </RemoteDebug>
+      
+        <SIP> 
+        ...
+
+Notice that the <b>&lt;RemoteDebug&gt;</b> section is inserted <b>after &lt;HTMLStyles&gt;</b> and <b>before &lt;SIP&gt;</b>.
+
+Also note that we're using the default values for ResourceFiles and ServerPort. If these are changed, be sure to make the corresponding changes in the next steps.  
+
+<b>&#53;. Note the IP address of the target device</b> (Wi-Fi Settings >> Wi-FI Driver Settings). It must be on the same subnet as the development host.
+
+<b>&#54;. Launch the Enterprise Browser app</b> to be tested. 
+
+<b>&#55;. Enter the following URL</b> in Chrome's URL bar: 
+
+    ...
+    http://<device ip address>:7000
 
 
+After a few moments, the browser should display a page similar to the image below: 
 
-See example at \Ekioh\InspectorInstaller\Config.xml
-3a: RemoteDebug\\ResourceFiles: This is the directory into which you installed the inspector.cab files.  By default this will be file:///inspector/
-3b: This is the port that Webkit will open for you for debugging, by default this will be 7000.
-4. Connect your device to the same network as your desktop machine you will use for debugging.  Take a note of your device's IP address, e.g. 192.168.0.10
-5. Launch your RhoElements application configured for debugging
-6. On your desktop Chrome browser, navigate to http://192.168.0.10:7000 (in our example).  Note it is important that you use Chrome, this is the only browser with sufficient Websocketsupport on both Windows and Mac to support Webkit debugging
-7. You should see a screen listing 'Inspectable web views'.  Select the page you wish to inspect.
-8. Continue using the developer tools just as you would inspect a local page.  You can use the Elements view, Javascript debugger, network timing etc.
+<img style="height:300px" src="images/debugging/inspectable_webviews.png"/>
 
-If you
+<b>&#56;. Click on a link</b> to inspect it in a panel similar to the image below: 
+
+<img style="height:400px" src="images/debugging/inspecting_html.png"/>
+
+This panel works in much the same manner as those of Weinre and Chrome Web Inspector.
 
