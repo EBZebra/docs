@@ -14,16 +14,16 @@ For persistent installations, on cold boot the `Config.xml` file is copied from 
 
 >Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
-## Substitution variables
-The following substitution variables are available in the configuration file
+## Substitution Variables
+The following substitution variables are available in the configuration file:
 <table class="re-table">
 	<tr>
-		<th>Substitution Variable</th>
-		<th>Expanded Value</th>
+		<th>Variable</th>
+		<th>-> Expanded Value</th>
 	</tr>
 	<tr>
 		<td>%INSTALLDIR%</td>
-		<td>The directory into which the Enterprise Browser has been installed.</td>
+		<td>-> The directory into which the Enterprise Browser has been installed.</td>
 	</tr>
 </table>
 
@@ -1652,7 +1652,7 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](.
 
 ## ZoomKey
 ### ZoomInKey
-Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
 
 **Possible Values**
 
@@ -1663,7 +1663,7 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
 
 **Possible Values**
 
@@ -1674,13 +1674,12 @@ Controls zoom-OUT behavior for application text using function key(s) configured
 	<ZoomOutKey value="0x71"/>
 
 ## isWindowsKey
-Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for the device’s hardware keys when used with the KeyCapture API of PocketBrowser or RhoElements 2.x. When enabled, the application will substitute its normal Android kewys with the Windows Mobile function key code values for keys F1 through F12. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will get the Android function key code value. Supported on Android devices with PocketBrowser or RhoElements 2.x Key Capture API. 
+Allows hardware keys of an Android device running Enterprise Browser 1.2 (or later) to mimic Windows Mobile key codes when used with the KeyCapture API of PocketBrowser or RhoElements 2.x. When enabled, the application will substitute its normal Android keys with the Windows Mobile function key code values for keys F1 through F12. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will receive Android function key code values. **Applies to Android devices with PocketBrowser or RhoElements 2.x Key Capture API only**. 
 
 **Possible Values**
 
-* 0 - Send Android Key Codes for F1 to F12
-* 1 - Send Windows Mobile Key Codes for F1 to F12
-
+* **0 - Disabled (default); Android key codes are used for all function keys**
+* 1 - Enabled; Windows Mobile key codes are substituted for all Android function keys
 
 #### Example
 	:::xml
@@ -1693,7 +1692,7 @@ Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for th
 **Possible Values**
 
 * Possible Values 
-* **0 - Shortcut creation disabled**
+* **0 - Shortcut creation disabled (default)**
 * 1 - Shortcuts created at every launch
 * 2 - Shortcuts created on initial launch only
 

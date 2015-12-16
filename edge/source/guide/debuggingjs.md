@@ -1,12 +1,29 @@
-# Debugging Enterprise Browser Apps
-This guide describes two methods of on-device debugging of Enterprise Browser apps. The first employs ['weinre'](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html), the node.js application <b>We</b>b <b>In</b>spector <b>Re</b>mote that's maintained by Apache. The other uses Chrome browser, its Web Inspector and [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging).  
+# On-Device Debugging of Enterprise Browser Apps
+On-device debugging should be included in the standard testing procedures for every development organization. Although much can be done using emulators and the IDE, applications often behave differently when running on hardware, and features such as [Barcode](../api/barcode) scanning cannot be tested at all without hardware to perform the scan and acquire the data.
 
-The Chrome-based method is easier to set up than weinre and offers some nice plusses, but it works only with Android.  
+This guide describes three methods of debugging Enterprise Browser apps while they're running on the device:
 
-## On-Device Debugging with Weinre
-Weinre is a must-have developer tool for testing and debugging JavaScript Enterprise Browser application. Although much testing and analysis can be done using emulators and an IDE, applications often behave differently when running on hardware, and features such as [Barcode](../api/barcode) scanning cannot be accurately tested. Weinre solves these problems. Acting like a remote Web Inspector, the JavaScript Console in Weinre allows you to get familiar with the Enterprise Browser APIs right from that tab. This is much faster than fumbling through logs.
+* **Weinre** is a node.js application that can effectively test most apps running on Android and Windows Mobile/CE devices. 
 
-This guide is modeled after a 14-minute [Weinre webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what's covered here. We'll be using the [Barcode Example app](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) for all of the examples in this guide. You're welcome to download the app and follow along, use your own app, or simply play around with the APIs and some code snippets.
+* **Chrome's Web Inspector** works with Android KitKat and higher, is easier to set up than Weinre and offers screenshots and other nice extras. 
+
+* **Remote Debug Inspector** works with Windows Mobile/CE devices that use the Motorola Webkit, and was developed by Ekioh. 
+
+###Prerequisites
+Requirements of the development host vary based on the target device and its OS platform. General requirement guidelines are listed below. Platform-specific requirements, if any, will be listed in the section with the individual tool.  
+
+* Mac OS X or Windows development host
+* Android Debug Bridge ([ADB](http://developer.android.com/tools/help/adb.html)) or MS Mobile Device Center (or ActiveSync) 
+* Chrome 32 or later (Chrome Canary recommended)
+* A Zebra target device (Android or Windows Mobile/CE)
+* A USB cable for connecting the target to the dev. host
+* USB debugging enabled on target
+* An app configured for WebView debugging
+
+## Debugging with Weinre
+[Weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html) is a must-have developer tool for testing and debugging JavaScript Enterprise Browser application. Short for <b>We</b>b <b>In</b>spector <b>Re</b>mote, Weinre provides a live portal into Enterprise Browser APIs with its JavaScript Console tab, a much faster method than sifting through logs.
+
+This section of the guide follows a 14-minute [Weinre webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) and uses the [Barcode Example app](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) from that lesson for all of the examples in this guide. You're welcome to download the app and follow along, use your own app, or simply play around with the APIs and code snippets.
 
 ### Install Weinre
 <b>Note</b>: Admin/sudo privileges are required to install Weinre.
@@ -121,7 +138,7 @@ More information about Timeline can be found starting at 25:10 of Zebra’s [Fro
 #### Resources Tab
 The Resources tab allows <b>displays the resources being used by the current Webview page</b>. Reources can include outside assets being called into the app such as images, JavaScript, stylesheets and cookies. Inspecting the resources can be useful if for ensuring that a particular resource has been loaded. This tab also can provide insight into other HTML5 features such as WebSQL and localStorage, if present.
 
-## On-Device Debugging with Chrome
+## Debugging with Chrome
 
 If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some great visuals for testing, debugging and fine-tuning your app while it's running on the device. 
 
@@ -164,6 +181,9 @@ If you haven't already done so, **connect your device to an available USB port o
 
 >![Chrome Web Inspect](images/debugging/Chrome_WebInspect.png)
 
+### Google Dev Tool Tutorial
+To learn more about debugging with Chrome, please refer to the [Google Chrome Dev Tools Tutorial](https://developers.google.com/chrome-developer-tools/). 
+
 <!-- Once we figure out if this works, we can uncomment this piece. Leaving it out for now.
 ## Remote Debugging with a Browser's Web Inspector
 > Note: This JS debugging feature is currently only supported on Windows development environments.
@@ -190,5 +210,34 @@ As with most web inspectors you can change attributes in the inspector...
 ![img](images/debugging/changed_app_text.png)
  -->
 
-### Further Research
-For more information about debugging with Chrome, please refer to the [Google Chrome Dev Tools Tutorial](https://developers.google.com/chrome-developer-tools/). 
+## Debugging with RD Inspector
+
+The Ekioh Remote Debug Inspector tool is an for debugging apps running on Zebra Windows Mobile/CE devices devices that employ the Motorola Webkit, which also was developed by Ekioh. This tool installs on the device.  
+
+### Prerequisites
+* A Mac (with ADB) or Windows 7 or later (with Mobile Device Center) 
+* A Zebra device running Windows Mobile/CE and the Motorola (Ekioh) Webkit
+* Enterprise Browser installed on the development host
+* An Enterprise Browser app configured for webview testing
+* A connection to the device via Bluetooth, USB or Wi-Fi 
+
+### Install 
+
+1. **[Download Remote Debug Inspector](https://github.com/rhomobile/Motorola-Extensions/blob/8728a3b73488fc468fb49fd406cb23f301fd43af/neon/Helium/HeliumForWindows/ThirdParty/Ekioh/InspectorInstaller/Inspector/inspector.CAB?raw=true)** tool.<br>
+2. **Copy the downloaded 'inspector.CAB' file to the device**.<br> 
+3. **Execute the file** to install. It will create `/inspector` folder on the device.<br>
+4. **next step**<br>
+
+
+
+See example at \Ekioh\InspectorInstaller\Config.xml
+3a: RemoteDebug\\ResourceFiles: This is the directory into which you installed the inspector.cab files.  By default this will be file:///inspector/
+3b: This is the port that Webkit will open for you for debugging, by default this will be 7000.
+4. Connect your device to the same network as your desktop machine you will use for debugging.  Take a note of your device's IP address, e.g. 192.168.0.10
+5. Launch your RhoElements application configured for debugging
+6. On your desktop Chrome browser, navigate to http://192.168.0.10:7000 (in our example).  Note it is important that you use Chrome, this is the only browser with sufficient Websocketsupport on both Windows and Mac to support Webkit debugging
+7. You should see a screen listing 'Inspectable web views'.  Select the page you wish to inspect.
+8. Continue using the developer tools just as you would inspect a local page.  You can use the Elements view, Javascript debugger, network timing etc.
+
+If you
+
