@@ -7,7 +7,7 @@ This guide describes three methods of debugging Enterprise Browser apps while th
 
 * **Chrome's Web Inspector** works with Android KitKat and higher, is easier to set up than Weinre and offers screenshots and other nice extras. 
 
-* **Remote Debug Inspector** works with Windows Mobile/CE devices that use the Motorola Webkit, and was developed by Ekioh. 
+* **Remote Debug Inspector** works with Windows Mobile/CE devices that use the Zebra Webkit. 
 
 ###Prerequisites
 Requirements of the development host vary based on the target device and its OS platform. General requirement guidelines are listed below. Platform-specific requirements, if any, will be listed in the section with the individual tool.  
@@ -18,8 +18,9 @@ Requirements of the development host vary based on the target device and its OS 
 * A Zebra target device (Android or Windows Mobile/CE)
 * A USB cable for connecting the target to the dev. host
 * USB debugging enabled on target
-* An app configured for WebView debugging
+* A WebView app configured for debugging
 
+<a name="weinre"></a>
 ## Debugging with Weinre
 [Weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html) is a must-have developer tool for testing and debugging JavaScript Enterprise Browser application. Short for <b>We</b>b <b>In</b>spector <b>Re</b>mote, Weinre provides a live portal into Enterprise Browser APIs with its JavaScript Console tab, a much faster method than sifting through logs.
 
@@ -66,6 +67,8 @@ Weinre will respond with a message similar to the one below--an address and port
 The page should look something like this:
 
 ![img](images/debugging/weinre-web-console.png)
+
+_Click on any image to enlarge_.
 
 ### Enable Weinre In the App
 If all has gone well so far, the browser is displaying the Weinre Inspector Remote console. In the section labeled ‘Target Script,’ there's a string that contains a URL with the dev host's local IP address and port number, plus the name and path of the script file that Weinre needs to communicate with the target device.
@@ -138,6 +141,7 @@ More information about Timeline can be found starting at 25:10 of Zebra’s [Fro
 #### Resources Tab
 The Resources tab allows <b>displays the resources being used by the current Webview page</b>. Reources can include outside assets being called into the app such as images, JavaScript, stylesheets and cookies. Inspecting the resources can be useful if for ensuring that a particular resource has been loaded. This tab also can provide insight into other HTML5 features such as WebSQL and localStorage, if present.
 
+<a name="chrome"></a>
 ## Debugging with Chrome
 
 If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some great visuals for testing, debugging and fine-tuning your app while it's running on the device. 
@@ -162,7 +166,9 @@ The target device must have USB debugging enabled. This feature is found in **Se
 4. **Return to Settings** and **tap Developer Options** 
 5. **Place a check in the Enable USB Debugging** box
 
-![Developer Options](images/debugging/Android_developerOptions.png)
+<img style="height:300px" src="images/debugging/Android_developerOptions.png"/>
+
+_Click on any image to enlarge_.
 
 ###2. Discover Device (in Desktop Chrome)
 If you haven't already done so, **connect your device to an available USB port on the development host** and **enable device detection in Chrome**: 
@@ -210,9 +216,10 @@ As with most web inspectors you can change attributes in the inspector...
 ![img](images/debugging/changed_app_text.png)
  -->
 
+<a name="inspector"></a>
 ## Using Remote Debug Inspector
 
-The Ekioh Remote Debug Inspector tool is for debugging apps running on Zebra Windows Mobile/CE devices that use 'Motorola' Webkit (aka Zebra Webkit), which was originally developed by Ekioh. Remote Debug Inspector installs on the device and requires a new tag in the Config.XML of the target app to make it work with desktop Chrome. 
+The Remote Debug Inspector tool is for debugging apps running on Zebra Windows Mobile/CE devices that use Zebra Webkit. Remote Debug Inspector installs on the device and requires a new tag in the Config.XML of the target app to make it work with desktop Chrome. 
 
 ### Prerequisites
 * A Mac (with ADB) or Windows 7 or later PC (with Mobile Device Center) 
@@ -225,8 +232,9 @@ The Ekioh Remote Debug Inspector tool is for debugging apps running on Zebra Win
 
 <img style="height:300px" src="images/debugging/ebsetup_webkit.jpg"/>
 
-Enterprise Browser installer screen showing Webkit installation options
+Enterprise Browser device installer showing Webkit deployment options.
 
+_Click on any image to enlarge_.
 
 ### Install 
 
@@ -269,5 +277,5 @@ After a few moments, the browser should display a page similar to the image belo
 
 <img style="height:400px" src="images/debugging/inspecting_html.png"/>
 
-This panel works in much the same manner as those of Weinre and Chrome Web Inspector.
+This panel works in much the same manner as those of Weinre and Chrome Web Inspector (click on any image to enlarge). 
 
