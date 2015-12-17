@@ -238,7 +238,7 @@ _Click on any image to enlarge_.
 
 ### Install 
 
-&#49;. **[Download Remote Debug Inspector](https://github.com/rhomobile/Motorola-Extensions/blob/8728a3b73488fc468fb49fd406cb23f301fd43af/neon/Helium/HeliumForWindows/ThirdParty/Ekioh/InspectorInstaller/Inspector/inspector.CAB?raw=true)** tool.<br>
+&#49;. **[Download Remote Debug Inspector](http://enterprise-browser.s3.amazonaws.com/inspector.CAB)** tool.<br>
 &#50;. **Copy the downloaded 'inspector.CAB' file to the device**.<br> 
 &#51;. **Execute the file**, which will install into a folder called `/inspector` on the device.<br>
 &#52;. **Add to the Config.XML file** (of the target app) the following tags:<br>

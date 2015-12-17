@@ -239,11 +239,11 @@ var menuStrcture = [
 						icon: 'fa fa-bug',
 						items: [
 							{
-								name: 'Debugging EB Apps',
+								name: 'On-Device Debugging',
 								link: '#guide-debuggingjs',
 							},
 							{
-								name: 'Logging',
+								name: 'App Logging',
 								link: '#guide-logging',
 							}
 						]

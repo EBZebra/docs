@@ -56,7 +56,7 @@ Condensed into its basic steps, the printing process involves:
 
 ###Sample app
 
-The starting point for this tutorial is the sample app from the MBS1018 lesson. If you have not completed that training or didn't save the app, please [download the sample app](https://github.com/EBZebra/docs/blob/5fed402c62f66f56c6ab914fd0236fad0f8df191/images/MBS1018_sample_app.html.zip?raw=true) now. 
+The starting point for this tutorial is the sample app from the MBS1018 lesson. If you have not completed that training or didn't save the app, please [download the sample app](http://enterprise-browser.s3.amazonaws.com/MBS1018_sample_app.html.zip) now. 
 
 Using this app, the tutorial will demonstrate how to:
 

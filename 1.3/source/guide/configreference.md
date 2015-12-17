@@ -1703,20 +1703,22 @@ Allows hardware keys of an Android device running Enterprise Browser 1.2 (or lat
 
 ## Remarks
 ### <a name="_caseSensitivity"></a>Case Sensitivity
-The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+The file systems of some operating systems are case-sensitive. In the Config.XML file, best practices for cross-platform compatibility therefore dictate that the use of upper and lower case for URL and file references be identical to those of the actual files.
 
 ### <a name="_batteryRefresh"></a>Battery Polling on the Enterprise Tablet
-On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
+Due to its asynchronous battery notification, the Enterprise Tablet does not support BatteryRefresh. This has the effect of launching a bateryEvent only when the battery level changes. This functionality has been implemented in place of polling as a means of maximizing battery power.
 
 ### Open and Print
-If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE7 devices.
+For apps that enable the Open (Ctrl+O) or Print (Ctrl+P) key combinations, such functions are inoperable on Windows CE7 devices.
 
-### <a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
-On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system any settings applied will persist until the device is next warm booted.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as function keys.  Not all function keys will have default operating system behavior.
+### <a name="_fnbehavior"></a>FunctionKeysCapturable-EnableFunctionKey Interaction
+**Applies to Windows Mobile and Windows CE devices only**. 
 
-Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.
+On Windows Mobile/CE, full control is given to the developer over how the application handles function keys, but such settings persist only until the next warm boot. Also, the default behavior of function keys will vary from one device to another. On the MC75a, for example, the red and green phone keys also represent F3 and F4 keys, and on many devices the volume keys also can be mapped as function keys. 
 
-The table below shows the behavior of the Enterprise Browser when function Keys are pressed given the possible configuration settings:
+Not all function keys will revert to default operating system behavior, however, and unblocking certain function keys might expose the underlying operating system. For example, exposing the red and green phone keys on some devices will grant access to the WM/CE Start menu.
+
+The table below shows the behavior of the Enterprise Browser when function keys are pressed given the possible configuration settings:
 
 <table border=1 width="100%" class="re-table">
 	<tr>
@@ -1758,4 +1760,5 @@ The table below shows the behavior of the Enterprise Browser when function Keys 
 		</td>
 	</tr>
 </table>
+_This table applies to Windows Mobile and Windows CE devices only_. 
 
