@@ -83,10 +83,6 @@ var menuStrcture = [
 								link: '#guide-tutorial-network',
 							},
 							{
-								name: 'Printing',
-								link: '#guide-tutorial-printing',
-							},
-							{
 								name: 'Signature',
 								link: '#guide-tutorial-signature',
 							},
