@@ -1240,8 +1240,8 @@ Controls window resizing when the soft input panel (on-screen keyboard, or SIP) 
 	<ResizeOnSIP value="1"/>
 
 ### EnableSIP
-Controls whether soft input panel (on-screen keyboard, or SIP) will appear. **Applies to Android only**. This feature can be mimicked on WM/CE by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby ‘disabling’ its use.
-
+The soft input panel (SIP; i.e. on-screen keyboard) is controlled on Android through the [SIP API](../api-Sip) introduced with EB 1.3. On Windows Mobile/CE, soft input can be disabled by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby making it inaccessible to the user. 
+<!--
 **Possible Values**
 
 * 0 - Disabled
@@ -1250,6 +1250,7 @@ Controls whether soft input panel (on-screen keyboard, or SIP) will appear. **Ap
 #### Example
 	:::xml
 	<EnableSIP value="1"/>
+-->
 
 ## System
 ### LowBatteryScan
