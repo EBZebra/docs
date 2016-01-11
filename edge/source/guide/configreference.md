@@ -1675,7 +1675,7 @@ Controls zoom-OUT behavior for application text using function key(s) configured
 	<ZoomOutKey value="0x71"/>
 
 ## isWindowsKey
-Allows hardware keys of an Android device running Enterprise Browser 1.2 (or later) to mimic Windows Mobile key codes when used with the KeyCapture API of PocketBrowser or RhoElements 2.x. When enabled, the application will substitute its normal Android keys with the Windows Mobile function key code values for keys F1 through F12. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will receive Android function key code values. **Applies to Android devices with PocketBrowser or RhoElements 2.x Key Capture API only**. 
+Allows hardware keys of an Android device running Enterprise Browser 1.2 (or later) to mimic Windows Mobile key codes when used with the KeyCapture API of PocketBrowser or RhoElements 2.x or 4.x. When enabled, the application will substitute its normal Android keys with the Windows Mobile function key code values for all keys. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will receive Android function key code values. **Applies to Android devices with PocketBrowser or RhoElements 2.x or 4.x Key Capture API only**. 
 
 **Possible Values**
 
