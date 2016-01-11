@@ -1508,7 +1508,7 @@ Controls viewport meta tag processing (enabled by default).
 	<ViewportEnabled value="1"/>
 
 ### ViewportWidth
-Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling. 
+Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling. **Applies only to Windows Mobile/CE; this setting is not supported in Android**.
 
 **Possible Values**
 
@@ -1519,9 +1519,9 @@ Sets the default viewport width for pages that do not have a viewport meta tag. 
 	<ViewportWidth value="1"/>
 
 ### CaFile
-Specifies the location of a device-resident file containing CA certificates in PEM format. Please [refer to openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. **Applies to Android and Windows Mobile/CE**. 
+Specifies the location of a device-resident file containing CA certificates in PEM format. Please [refer to openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. **Applies only to Windows Mobile/CE**. 
 
-> Note: Enteprise Browser only supports only a single certificate file in PEM format. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple `.pem` certificates can be combined into a single file using any standard text editor. The combined file can then be specified in the CaFile parameter. 
+> Note: Enteprise Browser supports only a single PEM certificate file. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple `.pem` certificates can be combined into a single file using a text editor. The combined file can then be specified in the CaFile parameter. 
 
 **Possible Values**
 
@@ -1531,7 +1531,7 @@ Specifies the location of a device-resident file containing CA certificates in P
 	:::xml
 	<CaFile value="cert-file-name"/>
 
-### CaPath
+<!--### CaPath
 >Note : This setting is not supported in Enterprise Browser.
 
 Specifies a fully qualified path to the directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
@@ -1539,7 +1539,7 @@ Specifies a fully qualified path to the directory containing CA certificates in 
 **Possible Values**
 
 * Local File path on the device
-
+-->
 ### VerifyPeerCertificate
 Controls whether server certificates will be verified against the internal certificates. Enabled by default. Useful for debugging, a value of 0 (disabled) is equivalent to automatically clicking ‘OK’ on a web browser’s dialog when requesting approval for an untrusted certificate. **It is strongly recommended that this feature be enabled for deployment**. 
 
