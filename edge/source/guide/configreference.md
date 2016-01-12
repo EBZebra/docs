@@ -1692,7 +1692,6 @@ Allows hardware keys of an Android device running Enterprise Browser 1.2 (or lat
 
 **Possible Values**
 
-* Possible Values 
 * **0 - Shortcut creation disabled (default)**
 * 1 - Shortcuts created at every launch
 * 2 - Shortcuts created on initial launch only
@@ -1701,25 +1700,57 @@ Allows hardware keys of an Android device running Enterprise Browser 1.2 (or lat
 	:::xml
 	<ShortcutCreationEnabled value="1"/>
 
+## useDWforScanning
+Controls whether scanning is performed through [Enterprise Browser APIs](../api/barcode) or the DataWedge application. See [Remarks section](../guide/configreference?Remarks) for details. **Applies only to Android**. 
+
+**Possible Values**
+
+* **0 - Enable scanning through Enterprise Browser APIs (default; DataWedge disabled)**
+* 1 - Enable scanning through Datawedge (Enterprise Browser scanning disabled)
+
+#### Example:
+	:::xml
+	<useDWforScanning value="0"/>
 
 ## Remarks
-### <a name="_caseSensitivity"></a>Case Sensitivity
-The file systems of some operating systems are case-sensitive. In the Config.XML file, best practices for cross-platform compatibility therefore dictate that the use of upper and lower case for URL and file references be identical to those of the actual files.
-
-### <a name="_batteryRefresh"></a>Battery Polling on the Enterprise Tablet
+### <a name="_batteryRefresh"></a>Battery Polling on Enterprise Tablet
 Due to its asynchronous battery notification, the Enterprise Tablet does not support BatteryRefresh. This has the effect of launching a bateryEvent only when the battery level changes. This functionality has been implemented in place of polling as a means of maximizing battery power.
 
-### Open and Print
-For apps that enable the Open (Ctrl+O) or Print (Ctrl+P) key combinations, such functions are inoperable on Windows CE7 devices.
+### <a name="_caseSensitivity"></a>Case Sensitivity
+The file systems of some operating systems are case-sensitive. Best practices for cross-platform compatibility therefore dictate that the use of upper and lower case for URL, file and path references in the Config.XML file be identical to those of the actual sources.
+
+### <a name="_datawedge"></a>DataWedge-Enterprise Browser Conflict
+**This issue applies to Android only**. 
+
+There are two scenarios that could disable scanning with the DataWedge application when Enterprise Browser is running on Zebra Android devices. They are explained as follows:
+
+1. DataWedge contains a hidden RhoElements profile associated with Enterprise Browser that disables scanner input on some devices. As a result, the scanner remains disabled when Enterprise Browser comes into the foreground.
+2. While initializing Enterprise Browser, a newly created EMDK Barcode Manager instance sends a message that disables DataWedge scanner input.
+
+The settings below correct both of these issues. Implementing both will prevent any known scenario from disabling DataWedge scanning when Enterprise Browser is present on the device. 
+
+####Setting 1: Repair the DW Profile
+
+1. **Export the DataWedge profile** from the device (DW Profiles->Settings->Export Profile)
+2. Make RhoElements profile visible
+3. **Remove the Enterprise Browser association** from Associated/apps
+4. **Create a new Enterprise Browser profile**
+5. In Enterprise Browser profile, **enable Barcode Input and Keystroke Output** 
+6. **Save the profile and import** into DataWedge (DW Profiles->Settings->Import)
+
+NOTE: When the profile created above is enabled in DataWedge, Enterprise Browser Barcode 4.x and Scanner 2.x APIs will no longer function; the scanning hardware will be locked by DataWedge.
+
+####Setting 2: DataWedge Tag
+Enterprise Browser 1.4 and higher addresses the EMDK issue with a new tag in the `Config.xml` file called `useDWforScanning`. A tag value of 1 forces scanning through DataWedge; a value of 0 (the default) will disable DataWedge scanning and revert to Enterprise Browser APIs on devices with EMDK installed. Please refer to [DataWedge tag section](../guide/configreference?useDWforScanning) of this Config.xml Reference for more information. 
 
 ### <a name="_fnbehavior"></a>FunctionKeysCapturable-EnableFunctionKey Interaction
-**Applies to Windows Mobile and Windows CE devices only**. 
+**Applies to Windows Mobile/CE devices only**. 
 
 On Windows Mobile/CE, full control is given to the developer over how the application handles function keys, but such settings persist only until the next warm boot. Also, the default behavior of function keys will vary from one device to another. On the MC75a, for example, the red and green phone keys also represent F3 and F4 keys, and on many devices the volume keys also can be mapped as function keys. 
 
 Not all function keys will revert to default operating system behavior, however, and unblocking certain function keys might expose the underlying operating system. For example, exposing the red and green phone keys on some devices will grant access to the WM/CE Start menu.
 
-The table below shows the behavior of the Enterprise Browser when function keys are pressed given the possible configuration settings:
+The table below shows the behavior of Enterprise Browser when function keys are pressed given certain configuration settings:
 
 <table border=1 width="100%" class="re-table">
 	<tr>
@@ -1762,4 +1793,9 @@ The table below shows the behavior of the Enterprise Browser when function keys 
 	</tr>
 </table>
 _This table applies to Windows Mobile and Windows CE devices only_. 
+
+### <a name="_openAndPrint"></a>Open and Print Key Commands
+For apps that enable the Open (Ctrl+O) or Print (Ctrl+P) key combinations, such functions are inoperable on Windows CE7 devices.
+
+
 
