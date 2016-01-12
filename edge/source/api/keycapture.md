@@ -63,7 +63,7 @@ Synchronous Return:
 
 
 ### captureTrigger()
-Captures the event whenever a device hardware trigger is pressed or released. If the callback is not set then the capture setting for the trigger will be cleared. The trigger presses cannot be absorbed. All trigger presses will propagate to the Enterprise Browser.
+Captures the event whenever a device hardware trigger is pressed or released. If the callback is not set then the capture setting for the trigger will be cleared. The trigger presses cannot be absorbed. All trigger presses will propagate to the Enterprise Browser. Note: On Android, PTT keys are capturable using captureTrigger method only.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -173,6 +173,9 @@ Because the Home key cannot be captured on the ET1 and MC40 it is possible for u
 ###Capturing Function
 If you have enabled the function key in the configuration settings and that function key has some special behavior in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see the Configuration Reference). An example of special behavior is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'FunctionKeysCapturable' will allow you to capture Function keys it will also disable the special Function key behavior. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labeled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
 
+###Keys with multiple functionalities
+Some keys which are meant for performing multiple functionalities but performs the single functionality may return the single code value. In that case it is recommended to remap the key code value with the expected desired keycode value.
+
 ###VC70 Hardware Keys
 The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behavior (like volume up / down) of hardware keys can not be blocked when the app is running in full-screen mode.
 
@@ -181,6 +184,9 @@ The ES400 has a hardware messaging key with an envelope icon on it that does not
 
 ###F5 Key
 In Internet Explorer the F5 key is used to refresh the current page. It is not recommended to rely on this functionality on Windows Mobile and it is not supported.
+
+###PTT Keys
+On Android, PTT keys are capturable using captureTrigger method only.
 
 ###Accelerator Keys
 The following keys will be affected by the 'AccelerateKey' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the app is run with the Internet Explorer engine on a Windows CE device.
