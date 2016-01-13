@@ -120,6 +120,10 @@ var menuStrcture = [
 								link: '#guide-configreference',
 							},
 							{
+								name: 'DataWedge Usage',
+								link: '#guide-datawedge',
+							},
+							{
 								name: 'DOM Injection Guide',
 								link: '#guide-DOMinjection',
 							},
