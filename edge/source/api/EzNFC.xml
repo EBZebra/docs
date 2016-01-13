@@ -64,7 +64,6 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
             <METHOD name="enableAdapter" hasCallback="none">
 				<DESC>Navigates to device NFC Adapter settings screen if device's NFC Adapter is not enabled.</DESC>
 				<PLATFORM>Android</PLATFORM>
-                <RETURN type="BOOLEAN"/>
             </METHOD>
 			
 			<METHOD name="enableRead" hasCallback="mandatory">
@@ -217,8 +216,8 @@ function enableNfcCallback1(dat) {
 	var Payload = dat.payload;
 	var EncodingFormat = dat.encodingformat;
 	var Result = dat.result;
-	
-	var ShowData = "ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result;
+	var TagIDHexa = dat.tagidhexa;
+	var ShowData = "ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result + "<BR>TagIDHexa: " + TagIDHexa ;
 	
 	document.getElementById("demo5").innerHTML = ShowData;
 }

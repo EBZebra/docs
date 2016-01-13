@@ -67,13 +67,10 @@ Navigates to device NFC Adapter settings screen if device's NFC Adapter is not e
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
-Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
-
 ####Returns
 Synchronous Return:
 
-* BOOLEAN
+* Void
 
 ####Platforms
 
@@ -260,8 +257,8 @@ function enableNfcCallback1(dat) {
 	var Payload = dat.payload;
 	var EncodingFormat = dat.encodingformat;
 	var Result = dat.result;
-	
-	var ShowData = "ID:" + ID + "&lt;BR&gt;Type:" + Type + "&lt;BR&gt;TNF:" + TNF + "&lt;BR&gt;Payload:" + Payload + "&lt;BR&gt;EncodingFormat:" + EncodingFormat + "&lt;BR&gt;Result:" + Result;
+	var TagIDHexa = dat.tagidhexa;
+	var ShowData = "ID:" + ID + "&lt;BR&gt;Type:" + Type + "&lt;BR&gt;TNF:" + TNF + "&lt;BR&gt;Payload:" + Payload + "&lt;BR&gt;EncodingFormat:" + EncodingFormat + "&lt;BR&gt;Result:" + Result + "&lt;BR&gt;TagIDHexa: " + TagIDHexa ;
 	
 	document.getElementById("demo5").innerHTML = ShowData;
 }
