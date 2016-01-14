@@ -2,6 +2,7 @@
 
 The DataWedge app makes it possible to fetch barcode data from within an Enterprise Browser application without using the Enterprise Browser APIs. Instead, the EB application calls on DataWedge, which scans and acquires the barcode data and enters the corresponding keystrokes into any EB input field. 
 
+**See also: [DataWedge User Guide](https://launchpad.motorolasolutions.com/documents/dw_user_guide.html)** 
 ###Enabling DataWedge
 
 To enable DataWedge from within an Enterprise Browser app, perform the following steps on the device:
@@ -94,3 +95,5 @@ This API provides backward compatibility for PocketBrowser and RhoElements appli
 
     :::javascript
     scanner.enable();
+
+**See also: [DataWedge User Guide](https://launchpad.motorolasolutions.com/documents/dw_user_guide.html)** 
