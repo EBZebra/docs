@@ -1741,7 +1741,7 @@ Controls whether HTTP connections will be maintained between requests. When enab
 	<KeepAlive value="1"/>
 
 ## usedwforscanning
-**Applies only to Android**. Controls whether to 'use DataWedge (DW) for scanning' or to go through [Enterprise Browser APIs](../api/barcode). Additional settings adjustments may be required to use this tag. Please refer to the [DataWedge Usage Guide](../guide/datawedge) for important details about DataWedge configuration and potential conflicts with Enterprise Browser. 
+**Applies only to Android**. Controls whether to 'use DataWedge (DW) for scanning' or to go through [Enterprise Browser APIs](../api/barcode). Additional settings adjustments might be required to use this tag. Please refer to the [DataWedge Usage Guide](../guide/datawedge) for important details about DataWedge configuration and potential conflicts with Enterprise Browser. 
 
 **Possible Values**
 

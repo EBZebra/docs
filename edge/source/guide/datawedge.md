@@ -1,6 +1,6 @@
 #DataWedge Usage and Compatibility
 
-The DataWedge app makes it possible to fetch barcode data from within an Enterprise Browser application without using the Enterprise Browser APIs. The EB application simply invokes DataWedge, which scans and acquires the barcode data and enters the corresponding keystrokes into any EB input field. 
+The DataWedge app makes it possible to fetch barcode data from within an Enterprise Browser application without using the Enterprise Browser APIs. Instead, the EB application calls on DataWedge, which scans and acquires the barcode data and enters the corresponding keystrokes into any EB input field. 
 
 ###Enabling DataWedge
 
@@ -19,7 +19,7 @@ To enable DataWedge from within an Enterprise Browser app, perform the following
 11. Confirm that the 'Profile enabled' checkbox is checked. 
 12. **Uncheck the 'Enabled' checkboxes of the Barcode Input, Keystroke Output and Intent Output sections**. 
 
->**NOTE: While such a profile is enabled, your app will not be able to scan using the Enterprise Browser APIs**. If API-based scanning is required, be sure to disable DataWedge using the steps below. For more information about potential DataWedge conflicts, please refer to the [Remarks section](../guide/configreference?Remarks) of the Enterprise Browser [Configuration Reference](../guide/configreference). 
+>**NOTE: While such a profile is enabled, your app will not be able to scan using the Enterprise Browser APIs**. If API-based scanning is required, simply disable DataWedge using the steps below. For more information about potential DataWedge conflicts, please see Potential Conflicts, below. 
 
 ###Disabling DataWedge
 
@@ -29,13 +29,13 @@ To disable DataWedge, perform the following steps on the device:
 2. Select **Menu->Settings**.
 3. Uncheck 'DataWedge Enabled' checkbox.
 
-###DataWedge-Enterprise Browser Conflict
+###Potential Conflicts
 There are two scenarios that could disable scanning with the DataWedge application when Enterprise Browser is running on Zebra Android devices. They are explained as follows:
 
 1. DataWedge contains a hidden RhoElements profile associated with Enterprise Browser that disables scanner input on some newer Android devices. As a result, the scanner remains disabled when Enterprise Browser comes into the foreground.
 2. While initializing Enterprise Browser, a newly created EMDK Barcode Manager instance sends a message that disables DataWedge scanner input.
 
-The settings below correct both of these issues. Implementing both will prevent any known scenario from disabling DataWedge scanning when Enterprise Browser is present on the device. 
+The following settings correct both of these issues, and will prevent all known scenarios from disabling DataWedge scanning when Enterprise Browser is present on the device. 
 
 ####Setting 1: DataWedge Profile
 
@@ -47,16 +47,15 @@ The settings below correct both of these issues. Implementing both will prevent 
 5. In DataWedge, **create a new Enterprise Browser profile**
 6. **Enable Barcode Input and Keystroke Output** in the new profile
 
-> **NOTE**: When the profiles above are enabled in DataWedge, Enterprise Browser Barcode 4.x and Scanner 2.x APIs will no longer function; the scanning hardware will be locked by DataWedge. To return control to EB, disable the DataWedge and Enterprise Browser profiles in the DataWedge app, set the usedwforscanning tag value to 0 and restart the EB app. 
+> **NOTE**: When the profiles above are enabled in DataWedge, Enterprise Browser Barcode 4.x and Scanner 2.x APIs will no longer function; the scanning hardware will be locked by DataWedge. To return control to EB, disable the DataWedge and Enterprise Browser profiles in the DataWedge app, set the usedwforscanning tag value to 0 (see below) and restart the EB app. 
 
 ####Setting 2: DataWedge Tag
-Enterprise Browser 1.4 and higher addresses the EMDK issue with a new tag in the `Config.xml` file called `useDWforScanning`. A tag value of 1 forces scanning through DataWedge; a value of 0 (the default) will disable DataWedge scanning and revert to Enterprise Browser APIs on devices with EMDK installed. Please refer to [DataWedge tag section](../guide/configreference?useDWforScanning) of this Config.xml Reference for more information. 
-
+Enterprise Browser 1.4 and higher addresses the EMDK issue with a new tag in the `Config.xml` file called `useDWforScanning`. **A tag value of 1 forces scanning through DataWedge**; a value of 0 (the default) will disable DataWedge scanning and revert to Enterprise Browser APIs on devices with EMDK installed. For more information, please refer to the [DataWedge tag section](../guide/configreference?usedwforscanning) of the Config.xml Reference. 
 
 ##Barcode Scanning Options
 
 ###Barcode API
-The [Barcode API](../api/barcode) is the recommended means of performing barcode scans with Enterprise Browser apps. Enterprise Browser also provides the Scanner API, which provides backward compatibility with PocketBrowser and RhoElements apps.
+The [Barcode API](../api/barcode) is the recommended means of performing barcode scans with Enterprise Browser apps. Enterprise Browser also provides the Scanner API, which provides backward compatibility with PocketBrowser and RhoElements apps. Please refer to those products for more information about the Scanner API. 
 
 * API: Barcode
 
@@ -64,7 +63,6 @@ The [Barcode API](../api/barcode) is the recommended means of performing barcode
 
     :::javascript
     EB.Barcode.enable();
-
 
 ###Meta Tags
 This API provides backward compatibility for PocketBrowser and RhoElements applications.
@@ -75,7 +73,6 @@ This API provides backward compatibility for PocketBrowser and RhoElements appli
 
     :::html
     <META HTTP-Equiv="scanner" Content="enabled">
-
 
 ###ActiveXObject
 This API provides backward compatibility for PocketBrowser and RhoElements applications.
