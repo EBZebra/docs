@@ -844,7 +844,7 @@ Defines the amount of time (in milliseconds) the application should wait to esta
 
 ## Screen orientation
 ### AutoRotate
-When disabled the orientation of the screen will not change as the device is rotated and vice versa. This is a screen rotation lock.
+Controls automatic rotation of screen orientation. When disabled, the orientation of the screen will not change when the device is rotated. 
 
 **Possible Values**
 

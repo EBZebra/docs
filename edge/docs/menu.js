@@ -213,6 +213,7 @@ var menuStrcture = [
 							{"name":"ReloadButton","link":"#api-ReloadButton"},
 							{"name":"ScreenOrientation","link":"#api-screenorientation"},
 							{"name":"Sensor","link":"#api-sensor"},
+							{"name":"SettingsButton","link":"#api-settingsButton"},
 							{"name":"SignalIndicators","link":"#api-signalindicators"},
 							{"name":"Signature","link":"#api-signature"},
 							{"name":"SIP","link":"#api-Sip"},
