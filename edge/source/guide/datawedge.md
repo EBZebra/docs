@@ -5,7 +5,7 @@ The DataWedge app makes it possible to fetch barcode data from within an Enterpr
 **See also: [DataWedge User Guide](https://launchpad.motorolasolutions.com/documents/dw_user_guide.html)** 
 ###Enabling DataWedge
 
-To enable DataWedge from within an Enterprise Browser app, perform the following steps on the device:
+To enable DataWedge from within an Enterprise Browser app, perform the following steps* on the device:
 
 1. Install your Enterprise Browser app. 
 2. Start the DataWedge app. 
@@ -20,6 +20,8 @@ To enable DataWedge from within an Enterprise Browser app, perform the following
 11. Confirm that the 'Profile enabled' checkbox is checked. 
 12. **Uncheck the 'Enabled' checkboxes of the Barcode Input, Keystroke Output and Intent Output sections**. 
 
+&#42; *Steps shown for Android; corresponging steps for Windows will vary slightly*.  
+
 >**NOTE: While such a profile is enabled, your app will not be able to scan using the Enterprise Browser APIs**. If API-based scanning is required, simply disable DataWedge using the steps below. For more information about potential DataWedge conflicts, please see Potential Conflicts, below. 
 
 ###Disabling DataWedge
@@ -31,7 +33,7 @@ To disable DataWedge, perform the following steps on the device:
 3. Uncheck 'DataWedge Enabled' checkbox.
 
 ###Potential Conflicts
-There are two scenarios that could disable scanning with the DataWedge application when Enterprise Browser is running on Zebra Android devices. They are explained as follows:
+There are two scenarios that could disable scanning with the DataWedge application when Enterprise Browser is running. **This applies to Zebra Android devices only**. They are explained as follows:
 
 1. DataWedge contains a hidden RhoElements profile associated with Enterprise Browser that disables scanner input on some newer Android devices. As a result, the scanner remains disabled when Enterprise Browser comes into the foreground.
 2. While initializing Enterprise Browser, a newly created EMDK Barcode Manager instance sends a message that disables DataWedge scanner input.
