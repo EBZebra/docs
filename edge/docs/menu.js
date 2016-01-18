@@ -128,6 +128,10 @@ var menuStrcture = [
 								link: '#guide-DOMinjection',
 							},
 							{
+								name: 'Keycode Usage',
+								link: '#guide-keycapture',
+							},
+							{
 								name: 'On-device Config',
 								link: '#guide-OndeviceConfig',
 							},
