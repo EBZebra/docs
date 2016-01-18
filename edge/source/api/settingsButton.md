@@ -4,12 +4,12 @@
 The SettingsButton module is used to display/hide the system settings button and set its parameters. When pressed, the settings button brings up the settings HTML page. **Applies to Android and Windows Mobile/CE**.
 
 ##Enabling the API
-To use this API, the app must contain a reference to `elements.js`, the JavaScript file that includes it: 
+To use this API in an Android app, the app must contain a reference to `elements.js`, the JavaScript file that includes it: 
 
 	:::html
     <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
 
-> **Important**: The `elements.js` must be in a location accessible by the HTML page from which it will be called. That location can be on the device or the web server.
+> **Important**: The `elements.js` must be in a location accessible by the HTML page from which it will be called. That location can be on the device or the web server on which the app resides. The `elements.js` file **required only for Android**.  
 
 ### API Usage
 The SettingsButton API is accessed using meta tag references: 
