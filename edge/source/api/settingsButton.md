@@ -9,7 +9,7 @@ To use this API in an Android app, the app must contain a reference to `elements
 	:::html
     <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
 
-> **Important**: The `elements.js` must be in a location accessible by the HTML page from which it will be called. That location can be on the device or the web server on which the app resides. The `elements.js` file **required only for Android**.  
+> **Important**: The `elements.js` must be in a location accessible by the HTML page from which it will be called. That location can be on the device or the web server on which the app resides. **The** `elements.js` **file is required only for Android**.  
 
 ### API Usage
 The SettingsButton API is accessed using meta tag references: 
