@@ -1021,7 +1021,7 @@ Determines whether to preload the NPAPI plug-in to provide native JavaScript obj
 
 ## Scrolling
 ### ScrollTechnique
-Specifies the technique used to scroll the viewport. **'FingerScroll'** is an Android-only feature that permits scrolling around a page with finger swiping. **'Scrollbars'** will be presented when the page is too large to fit the viewport (not available on Android). **'None'** displays no scrollbars and the page will not respond to finger swipes. This setting is not supported on Windows CE using the IE rendering engine. FingerScroll may interfere with drawing on a Canvas element. 
+Specifies the technique used to scroll the viewport. The **FingerScroll** setting permits scrolling around a page with finger swiping (may interfere with drawing on a Canvas element). **Scrollbars** will be presented when the page is too large to fit the viewport. The **None** setting will display no scrollbars and the page will not respond to finger swipes. **The ScrollingTechnique setting is not supported on Android or on Windows CE devices that use the IE rendering engine**. 
 
 **Possible Values**
 
