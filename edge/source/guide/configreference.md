@@ -380,7 +380,7 @@ Specifies the fully qualified path of an image to be displayed at app start-up. 
 
 ## Intent
 ### EnableReceiver
-Determines whether Enterprise Browser will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions. For more information about Intent, please refer to [the Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
+Determines whether Enterprise Browser will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions. For more information about Intent, please refer to the [Remarks section](../guide/configreference?Remarks) and the [Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
 
 **Possible values**
 
@@ -389,8 +389,7 @@ Determines whether Enterprise Browser will recieve Intent actions, which work wi
 
 #### Example 
 	:::xml
-	<EnableReceiver  value="1"/>
-
+		<EnableReceiver value="1"/>
 
 ### IntentAction  	 
 Specifies the Action for which the receiver is to be registered. There must be at least one IntentAction value for a Receiver to be registered. IntentAction value can be an Android-defined or custom. 
@@ -1812,6 +1811,25 @@ The table below shows the behavior of Enterprise Browser when function keys are 
 	</tr>
 </table>
 _This table applies to Windows Mobile and Windows CE devices only_. 
+
+### <a name="intent"></a>Intent
+The `IntentReciever` tag includes parameters to enable/disable the Intent function and to define the Action and Catagory of the Intent itself. The syntax for these parameters is as follows: 
+
+	:::xml
+	<IntentReceiver>
+		<EnableReceiver value="1"/>
+		<IntentAction  	value="com.zebra.sample.action"/>
+		<IntentCategory value="android.intent.category.LAUNCHER"/>
+	</IntentReceiver>
+
+From the target side, here's what the relevant JavaScript code for sending an intent might look like: 
+
+		:::javascript
+		Intent intent = new Intent("com.zebra.sample.action");
+		intent.putExtra("key", "intent");
+		sendBroadcast(intent);   
+
+Learn more about Intent at the [Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
 
 ### <a name="_openAndPrint"></a>Open and Print Key Commands
 For apps that enable the Open (Ctrl+O) or Print (Ctrl+P) key combinations, such functions are inoperable on Windows CE7 devices.
