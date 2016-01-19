@@ -128,7 +128,7 @@ var menuStrcture = [
 								link: '#guide-DOMinjection',
 							},
 							{
-								name: 'Keycode Usage',
+								name: 'Keycode Mapping Guide',
 								link: '#guide-keycapture',
 							},
 							{

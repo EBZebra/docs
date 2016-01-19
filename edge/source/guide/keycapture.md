@@ -1,63 +1,95 @@
 
-# Keycode Usage
+# Keycode Mapping Guide
 
 ##Overview
 
-Keycodes are hexadecimal constants with a '0x' prefix that uniquely identify the ASCII equivilent of each soft or hard key pressed on the device. Keycodes for keys with multiple values such as upper and lower case are accessed with a modifier such as the shift key. 
+Keycodes are set of constants that uniquely identify the ASCII value of key-presses on a device (whether hard or soft). The keycodes for keys with multiple values (such as upper and lower case) are accessed with the shift or other modifier key. Enterprise Browser 1.4 permits Android keycode values to be assigned from a file when an Enterprise Browser app starts up.
 
-## Keycode Handling 
-On Android devices, the keycode values of certain keys are sometimes not returned as expected when the key is pressed. To ensure control and accuracy of key presses, the desired keycode value(s) can be assigned using the [KeyCapture API](../api/keycapture). This process is supported on the current KeyCapture 4.x API as well as the legacy 2.x version. The steps detailed here cover both. 
+**This guide applies to Android only**.
 
-**Applies to Android only**.
+### Keycode Handling 
+On Android devices, the keycode values of certain keys are sometimes not returned as expected. To ensure control and accuracy of key presses, the desired keycode value(s) can be assigned through the current [KeyCapture 4.x API](../api/keycapture) as well as legacy 2.x versions. The steps in thie guide apply to all API versions. 
+
+The following facts apply generally to keycode mapping for Enterprise Browser: 
+
+* Keycode mapping requires Enterprise Browser 1.4 or higher.
+* Mapping requires the inclusion of a KeyCapture API. [Here's how](../api/keycapture). 
+* Keycode mappings are contained in the `keycodemapping.xml` file.
+* The `keycodemapping.xml` file is the same for all versions of the KeyCapture API.
+* The mapping file is read by Enterprise Browser only at launch.
+* Upon app install, a mapping-file template is placed in `/android/data/com.symbol.enterprisebrowser`.
+* Keycodes not mapped (or left blank in the mapping file) retain their default values. 
+* Keycode mapping requires no settings in the `Config.xml` file. 
+
 
 ##Mapping Keycodes 
+To assign custom keycodes to Android hard or soft keys, follow these simple steps:  
 
-* Keycode mappings are contained in the file `keycodemapping.xml`.
-* This file is found in `/Enterprise Browser/JavaScript Files/Enterprise Browser`, a directory on the computer that contains the Enterprise Browser installation.
+&#49;. [Deploy Enterprise Browser](../guide/setup) to the device. 
 
-Blank and contains no mappings? 
-Keycodes not mapped retain their default values. 
+&#50;. Navigate to `/android/data/com.symbol.enterprisebrowser` on the device. 
 
-`keycodemapping.xml` file is 
+&#51;. Copy the `keycodemapping.xml` template to a PC and open it for editing. 
 
-is present in the installation directory when Enterprise Browser application is installed.
+The template should look similar to the image below:  
 
-the included files will be found in: 
+	:::xml
+	<?xml version = "1.0"?>
+	<!--
+	.....KeyCode Mapping File....
+	-->
+	<KeyCodeConfiguration>
 
-*  The `keycodemapping.xml` is used for remapping the key code value with the desired key code value for the particular key pressed.
+		<KeyCodes>
 
-* The `keycodemapping.xml` file will always be used as an input from 2.x or 4.x KeyCapture API.
+			<!-- Example -->
+			<!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
+	  
+		</KeyCodes>
 
-STEPS FOR REMAPPING
+	</KeyCodeConfiguration>
 
-&#49;. Install Enterprise Browser, after installation one can see keycodemapping.xml present in the installation directory.
+&#52;. Copy and paste the example KEYCODE tag (omitting the comment tags) as shown:
 
-&#50;. Tag called "KEYCODE" is present inside keycodemapping.xml file as shown below. 
+	:::xml
+	...
+	<KeyCodes>
 
-              <!-- Example -->
-              <!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->  
+		<!-- Example -->
+		<!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
 
-&#51;. One can map any key code value with the desired key code value for any key pressed.
- 
-               For Example:     
-                 <?xml version = "1.0"?>
-                 <!--
-                 .....KeyCode Mapping File....
-                 -->
-                 <KeyCodeConfiguration>
-                 <KeyCodes>
-                    <!-- Example -->
-                    <!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
-                    <KEYCODE  name="KEYCODE_F1" from="131" to="20" />
-                    <KEYCODE  name="KEYCODE_ENTER" from="46" to="76" />
-                    <KEYCODE  name="KEYCODE_E" from="33" to="7" />
-                    <KEYCODE  name="KEYCODE_BKSC" from="46" to="32" /> 
-                    <KEYCODE  name="KEYCODE_VOL_DOWN" from="25" to="175" />
-                 </KeyCodes>
-                 </KeyCodeConfiguration>
-&#52;. Modify the xml and update the xml in the installation directory.
+		<KEYCODE  name="KEYCODE_0" from="7" to="0x30" />
 
-&#53;. Relaunch the Enterprise Browser Application.
+	</KeyCodes>
+	...
 
-&#54;. Check the key code value from 2.x or 4.x KeyCapture API. It will return the remapped key code value of the particular key pressed which was remapped using keycodemapping.xml.
+&#53;. Replace the values (within the quotes) for name=, from= and to= fields, as desired. 
 
+&#54;. Repeat steps 4 and 5 until all keycodes are mapped as required.
+
+For example:  
+
+		:::xml     
+		<?xml version = "1.0"?>
+		<!--
+		.....KeyCode Mapping File....
+		-->
+		<KeyCodeConfiguration>
+			<KeyCodes>
+				<!-- Example -->
+				<!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
+				<KEYCODE  name="KEYCODE_F1" from="131" to="20" />
+				<KEYCODE  name="KEYCODE_ENTER" from="46" to="76" />
+				<KEYCODE  name="KEYCODE_E" from="33" to="7" />
+				<KEYCODE  name="KEYCODE_BKSC" from="46" to="32" /> 
+				<KEYCODE  name="KEYCODE_VOL_DOWN" from="25" to="175" />	
+			</KeyCodes>
+		</KeyCodeConfiguration>
+
+
+&#55;. Copy the modified `keycodemapping.xml` file to its original location on the device, replacing the template. 
+
+&#56;. Relaunch the Enterprise Browser app and check that its keycodes are mapped as specified.  
+
+##More Information
+For more information, please refer to the [Android KeyEvents method](http://developer.android.com/reference/android/view/KeyEvent.html) docs. 
