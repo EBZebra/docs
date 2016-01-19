@@ -41,7 +41,7 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
 
 ### hide()
-Hides the software keyboard which is available by default with the device.
+Hides the default software keyboard.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -62,7 +62,7 @@ Synchronous Return:
 
 
 ### show()
-Displays the software keyboard which is available by default with the device.
+Displays the default software keyboard on the device.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -96,6 +96,6 @@ Focus on input field will not be reflected automatically when show method of SIP
 ###Software keyboard behavior after hide method
 
                     
-The hide method will not permanently disable the software keyboard. For Ex: After calling hide method, if we focus again on any text area, then software keyboard will be shown again.
+The hide method does not permanently disable the SIP, but simply hides it until the focus returns to a text input field, which causes it to reappear. 
                     
                 
