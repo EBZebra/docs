@@ -3,12 +3,12 @@
 
 ##Overview
 
-Keycodes are set of constants that uniquely identify the ASCII value of device keypresses (whether hard or soft). The keycodes for keys with multiple values (such as upper and lower case) are accessed with the shift or other modifier key. Enterprise Browser 1.4 permits Android keycode values to be assigned from a file when an Enterprise Browser app starts up.
+Keycodes are constants that uniquely identify the ASCII values of device keypresses (hard or soft). The keycodes for keys with multiple values (such as upper and lower case) are accessed with the shift or other modifier key and in some cases cannot be captured. Enterprise Browser 1.4 permits Android keycode values to be assigned from a file when an Enterprise Browser app starts up.
 
 **This guide applies to Android only**.
 
 ### Keycode Handling 
-On Android devices, the keycode values of certain keys are sometimes not returned as expected. To ensure control and accuracy of key presses, the desired keycode value(s) can be assigned through the current [KeyCapture 4.x API](../api/keycapture) as well as legacy 2.x versions. The steps in thie guide apply to all API versions. 
+On Android devices, the keycode values of certain keys are sometimes not returned as expected or desired. To ensure control and accuracy of key presses, the desired keycode value(s) can be assigned through the current [KeyCapture 4.x API](../api/keycapture) as well as legacy 2.x versions. The steps in thie guide apply to all API versions. 
 
 The following facts apply generally to keycode mapping for Enterprise Browser: 
 
@@ -16,12 +16,10 @@ The following facts apply generally to keycode mapping for Enterprise Browser:
 * Mapping requires the inclusion of a KeyCapture API. [Here's how](../api/keycapture). 
 * Keycode mappings are contained in the `keycodemapping.xml` file.
 * The `keycodemapping.xml` file is the same for all versions of the KeyCapture API.
-* The mapping file is read by Enterprise Browser only at launch.
-* Upon app install, a mapping-file template is placed in `/android/data/com.symbol.enterprisebrowser`.
+* The mapping file is read each time Enterprise Browser is launched.
+* Upon app install, a mapping-file template is placed in the EB installation directory, usually `sdcard0/android/data/com.symbol.enterprisebrowser`.
 * Keycodes not mapped (or left blank in the mapping file) retain their default values. 
-* Keycode mapping requires no settings in the `Config.xml` file. 
-* Many [additional restrictions](../api/keycapture?Remarks) apply to keycapture and keycode mapping. 
-
+* [Additional restrictions](../api/keycapture?Remarks) apply to keycapture and keycode mapping. 
 
 ##Mapping Keycodes 
 To assign custom keycodes to Android hard or soft keys, follow these simple steps:  
