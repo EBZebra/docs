@@ -1680,34 +1680,34 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](.
 
 ## ZoomKey
 ### ZoomInKey
-Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid keycode. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
 
 **Possible Values**
 
-* Hexadecimal key code for any function key (F1 to F24)
+* Hexadecimal keycode for any function key (F1 to F24)
 
 #### Example
 	:::xml
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid keycode. **Note**: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the [Remarks section](../guide/configreference?Remarks) at the bottom of this guide. **Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit**.
 
 **Possible Values**
 
-* Hexadecimal key code for any function key (F1 to F24)
+* Hexadecimal keycode for any function key (F1 to F24)
 
 #### Example
 	:::xml
 	<ZoomOutKey value="0x71"/>
 
 ## isWindowsKey
-Allows hardware keys of an Android device running Enterprise Browser 1.2 (or later) to mimic Windows Mobile key codes when used with the KeyCapture API of PocketBrowser or RhoElements 2.x or 4.x. When enabled, the application will substitute its normal Android keys with the Windows Mobile function key code values for all keys. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will receive Android function key code values. **Applies to Android devices with PocketBrowser or RhoElements 2.x or 4.x Key Capture API only**. 
+Allows hardware keys of an Android device running Enterprise Browser 1.2 (or later) to mimic Windows Mobile keycodes when used with the KeyCapture API of PocketBrowser or RhoElements 2.x or 4.x. When enabled, the application will substitute normal Android keycodes with the Windows Mobile function keycode values for all keys. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will receive Android function keycode values. **Applies to Android devices with PocketBrowser or RhoElements 2.x or 4.x Key Capture API only**. 
 
 **Possible Values**
 
-* **0 - Disabled (default); Android key codes are used for all function keys**
-* 1 - Enabled; Windows Mobile key codes are substituted for all Android function keys
+* **0 - Disabled (default); Android keycodes are used for all function keys**
+* 1 - Enabled; Windows Mobile keycodes are substituted for all Android function keys
 
 #### Example
 	:::xml

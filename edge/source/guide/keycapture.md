@@ -3,7 +3,7 @@
 
 ##Overview
 
-Keycodes are set of constants that uniquely identify the ASCII value of key-presses on a device (whether hard or soft). The keycodes for keys with multiple values (such as upper and lower case) are accessed with the shift or other modifier key. Enterprise Browser 1.4 permits Android keycode values to be assigned from a file when an Enterprise Browser app starts up.
+Keycodes are set of constants that uniquely identify the ASCII value of device keypresses (whether hard or soft). The keycodes for keys with multiple values (such as upper and lower case) are accessed with the shift or other modifier key. Enterprise Browser 1.4 permits Android keycode values to be assigned from a file when an Enterprise Browser app starts up.
 
 **This guide applies to Android only**.
 
@@ -20,6 +20,7 @@ The following facts apply generally to keycode mapping for Enterprise Browser:
 * Upon app install, a mapping-file template is placed in `/android/data/com.symbol.enterprisebrowser`.
 * Keycodes not mapped (or left blank in the mapping file) retain their default values. 
 * Keycode mapping requires no settings in the `Config.xml` file. 
+* Many [additional restrictions](../api/keycapture?Remarks) apply to keycapture and keycode mapping. 
 
 
 ##Mapping Keycodes 
@@ -27,7 +28,8 @@ To assign custom keycodes to Android hard or soft keys, follow these simple step
 
 &#49;. [Deploy Enterprise Browser](../guide/setup) to the device. 
 
-&#50;. Navigate to `/android/data/com.symbol.enterprisebrowser` on the device. 
+&#50;. Navigate to the installation directory on the device. 
+This is usually `sdcard0/android/data/com.symbol.enterprisebrowser`
 
 &#51;. Copy the `keycodemapping.xml` template to a PC and open it for editing. 
 
@@ -91,5 +93,32 @@ For example:
 
 &#56;. Relaunch the Enterprise Browser app and check that its keycodes are mapped as specified.  
 
+##Handling Incorrect Keycodes
+Once it is determined that correct keypresses are generating incorrect keycodes, the incorrect keycode value must be determined before the correct one can be substituted. This process uses the Console to visualize the keycodes that appear when pressing one or more keys. 
+
+The first step is to confirm that Windows keycodes are not being forced as a result of the &lt;isWindowsKey&gt; tag:
+
+&#49;. In the app's Config.xml file, confirm that the &lt;isWindowsKey&gt; tag has a value of 0. 
+
+&#50;. Using the KeyCapture API, direct output of keypresses to the Console or other visualization tool to identify incorrect keycode value(s).
+
+&#51;. Map the incorrect keycode values to the correct ones using the same syntax described above: 
+		
+	:::xml
+	<KEYCODE  name="[KEYCODE_X]" from="[incorrect_keycode]" to="[correct_keycode]" />
+
+For example, if Step 2 determined that the keycode value being generated is 0x05 and the desired value is 0x06, then the correct mapping statement would be: 
+
+	:::xml 
+	<KEYCODE  name="KEYCODE_X" from="0x05" to="0x06" />
+
+where "KEYCODE_X" = the actual name of the keycode. 
+
+&#52;. Relaunch Enterprise Browser and repeat Step 2 to confirm generation of correct code(s).  
+
 ##More Information
-For more information, please refer to the [Android KeyEvents method](http://developer.android.com/reference/android/view/KeyEvent.html) docs. 
+
+* [KeyCapture API](../api/keycapture)
+* [Keys that cannot be captured](../api/keycapture?Remarks) 
+* [Android KeyEvents documentation](http://developer.android.com/reference/android/view/KeyEvent.html)
+
