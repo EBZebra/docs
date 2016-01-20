@@ -378,9 +378,9 @@ Specifies the fully qualified path of an image to be displayed at app start-up. 
 	<SplashScreenDuration value="0"/> //Applies to Android only
 
 
-## Intent
+## IntentReceiver
 ### EnableReceiver
-Determines whether Enterprise Browser will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions. For more information about Intent, please refer to the [Remarks section](../guide/configreference?Remarks) and the [Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
+Determines whether an Enterprise Browser app will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions, such as capturing an image or scanning a barcode. For more information about the IntentReceiver tag, please refer to the [Remarks section](../guide/configreference?Remarks) and the [Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
 
 **Possible values**
 
@@ -1812,7 +1812,7 @@ The table below shows the behavior of Enterprise Browser when function keys are 
 </table>
 _This table applies to Windows Mobile and Windows CE devices only_. 
 
-### <a name="intent"></a>Intent
+### <a name="intent"></a>IntentReceiver
 The `IntentReciever` tag includes parameters to enable/disable the Intent function and to define the Action and Catagory of the Intent itself. The syntax for these parameters is as follows: 
 
 	:::xml
