@@ -2,7 +2,7 @@
 
 The DataWedge app makes it possible to fetch barcode data from within an Enterprise Browser application without using the Enterprise Browser APIs. This guide explains how to configure an EB application to scan and acquire barcode data using DataWedge, which then enters the corresponding keystrokes into an EB input field of your choosing. 
 
-**Important: Control of barcode scanning hardware is exclusive**. When DataWedge is active, the Enterprise Browser Barcode APIs will be inoperable. Likewise, an Enterprise Browser app that uses Barcode APIs will prevent other apps (including DataWedge) from accessing the scanner. This guide contains instructions for gaining and relinquishing control of scanner hardware. 
+**Important: Control of barcode scanning hardware is exclusive**. When DataWedge is active, the Enterprise Browser Barcode APIs will be inoperable. Likewise, an Enterprise Browser app that uses Barcode APIs will prevent other apps (including DataWedge) from accessing the scanner. This guide explains how to take control of a device's scanner hardware and how to subsequently release it to other apps. 
 
 **See also: [DataWedge User Guide](https://launchpad.motorolasolutions.com/documents/dw_user_guide.html)** 
 
@@ -58,7 +58,7 @@ The following settings correct both of these issues, and will prevent these know
 ####Setting 2: DataWedge Tag
 Enterprise Browser 1.4 and higher addresses the EMDK issue with a new tag in the `Config.xml` file called `useDWforScanning`. **A tag value of 1 forces scanning through DataWedge**; a value of 0 (the default) will disable DataWedge scanning and revert to Enterprise Browser APIs on devices with EMDK installed. For more information, please refer to the [DataWedge tag section](../guide/configreference?usedwforscanning) of the Config.xml Reference. 
 
-NOTE: An Enterprise Browser app that uses Barcode APIs will prevent DataWedge and other apps from accessing the scanner. To release scanner control, quit the EB app.
+**Note**: An Enterprise Browser app that uses Barcode APIs will prevent DataWedge and other apps from accessing the scanner. To release scanner control, simply quit the EB app.
 
 ##Barcode Scanning Options
 
