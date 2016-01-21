@@ -63,9 +63,9 @@ The template should look similar to the image below:
 	</KeyCodes>
 	...
 
-&#53;. Replace the values (within the quotes) for name=, from= and to= fields, as desired. 
+&#53;. Replace the values (within the quotes) for 'name,' 'from' and 'to' fields, as required. 
 
-&#54;. Repeat steps 4 and 5 until all keycodes are mapped as required.
+&#54;. Repeat steps 4 and 5 until all required keycodes are mapped.
 
 For example:  
 
@@ -92,15 +92,26 @@ For example:
 &#56;. Relaunch the Enterprise Browser app and check that its keycodes are mapped as specified.  
 
 ##Handling Incorrect Keycodes
-Once it is determined that correct keypresses are generating incorrect keycodes, the incorrect keycode value must be determined before the correct one can be substituted. This process uses the Console to visualize the keycodes that appear when pressing one or more keys. 
+Once it is determined that correct keypresses are generating incorrect keycodes, the incorrect keycode value must be determined before the correct one can be substituted. This process uses the JavaScript Console to visualize the keycodes that appear when pressing one or more keys. 
 
 The first step is to confirm that Windows keycodes are not being forced as a result of the &lt;isWindowsKey&gt; tag:
 
 &#49;. In the app's Config.xml file, confirm that the &lt;isWindowsKey&gt; tag has a value of 0. 
 
-&#50;. Using the KeyCapture API, direct output of keypresses to the Console or other visualization tool to identify incorrect keycode value(s).
+&#50;. Using the KeyCapture API, direct output of keypresses to the Console or other visualization tool to identify incorrect keycode value(s). The test code might look something like this: 
 
-&#51;. Map the incorrect keycode values to the correct ones using the same syntax described above: 
+		:::javascript
+		// KeyCapture API 4.x: 
+		EB.KeyCapture.captureKey(BOOLEAN dispatch(false), STRING keyValue(all), CallBackHandler callback); 
+
+		//Output will appear in the JavaScript function:
+		( function callback(data){alert(data)});
+
+		// KeyCapture API 2.x: 
+		<META HTTP-Equiv="KeyCapture" Content="KeyValue:All; Dispatch:False; KeyEvent:url('JavaScript:alert('Key Pressed: %s');')"> 
+
+
+&#51;. Note the incorrect keycode values and map them to the correct ones using the same syntax described above: 
 		
 	:::xml
 	<KEYCODE  name="[KEYCODE_X]" from="[incorrect_keycode]" to="[correct_keycode]" />
