@@ -19,10 +19,10 @@ With support for the legacy application programming interfaces (APIs) used in Po
   * **[SettingsButton API](../api/settingsButton)**
 
 ###New Features
-* **[Keycode Mapping](../guide/keycapture)** allows a custom set of Android keycode values to be assigned from a file, replacing some or all of the system's default keycode values.
+* **[Keycode Mapping](../guide/keycapture)** allows a custom set of Android keycode values to be assigned from a file, replacing some or all of the system's default keycode values. **Applies to Android only**.
 
 
-###New Tags for Android and WM/CE
+###New Tags
 *Tags apply to Android and Windows Mobile/CE unless otherwise noted*. 
 
 * **[&lt;KeepAlive&gt;](../guide/configreference?KeepAlive)** provides the option of maintaining a connection from client to server between HTTP requests. **Applies to Windows Mobile/CE with Webkit engine only**. 
@@ -32,7 +32,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
 * **[&lt;usedwforscanning&gt;](../guide/configreference?usedwforscanning)** controls whether to 'use DataWedge (DW) for scanning' or to go through Enterprise Browser APIs. **Applies to Android only**.
 
 ###New Guides
-* **[DataWedge Usage Guide](../guide/datawedge)** details the steps required to use DataWedge for barcode scanning instead of the Enterprise Browser APIs. 
+* **[DataWedge Usage Guide](../guide/datawedge)** details the steps required to use DataWedge for barcode scanning instead of the Enterprise Browser APIs and for switching between the two. 
 
 * **[Keycode Mapping Guide](../guide/keycapture)** explains how to remap Android keys to ensure that  keycode values are delivered to apps as expected. 
 
