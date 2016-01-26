@@ -1,4 +1,4 @@
-#SIP
+#Sip
 
 
 ## Overview
@@ -58,7 +58,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.SIP.hide()</code> 
+	* <code>EB.Sip.hide()</code> 
 
 
 ### show()
@@ -79,7 +79,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.SIP.show()</code> 
+	* <code>EB.Sip.show()</code> 
 
 
 ##Remarks

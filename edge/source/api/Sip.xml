@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="SIP" parent="Rho" generatedoc="false">
+    <MODULE name="Sip" parent="Rho" generatedoc="false">
         <HELP_OVERVIEW>The SIP API controls whether the default software input panel (SIP) is displayed on the Android Device.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
