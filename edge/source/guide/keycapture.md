@@ -65,7 +65,9 @@ The template should look similar to the image below:
 
 &#53;. Replace the values (within the quotes) for 'name,' 'from' and 'to' fields, as required. 
 
-> **Note**: The 'from' field refers to the key's current keycode value; the 'to' will hold the value that replaces it. In the example above, pressing the '0' key (after mapping) will generate a keycode value of '0x30' instead of its former value of '7.' <!--For help with the 'name' field, please refer to the [Android KeyEvent documentation](http://developer.android.com/reference/android/view/KeyEvent.html) for the complete list of Android key names. -->For help exposing the keycodes, **see the Handling Incorrect Keycodes section**, below.
+> **Note**: The 'from' field refers to the key's current keycode value; the 'to' will hold the value that replaces it. In the example above, pressing the '0' key (after mapping) will generate a keycode value of '0x30' instead of its former value of '7.' The 'name' field can hold any value; [standard Android key names](http://developer.android.com/reference/android/view/KeyEvent.html) are recommended.  
+
+**For help exposing the keycodes, see the Handling Incorrect Keycodes section below**.
 
 &#54;. Repeat steps 4 and 5 until all required keycodes are mapped.
 
@@ -121,7 +123,7 @@ For example, if Step 2 determined that the keycode value being generated is 0x05
 	:::xml 
 	<KEYCODE  name="KEYCODE_X" from="0x05" to="0x06" />
 
-where "KEYCODE_X" = the actual name of the keycode. 
+where "KEYCODE_X" = the name of the keycode. [Standard Android key names](http://developer.android.com/reference/android/view/KeyEvent.html) are recommended.
 
 &#52;. Relaunch Enterprise Browser and **repeat Step 2 to confirm** that correct code(s) are generated.  
 
