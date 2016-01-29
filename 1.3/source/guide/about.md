@@ -99,7 +99,7 @@ Intent is supported on Android only. For more information, please refer to the [
 
 * **[&lt;DisableScannerDuringNavigation&gt;](../guide/configreference?DisableScannerDuringNavigation)** controls whether the scanner will be disabled when navigating away from a scanning page on which it was used.
 
-* **[&lt;FunctionKeysCapturable&gt;](../guide/configreference?FunctionKeysCapturable)** works with the Key Capture API to enable function keys to be capturable globally on the device.
+* **[&lt;FunctionKeysCapturable&gt;](../guide/configreference?FunctionKeysCapturable)** works with the Key Capture API to enable function keys to be capturable globally on the device. **Android Back button note**: When using Enterprise Browser 1.3 to intercept the Android Back button with any of the KeyCapture APIs (4.x or 2.x), the FunctionKeysCapturable tag must contains a value of 1. This applies only to EB 1.3. 
 
 * **[&lt;EnableFunctionKey_X&gt;](../guide/configreference?EnableFunctionKey_X)** specifies which Function keys (numbered F1 through F24) should be enabled.
 

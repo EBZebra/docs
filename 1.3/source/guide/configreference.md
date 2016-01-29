@@ -750,6 +750,8 @@ The list below shows the behavior of the Enterprise Browser when Function Keys a
 ### FunctionKeysCapturable
 **Applies to Android and WM/CE**. Determines behavior of function keys on Android and Windows Mobile/CE devices. When enabled, device Function keys are capturable using the Key Capture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Refer to the EnableFunctionKey_X tag and complete documentation for more information about the interaction between the FunctionKeysCapturable and EnableFunctionKey_X parameters.  
 
+**Android Back button note**: When using Enterprise Browser 1.3 to intercept the Android Back button with any of the KeyCapture APIs (4.x or 2.x), the FunctionKeysCapturable tag must contains a value of 1. This applies only to EB 1.3. 
+
 **Possible Values**
 
 * 0 - F keys not capturable
