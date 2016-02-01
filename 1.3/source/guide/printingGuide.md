@@ -8,6 +8,38 @@ This guide is designed to provide an overview of the steps necessary to enable p
 
 For more information, please refer to the [Printing Tutorial](../guide-tutorial-printing) and to the Platform Notes section later in this guide. **All code samples are JavaScript**. 
 
+## Platform Notes
+### Windows Mobile/CE
+Windows Mobile and Windows CE require that the `PrintingService` application is installed and always running whenever the [Printing](../api/printing) and [PrintingZebra](../api/printingzebra) APIs are to be used. This service (`PrintingService.cab`) is included with the Enterprise Browser installation, but requires the following Microsoft software to be on the device before the service can be deployed: 
+
+* **For Windows Mobile/CE devices**, the [.NET Compact Framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) must be present before installing the PrintingService app. Before downloading .NET CF, it might already be present on the build machine in `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\NETCFv35.wm.armv4i.cab`. 
+
+* In addition, **Windows CE devices** also require the messaging framework, which can be found on the build machine in `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab`.
+
+###PrintingService App Installation
+* **The PrintingService installer (.cab) file** can be found in `C:\<path to Enterprise Browser>\Printing-Service\PrintingService.cab`.
+
+#### Limitations
+* The PrintingService app currently supports a single client at a time.
+* The method [`Printer.requestState()`](../api/printing#mrequestState) is not compatible with Bluetooth printers.
+* The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) is disabled.
+
+###USB Compatibility Notes
+
+* A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals such as flash drives, keyboards and printers. 
+
+* **On Android devices**, connecting an OTG cable invokes host mode automatically.
+
+* **On Windows Mobile/CE devices** 'Host Mode' must be invoked manually (under USB Config in the Settings panel). 
+
+* Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle that allows the TC7X to act as host or client, depending on the cable.
+
+* The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP), portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
+
+* Printing via USB from a cradled device is possible by inserting an OTG Micro Type A connector to the cradle and connecting the USB-B (or Mini-B) end to the printer.
+
+* OTG supports direct USB connections only; the use of USB hubs is not supported by the OTG spec. 
+
 ## 1- Enable Print APIs
 Enterprise Browser provides two APIs for printing. The [Printer API](../api/printing) is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrinterZebra API](../api/printingzebra) is the printer-type API for Zebra printers. 
 
@@ -382,36 +414,3 @@ For Zebra printers that support the storage of images, this can be done by creat
 
 			}
 		});
-
-
-## Platform Notes
-### Windows Mobile/CE
-Windows Mobile and Windows CE require that the `PrintingService` application is installed and always whenever the [Printing](../api/printing) and [PrintingZebra](../api/printingzebra) APIs are to be used. This is included with Enterprise Browser, but requires that the following Microsoft software to be present on the device before it can be installed.  
-
-* **For Windows Mobile/CE devices**, the [.NET Compact Framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) must be present before installing the PrintingService app. Before downloading .NET CF, it might already be present on the build machine in `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\NETCFv35.wm.armv4i.cab`. 
-
-* **Windows CE devices** also require the messaging framework, which can be found on the build machine in `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab`.
-
-###PrintingService App Installation
-* **The PrintingService installer (.cab) file** can be found in `C:\<path to Enterprise Browser>\Printing-Service\PrintingService.cab`.
-
-#### Limitations
-* The PrintingService app currently supports a single client at a time.
-* The method [`Printer.requestState()`](../api/printing#mrequestState) is not compatible with Bluetooth printers.
-* The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) is disabled.
-
-###USB Compatibility Notes
-
-* A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals such as flash drives, keyboards and printers. 
-
-* **On Android devices**, connecting an OTG cable invokes host mode automatically.
-
-* **On Windows Mobile/CE devices** 'Host Mode' must be invoked manually (under USB Config in the Settings panel). 
-
-* Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle that allows the TC7X to act as host or client, depending on the cable.
-
-* The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP), portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
-
-* Printing via USB from a cradled device is possible by inserting an OTG Micro Type A connector to the cradle and connecting the USB-B (or Mini-B) end to the printer.
-
-* OTG supports direct USB connections only; the use of USB hubs is not supported by the OTG spec. 
