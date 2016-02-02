@@ -12,7 +12,7 @@ With support for the legacy application programming interfaces (APIs) used in Po
   * **MC92N0** Android KitKat
   * **TC8000** Android KitKat
   
-[See all supported devices](#Mobile)
+[See all supported devices](../guide/about?Mobile)
 
 ###New APIs
   * **[EzNFC API](../api/EzNFC)**
