@@ -1,4 +1,4 @@
-# Enterprise Browser 1.4 (unreleased)
+# Enterprise Browser 1.5 (unreleased)
 
 ## Welcome to the Enterprise Browser
 
