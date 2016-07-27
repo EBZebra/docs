@@ -24,8 +24,8 @@ Enabling DataWedge for use by an Enterprise Browser app requires two DataWedge p
 
 **In addition, the following conditions must also BOTH be TRUE**:
 
-* **DataWedge and the EnterpriseBrowser profile must be enabled**
 * **The &lt;usedwforscanning&gt; tag in the EB app's `config.xml` file must contain a value of "1"**
+* **DataWedge and the EnterpriseBrowser profile must be enabled** whenever using DataWedge from EB
 
 All Enterprise Browser apps configured this way will use DataWedge for scanning. 
 
