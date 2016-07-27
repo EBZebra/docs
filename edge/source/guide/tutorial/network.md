@@ -46,7 +46,7 @@ HTML Starter Template:
         </style>
       </HEAD>
       <BODY>
-        <h1>Network Connectivity<br/>
+        <h1>Network Connectivity
           <button onclick="window.location.href='./index.html'">Home</button>
           <button onclick="EB.Application.quit();">Quit</button>
         </h1>
@@ -75,7 +75,7 @@ Sample HTML:
 
     :::HTML
     <button>Detect Connectivity</button>
-    <input type=text  id="host" value = "www.zebra.com"><br/>
+    <input type=text  id="host" value = "www.zebra.com">
     <button>Stop Checking</button>
 
 The first button will call the API to start polling the connection. The input element will provide the URL to poll for. The second button will call the API to stop polling the connection. 
@@ -191,7 +191,7 @@ Sample HTML:
 
     :::HTML
     <button onClick="fnDetectConnection()">Detect Connectivity</button>
-    <input type=text  id="host" value = "www.zebra.com"><br/>
+    <input type=text  id="host" value = "www.zebra.com">
     <button onClick="fnStopChecking()">Stop Checking</button>
 
 

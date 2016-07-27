@@ -2,9 +2,9 @@
 
 ## About DOM Injection
 
-New in Enterprise Browser 1.3 is the ability to insert CSS, JavaScript and meta tags into the DOM without modifying the underlying application. This permits features, capabilities and even the look of one or more server-based Enterprise Browser app pages to be modified at runtime using DOM elements stored in a text file on the device. 
+Enterprise Browser has the ability to insert CSS, JavaScript and meta tags into the DOM without modifying the underlying application. This permits features, capabilities and even the look of one or more server-based Enterprise Browser app pages to be modified at runtime using DOM elements stored in a text file on the device. 
 
-DOM injection is enabled by default in EB 1.3 and higher apps, and is **activated by  the &lt;CustomDOMElements&gt; in the &lt;Application&gt; section** of the app's `Config.xml` file. This new tag will contain a fully qualified path to the device-resident file that you create, which stores the DOM element(s) to be injected and the names of the pages to receive injections whenever displayed. **Injected CSS and JavaScript can be local, server-based or in any combination thereof**.
+DOM injection is enabled by default in EB 1.3 and higher apps, and is **activated by the &lt;CustomDOMElements&gt; in the &lt;Application&gt; section** of the app's `Config.xml` file. This new tag will contain a fully qualified path to the device-resident file that you create, which stores the DOM element(s) to be injected and the names of the pages to receive injections whenever displayed. **Injected CSS and JavaScript can be local, server-based or in any combination thereof**.
 
 * **DOM injection device support**: 
 	* **Android with stock webkit**
@@ -16,7 +16,7 @@ DOM injection is enabled by default in EB 1.3 and higher apps, and is **activate
 No special licensing is required. 
 
 ## What is the DOM?
-In the context of modern web programming, **the ‘DOM’ refers to your HTML5 code as it will appear when running**. For example, while the code of an HTML5 app might define certain variables, those variables contain no values until the app is executed. Therefore, it's accurate to think of the DOM as an HTML5 app that's in use.
+In the context of modern web programming, **the ‘DOM’ refers to your HTML5 code as it will appear when running**. For example, while the code of an HTML5 app might define certain variables, those variables contain no values until the app is executed. Therefore, it's accurate to think of the DOM as an HTML5 app that's currently running.
 
 ## How to use DOM Injection
 
