@@ -42,7 +42,7 @@ HTML Starter Template:
 			</style>
 		</HEAD>
 		<BODY>
-			<h1>Barcode<br/>
+			<h1>Barcode
 			<button onclick="window.location.href='./index.html'">Home</button>
 			<button onclick="EB.Application.quit();">Quit</button>
 			</h1>
@@ -65,7 +65,7 @@ HTML Starter Template:
 Sample HTML:
 
 	:::html
-	<input id="scanData" type=text ><br/>
+	<input id="scanData" type=text >
 
 
 Next we'll add two buttons: one to enable scanning and another to disable scanning. We'll append these two lines of code in a later step. For now: 
