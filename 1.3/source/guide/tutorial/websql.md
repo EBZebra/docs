@@ -50,7 +50,7 @@ HTML Starter Template:
         </style>
       </HEAD>
     <BODY>
-      <h1>WebSQL<br/>
+      <h1>WebSQL
         <button onclick="window.location.href='./index.html'">Home</button>
         <button onclick="EB.Application.quit();">Quit</button>
       </h1>
