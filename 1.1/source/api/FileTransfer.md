@@ -142,9 +142,7 @@ The password for the HTTP or FTP server if required.
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-On a filetransfer that results in local file storage, createFolders can automatically create the directory path.
-
-### Possible Values
+On a filetransfer that results in local file storage, createFolders can automatically create the directory path. Value must be set to "True" if destination folder does not exist. See [Remarks](#remarks).  
 
 * True
 * **False**
@@ -197,4 +195,9 @@ Although the file transfer functionality has the same behavior on all supported 
 
 #File transfer result code 
 If an invalid username or password are used on an FTP transfer to a remote server the response returned is 0 instead of the expected 12014
+
+###CreateFolders 
+The CreateFolder method must be set to "True" if one or more destination folders are to be created to receive transferred file(s). Failure to do so could result in an incorrect "File Received" message. 
+### Possible Values
+
 
