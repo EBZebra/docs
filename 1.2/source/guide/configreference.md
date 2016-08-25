@@ -891,7 +891,7 @@ If this setting is absent from the configuration file a popup dialog will be dis
 
 ## HTMLStyles
 ### CaretWidth
-This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.
+**Applies only to Windows Mobile/CE with Webkit**. Specifies the width (in pixels) of the textbox / text-area caret. Accepts values from 1-5. If unspecified, a default value of "1" will be entered. 
 
 **Possible Values**
 
@@ -990,7 +990,9 @@ When set to 0 (default) the FreeType library is used, this is the same as behavi
 
 ## SIP
 ### ResizeOnSIP
-When enabled the browser window will resize to accommodate the SIP (Soft Input Panel, the on-screen virtual keyboard) when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only.  This option is not compatible with CE or Finger Scrolling, the SIP will always appear at the bottom of the screen)
+**Applies to Android and Windows Mobile only**. Controls window resizing when the soft input panel (SIP, or on-screen keyboard) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. Requires SIP module pre-load. Not compatible with Windows CE or the IE rendering engine. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
+
+**Note: On Windows Mobile devices**, screen rotation from portrait to landscape mode can sometimes cause the SIP to be hidden from view, and/or on Windows Mobile/CE to behave abnormally. To avoid this issue, Zebra recommends that the AutoRotate parameter for screen orientation be disabled.
 
 **Possible Values**
 
@@ -1003,6 +1005,8 @@ When enabled the browser window will resize to accommodate the SIP (Soft Input P
 
 ### EnableSIP
 Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard).  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)
+
+**Note: On devices running Windows CE 6**, screen distortion might be displayed when scrolling while the SIP module is enabled.
 
 **Possible Values**
 
