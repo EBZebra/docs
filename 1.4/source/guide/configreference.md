@@ -1163,7 +1163,7 @@ Contains the password for accessing the Settings page when password function is 
 
 **Possible Values**
 
-* Integer values for caret width in pixels
+* Integer values (from 1-5) for caret width in pixels
 
 #### Example
 
