@@ -1159,7 +1159,7 @@ Contains the password for accessing the Settings page when password function is 
 
 ## HTMLStyles
 ### CaretWidth
-Specifies the width (in pixels) of the textbox / text-area caret. If unspecified, defaults to ‘1’. **Applies only to Webkit on Windows Mobile or Windows CE**. 
+**Applies only to Windows Mobile/CE with Webkit**. Specifies the width (in pixels) of the textbox / text-area caret. Accepts values from 1-5. If unspecified, a default value of "1" will be entered. 
 
 **Possible Values**
 
@@ -1255,7 +1255,9 @@ Controls whether JavaScript is enabled on Windows Mobile devices. **Applies only
 
 ## Soft Input Panel (SIP)
 ### ResizeOnSIP
-Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. **Applies to Android and Windows Mobile**. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
+**Applies to Android and Windows Mobile only**. Controls window resizing when the soft input panel (SIP, or on-screen keyboard) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. Requires SIP module pre-load. Not compatible with Windows CE or the IE rendering engine. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
+
+**Note: On Windows Mobile devices**, screen rotation from portrait to landscape mode can sometimes cause the SIP to be hidden from view, and/or on Windows Mobile/CE to behave abnormally. To avoid this issue, Zebra recommends that the AutoRotate parameter for screen orientation be disabled.
 
 **Possible Values**
 
@@ -1267,7 +1269,9 @@ Controls window resizing when the soft input panel (on-screen keyboard, or SIP) 
 	<ResizeOnSIP value="1"/>
 
 ### EnableSIP
-Beginning with EB 1.3, the soft input panel (SIP; i.e. on-screen keyboard) is controlled on Android through the [SIP API](../api-Sip). On Windows Mobile/CE, soft input can be disabled by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby making it inaccessible to the user. For the possible values and example syntax of this tag, please refer to the EB 1.2 Config.xml Reference.
+Beginning with EB 1.3, the soft input panel (SIP; i.e. on-screen keyboard) is controlled on Android through the [SIP API](../api-Sip). On Windows Mobile/CE, soft input can be disabled by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby making it inaccessible to the user. For the possible values and example syntax of this tag, please see the EB 1.2 Config.xml Reference.
+
+**Note: On devices running Windows CE 6**, screen distortion might be displayed when scrolling while the SIP module is enabled. 
 <!--
 **Possible Values**
 

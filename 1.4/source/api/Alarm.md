@@ -113,6 +113,9 @@ You must specify the time in GMT and then the device's timezone offset from that
 >* Time: 13:30 exactly (GMT)
 >* Timezone: -5 (Eastern Time, 8:30am local time)
 
+### Device Support
+The Alarm API is not supported on [Zebra Micro Kiosks](../../guide/about/#microkiosk). 
+
 ## Example
 ### Set an Alarm
 In this example, we will show you how to set an alarm that will go off in 30 sec. You can set the time for any HH-MM-SS seconds you wish but with this you'll be able to see the results quickly. Since this API is originally from RhoElements version 2.2, we must include the elements.js library from the BackwardCompatibility directory. This example assumes that the elements.js file is in the same directory as the html invoking it.
