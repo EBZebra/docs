@@ -2,7 +2,7 @@
 
 
 ## Overview
-The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB-capable printers for Android and Windows Mobile/CE. This API inherits all methods, properties and constants from the [Printer API](#api-printing).
+The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB-capable printers for Android and Windows Mobile. This API inherits all methods, properties and constants from the [Printer API](#api-printing). Note: This API is not supported on Windows CE device.
 ## Enabling the API
 There are two methods of enabling the Printer API:
 
@@ -57,7 +57,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -72,7 +71,7 @@ Synchronous Return:
 
 ####Parameters
 <ul><li>options : <span class='text-info'>HASH</span><p>Connect options. </p></li><ul><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 15000</span><p>Connection timeout in milliseconds. Must be larger than 0. Platforms:
-WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Any additional info; currently unused. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+WM, Android </p></li><li>additionalStringOption : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Any additional info; currently unused. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -86,7 +85,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -114,7 +112,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -142,7 +139,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -170,7 +166,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -196,7 +191,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -224,7 +218,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -250,7 +243,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -276,7 +268,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -304,7 +295,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -332,7 +322,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -361,7 +350,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -372,7 +360,7 @@ Synchronous Return:
 
 
 ### printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)
-**Send raw string to printer**. Works asynchronously, use callback to check the result. **Note: This method will not print ZPL commands from Windows Mobile/CE devices to Zebra printers; compatible with line mode or raw text only.
+**Send raw string to printer**. Works asynchronously, use callback to check the result. **Note: This method will not print ZPL commands from Windows Mobile devices to Zebra printers; compatible with line mode or raw text only.
 
 ####Parameters
 <ul><li>command : <span class='text-info'>STRING</span><p>Raw string to print. Could be any valid command in printer supported programming language. </p></li><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p> Providing no properties to this function will print with default settings.</p></li><ul><li>propertyWithStringValue : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>Currently unused. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -391,7 +379,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -419,7 +406,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -447,7 +433,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -458,7 +443,7 @@ Synchronous Return:
 
 
 ### requestState(<span class="text-info">ARRAY</span> listOfParameters)
-**Requests printer state with a list of parameters**. Works asynchronously and uses the callback to check the result. Returns hash with status and parameters as keys. **NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a Bluetooth and USB connection.
+**Requests printer state with a list of parameters**. Works asynchronously and uses the callback to check the result. Returns hash with status and parameters as keys. **NOTE: On the Windows Mobile platform, this method does not work in the case of a Bluetooth and USB connection.
 
 ####Parameters
 <ul><li>listOfParameters : <span class='text-info'>ARRAY</span><p>List of parameters for request from printer device. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>Parameter name - see constants with PRINTER_STATE_... </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -475,7 +460,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -503,7 +487,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -531,7 +514,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -566,7 +548,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -592,7 +573,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -617,7 +597,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -640,7 +619,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -665,7 +643,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -714,7 +691,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -747,7 +723,6 @@ Unique printer ID during application lifetime.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###connectionType
 
@@ -768,7 +743,6 @@ Type of connection to printer.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###deviceAddress
 
@@ -789,7 +763,6 @@ IP address for Wi-Fi connection, Bluetooth(R) MAC or device serial number. To ge
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###deviceName
 
@@ -810,7 +783,6 @@ Bluetooth/Network name of printer.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###devicePort
 
@@ -831,7 +803,6 @@ Default port when connecting with TCP/IP.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###isConnected
 
@@ -852,7 +823,6 @@ Default port when connecting with TCP/IP.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###printerType
 
@@ -873,7 +843,6 @@ Type of printer - see PRINTER_TYPE_... constants.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ##Constants
 
@@ -962,7 +931,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 
             
 
-###Windows Mobile/CE Notes
+###Windows Mobile Notes
 
 
 * Requires a Printing Service application to be running.

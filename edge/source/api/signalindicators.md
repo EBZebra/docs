@@ -194,6 +194,12 @@ The position of the signal and battery indicators should not be set to overlap
 ###Screen Orientation
 The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.
 
+###Devices lacking support
+Due to platform limitations this API is not available on the following Zebra Technologies devices on specific platform:
+
+* VH10 CE 6.0
+* Omnii XT15 CE 6.0
+
 ###Internet Explorer (IE) Rendering Engine
 When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
 

@@ -156,6 +156,7 @@ It is not possible to capture the following types of keys:
 7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
 8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the Enterprise Browser doesn't do anything specific with this key (unlike the menu key which raises the menu).
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.
+9. On Android keypad devices, the ESC key behaves like a back button. User need to ensure to set the dispatch value to false or else the application will go into background and it will not perform the user defined action. 
 
 ###Precedence of APIs using the same keyValue
 If captureKey and remapKey have been called with the same keyValue, the remapKey will take precedence. In this case this means that the keyEvent for the inputted key will not be fired as the remapping will occur and consume the key event.
@@ -232,3 +233,10 @@ Certain devices may map their function keys to apparently normal keys. For examp
 
 ###Use of Key Capture module on Localized Operating Systems
 Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. In JavaScript the DOM element's keyup event can be used as an indication of which key has been pressed.
+
+###Behavior of function keys on Zebra - Psion WM Devices
+The keycode value of function keys on Zebra - Psion WM devices doesnot return Microsoft virtual keyCode value. Instead, it returns the Psion proprietary Unicode value. Hence inorder to get the Microsoft virtual keyCode value one must refer [Function Key Mapping On Zebra - Psion Windows Mobile Device](https://developer.zebra.com/thread/32954) guide. The device for which Function Key Mapping is applicable is listed below.
+
+                      * Workabout Pro 4 WEH Device
+                      * Omnii XT15 WEH Device
+			    

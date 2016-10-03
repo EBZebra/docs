@@ -320,7 +320,9 @@ end
 6.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
 7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
 8. On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn't do anything specific with this key (unlike the menu key which raises the menu).
-Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.</DESC>
+Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.
+9. On Android keypad devices, the ESC key behaves like a back button. User need to ensure to set the dispatch value to false or else the application will go into background and it will not perform the user defined action.
+</DESC>
                 <DESC_EB>It is not possible to capture the following types of keys:
 
 1.  Keyboard modifiers such as SHIFT, ALT, ORANGE button, BLUE button etc.
@@ -331,7 +333,8 @@ Although on some device configurations pressing the SHIFT key twice generates CA
 6.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
 7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
 8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the Enterprise Browser doesn't do anything specific with this key (unlike the menu key which raises the menu).
-Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.</DESC_EB>
+Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.
+9. On Android keypad devices, the ESC key behaves like a back button. User need to ensure to set the dispatch value to false or else the application will go into background and it will not perform the user defined action. </DESC_EB>
             </REMARK>
 
             <REMARK title="Precedence of APIs using the same keyValue">
@@ -454,6 +457,14 @@ Tab           0x09    Advance to next control       Advance to next control</DES
 
             <REMARK title="Build Configuration" productException="eb">
                 <DESC>To build the keycapture API into your application you must specify the 'hardwarekeys' extension and specify your application type to be 'rhoelements'.</DESC>
+            </REMARK>
+            
+            <REMARK title="Behavior of function keys on Zebra - Psion WM Devices">
+                <DESC>The keycode value of function keys on Zebra - Psion WM devices doesnot return Microsoft virtual keyCode value. Instead, it returns the Psion proprietary Unicode value. Hence inorder to get the Microsoft virtual keyCode value one must refer [Function Key Mapping On Zebra - Psion Windows Mobile Device](https://developer.zebra.com/thread/32954) guide. The device for which Function Key Mapping is applicable is listed below.
+
+                      * Workabout Pro 4 WEH Device
+                      * Omnii XT15 WEH Device
+			    </DESC>
             </REMARK>
         </REMARKS>
     </MODULE>

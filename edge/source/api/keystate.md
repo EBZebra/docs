@@ -106,6 +106,8 @@ Due to platform limitations this API is not available on the following Zebra Tec
 * VC70
 * MC45
 * Workabout Pro 4
+* VH10
+* Omnii XT15
 
 ###Rotating the Screen
 The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.

@@ -307,6 +307,12 @@ Layout:Down
             <REMARK title="Screen Orientation">
                 <DESC>The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.</DESC>
             </REMARK>
+             <REMARK title="Devices lacking support">
+                <DESC>Due to platform limitations this API is not available on the following Zebra Technologies devices on specific platform:
+
+* VH10 CE 6.0
+* Omnii XT15 CE 6.0</DESC>
+            </REMARK>
             <REMARK_EB title="Internet Explorer (IE) Rendering Engine">
                 <DESC>When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
 

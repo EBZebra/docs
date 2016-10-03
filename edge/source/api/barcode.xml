@@ -9,7 +9,7 @@
 
         <HELP_OVERVIEW>The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Symbol Technologies' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Symbol Technologies devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Symbol Technologies Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode. In  Symbol android devices, it is recommended to use EMDK for KitKat devices and not to use EMDK in JellyBean devices.</HELP_OVERVIEW>
 
-        <HELP_OVERVIEW_EB>The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
+        <HELP_OVERVIEW_EB>The Barcode Module provides access to control the faddunctionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
         </HELP_OVERVIEW_EB>
 
         <MORE_HELP>
@@ -210,7 +210,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Imager / Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.</DESC>
+                <DESC>Allows the imager to decode only the barcode that is directly under the cross-hair on Android and center of the reticle on WM/CE. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.</DESC>
                 <VALUES>
                     <VALUE constName="PICKLIST_DISABLED" value="disabled">
                         <DESC>Disables picklist mode so any barcode within the field of view can be decoded.</DESC>
@@ -219,7 +219,7 @@ The ebapi.js file is necessary for all single API inclusions.
                         <DESC>Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behavior is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.</DESC>
                     </VALUE>
                     <VALUE constName="PICKLIST_SOFTWARE_RETICLE" value="softwareReticle">
-                        <DESC>Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. This value is not supported on Android Platform.</DESC>
+                        <DESC>Enables picklist mode so that only the barcode in the center of the image is decoded on WM/CE and under the cross-hair on Android. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes.</DESC>
                     </VALUE>
                 </VALUES>
             </PROPERTY>
@@ -308,7 +308,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE</PLATFORM>
                 <APPLIES msiOnly="true">Imager / Camera Scanners on Symbol Technologies devices</APPLIES>
-                <DESC>Selects the illumination mode to use. Not currently supported on Android (illumination is always on).</DESC>
+                <DESC>Selects the illumination mode to use.</DESC>
                 <VALUES>
                     <VALUE constName="ILLUMINATION_AUTO" value="auto">
                         <DESC>Auto-exposure algorithms will decide whether illumination is required. Not currently supported on Android.</DESC>
@@ -501,7 +501,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not override beeper and hence not supported.</DESC>
+                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. The wave file must reside on the device. This will override the existing scanner beeper settings. </DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1735,6 +1735,40 @@ The ebapi.js file is necessary for all single API inclusions.
                     </PARAMS>
                 </CALLBACK>
             </METHOD>
+            
+            <METHOD name="addConnectionListener" hasCallback="mandatory">
+                <PLATFORM>Android</PLATFORM>
+                <APPLIES msiOnly="true">Symbol Technologies' barcode scanners, model RS507, model RS6000, model Rs4000</APPLIES>
+                <DESC>If you are using an RS507/RS6000/RS4000 barcode scanner you can add a connection listener to receive connected or disconnected callbacks through this method.</DESC>
+                <CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="connectionState" type="STRING">
+                            <DESC>The message describing the connection: Connected or Disconnected.</DESC>
+                        </PARAM>
+                        <PARAM name="connectionType" type="STRING">
+                            <DESC>The message describes the connection type removed/attached scanner: Bluetooth_SSI, Serial_SSI etc.</DESC>
+                        </PARAM>
+                         <PARAM name="decoderType" type="STRING">
+                            <DESC>The message describes the decode type of removed/attached scanner: ONE_DIMENSIONAL, TWO_DIMENSIONAL etc.</DESC>
+                        </PARAM>
+                         <PARAM name="deviceType" type="STRING">
+                            <DESC>The message describes the device type of removed/attached scanner: IMAGER, CAMERA etc.</DESC>
+                        </PARAM>
+                         <PARAM name="friendlyName" type="STRING">
+                            <DESC>The message describes the friendly name of removed/attached scanner: BLUETOOTH SCANNER,2D IMAGER,CAMERA SCANNER Disconnected.</DESC>
+                        </PARAM>
+                         <PARAM name="isDefaultScanner" type="STRING">
+                            <DESC>The message describes wether removed/attached scanner is a default scanner: true or false.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+            
+			<METHOD name="removeConnectionListener" hasCallback="none">
+                <PLATFORM>Android</PLATFORM>
+                <APPLIES msiOnly="true">Symbol Technologies' barcode scanners, model RS507, model RS6000, model Rs4000</APPLIES>
+                <DESC>If you are using an RS507/RS6000/RS4000 barcode scanner you can remove a connection listener to receive connected or disconnected callbacks through this method.</DESC>
+            </METHOD>
 
             <METHOD name="start" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1870,6 +1904,13 @@ timeout the reconnect button on the device should be pushed. Once the unpairing 
 it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
                 </DESC>
             </REMARK>
+            <REMARK title="Bluetooth Scanner Support On Android Devices">
+                <DESC>
+On Android platform, Enterprise Browser doesnot support Bluetooth Scanner on TC70 GA1 device. 
+
+On Android platform, Enterprise Browser supports Bluetooth Scanner from Android Kitkat version and above.
+               </DESC>
+            </REMARK>
             <REMARK title="Viewfinder Position Parameters">
                 <DESC>
 On Symbol Technologies' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
@@ -1914,6 +1955,11 @@ On Symbol Technologies' scanners the scanner viewfinder window is not infinitely
 11. Uncheck all three "Enabled" checkboxes under the sections of:
     "Barcode input", "Keystroke output" and "Intent output".
                 </DESC>
+            </REMARK>
+            <REMARK title="Devices lacking support">
+                <DESC>Due to platform limitations this API is not available on the following Zebra Technologies devices on specific platform.  Note: However one can enable legacy scanner service and can scan the respective barcode.
+
+* VH10 CE 6.0</DESC>
             </REMARK>
         </REMARKS>
 

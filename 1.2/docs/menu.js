@@ -177,7 +177,6 @@ var menuStrcture = [
 							{"name":"PowerOn","link":"#api-Poweron"},
 							{"name":"Printer","link":"#api-printing"},
 							{"name":"PrinterZebra","link":"#api-printingzebra"},
-							{"name":"Process","link":"#api-process"},
 							{"name":"Push","link":"#api-push"},
 							{"name":"QuitButton","link":"#api-QuitButton"},
 							{"name":"Reboot","link":"#api-Reboot"},

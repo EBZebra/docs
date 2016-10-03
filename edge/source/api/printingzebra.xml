@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="PrinterZebra" parent="Rho">
-        <HELP_OVERVIEW>The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB-capable printers for Android and Windows Mobile/CE. This API inherits all methods, properties and constants from the [Printer API](#api-printing).</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The PrinterZebra API provides Zebra-specific API access to Zebra's Bluetooth and Wi-Fi network printers, and to USB-capable printers for Android and Windows Mobile. This API inherits all methods, properties and constants from the [Printer API](#api-printing). Note: This API is not supported on Windows CE device.</HELP_OVERVIEW>
         <MORE_HELP>
 ###Notes
 
 1. Unless using the printer's 'line mode' (for sending raw text strings), Zebra recommends sending ZPL only.
-2. USB printing is supported for Android and Windows Mobile/CE.
+2. USB printing is supported for Android and Windows Mobile.
 
 ## Enabling the API
 To use this API you must include the following extensions in your `build.yml`: 
@@ -198,8 +198,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
         <METHODS access="INSTANCE">
             <METHOD name="retrieveFileNames" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <DESC>Retrieves the names of the files which are stored on the printer. Works asynchronously; use callback to check the result.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
@@ -216,8 +216,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
             <METHOD name="retrieveFileNamesWithExtensions" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <DESC>This method only returns files which have the extensions in "extensions". Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="extensions" type="ARRAY">
@@ -240,8 +240,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
             <METHOD name="sendFileContents" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
@@ -255,8 +255,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
             <METHOD name="printStoredFormatWithHash" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
@@ -274,8 +274,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
             <METHOD name="printStoredFormatWithArray" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
@@ -293,8 +293,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
             <METHOD name="storeImage" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
                 <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS, Android and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
                 <DESC_EB>Stores the specified image to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. Android and WM support only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC_EB>
                 <PARAMS>
@@ -321,8 +321,8 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
         </USER_OVERVIEW>
 
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
-        <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
+        <PLATFORM>WM, Android, iOS</PLATFORM>
+        <PLATFORM_EB>Android, WM</PLATFORM_EB>
         <REMARKS>
             <REMARK title="iOS Notes" productException="eb">
                 <DESC>
@@ -350,7 +350,7 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
 
             </DESC>
             </REMARK>
-            <REMARK title="Windows Mobile/CE Notes">
+            <REMARK title="Windows Mobile Notes">
                 <DESC>
 
 * You must set your app_type as "rhoelements" in your `build.yml` as shown the [build-time settings guide](../guide/build_config#other-build-time-settings).
