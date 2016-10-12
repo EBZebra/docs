@@ -36,6 +36,27 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 
+### acquirePartialWakeLock()
+This API is used for acquiring partial wake lock in Android device. It ensures that the CPU is running; the screen and keyboard backlight will be allowed to go off, if the user presses the power button. Note: On calling this method, the wakelocktype config tags will be affected.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Android
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Device.acquirePartialWakeLock()</code> 
+
+
 ### calibrate()
 Carries out the screen calibration routine.
 
@@ -134,6 +155,27 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.Device.reboot(<span class="text-info">STRING</span> bootType)</code> 
+
+
+### releasePartialWakeLock()
+This API is used for releasing the acquired partial wake lock in Android device. Note: On calling this method, the wakelocktype config tags will be affected.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Android
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Device.releasePartialWakeLock()</code> 
 
 
 ### suspend()

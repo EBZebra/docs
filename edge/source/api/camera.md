@@ -393,7 +393,7 @@ Synchronous Return:
 
 ### takePicture(<span class="text-info">HASH</span> propertyMap)
 Start the camera application to take a picture. The user can capture the displayed image by interacting with the resident camera app. In Windows, this method always shows the preview in full screen and user can use the native button to capture the image.
-				On wp8,wm when 'outputFormat' is 'image' then imageUri/image_uri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image'
+                On wp8,wm when 'outputFormat' is 'image' then imageUri/image_uri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image'
 > Note: To display an image, it is recommended that you use the full path to the image instead of a relative path. To do this, you can use the [`expandDatabaseBlobFilePath`](Application#mexpandDatabaseBlobFilePath) method of the [Application module](Application) as such:
 
 ##### Ruby
@@ -450,7 +450,7 @@ Synchronous Return:
 <span class='text-info'>STRING</span> 
 ####Description
 Specifies the aim behaviour when taking a picture. Applicable only for imager module.
-				This Property shall accept/return one among the values mentioned in constant section which starts with AIM_...
+                This Property shall accept/return one among the values mentioned in constant section which starts with AIM_...
 ####Access
 
 
@@ -471,7 +471,7 @@ Specifies the aim behaviour when taking a picture. Applicable only for imager mo
 <span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 <span class='label label-info'>Replaces:camera_type</span> This property is device specific. The value for this property can be either 'back' or 'front' in the case of Android devices.In the case of windows it could be either 'imager' or 'color'. WM/CE devices will use 'color'as default and if color camera not available the default value will be 'imager'. Android devices will use 'back'as default and if back camera not available the default value will be 'front'.
-				This Property shall return one among the values mentioned in constant section which starts with CAMERA_TYPE_...
+                This Property shall return one among the values mentioned in constant section which starts with CAMERA_TYPE_...
 ####Access
 
 
@@ -514,8 +514,8 @@ Path to a sound file resident on the device which will be played when the image 
 <span class='text-info'>STRING</span> 
 ####Description
 <span class='label label-info'>Replaces:color_model</span> Where supported by the hardware this property can be used to select whether to capture a color or a grayscale image.
-				This Property shall accept/return one among the values mentioned in constant section which starts with COLOR_MODEL_...
-				
+                This Property shall accept/return one among the values mentioned in constant section which starts with COLOR_MODEL_...
+                
 ####Params
 <p><strong>Default:</strong> rgb</p>
 ####Access
@@ -537,8 +537,8 @@ Path to a sound file resident on the device which will be played when the image 
 <span class='text-info'>STRING</span> 
 ####Description
 <span class='label label-info'>Replaces:format</span> The format of the captured image in subsequent calls to takePicture(). On windows devices the format will be always .jpg type.
-				This Property shall accept/return one among the values mentioned in constant section which starts with COMPRESSION_FORMAT_...
-				
+                This Property shall accept/return one among the values mentioned in constant section which starts with COMPRESSION_FORMAT_...
+                
 ####Params
 <p><strong>Default:</strong> jpg</p>
 ####Access
@@ -604,7 +604,7 @@ Path to a sound file resident on the device which will be played when the image 
 <span class='text-info'>STRING</span> 
 ####Description
 The image file path without file extension to store captured image in subsequent calls to takePicture() or capture(). Default filename will be IMG_timestamp and will be saved under root directory. The filename extension will be added automatically according to compressionFormat property value.
-				In Wp8, only filename can be changed, by default the path shall be under picture=>CameraRoll
+                In Wp8, only filename can be changed, by default the path shall be under picture=>CameraRoll
 ####Access
 
 
@@ -626,7 +626,7 @@ The image file path without file extension to store captured image in subsequent
 <span class='text-info'>STRING</span> 
 ####Description
 <span class='label label-info'>Replaces:flash_mode</span> Specifies the flash behavior when taking a picture.
-				This Property shall accept/return one among the values mentioned in constant section which starts with FLASH_...
+                This Property shall accept/return one among the values mentioned in constant section which starts with FLASH_...
 ####Access
 
 
@@ -690,8 +690,8 @@ The maximum width of images which can be captured. This is measured in pixels. O
 <span class='text-info'>STRING</span> 
 ####Description
 Specifies the way to return the captured image to the application.
-				This Property shall accept/return one among the values mentioned in constant section which starts with OUTPUT_FORMAT_...
-				
+                This Property shall accept/return one among the values mentioned in constant section which starts with OUTPUT_FORMAT_...
+                
 ####Params
 <p><strong>Default:</strong> imagePath</p>
 ####Access
@@ -924,3 +924,10 @@ For images captured with the camera using a Rho app, the image might initially a
 
 ###Android preview
 High-resolution settings are not recommended for low-memory devices. Image previews on tablet devices might appear stretched or shrunken.
+
+###Zebra WM/CE devices lacking support
+The Camera API is not supported on  below devices from Enterprise Browser application.
+
+* Workabout Pro 4 Device
+* Omnii XT15 Device
+* VH10 Device

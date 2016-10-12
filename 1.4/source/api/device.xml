@@ -130,6 +130,16 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>In WM/CE, wakes the device from idle state to active state. Callback is triggered only for 'failed' status. In Android, it will turn on the display, if it was off. The callback parameter is ignored in Android platform.</DESC>
 				<PLATFORM>WM, CE, Android</PLATFORM>
             </METHOD>
+			
+			<METHOD name="acquirePartialWakeLock">
+                <DESC>This API is used for acquiring partial wake lock in Android device. It ensures that the CPU is running; the screen and keyboard backlight will be allowed to go off, if the user presses the power button. Note: On calling this method, the wakelocktype config tags will be affected.</DESC>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+			
+			<METHOD name="releasePartialWakeLock">
+                <DESC>This API is used for releasing the acquired partial wake lock in Android device. Note: On calling this method, the wakelocktype config tags will be affected.</DESC>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
 
             <METHOD name="reboot" hasCallback="optional">
                 <PARAMS>
@@ -371,6 +381,32 @@ Rho.Device.wake(mycallback);
 							
 //Wake the device without callback
 Rho.Device.wake();							
+]]>
+							</JAVASCRIPT>
+						</CODE>
+					</SECTION>
+				</SECTIONS>
+			</EXAMPLE>
+			<EXAMPLE title="Acquiring/Releasing Partial Wake Lock to/from the Android device">
+				<SECTIONS>
+					<SECTION>
+						<DESC>Acquire/Release the Partial Wake Lock to/from the Android device
+						</DESC>
+						<CODE>
+							<RUBY><![CDATA[
+#Acquires Partial Wake Lock to the Android device.							
+Rho::Device.acquirePartialWakeLock();		
+
+#Releases the acquired Partial Wake Lock from the Android device					
+Rho::Device.releasePartialWakeLock();		
+]]>
+							</RUBY>
+							<JAVASCRIPT><![CDATA[
+//Acquires Partial Wake Lock to the Android device.							
+Rho.Device.acquirePartialWakeLock();		
+
+//Releases the acquired Partial Wake Lock from the Android device					
+Rho.Device.releasePartialWakeLock();						
 ]]>
 							</JAVASCRIPT>
 						</CODE>
